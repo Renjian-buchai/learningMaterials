@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>SDL_TextInputEvent</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<nav id="TOC">
+<ul>
+<li><a href="#sdl_textinputevent">SDL_TextInputEvent</a><ul>
+<li><a href="#data-fields">Data Fields</a></li>
+<li><a href="#remarks">Remarks</a></li>
+<li><a href="#related-enumerations">Related Enumerations</a></li>
+<li><a href="#related-structures">Related Structures</a></li>
+<li><a href="#related-functions">Related Functions</a></li>
+</ul></li>
+</ul>
+</nav>
+<h1 id="sdl_textinputevent">SDL_TextInputEvent</h1>
+<p>A structure that contains keyboard text input event information.</p>
+<h2 id="data-fields">Data Fields</h2>
+<table>
+<tbody>
+<tr class="odd">
+<td><p>Uint32</p></td>
+<td><p><strong>type</strong></p></td>
+<td><p>SDL_TEXTINPUT</p></td>
+</tr>
+<tr class="even">
+<td><p>Uint32</p></td>
+<td><p><strong>timestamp</strong></p></td>
+<td><p>timestamp of the event</p></td>
+</tr>
+<tr class="odd">
+<td><p>Uint32</p></td>
+<td><p><strong>windowID</strong></p></td>
+<td><p>the window with keyboard focus, if any</p></td>
+</tr>
+<tr class="even">
+<td><p>char[32]</p></td>
+<td><p><strong>text</strong></p></td>
+<td><p>the null-terminated input text in UTF-8 encoding</p></td>
+</tr>
+</tbody>
+</table>
+<h2 id="remarks">Remarks</h2>
+<p><a href="SDL_TextInputEvent.html" title="wikilink">SDL_TextInputEvent</a> is a member of the <a href="SDL_Event.html" title="wikilink">SDL_Event</a> union and is used when an event of type SDL_TEXTINPUT is reported. You would access it through the event's <code>text</code> field.</p>
+<p>There is a <a href="Tutorials-TextInput.html" title="wikilink">tutorial</a>.</p>
+<p><strong>Detailed explanation</strong> (from <a href="http://lists.libsdl.org/pipermail/sdl-libsdl.org/2013-August/090073.html.html">SDL mailing list</a> by Jiang Jiang &lt;gzjjgod at gmail.com&gt;)</p>
+<p>``` In a typical GUI application, the OS will be responsible for telling you the candidate text (via SDL_TEXTEDITING), you can choose how (and where) to show it in your UI. Let's say with an input method I typed "abc" and got unicode character "X", the SDL application will first receive three SDL_TEXTEDITING events with 'a', 'ab' and 'abc', then finally receive SDL_TEXTINPUT event with unicode character 'X'. During this text compositing process, user can press any arbitrary keys such as Function, backspace, both the SDL application and OS input method will receive it and decide whether to deal with these keys or not. For instance when user press backspace, most input methods will delete the last candidate character typed and SDL app will receive a new SDL_TEXTEDITING event (let's say user typed a, b, backspace, c, then the application will receive 4 events containing 'a', 'ab', 'a', 'ac' each).</p>
+<p><a href="SDL_SetTextInputRect.html" title="wikilink">SDL_SetTextInputRect</a>() gives the OS a hint for where to show the candidate text list, since the OS doesn't know where you want to draw the text you received via SDL_TEXTEDITING event. ```</p>
+<h2 id="related-enumerations">Related Enumerations</h2>
+<dl>
+<dt></dt>
+<dd><a href="SDL_EventType.html" title="wikilink">SDL_EventType</a>
+</dd>
+</dl>
+<h2 id="related-structures">Related Structures</h2>
+<dl>
+<dt></dt>
+<dd><a href="SDL_Event.html" title="wikilink">SDL_Event</a>
+</dd>
+<dd><a href="SDL_TextEditingEvent.html" title="wikilink">SDL_TextEditingEvent</a>
+</dd>
+</dl>
+<h2 id="related-functions">Related Functions</h2>
+<dl>
+<dt></dt>
+<dd><a href="SDL_StartTextInput.html" title="wikilink">SDL_StartTextInput</a>
+</dd>
+<dd><a href="SDL_StopTextInput.html" title="wikilink">SDL_StopTextInput</a>
+</dd>
+</dl>
+<hr />
+<p>CategoryStruct, CategoryEvents</p>
+</body>
+</html>

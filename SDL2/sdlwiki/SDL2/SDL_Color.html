@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>SDL_Color</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<nav id="TOC">
+<ul>
+<li><a href="#sdl_color">SDL_Color</a><ul>
+<li><a href="#data-fields">Data Fields</a></li>
+<li><a href="#remarks">Remarks</a></li>
+<li><a href="#related-structures">Related Structures</a></li>
+<li><a href="#related-functions">Related Functions</a></li>
+</ul></li>
+</ul>
+</nav>
+<h1 id="sdl_color">SDL_Color</h1>
+<p>A structure that represents a color.</p>
+<h2 id="data-fields">Data Fields</h2>
+<table>
+<tbody>
+<tr class="odd">
+<td><p>Uint8</p></td>
+<td><p><strong>r</strong></p></td>
+<td><p>the red component in the range 0-255</p></td>
+</tr>
+<tr class="even">
+<td><p>Uint8</p></td>
+<td><p><strong>g</strong></p></td>
+<td><p>the green component in the range 0-255</p></td>
+</tr>
+<tr class="odd">
+<td><p>Uint8</p></td>
+<td><p><strong>b</strong></p></td>
+<td><p>the blue component in the range 0-255</p></td>
+</tr>
+<tr class="even">
+<td><p>Uint8</p></td>
+<td><p><strong>a</strong></p></td>
+<td><p>the alpha component in the range 0-255</p></td>
+</tr>
+</tbody>
+</table>
+<h2 id="remarks">Remarks</h2>
+<p><a href="SDL_Color.html" title="wikilink">SDL_Color</a> and SDL_Colour are interchangeable.</p>
+<p>If you have RGB color values you would use decimal values in this struct.</p>
+<p><em><code>Example</code></em><code>: orange = 255,165,0 so set r=255, g=165, b=0, a=255.</code></p>
+<p>If you have HTML color codes you would use hexidecimal values in this struct.</p>
+<p><em><code>Example</code></em><code>: orange = #FFA500 so set r=0xFF, g=0xA5, b=0x00, a=0xFF.</code></p>
+<p><a href="SDL_Color.html" title="wikilink">SDL_Color</a> describes a color in a format independent way. You can convert an <a href="SDL_Color.html" title="wikilink">SDL_Color</a> to a pixel value for a certain pixel format using <a href="SDL_MapRGB.html" title="wikilink">SDL_MapRGB</a>().</p>
+<h2 id="related-structures">Related Structures</h2>
+<dl>
+<dt></dt>
+<dd><a href="SDL_Palette.html" title="wikilink">SDL_Palette</a>
+</dd>
+</dl>
+<h2 id="related-functions">Related Functions</h2>
+<dl>
+<dt></dt>
+<dd><a href="SDL_SetPaletteColors.html" title="wikilink">SDL_SetPaletteColors</a>
+</dd>
+</dl>
+<hr />
+<p><a href="CategoryStruct.html" title="wikilink">CategoryStruct</a>, <a href="CategoryPixels.html" title="wikilink">CategoryPixels</a></p>
+</body>
+</html>

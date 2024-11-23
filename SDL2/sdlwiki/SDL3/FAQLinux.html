@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>FAQLinux</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+</head>
+<body>
+<nav id="TOC">
+<ul>
+<li><a href="#faq-linux">FAQ: Linux</a><ul>
+<li><a href="#what-is-supported">What is supported?</a></li>
+<li><a href="#how-do-i-add-sdl-to-my-project">How do I add SDL to my project?</a></li>
+<li><a href="#i-installed-the-sdl-rpm-but-cant-compile-sdl-applications">I installed the SDL RPM, but can't compile SDL applications</a></li>
+<li><a href="#im-using-nasm-0.98-and-getting-a-crash-when-linking-sdl">I'm using nasm 0.98 and getting a crash when linking SDL</a></li>
+<li><a href="#i-installed-sdl-from-source-but-cant-build-or-run-sdl-applications">I installed SDL from source but can't build or run SDL applications</a></li>
+<li><a href="#im-running-mandrake-or-slackware-and-applications-cant-find-sdl">I'm running Mandrake or Slackware and applications can't find SDL!</a></li>
+<li><a href="#how-do-i-set-an-environment-variable">How do I set an environment variable?</a></li>
+<li><a href="#i-get-the-error-no-video-devices-available">I get the error: "no video devices available"</a></li>
+<li><a href="#i-get-the-error-sdl-audio-timeout---buggy-audio-driver-disabled">I get the error: "SDL: Audio timeout - buggy audio driver? (disabled)"</a></li>
+<li><a href="#how-do-i-disable-framebuffer-console-acceleration">How do I disable framebuffer console acceleration?</a></li>
+<li><a href="#how-do-i-enable-dma-audio-support">How do I enable DMA audio support?</a></li>
+<li><a href="#how-do-i-turn-off-dga-mouse-support">How do I turn off DGA mouse support?</a></li>
+<li><a href="#how-do-i-enable-x11-mouse-acceleration">How do I enable X11 mouse acceleration?</a></li>
+<li><a href="#how-do-i-disable-xfree86-xvideo-acceleration">How do I disable XFree86 XVideo acceleration?</a></li>
+<li><a href="#how-do-i-tell-sdl-to-default-to-aalib">How do I tell SDL to default to AALib?</a></li>
+<li><a href="#how-do-i-tell-sdl-to-use-the-dga-2.0-video-driver">How do I tell SDL to use the DGA 2.0 video driver?</a></li>
+<li><a href="#when-i-specify-sdl_fullscreen-in-x11-the-screen-goes-black-and-my-window-is-centered-in-the-middle-instead-of-covering-the-whole-screen">When I specify SDL_FULLSCREEN in X11, the screen goes black and my window is centered in the middle, instead of covering the whole screen!</a></li>
+<li><a href="#how-do-i-get-all-the-dependencies-for-building-sdl-on-fedora">How do I get all the dependencies for building SDL on Fedora?</a></li>
+<li><a href="#how-do-i-get-all-the-dependencies-for-building-sdl-on-ubuntu">How do I get all the dependencies for building SDL on Ubuntu?</a></li>
+</ul></li>
+</ul>
+</nav>
+<h1 id="faq-linux">FAQ: Linux</h1>
+<p>(Note that most of this page covers SDL 1.2, and not SDL 2.0. You should consider using SDL 2.0 and not 1.2, which is now unsupported.)</p>
+<h2 id="what-is-supported">What is supported?</h2>
+<p>SDL supports all known Linux hardware with GNU libc and kernel version 2.6 or newer.</p>
+<p>For the latest information see <a href="Installation.html" title="wikilink">the page about Installation</a>.</p>
+<h2 id="how-do-i-add-sdl-to-my-project">How do I add SDL to my project?</h2>
+<p>The short answer is use the output of the command "sdl-config --cflags --libs" for SDL 1.2 or "sdl2-config --cflags --libs", for example:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" title="1">    <span class="fu">gcc</span> -o test test.c <span class="kw">`</span><span class="ex">sdl-config</span> --cflags --libs<span class="kw">`</span></a></code></pre></div>
+<p>If you are using home-grown Makefiles for your project, you can get the proper CFLAGS and LDFLAGS for SDL by adding the following lines to your Makefile:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb2-1" title="1">    <span class="ex">SDL_CFLAGS</span> := <span class="va">$(</span><span class="ex">shell</span> sdl-config --cflags<span class="va">)</span></a>
+<a class="sourceLine" id="cb2-2" title="2">    <span class="ex">SDL_LDFLAGS</span> := <span class="va">$(</span><span class="ex">shell</span> sdl-config --libs<span class="va">)</span></a></code></pre></div>
+<p>If you are using autoconf and automake for your project, you can copy the contents of '<a href="https://hg.libsdl.org/SDL/file/SDL-1.2/sdl.m4.html">sdl.m4</a>' (<a href="https://hg.libsdl.org/SDL/file/default/sdl2.m4.html">sdl2.m4</a>) into your acinclude.m4 file, and then add the following to your configure.in file (for SDL 1.2):</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode m4"><code class="sourceCode m4"><a class="sourceLine" id="cb3-1" title="1">    <span class="kw">dnl</span> Check for SDL</a>
+<a class="sourceLine" id="cb3-2" title="2">    SDL_VERSION<span class="ch">=</span><span class="dv">1</span>.<span class="dv">2</span>.<span class="dv">0</span></a>
+<a class="sourceLine" id="cb3-3" title="3">    AM_PATH_SDL<span class="ch">(</span>$SDL_VERSION<span class="ch">,</span></a>
+<a class="sourceLine" id="cb3-4" title="4">              :<span class="ch">,</span></a>
+<a class="sourceLine" id="cb3-5" title="5">              AC_MSG_ERROR<span class="ch">(</span>[<span class="ch">***</span> SDL version $SDL_VERSION not found<span class="ch">!</span>]<span class="ch">)</span></a>
+<a class="sourceLine" id="cb3-6" title="6">    <span class="ch">)</span></a>
+<a class="sourceLine" id="cb3-7" title="7">    CFLAGS<span class="ch">=</span>&quot;$CFLAGS $SDL_CFLAGS&quot;</a>
+<a class="sourceLine" id="cb3-8" title="8">    LIBS<span class="ch">=</span>&quot;$LIBS $SDL_LIBS&quot;</a></code></pre></div>
+<p>For SDL 2.0, the <code>AM_PATH_SDL</code> above will be <code>AM_PATH_SDL2</code> and <code>SDL_VERSION</code> should also be set appropriately.</p>
+<h2 id="i-installed-the-sdl-rpm-but-cant-compile-sdl-applications">I installed the SDL RPM, but can't compile SDL applications</h2>
+<p>You need to install the SDL-devel RPM, available from: <a href="https://www.libsdl.org/download.php.html">https://www.libsdl.org/download.php</a></p>
+<h2 id="im-using-nasm-0.98-and-getting-a-crash-when-linking-sdl">I'm using nasm 0.98 and getting a crash when linking SDL</h2>
+<p>There is a bug in the nasm assembler version 0.98 - the version shipped with RedHat 7.1. You should upgrade nasm to at least version 0.98.08. If for some reason you can't upgrade, you can disable the assembly code in SDL by passing "--disable-nasm" to configure when building SDL from source.</p>
+<h2 id="i-installed-sdl-from-source-but-cant-build-or-run-sdl-applications">I installed SDL from source but can't build or run SDL applications</h2>
+<p>Edit the file /etc/ld.so.conf, and make sure it contains the line:</p>
+<p><code>/usr/local/lib</code></p>
+<p>As root, run /sbin/ldconfig</p>
+<p>Make sure /usr/local/bin is in your execution path:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb4-1" title="1">    <span class="bu">export</span> <span class="va">PATH=$PATH</span>:/usr/local/bin/</a></code></pre></div>
+<p>Make sure that there aren't any other versions of SDL on your system, and that you have removed any file named "config.cache" from the directory of the software that refuses to build.</p>
+<p>If all of the above still don't work, send e-mail to the SDL <a href="https://discourse.libsdl.org/.html">mailing list</a> with the output from the following commands run from the directory of the software that refuses to build:</p>
+<ul>
+<li>which sdl-config</li>
+<li>sdl-config --version</li>
+<li>locate libSDL</li>
+<li>tail config.log</li>
+</ul>
+<h2 id="im-running-mandrake-or-slackware-and-applications-cant-find-sdl">I'm running Mandrake or Slackware and applications can't find SDL!</h2>
+<p>You probably have a version of SDL built with aRts sound support, and the KDE libraries are not installed in a system standard location. You need to add the directory containing libartsc.so.0 to the file /etc/ld.so.conf and then run the command "ldconfig". On newer versions of Mandrake, this directory is: /opt/kde/lib</p>
+<h2 id="how-do-i-set-an-environment-variable">How do I set an environment variable?</h2>
+<p>How to set an environment variable depends on your login shell:</p>
+<p>For Bourne shell derivatives: (sh, ash, ksh, zsh, bash, etc.)</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb5-1" title="1">    <span class="va">VARIABLE=</span><span class="st">&#39;value&#39;</span>; <span class="bu">export</span> <span class="va">VARIABLE</span></a></code></pre></div>
+<p>For C shell derivatives: (csh, tcsh, etc.)</p>
+<pre class="c++sh"><code>    setenv VARIABLE &#39;value&#39;</code></pre>
+<h2 id="i-get-the-error-no-video-devices-available">I get the error: "no video devices available"</h2>
+<p>SDL doesn't use the X11 video driver if it can't open the X display, and if no other drivers are available, it will report this error. To fix this, set your display environment variable appropriately:</p>
+<p>sh:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb7-1" title="1">    <span class="va">DISPLAY=</span>:0 ; <span class="bu">export</span> <span class="va">DISPLAY</span></a></code></pre></div>
+<p>csh:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb8-1" title="1">    <span class="ex">setenv</span> DISPLAY :0</a></code></pre></div>
+<p>If you still have problems, try running xhost + localhost Finally, if all those didn't work, and you built SDL from source, make sure that you have the X11 development libraries installed, otherwise you'll get a version of SDL that doesn't include X11 display support. After you install the X development libraries, you need to "make clean" and then rerun the configure and build process.</p>
+<h2 id="i-get-the-error-sdl-audio-timeout---buggy-audio-driver-disabled">I get the error: "SDL: Audio timeout - buggy audio driver? (disabled)"</h2>
+<p>Some audio drivers don't properly implement select(). I added a hack to approximate the timing using timing functions, and you can enabled this by setting the environment variable SDL_DSP_NOSELECT to "1". You can also use ESounD or aRts as a high-latency sound server.</p>
+<h2 id="how-do-i-disable-framebuffer-console-acceleration">How do I disable framebuffer console acceleration?</h2>
+<p>As of SDL 1.0.3, you can set the environment variable SDL_FBACCEL to "0".</p>
+<h2 id="how-do-i-enable-dma-audio-support">How do I enable DMA audio support?</h2>
+<p>As of SDL 1.0.4, you can set the environment variable SDL_AUDIODRIVER to "dma".</p>
+<h2 id="how-do-i-turn-off-dga-mouse-support">How do I turn off DGA mouse support?</h2>
+<p>As of SDL 1.0.8, you can set the environment variable SDL_VIDEO_X11_DGAMOUSE to "0".</p>
+<h2 id="how-do-i-enable-x11-mouse-acceleration">How do I enable X11 mouse acceleration?</h2>
+<p>As of SDL 1.0.8, you can set the environment variable SDL_VIDEO_X11_MOUSEACCEL to "X/Y", where 'X' is the numerator and 'Y' is the denomenator of the mouse acceleration. For example, if you wanted to set mouse acceleration to 2, you would set the variable to "2/1". By default SDL does not change the current X11 mouse acceleration.</p>
+<h2 id="how-do-i-disable-xfree86-xvideo-acceleration">How do I disable XFree86 XVideo acceleration?</h2>
+<p>You can disable all YUV hardware acceleration by setting the environment variable SDL_VIDEO_YUV_HWACCEL to "0".</p>
+<h2 id="how-do-i-tell-sdl-to-default-to-aalib">How do I tell SDL to default to AALib?</h2>
+<p>Building SDL: make distclean; ./configure --enable-video-aalib ; make install Running your app: set the environment variable SDL_VIDEODRIVER to "aalib".</p>
+<h2 id="how-do-i-tell-sdl-to-use-the-dga-2.0-video-driver">How do I tell SDL to use the DGA 2.0 video driver?</h2>
+<p>Make sure that you have XFree86 4.01 or newer, run the program as root, set the environment variable SDL_VIDEODRIVER to "dga", and use a video card like the Voodoo 3000, Matrox G400, or any other card with a decent DGA driver.</p>
+<h2 id="when-i-specify-sdl_fullscreen-in-x11-the-screen-goes-black-and-my-window-is-centered-in-the-middle-instead-of-covering-the-whole-screen">When I specify SDL_FULLSCREEN in X11, the screen goes black and my window is centered in the middle, instead of covering the whole screen!</h2>
+<p>X needs to be able to switch to the desired resolution. For this to work, your monitor must support the resolution, and you need to have the resolution listed in your X server configuration.</p>
+<p>The following example is taken from my config for XFree86 4.0.1, but 3.3.x is similar. Note that if your monitor isn't capable of using these video modes, the X server will drop these modes from the list of available video modes. Example:</p>
+<pre><code>Section &quot;Screen&quot;
+    Identifier  &quot;Screen 1&quot;
+    Device      &quot;3dfx&quot;
+    Monitor     &quot;Samsung LCD&quot;
+    DefaultDepth 16
+
+    Subsection &quot;Display&quot;
+        Depth       8
+        Modes       &quot;1280x1024&quot; &quot;1024x768&quot; &quot;800x600&quot; &quot;640x480&quot; &quot;320x240&quot;
+        ViewPort    0 0
+    EndSubsection
+    Subsection &quot;Display&quot;
+        Depth       16
+        Modes       &quot;1280x1024&quot; &quot;1024x768&quot; &quot;800x600&quot; &quot;640x480&quot;
+        ViewPort    0 0
+    EndSubsection
+EndSection</code></pre>
+<p>Note the different entries for 8 &amp; 16 bit screendepth. I.e. the 320x240 resolution is *not* available when X is started with 16bit depth (the default).</p>
+<p>To test these entries, restart X after you modified XF86Config and press ctrl-alt-plus and ctrl-alt-minus to cycle through the resolutions. -- contributed by Andreas Umbach</p>
+<h2 id="how-do-i-get-all-the-dependencies-for-building-sdl-on-fedora">How do I get all the dependencies for building SDL on Fedora?</h2>
+<p>You can install these packages for building SDL 2.0 on Fedora:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb10-1" title="1">    <span class="fu">sudo</span> yum install rpm-build alsa-lib-devel libX11-devel libXScrnSaver-devel libXau-devel libXcursor-devel libXext-devel libXfixes-devel libXi-devel libXinerama-devel libXrandr-devel libXrender-devel libXxf86vm-devel mesa-libGL-devel pulseaudio-libs-devel</a></code></pre></div>
+<h2 id="how-do-i-get-all-the-dependencies-for-building-sdl-on-ubuntu">How do I get all the dependencies for building SDL on Ubuntu?</h2>
+<p>Run the following command:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb11-1" title="1">    <span class="fu">sudo</span> apt-get build-dep libsdl1.2</a></code></pre></div>
+<p>Or you can get all the dependencies individually:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb12-1" title="1">    <span class="fu">sudo</span> apt-get install build-essential mercurial make autoconf automake libtool libasound2-dev libpulse-dev libaudio-dev libx11-dev libxext-dev libxrandr-dev libxcursor-dev libxi-dev libxinerama-dev libxxf86vm-dev libxss-dev libgl1-mesa-dev libesd0-dev</a></code></pre></div>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>SDL_SensorEvent</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<nav id="TOC">
+<ul>
+<li><a href="#sdl_sensorevent">SDL_SensorEvent</a><ul>
+<li><a href="#data-fields">Data Fields</a></li>
+<li><a href="#related-enumerations">Related Enumerations</a></li>
+<li><a href="#related-functions">Related Functions</a></li>
+</ul></li>
+</ul>
+</nav>
+<h1 id="sdl_sensorevent">SDL_SensorEvent</h1>
+<p>A structure that contains sensor updates.</p>
+<h2 id="data-fields">Data Fields</h2>
+<table>
+<tbody>
+<tr class="odd">
+<td><p>Uint32</p></td>
+<td><p><strong>type</strong></p></td>
+<td><p>SDL_SENSORUPDATE</p></td>
+</tr>
+<tr class="even">
+<td><p>Uint32</p></td>
+<td><p><strong>timestamp</strong></p></td>
+<td><p>In milliseconds, populated using SDL_GetTicks()</p></td>
+</tr>
+<tr class="odd">
+<td><p>Sint32</p></td>
+<td><p><strong>which</strong></p></td>
+<td><p>The instance ID of the sensor</p></td>
+</tr>
+<tr class="even">
+<td><p>float[6]</p></td>
+<td><p><strong>data</strong></p></td>
+<td><p>Up to 6 values from the sensor - additional values can be queried using SDL_SensorGetData()</p></td>
+</tr>
+</tbody>
+</table>
+<h2 id="related-enumerations">Related Enumerations</h2>
+<dl>
+<dt></dt>
+<dd><a href="SDL_EventType.html" title="wikilink">SDL_EventType</a>
+</dd>
+<dd><a href="SDL_SensorType.html" title="wikilink">SDL_SensorType</a>
+</dd>
+</dl>
+<h2 id="related-functions">Related Functions</h2>
+<dl>
+<dt></dt>
+<dd><a href="SDL_NumSensors.html" title="wikilink">SDL_NumSensors</a>
+</dd>
+<dd><a href="SDL_SensorGetDeviceName.html" title="wikilink">SDL_SensorGetDeviceName</a>
+</dd>
+<dd><a href="SDL_SensorGetDeviceType.html" title="wikilink">SDL_SensorGetDeviceType</a>
+</dd>
+<dd><a href="SDL_SensorGetDeviceNonPortableType.html" title="wikilink">SDL_SensorGetDeviceNonPortableType</a>
+</dd>
+<dd><a href="SDL_SensorGetDeviceInstanceID.html" title="wikilink">SDL_SensorGetDeviceInstanceID</a>
+</dd>
+<dd><a href="SDL_SensorOpen.html" title="wikilink">SDL_SensorOpen</a>
+</dd>
+<dd><a href="SDL_SensorFromInstanceID.html" title="wikilink">SDL_SensorFromInstanceID</a>
+</dd>
+<dd><a href="SDL_SensorGetName.html" title="wikilink">SDL_SensorGetName</a>
+</dd>
+<dd><a href="SDL_SensorGetType.html" title="wikilink">SDL_SensorGetType</a>
+</dd>
+<dd><a href="SDL_SensorGetNonPortableType.html" title="wikilink">SDL_SensorGetNonPortableType</a>
+</dd>
+<dd><a href="SDL_SensorGetInstanceID.html" title="wikilink">SDL_SensorGetInstanceID</a>
+</dd>
+<dd><a href="SDL_SensorGetData.html" title="wikilink">SDL_SensorGetData</a>
+</dd>
+<dd><a href="SDL_SensorClose.html" title="wikilink">SDL_SensorClose</a>
+</dd>
+<dd><a href="SDL_SensorUpdate.html" title="wikilink">SDL_SensorUpdate</a>
+</dd>
+</dl>
+<hr />
+<p><a href="CategoryStruct.html" title="wikilink">CategoryStruct</a>, <a href="CategoryEvents.html" title="wikilink">CategoryEvents</a></p>
+</body>
+</html>

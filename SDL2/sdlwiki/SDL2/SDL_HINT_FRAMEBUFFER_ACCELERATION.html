@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>SDL_HINT_FRAMEBUFFER_ACCELERATION</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<nav id="TOC">
+<ul>
+<li><a href="#sdl_hint_framebuffer_acceleration">SDL_HINT_FRAMEBUFFER_ACCELERATION</a><ul>
+<li><a href="#values">Values</a></li>
+<li><a href="#default">Default</a></li>
+<li><a href="#remarks">Remarks</a></li>
+</ul></li>
+</ul>
+</nav>
+<h1 id="sdl_hint_framebuffer_acceleration">SDL_HINT_FRAMEBUFFER_ACCELERATION</h1>
+<p>A hint that specifies how 3D acceleration is used with <a href="SDL_GetWindowSurface.html" title="wikilink">SDL_GetWindowSurface</a>().</p>
+<h2 id="values">Values</h2>
+<table>
+<tbody>
+<tr class="odd">
+<td><p>0</p></td>
+<td><p>disable 3D acceleration</p></td>
+</tr>
+<tr class="even">
+<td><p>1</p></td>
+<td><p>enable 3D acceleration, using the default renderer</p></td>
+</tr>
+<tr class="odd">
+<td><p>X</p></td>
+<td><p>enable 3D acceleration, using X where X is one of the valid rendering drivers. (e.g. "direct3d", "opengl", etc.)</p></td>
+</tr>
+</tbody>
+</table>
+<h2 id="default">Default</h2>
+<p>By default SDL tries to make a best guess whether to use acceleration or not on each platform.</p>
+<h2 id="remarks">Remarks</h2>
+<p>SDL can try to accelerate the screen surface returned by <a href="SDL_GetWindowSurface.html" title="wikilink">SDL_GetWindowSurface</a>() by using streaming textures with a 3D rendering engine. This variable controls whether and how this is done.</p>
+<hr />
+<p><a href="CategoryDefine.html" title="wikilink">CategoryDefine</a>, <a href="CategoryHints.html" title="wikilink">CategoryHints</a></p>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>SDL-gsoc2010_IME</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<nav id="TOC">
+<ul>
+<li><a href="#status">Status</a></li>
+<li><a href="#documentation">Documentation</a></li>
+<li><a href="#notes">Notes</a><ul>
+<li><a href="#tsf">TSF</a></li>
+<li><a href="#imm">IMM</a></li>
+</ul></li>
+</ul>
+</nav>
+<p>This is a scratch pad for the IME Summer of Code 2010 project, by Daniel Wyatt</p>
+<p>The code is available here: <a href="http://hg.libsdl.org/SDL-gsoc2010_IME.html">http://hg.libsdl.org/SDL-gsoc2010_IME</a></p>
+<h2 id="status">Status</h2>
+<p><strong>July 07, 2010</strong> Started work on SDL itself.</p>
+<p><strong>June 30, 2010</strong> I have decided to use an IMM implementation for the SoC. The TSF implementation is moving too slowly, I intend to complete it after the SoC.</p>
+<h2 id="documentation">Documentation</h2>
+<h2 id="notes">Notes</h2>
+<p>There are two methods for enabling IME support on Windows:</p>
+<ul>
+<li><a href="#TSF.html" title="wikilink">Text Services Framework (TSF)</a></li>
+<li><a href="#IMM.html" title="wikilink">Input Method Manager (IMM)</a></li>
+</ul>
+<p>I will write an IMM implementation for the SoC.</p>
+<p>The TSF comes with Windows XP and newer. For earlier versions of Windows, you must install it separately: <a href="http://www.microsoft.com/downloads/details.aspx?FamilyID=b4c50c6e-e9dd-4c58-a886-75bd56985f0f&amp;DisplayLang=en.html">Microsoft Windows Text Services Framework Redist files</a></p>
+<p><span id="TSF"></span></p>
+<h3 id="tsf">TSF</h3>
+<p>The TSF is the new standard for text input and supports advanced features such as dictation. It is a collection of (many) COM interfaces. Sources for information:</p>
+<ul>
+<li>[<a href="http://msdn.microsoft.com/en-us/library/ms629032(VS.85.html">http://msdn.microsoft.com/en-us/library/ms629032(VS.85</a>).aspx MSDN Documentation]</li>
+<li><a href="http://blogs.msdn.com/tsfaware.html">TSF Aware</a></li>
+<li><a href="http://msdn.microsoft.com/en-us/library/ms971336.aspx.html">ReadComp Source (MSDN)</a></li>
+<li>DirectX SDK Samples (Direct3D/CustomUI, DXUT/Optional)</li>
+<li>Mozilla (mozilla-1.9.2/widgets/src/windows/nsTextStore.cpp)</li>
+</ul>
+<p><span id="IMM"></span></p>
+<h3 id="imm">IMM</h3>
+<p>The IMM is the old way of doing things. On Windows XP and newer, the IMM is emulated by the TSF behind the scenes. Sources for information:</p>
+<ul>
+<li><a href="http://msdn.microsoft.com/en-us/goglobal/bb688173.aspx.html">Input Method Managers and Editors (IMMs/IMEs)</a></li>
+<li><a href="http://msdn.microsoft.com/en-us/library/aa912900.aspx.html">Input Method Manager (IMM)</a></li>
+<li><a href="http://msdn.microsoft.com/en-us/library/aa911651.aspx.html">Input Method Manager (IMM) Application Development</a></li>
+</ul>
+</body>
+</html>

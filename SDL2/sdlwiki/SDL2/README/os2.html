@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>os2</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<nav id="TOC">
+<ul>
+<li><a href="#simple-directmedia-layer-2-for-os2--ecomstation">Simple DirectMedia Layer 2 for OS/2 &amp; eComStation</a><ul>
+<li><a href="#compiling">Compiling:</a></li>
+<li><a href="#installing">Installing:</a></li>
+<li><a href="#joysticks-in-sdl2">Joysticks in SDL2:</a></li>
+</ul></li>
+</ul>
+</nav>
+<h1 id="simple-directmedia-layer-2-for-os2--ecomstation">Simple DirectMedia Layer 2 for OS/2 &amp; eComStation</h1>
+<p>SDL port for OS/2, authored by Andrey Vasilkin <a href="mailto:digi@os2.snc.ru.html" class="email">digi@os2.snc.ru</a>, 2016</p>
+<p>OpenGL not supported by this port.</p>
+<p>Additional optional environment variables:</p>
+<p>SDL_AUDIO_SHARE Values: 0 or 1, default is 0 Initializes the device as shareable or exclusively acquired.</p>
+<p>SDL_VIDEODRIVER Values: DIVE or VMAN, default is DIVE Use video subsystem: Direct interface video extensions (DIVE) or Video Manager (VMAN).</p>
+<p>You may significantly increase video output speed with OS4 kernel and patched files vman.dll and dive.dll or with latest versions of ACPI support and video driver Panorama.</p>
+<p>Latest versions of OS/4 kernel: <a href="http://gus.biysk.ru/os4/.html" class="uri">http://gus.biysk.ru/os4/</a> (Info: <a href="https://www.os2world.com/wiki/index.php/Phoenix_OS/4.html" class="uri">https://www.os2world.com/wiki/index.php/Phoenix_OS/4</a>)</p>
+<p>Patched files vman.dll and dive.dll: <a href="http://gus.biysk.ru/os4/test/pached_dll/PATCHED_DLL.RAR.html" class="uri">http://gus.biysk.ru/os4/test/pached_dll/PATCHED_DLL.RAR</a></p>
+<h2 id="compiling">Compiling:</h2>
+<p>Open Watcom 1.9 or newer is tested. For the new Open Watcom V2 fork, see: <a href="https://github.com/open-watcom/.html" class="uri">https://github.com/open-watcom/</a> and <a href="https://open-watcom.github.io.html" class="uri">https://open-watcom.github.io</a> WATCOM environment variable must to be set to the Open Watcom install directory. To compile, run: wmake -f Makefile.os2</p>
+<h2 id="installing">Installing:</h2>
+<ul>
+<li><p>eComStation:</p>
+<p>If you have previously installed SDL2, make a Backup copy of SDL2.dll located in D:\ecs\dll (where D: is disk on which installed eComStation). Stop all programs running with SDL2. Copy SDL2.dll to D:\ecs\dll</p></li>
+<li><p>OS/2:</p>
+<p>Copy SDL2.dll to any directory on your LIBPATH. If you have a previous version installed, close all SDL2 applications before replacing the old copy. Also make sure that any other older versions of DLLs are removed from your system.</p></li>
+</ul>
+<h2 id="joysticks-in-sdl2">Joysticks in SDL2:</h2>
+<p>The joystick code in SDL2 is a direct forward-port from the SDL-1.2 version. Here is the original documentation from SDL-1.2:</p>
+<p>The Joystick detection only works for standard joysticks (2 buttons, 2 axes and the like). Therefore, if you use a non-standard joystick, you should specify its features in the SDL_OS2_JOYSTICK environment variable in a batch file or CONFIG.SYS, so SDL applications can provide full capability to your device. The syntax is:</p>
+<p>SET SDL_OS2_JOYSTICK=[JOYSTICK_NAME] [AXES] [BUTTONS] [HATS] [BALLS]</p>
+<p>So, it you have a Gravis GamePad with 4 axes, 2 buttons, 2 hats and 0 balls, the line should be:</p>
+<p>SET SDL_OS2_JOYSTICK=Gravis_GamePad 4 2 2 0</p>
+<p>If you want to add spaces in your joystick name, just surround it with quotes or double-quotes:</p>
+<p>SET SDL_OS2_JOYSTICK='Gravis GamePad' 4 2 2 0</p>
+<p>or</p>
+<p>SET SDL_OS2_JOYSTICK="Gravis GamePad" 4 2 2 0</p>
+<p>Note however that Balls and Hats are not supported under OS/2, and the value will be ignored... but it is wise to define these correctly because in the future those can be supported.</p>
+<p>Also the number of buttons is limited to 2 when using two joysticks, 4 when using one joystick with 4 axes, 6 when using a joystick with 3 axes and 8 when using a joystick with 2 axes. Notice however these are limitations of the Joystick Port hardware, not OS/2.</p>
+</body>
+</html>

@@ -1,0 +1,1121 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>SGWikiBasics</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<nav id="TOC">
+<ul>
+<li><a href="#style-guide-wiki-basics">Style Guide: Wiki Basics</a><ul>
+<li><a href="#getting-started">Getting Started</a><ul>
+<li><a href="#automatic-backup-of-drafts">Automatic Backup of Drafts</a></li>
+<li><a href="#saving-your-changes">Saving Your Changes</a></li>
+</ul></li>
+<li><a href="#style-guide-terminology">Style Guide Terminology</a></li>
+<li><a href="#general-guidelines">General Guidelines</a></li>
+<li><a href="#some-markup-basics">Some Markup Basics</a><ul>
+<li><a href="#text-formatting">Text Formatting</a></li>
+<li><a href="#spacing">Spacing</a></li>
+<li><a href="#lists">Lists</a></li>
+<li><a href="#hyperlinks">Hyperlinks</a></li>
+<li><a href="#tables">Tables</a></li>
+<li><a href="#section-headings">Section Headings</a></li>
+<li><a href="#table-of-contents">Table of Contents</a></li>
+<li><a href="#includes">Includes</a></li>
+<li><a href="#some-known-problems-and-solutions">Some Known Problems and Solutions</a></li>
+</ul></li>
+<li><a href="#miscellaneous-notes">Miscellaneous Notes</a><ul>
+<li><a href="#other-help">Other Help</a></li>
+</ul></li>
+<li><a href="#resources">Resources</a></li>
+<li><a href="#disclaimer">Disclaimer</a></li>
+</ul></li>
+</ul>
+</nav>
+<h1 id="style-guide-wiki-basics">Style Guide: Wiki Basics</h1>
+<p><span id="ToC"></span></p>
+<h2 id="getting-started">Getting Started</h2>
+<p>&lt;!&gt; <strong>In general, existing content, including markup, should not be modified or removed.</strong><br />
+<br />
+=== Opening An Editor === If a page can be edited you will see two options to choose from in the left column:</p>
+<p><code>1. </code><span color="blue"><code>Edit (Text)</code></span><br />
+<code> The Text editor provides more power/flexibility for editing than the GUI editor but requires that you know the wiki markup.  Use the Text editor to see the content with raw markup.  You will need to use the Preview feature to view the content as it will appear when saved.</code><br />
+<code>{i} Specific markup instructions in this guide are for use with the Text editor but should also work in the GUI editor.</code><br />
+<code> For information on wiki markup not included here, or other MoinMoin-specific questions, please see the </code><a href="https://wiki.libsdl.org/HelpOnEditing.html"><code>wiki</code><code> </code><code>help</code><code> </code><code>documentation</code></a><code>.</code></p>
+<p><code>1. </code><span color="blue"><code>Edit (GUI)</code></span><br />
+<code> The GUI editor provides buttons, much like a simple word processor, to add formatting markup such as bolding text, making a table, or creating a numbered list.  It is simpler to use than the Text editor but does not provide buttons for all the possible markup.  Use the GUI editor to see the content appear roughly as it would on the screen as you edit or if you do not know or want to use the wiki markup.</code><br />
+<code>{i} The GUI editor is fairly self-explanatory; however, if you require further assistance, see </code><a href="https://wiki.libsdl.org/HelpOnGraphicalEditor.html"><code>HelpOnGraphicalEditor</code></a><code> for more detailed instructions.</code></p>
+<p>Note that some formatting will appear slightly different in preview mode than on the finished screen.</p>
+<h3 id="automatic-backup-of-drafts">Automatic Backup of Drafts</h3>
+<p>~-(from: <a href="https://wiki.libsdl.org/HelpOnEditing.html">Help On Editing</a>)-~</p>
+<p><code>Every time you are in the editor and use the "Preview", "Spell Check", "Cancel" or "Save Changes" buttons, moin saves a draft copy of your work internally. Use preview often!</code></p>
+<p><code>If you hit "cancel" accidentally, your machine crashes, or the browser window was accidentally closed, then the automatic backup of your draft may be easily recovered.</code></p>
+<p><strong><code>To</code><code> </code><code>recover</code><code> </code><code>that</code><code> </code><code>draft</code></strong><code>, you simply edit that page again. If there is a draft, an alert message will be in the message box [at the top] and a "load draft" button will be present [in the left column]. Clicking the "load draft" will load your saved draft into the editor box replacing the current revision already loaded. You can continue editing the loaded draft, but this time try to save it at the end. :)</code></p>
+<p><code>/!\ Don't use the "preview", "spell check", "save changes" or "cancel" buttons on that page before "load draft" or you will overwrite your old draft with a new one.</code></p>
+<p><code>If you successfully save a page, the internal draft copy of it is not needed any more and will be deleted. </code></p>
+<h3 id="saving-your-changes">Saving Your Changes</h3>
+<p>Before you save your changes please include a note in the Comment field below the editing box that summarizes what you have done.</p>
+<p><em><code>Sample</code><code> </code><code>comments</code></em><code>: </code></p>
+<ul>
+<li>added comment to end of remarks</li>
+<li>added code example to C++ section</li>
+<li>remarked on use of function with [sound card model]</li>
+</ul>
+<p>{i} Especially when using the text editor, use the <span color="blue">Preview</span> function in the left sidebar often and before saving your changes to ensure that the markup you have included is producing the desired result as well as to scan for errors in a different view.</p>
+<dl>
+<dt></dt>
+<dd>~-(Keep in mind that a few things (like <a href="SGWikiBasics#color2.html" title="wikilink">Color2 text</a>) don't preview exactly as they parse.)-~
+</dd>
+</dl>
+<p>When you have finished adding your content and filling in the Comment field, and are satisfied with the formatting, use the <span color="blue">Save Changes</span> function in the left sidebar to save your changes.</p>
+<p>~-<a href="#ToC.html" title="wikilink">Return to Table of Contents</a>-~<br />
+<br />
+</p>
+<h2 id="style-guide-terminology">Style Guide Terminology</h2>
+<p>Some terms used in the style guides are intended to have specific meanings or purposes that may or may not be as intuitively clear as we hope. Explanations are provided here to avoid any potential confusion. <span id="api"></span></p>
+<dl>
+<dt></dt>
+<dd><strong>API Page</strong>
+</dd>
+<dd>Refers to any Function, Structure, or Enumeration page.
+</dd>
+</dl>
+<p><span id="category"></span></p>
+<dl>
+<dt></dt>
+<dd><strong>Category Page</strong>
+</dd>
+<dd>Refers to the front page of each major category found in the <a href="APIByCategory.html" title="wikilink">API by Category</a> list.
+</dd>
+<dd><strong>Draft Page</strong>
+</dd>
+<dd>Any page with <span color="red">DRAFT</span> at the top is incomplete. It should not be used as a formatting example until <span color="red">DRAFT</span> is removed. There may be missing or extra information, unusual formatting, colors, markup, notes, etc. on these pages. They will all be cleaned up by the time <span color="red">DRAFT</span> is removed. Please bear with us while they are in place as they help to speed up the final editing process. <em>Thank you!</em>
+</dd>
+<dd><strong><em>If...</em></strong>
+</dd>
+<dd>Found in some detailed style guide sections, this indicates options for you to choose from. Select the one(s) that best suits your content given the context on the page you are editing and follow the related instructions. (See <em>Action</em> through <em>Example</em> below.)
+</dd>
+<dd>In some cases a portion of the statement following <em>If</em> will be __underlined__ to help you quickly scan for the option(s) that you need.
+</dd>
+<dd><strong><em>Action</em>:</strong>
+</dd>
+<dd>The instructions immediately following <em>Action</em> indicate what you should do to apply the style guide guidelines. In some cases you will select an <em>Action</em> that is relevant to your particular content (usually from a table of options). In many cases everyone making a certain type of edit should follow the same <em>Action</em> in which case no options will be given.
+</dd>
+<dd>Sometimes <em>Action</em> will include a number (ie: <em>Action 2</em>) to indicate that there is more than one way to achieve the same result or that more than one step is required. Read carefully to determine which apply to your circumstance.
+</dd>
+<dd><em>Action</em> is occasionally followed by <em>Markup</em> or <em>How</em> and may also be followed by any of the other markers (see below).
+</dd>
+<dd>/!\ Please read any <em>Note</em> or <em><span color="red">Important!</span></em> comment related to the <em>Action</em>(s) you choose. If you are otherwise familiar with the wiki and it's markup the other sections can usually be skipped unless you are having trouble.
+</dd>
+<dd><strong><em>Markup</em>:</strong>
+</dd>
+<dd>The instructions immediately following <em>Markup</em> indicate the critical markup that would be used in the text editor to complete the <em>Action</em> above it. If you prefer another way to achieve the same result, or prefer to use the GUI editor this information should be used to clarify the correct formatting for you to match.
+</dd>
+<dd>Sometimes <em>Markup</em> will include a number (ie: <em>Markup 2</em>) to indicate that there is more than one way to achieve the same result. You should choose whichever option suits you best for the circumstances.
+</dd>
+<dd><strong><em>How</em>:</strong>
+</dd>
+<dd>Usually used instead of <em>Markup</em>, the information immediately following <em>How</em> describes specific actions to be taken outside of the editing window in order to complete the <em>Action</em> above it. (This is somewhat rare.)
+</dd>
+<dd><strong><em>Note</em>:</strong>
+</dd>
+<dd>The instructions immediately following <em>Note</em>: should be taken into consideration as necessary.
+</dd>
+<dd><strong><em><span color="red">Important!</span></em></strong>
+</dd>
+<dd>Similar to a <em>Note</em>, but indicates that the noted information is especially important and should be heeded by all Contributors.
+</dd>
+<dd><strong><em>Example</em>:</strong>
+</dd>
+<dd>Provides a direct example of the markup or points to a place in the wiki where the related <em>Action</em> and <em>Markup</em> can be observed.
+</dd>
+</dl>
+<p><br />
+~-<a href="#ToC.html" title="wikilink">Return to Table of Contents</a>-~<br />
+<br />
+</p>
+<h2 id="general-guidelines">General Guidelines</h2>
+<p>This section contains general information that applies to nearly every page in the wiki. Please review this section periodically for updates.</p>
+<p><em><span color="red">Important!</span></em> Do not change the Category links at the bottom of any page.</p>
+<p>Please do not remove DRAFT from any page!</p>
+<p>The top of (nearly) every page begins with the following, which should not be edited:</p>
+<p><code> ```</code></p>
+<ol>
+<li>pragma section-numbers off</li>
+<li>pragma camelcase off</li>
+</ol>
+<p>```</p>
+<p><code>Any new or in progress page will also include:</code><br />
+<code>```</code></p>
+<p>||&lt;tablewidth="100%" style="color: #FF0000;" :&gt; DRAFT|| ```</p>
+<p><em><span color="red">Important!</span></em> If you encounter the following comments while editing a page, please ensure that any changes to the <intervening content> are appropriate to <em>all</em> pages listed in the first comment. If not, please make your changes outside of the comments or contact us for assistance.<br />
+<strong>DO NOT</strong> change these comments except to update included <PageName>s if necessary.</p>
+<p><code>```</code></p>
+<ol>
+<li><ol>
+<li>The following content is included on <PageName>. Any changes between these comments will be reflected there as well. Please use caution when editing. Start Include here.</li>
+</ol></li>
+</ol>
+<p><code>  </code><intervening content></p>
+<ol>
+<li><ol>
+<li>End Include here.</li>
+</ol></li>
+</ol>
+<p>```</p>
+<dl>
+<dt></dt>
+<dd>See <a href="#include.html" title="wikilink">Includes</a> for more information.
+</dd>
+</dl>
+<p><br />
+~-<a href="#ToC.html" title="wikilink">Return to Table of Contents</a>-~<br />
+<br />
+</p>
+<p><span id="markup"></span></p>
+<h2 id="some-markup-basics">Some Markup Basics</h2>
+<p>Below is a summary of the most commonly used markup in this wiki, as well as some very rarely used, and some hints and tricks for using it.</p>
+<p>&lt;!&gt; <strong>The following is provided for your convenience and is meant to be general information. The other <a href="Contributing#guides.html" title="wikilink">Style Guides</a> describe where this formatting should be applied and where exceptions may exist.</strong></p>
+<p>A good place to look for additional information on MoinMoin wiki markup is <a href="https://wiki.libsdl.org/HelpOnMoinWikiSyntax.html">HelpOnMoinWikiSyntax</a>. Also see the Editor Hints in the left sidebar when in Edit mode for some of the most common markup.</p>
+<p><span id="formatting"></span></p>
+<h3 id="text-formatting">Text Formatting</h3>
+<p><em>Note</em>: Formatting markup can usually be nested/grouped, but the order it is used in may affect whether it works as desired. Try using multiple formatting tags in a different order or check the help if you have trouble.</p>
+<p><strong><span color="red"><em>Important!</em></span> The wiki's default font type, font colors, and font sizes should be used in almost all cases.</strong></p>
+<table>
+<tbody>
+<tr class="odd">
+<td><p>&lt;bgcolor="#EDEDED"&gt;Style</p></td>
+<td><p>&lt;bgcolor="#EDEDED"&gt;Details</p></td>
+</tr>
+<tr class="even">
+<td><p>&lt;( |2 30%&gt;<strong>Bold</strong></p></td>
+<td><p><em>Markup</em>: Place three apostrophes surrounding text to be bolded, without a space between markup and text.</p></td>
+</tr>
+<tr class="odd">
+<td><p><em>Example</em>: ```<strong>bold text</strong>``` generates <strong>bold text</strong></p></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><p>&lt;( |2 30%&gt;<em>Italics</em></p></td>
+<td><p><em>Markup</em>: Place two apostrophes surrounding text to be italicized, without a space between markup and text.</p></td>
+</tr>
+<tr class="odd">
+<td><p><em>Example</em>: ```<em>italics text</em>``` generates <em>italics text</em></p></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><p>&lt;( |3 30%&gt;<code>Monospace</code></p></td>
+<td><p><em>Markup</em>: Place a backtick on either side of the text, without a space between markup and text.</p></td>
+</tr>
+<tr class="odd">
+<td><p><em>Note</em>: This may resemble inline code (see below) in many cases, but will not usually behave the same. It may, however, interfere with word wrapping, especially in tables. It may be necessary to break up a long monospace string using extra markup to allow proper word wrapping.</p></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><p><em>Example</em>: ```<code>monospace text</code>``` generates <code>monospace text</code></p></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><p>&lt;( |7 30%&gt;```Code (or Verbatim Text)```</p></td>
+<td><p><em>Markup</em>: Use three curly brackets surrounding text to be rendered as code.</p></td>
+</tr>
+<tr class="even">
+<td><p><em>Markup 1</em>: Place the brackets inline with the text to display the code formatting inline.</p></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><p>See <em><a href="#example1.html" title="wikilink">Example 1</a></em> below the table.</p></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><p><em>Markup 2</em>: Place the brackets above and below the text to display the code formatting inside a box.</p></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><p>See <em><a href="#example2.html" title="wikilink">Example 2</a></em> below the table.</p></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><p><em>Note</em>: Add ```c++``` immediately following the opening braces on the first line to automatically colorize as cpp code.</p></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><p><em>Example</em>: see <a href="SDL_Event.html" title="wikilink">SDL_Event</a></p></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><p>&lt;( |6 30%&gt;<span color="red">C</span><span color="orange">o</span><span color="yellow">l</span><span color="green">o</span><span color="blue">r</span><span color="indigo">e</span><span color="violet">d</span> <span color="brown">T</span><span color="pink">e</span><span color="grey">x</span><span color="purple">t</span> (Color2 macro)</p></td>
+<td><p><span id="color2"></span><span color="red"><em>Important!</em></span> Please use colored text sparingly if at all. As a general convention we use <span color="blue">blue</span> to represent links (whether they actually behave as links or not), so please reserve that color for such purposes.</p></td>
+</tr>
+<tr class="odd">
+<td><p><em>Note</em>: We have the Color2 macro installed. It will colorize text inside or outside of tables.</p></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><p><em>Markup</em>:```&lt;&lt;Color2(text to be colorized,colorname)&gt;&gt;``` where  may be most any simple color name like blue or red or green</p></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><p><em>Note</em>: If ```text to be colorized``` must contain commas each section must be colorized separately, breaking at each comma.</p></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><p>See <em><a href="#example3.html" title="wikilink">Example 3</a></em> below table.</p></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><p><em>Note</em>: There are other options for colorizing text (and backgrounds) within tables. See <a href="#tables.html" title="wikilink">Tables</a> below for more info.</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><span id="example1"></span></p>
+<dl>
+<dt></dt>
+<dd><em>Example 1</em>:
+</dd>
+</dl>
+<p><code> ```{</code></p>
+<p>}</p>
+<dl>
+<dt></dt>
+<dd><em>Generates</em>
+</dd>
+</dl>
+<p><code> ```Verbatim text as it should be typed, appear as code, or show markup. If it is too long for the line it will not wrap when parsed (this is more of an issue for smaller monitors) but will also not appear in a box.```</code></p>
+<p><span id="example2"></span></p>
+<dl>
+<dt></dt>
+<dd><em>Example 2</em>:
+</dd>
+</dl>
+<p><code> ```{</code></p>
+<p>}</p>
+<dl>
+<dt></dt>
+<dd><em>Generates</em>
+</dd>
+</dl>
+<p><code> ```</code></p>
+<p>Verbatim text as it should be typed, appear as code, or show markup. This will word-wrap if it is too long for one line but it will also appear in a box. ```</p>
+<p><span id="example3"></span></p>
+<dl>
+<dt></dt>
+<dd><em>Example 3</em>:
+</dd>
+<dd><em>Correct</em>
+</dd>
+</dl>
+<p><code> ```</code></p>
+<p>&lt;&lt;Color2("A sentence that contains commas, such as this one, must be quoted in order for the commas to appear correctly.",purple)&gt;&gt; ```</p>
+<dl>
+<dt></dt>
+<dd><em>Generates</em>
+</dd>
+<dd>&lt;&lt;Color2("A sentence that contains commas, such as this one, must be quoted in order for the commas to appear correctly.",purple)&gt;&gt;
+</dd>
+</dl>
+<p>More wiki markup for text formatting can be found at <a href="https://wiki.libsdl.org/HelpOnFormatting.html">HelpOnFormatting</a>.</p>
+<p>~-<a href="#ToC.html" title="wikilink">Return to Table of Contents</a>-~<br />
+<br />
+<span id="spacing"></span></p>
+<h3 id="spacing">Spacing</h3>
+<p>Both vertical and horizontal spacing can be rendered differently depending upon the combination of formatting markup that is used. If your formatting is not working out the way you want check the style guide information on other formatting that you have used nearby, especially the <a href="#lists.html" title="wikilink">Lists</a> section, that may be affecting how the local formatting is interpreted.</p>
+<p><em><code>Example</code></em><code>: If you try to pick up a numbered list down the page after using indents/unnumbered lines at the same indent level, the next number in the numbered list may count the unnumbered lines or change format.</code></p>
+<dl>
+<dt></dt>
+<dd>See <a href="#problems2.html" title="wikilink">Some Known Problems and Solutions</a> below for notes on known markup misbehavior and ways to try to circumvent it.
+</dd>
+</dl>
+<p><span id="break"></span></p>
+<h4 id="hard-line-break">Hard Line Break</h4>
+<p><em>Markup</em>: ```<br />
+```</p>
+<ul>
+<li>Place the above markup wherever you want to force the following text onto the next line but keep it in the same paragraph.<br />
+</li>
+<li><em>Note</em>: You cannot change indent level immediately following a hard line break. (The next line is still part of the same paragraph.)</li>
+</ul>
+<p><em>Example</em>: Typing the following in the text editor</p>
+<p><code>```</code><br />
+<code> 1 first line&lt;</code><br />
+<code>&gt;  2 this line typed on same line after hard line break markup, same indent&lt;</code><br />
+<code>&gt;   3 this line typed on same line after hard line break markup, +1 indent&lt;</code><br />
+<code>&gt;  4 this line typed on same line after hard line break markup, -1 indent&lt;</code><br />
+<code>&gt;  . 5 this line typed on same line after hard line break markup, same indent with period&lt;</code><br />
+<code>&gt;6 this line typed on same line after hard line break markup without any indent</code></p>
+<p>```</p>
+<p><code>  </code><em><code>generates</code></em></p>
+<dl>
+<dt></dt>
+<dd>1 first line<br />
+2 this line typed on same line after hard line break markup, same indent<br />
+3 this line typed on same line after hard line break markup, +1 indent<br />
+4 this line typed on same line after hard line break markup, -1 indent<br />
+. 5 this line typed on same line after hard line break markup, same indent with period<br />
+6 this line typed on same line after hard line break markup without any indent
+</dd>
+</dl>
+<p><span id="indent"></span></p>
+<h4 id="indenting">Indenting</h4>
+<p><em><span color="red">Important!</span></em> Indenting often leads to inadvertent creation of an unnumbered list. Lists follow very limiting, sometimes difficult to figure out, rules. See <a href="#lists.html" title="wikilink">Lists</a> below if your indenting is not working the way you think it should.</p>
+<p><em>Markup</em>: Place blank spaces at the beginning of a line of text to create indents. (this line has 1 space)</p>
+<ul>
+<li>Use one space for each indent level desired. (this line has 2 spaces)</li>
+</ul>
+<p><em>Note</em>: Use a period (.) after the spaces and before the text (usually separated by a space after but not necessary) to ensure that the indent does not become a bullet or numbered list. Note that this markup will sometimes resolve problems when the spacing from line to line is not what you expected. (this line has 2 spaces and a starting period)</p>
+<p><em>Example</em>: ``` . This line starts with a period ```</p>
+<p><code> </code><em><code>generates</code></em><br />
+<code>: This line starts with a period</code></p>
+<p><span id="vertical"></span> <em>Note</em>: Paragraph breaks and spaces between lines and paragraphs (which may be individual lines) are parsed with different spacing depending upon the context (especially relative indent level). It may take some playing around with the markup to get the spacing you want, or it may be that you will have to accept a certain amount of pre-determined spacing between lines.</p>
+<p><em>Example</em>: Typing the following in the text editor</p>
+<p><code>```</code><br />
+<code>1 hard return followed by next line same indent</code><br />
+<code>2 hard return followed by next line +1 indent</code><br />
+<code> 3 hard return followed by next line same indent using period</code><br />
+<code> . 4 hard return followed by next line same indent, no period</code><br />
+<code> 5 hard return followed by next line -1 indent</code><br />
+<code>6 hard return after hard line break markup, followed by next line same indent&lt;</code><br />
+<code>&gt;</code><br />
+<code>7&lt;</code><br />
+<code>&gt; 8 next line typed on same line after hard line break markup, same indent</code></p>
+<p><code>9 next line typed after double Enter (1 blank line), same indent, no starting period</code></p>
+<p><code>. 10 last line typed after double Enter (1 blank line), same indent, with starting period</code></p>
+<p>```</p>
+<p><code> </code><em><code>generates</code></em></p>
+<dl>
+<dt></dt>
+<dd>1 hard return followed by next line same indent
+</dd>
+</dl>
+<p><code>2 hard return followed by next line +1 indent</code><br />
+<code> 3 hard return followed by next line same indent using period</code></p>
+<dl>
+<dt></dt>
+<dd>4 hard return followed by next line same indent, no period
+</dd>
+</dl>
+<p><code> 5 hard return followed by next line -1 indent</code><br />
+<code>6 hard return after hard line break markup, followed by next line same indent</code><br />
+<code> 7</code><br />
+<code> 8 next line typed on same line after hard line break markup, same indent</code></p>
+<p><code>9 next line typed after double Enter (1 blank line), same indent, no starting period</code></p>
+<dl>
+<dt></dt>
+<dd>10 last line typed after double Enter (1 blank line), same indent, with starting period
+</dd>
+</dl>
+<p><em>Note</em>: To ensure that the next line is treated as a separate line (not necessarily a separate paragraph!) try the following:</p>
+<p><code>a. use two consecutive hard returns (```Enter key```)</code><br />
+<code> ~-</code><em><code>Note</code></em><code>: this will leave a larger space between lines (usually a double-space) but it is treated as a new paragraph-~</code><br />
+<code>a. use a </code><a href="#break.html" title="wikilink"><code>hard</code><code> </code><code>line</code><code> </code><code>break</code></a><br />
+<code>a. </code><a href="#indent.html" title="wikilink"><code>indent</code></a><code> more (farther right)</code><br />
+<code>a. use a </code><a href="#indent.html" title="wikilink"><code>period</code></a><code> at the beginning of the line after indenting the same amount or less</code><br />
+<code>a. </code><a href="#indent.html" title="wikilink"><code>indent</code></a><code> less (farther left)</code></p>
+<p>~-<a href="#ToC.html" title="wikilink">Return to Table of Contents</a>-~</p>
+<p><span id="lists"></span></p>
+<h3 id="lists">Lists</h3>
+<p><span color="red"><em>Important!</em></span> Anything that interrupts a list, except a list item indented further right, will potentially end the list! This may affect the indenting, count, or symbols if you try to restart the list below the interruption. This may or may not be able to be overcome, so be careful with adding anything that interrupts a list!</p>
+<p>If you have trouble with lists see <a href="#problems2.html" title="wikilink">Some Known Problems and Solutions</a> below.</p>
+<p>__Unnumbered Lists__</p>
+<p>See <a href="#indent.html" title="wikilink">Indenting</a> above.</p>
+<p>__Bullet Lists__</p>
+<dl>
+<dt></dt>
+<dd><em>Markup</em>: Begin a line with a space followed by an asterisk to create a bulleted line of text (space after asterisk is optional but seems to be preferred)
+</dd>
+</dl>
+<dl>
+<dt></dt>
+<dd><em>Example</em>: ``` * First line of bullet list```<br />
+
+</dd>
+</dl>
+<p><code>  </code><em><code>Generates</code></em><code>:</code></p>
+<ul>
+<li>First line of bullet list<br />
+</li>
+</ul>
+<p>__Numbered Lists__</p>
+<p><em><code>Markup</code></em><code>: Begin a line with a space followed by the number 1 and a period (or choose another number format such as i or a).</code></p>
+<p><em><code>Note</code></em><code>: Each line that should be part of the list begins with the same starting number. The wiki will generate sequential numbers in preview mode or after saving.</code></p>
+<p><em><code>Example</code></em><code>: </code><br />
+<code> ```</code><br />
+<code>1. First line of numbered list</code><br />
+<code>1. Second line of numbered list</code></p>
+<p>```</p>
+<dl>
+<dt></dt>
+<dd><em>Generates</em>:
+</dd>
+<dd>
+</dd>
+</dl>
+<p><code> 1. First line of numbered list</code><br />
+<code> 1. Second line of numbered list</code></p>
+<p>More wiki markup for lists can be found at <a href="https://wiki.libsdl.org/HelpOnLists.html">HelpOnLists</a></p>
+<p><span id="hyperlinks"></span></p>
+<h3 id="hyperlinks">Hyperlinks</h3>
+<p><span color="red"><em>Important!</em></span> Although this wiki automatically creates some hyperlinks, in most cases for the SDL functions, enumerations, and structures it is unable to interpret the text correctly so we have disabled automatic linking via CamelCase recognition using the following markup at the top of every page:</p>
+<p><code>```</code></p>
+<ol>
+<li>pragma camelcase off</li>
+</ol>
+<p>``` <strong>Therefore, it __is__ necessary for you to manually create most hyperlinks!</strong></p>
+<dl>
+<dt></dt>
+<dd><em>Note</em>: If a hyperlink is automatically created where you __don't__ want one check to ensure that this <code>#pragma</code> markup is correct at the top of the page. If it is not, please correct or add it. This should resolve the issue if it is related to CamelCase text.
+</dd>
+</dl>
+<p><em>Action</em>:</p>
+<table>
+<tbody>
+<tr class="odd">
+<td><p>&lt;( |3 30%&gt;<em>If</em> you reference something that __has a page in the wiki__</p></td>
+<td><p><em>Action</em>: With extremely rare exception, always create a hyperlink to any existing API page. It is preferable to create a link to any page in the wiki that is referenced whether an API page or not.</p></td>
+</tr>
+<tr class="even">
+<td><p><em>Note</em>: Include () after a function name, outside the link, except in the Related Functions section of a page. Do not use parens for structures or enumerations.</p></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><p>See the <a href="#linktype.html" title="wikilink">next table</a> for how to create different links.</p></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><p>&lt;( |2 30%&gt;<em>If</em> you reference something that __does not have a page__ in the wiki</p></td>
+<td><p><em>Action</em>: Do not create hyperlinks to pages that do not already exist unless you are 100% sure the page will exist very soon after creating the link.</p></td>
+</tr>
+<tr class="odd">
+<td><p><em>Hint</em>: If you are unsure whether a page exists check the <a href="CategoryAPI.html" title="wikilink">API By Name</a> page or try typing it into the browser.</p></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><p>&lt;( |2 30%&gt;<em>If</em> you reference an __outside page or email address__</p></td>
+<td><p><em>Action</em>: In most cases the wiki will automatically create the link for you.</p></td>
+</tr>
+<tr class="odd">
+<td><p><em>Note</em>: See the <a href="#linktype.html" title="wikilink">next table</a> for options.</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><span id="linktype"></span></p>
+<table>
+<tbody>
+<tr class="odd">
+<td><p>&lt;bgcolor="#EDEDED"&gt;Type of link</p></td>
+<td><p>&lt;bgcolor="#EDEDED"&gt;How to create it</p></td>
+</tr>
+<tr class="even">
+<td><p>&lt;( |3 30%&gt;Link to another page __within the wiki__</p></td>
+<td><p><em>Markup</em>: Enclose the page name in double brackets:<br />
+```<a href="pagename.html" title="wikilink">pagename</a>```</p></td>
+</tr>
+<tr class="odd">
+<td><p><em>Note</em>: It is not necessary to include the wiki address ```https://wiki.libsdl.org/``` for intra-wiki pages.</p></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><p><em>Example</em>: ```<a href="SDL_VideoInit.html" title="wikilink">SDL_VideoInit</a>()``` generates <a href="SDL_VideoInit.html" title="wikilink">SDL_VideoInit</a>()</p></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><p>&lt;( 30%&gt;Link to an __outside page or email address__</p></td>
+<td><p><em>Markup</em>: Type or paste in the address. The wiki should auto-recognize and link these standard forms.</p></td>
+</tr>
+<tr class="even">
+<td><p>&lt;( |3 30%&gt;Link with __alternate link text__</p></td>
+<td><p><em>Markup</em>: Enclose the standard address (as above) followed by a pipe and the alternate link text in double brackets to create linked text that is different from the actual address.</p></td>
+</tr>
+<tr class="odd">
+<td><p><em>Example</em>: ```<a href="normal_link_address.html" title="wikilink">alternate text</a>``` produces <a href="normal_link_address.html" title="wikilink">alternate text</a></p></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><p><em>Note</em>: Alternate link text is generally optional but preferred in most cases other than API page links to make the link cleaner, shorter, and/or to make it more desirable grammatically than the actual address.</p></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><p>&lt;( |2 30%&gt;Link __referencing the header files__</p></td>
+<td><p><em><span color="red">Important!</span></em> Replace the version number (12-digit alpha-numeric code) with <code>default</code> in the address if the link should be to the most current version rather than to a specific version of the header file.</p></td>
+</tr>
+<tr class="even">
+<td><p><em>Example</em>: <a href="http://hg.libsdl.org/SDL/file/ef1db08c40ac/include/SDL_atomic.h.html">http://hg.libsdl.org/SDL/file/ef1db08c40ac/include/SDL_atomic.h</a> should be changed to <a href="https://github.com/libsdl-org/SDL/blob/SDL2/include/SDL_atomic.h.html">https://github.com/libsdl-org/SDL/blob/SDL2/include/SDL_atomic.h</a> so the link always points to the most current file.</p></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><p>&lt;( |3 30%&gt;Link to an __anchor__ (or most any unique text) __on the same page__</p></td>
+<td><p><em>Markup</em>: ```<a href="#anchorname.html" title="wikilink">link text</a>``` where  is a previously created <a href="#anchors.html" title="wikilink">anchor</a> or a unique bit of text on the page (but not a header) and  is the text that will actually appear as the link.</p></td>
+</tr>
+<tr class="even">
+<td><p><em>Example</em>: ```<a href="#hyperlinks.html" title="wikilink">how to hyperlink</a>``` creates <a href="#hyperlinks.html" title="wikilink">how to hyperlink</a> (try clicking the link to see it in action)</p></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><p><em>Note</em>: In the case of anchors it is important to use the alternate text, even if it is identical to the anchor name, to make the link look nice. Without it the # appears in the link.</p></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><p>&lt;( |2 30%&gt;Link to an __anchor on another page__</p></td>
+<td><p><em>Markup</em>: Insert the page address before the # in the address section of an anchor link.<br />
+```<a href="address#anchor.html" title="wikilink">optional alternate text</a>```</p></td>
+</tr>
+<tr class="odd">
+<td><p><em>Example</em>: ```<a href="Contributing#guides.html" title="wikilink">Style Guides</a>``` creates the following link with alternate text and that takes you to that anchor on the other page:<br />
+<a href="Contributing#guides.html" title="wikilink">Style Guides</a></p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>More wiki markup for tables can be found at <a href="https://wiki.libsdl.org/HelpOnLinking.html">HelpOnLinking</a></p>
+<p>~-<a href="#ToC.html" title="wikilink">Return to Table of Contents</a>-~</p>
+<p><span id="anchors"></span></p>
+<h4 id="anchors">Anchors</h4>
+<p><em>Markup</em>: ```<span id="anchorname"></span>```</p>
+<ul>
+<li>Place the above markup in the location where you wish to create an anchor, replacing ```anchorname``` with a word (or phrase) of your choosing that has meaning in that application. Short but clear names are usually best.</li>
+<li>Anchors will not appear on the saved page or take space on the page but can be referenced in <a href="#hyperlinks.html" title="wikilink">hyperlinks</a>.</li>
+</ul>
+<p><em>Example</em>: ```<span id="hyperlinks"></span>``` creates an anchor called hyperlinks that could be located at the beginning of a section related to hyperlinks.</p>
+<p><em>Note</em>: In some cases you cannot place anchor markup on the same line as other text, such as headings, without affecting the formatting following the anchor. It is preferable to place the anchor markup on its own line to avoid these conflicts.</p>
+<p><em>Note</em>: It is best to place your anchor on the line <em>above</em> the beginning of the section you are marking with the anchor. This is because the next line after the anchor will be aligned with the top of the viewing window when it is used. If the anchor is below something like a heading the heading will be off screen when the anchor is used. The exception to this is if the anchor is very close to the bottom of the page, in which case it will be moved as close to the top of the screen as possible.</p>
+<p><em>Note</em>: Anchors can be used in tables but must follow any table formatting markup in order to not disturb the table format. Also, the anchor jump point will align with the parsed formatting so put it at the highest point in a row if you wish the whole row to appear on the screen when the anchor is used. See the 2nd and 3rd <em>If</em>s of the Function Parameters section of the <a href="SGFunctions#Function_Parameters.html" title="wikilink">Function Pages Style Guide</a> for an example. (If the anchor was in the left column it would jump to the top of the vertically centered text when used, leaving half of the content off the top of the screen.)</p>
+<p>More (but not much) wiki markup for anchors can be found at <a href="https://wiki.libsdl.org/HelpOnLinking.html">HelpOnLinking</a> and <a href="https://wiki.libsdl.org/HelpOnMacros.html">HelpOnMacros</a>.</p>
+<p>~-<a href="#ToC.html" title="wikilink">Return to Table of Contents</a>-~</p>
+<p><span id="tables"></span></p>
+<h3 id="tables">Tables</h3>
+<p><em>Action</em>: To create a basic table with default spacing and styling.</p>
+<p><em>Markup</em>: Two pipes (||) are used to begin and end a table row, with two pipes separating each cell in between.</p>
+<dl>
+<dt></dt>
+<dd><em><span color="red">Important!</span></em> There can be no blank spaces or other characters after the closing pipes on a line.
+</dd>
+</dl>
+<p><em>Example</em>:</p>
+<p><code>```</code></p>
+<p>||row 1 column 1||row 1 column 2||row 1 column 3|| ||row 2 column 1||row 2 column 2||row 2 column 3|| ```</p>
+<p><code> </code><em><code>Generates</code></em><code>:</code><br />
+<code>||row 1 column 1||row 1 column 2||row 1 column 3||</code><br />
+<code>||row 2 column1||row 2 column 2||row 2 column 3||</code></p>
+<p><em>Action</em>: To create non-default formatting in tables place any of the following markup within &lt;&gt; at the beginning of the cell, row, column, or table to be formatted.</p>
+<ul>
+<li>All formatting markup can be placed within the same &lt;&gt;, separated by spaces.</li>
+<li>If markup conflicts the last option in the list wins.</li>
+</ul>
+<p><em>Markup 1</em>:</p>
+<dl>
+<dt></dt>
+<dd><em>If</em> you know CSS formatted <code>style</code> markup you can append most any common formatting into the ```&lt;style="..."&gt;``` markup to create table formatting. You can also use <code>class</code> markup to some extent.
+</dd>
+<dd>See <a href="https://wiki.libsdl.org/HelpOnTables.html">Help On Tables</a> for details.
+</dd>
+</dl>
+<p><em>Markup 2</em>:</p>
+<dl>
+<dt></dt>
+<dd><em>If</em> you would prefer to use the wiki markup or do not know CSS styles see the table below.
+</dd>
+</dl>
+<table>
+<tbody>
+<tr class="odd">
+<td></td>
+<td><p>&lt;rowbgcolor="#EDEDED"&gt;<em>Colors</em></p></td>
+</tr>
+<tr class="even">
+<td><p>&lt;( |4 30%&gt;To colorize __text in a cell__</p></td>
+<td><p><em>Markup 1</em>: use <span color="red">C</span><span color="blue">o,orange)&gt;&gt;&lt;&lt;Color2(l,yellow)&gt;&gt;&lt;&lt;Color2(o,green)&gt;&gt;&lt;&lt;Color2(r</span>&lt;&lt;Color2(e,indigo)&gt;&gt;&lt;&lt;Color2(d,violet)&gt;&gt; &lt;&lt;Color2(T,brown)&gt;&gt;&lt;&lt;Color2(e,pink)&gt;&gt;&lt;&lt;Color2(x,grey)&gt;&gt;&lt;&lt;Color2(t,purple)&gt;&gt; described <a href="#formatting.html" title="wikilink">above</a></p></td>
+</tr>
+<tr class="odd">
+<td><p><em>Markup 2</em>: ```style="color: #XXXXXX;"```<br />
+where <code>XXXXXX</code> is a hexadecimal color code</p></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><p>&lt;style="color:#339933;"&gt;<em>Example</em>: this cells began with ```&lt;style="color:#339933;"&gt;```</p></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><p><em>Note</em>: <em>Markup 2</em> can only be used to colorize all of the text within a cell. See <em>Markup 1</em> to colorize only some text in a cell.</p></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><p>To set __cell background color__</p></td>
+<td><p><em>Markup</em>: ```bgcolor="#XXXXXX"```<br />
+where <code>XXXXXX</code> is a hexadecimal color code</p></td>
+</tr>
+<tr class="odd">
+<td><p>&lt;( |2 30%&gt;To set __row background color__</p></td>
+<td><p><em>Markup</em>: ```rowbgcolor="#XXXXXX"```<br />
+where <code>XXXXXX</code> is a hexadecimal color code</p></td>
+</tr>
+<tr class="even">
+<td><p><em>Note</em>: This is only valid in the first cell of a row</p></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><p>&lt;( |2 30%&gt;To set __table background color__</p></td>
+<td><p><em>Markup</em>: ```tablebgcolor="#XXXXXX"```<br />
+where <code>XXXXXX</code> is a hexadecimal color code</p></td>
+</tr>
+<tr class="even">
+<td><p><em>Note</em>: This is valid in the first cell of the table</p></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><p>&lt;rowbgcolor="#EDEDED"&gt;<em>Alignment</em></p></td>
+</tr>
+<tr class="even">
+<td><p>&lt;( |2 30%&gt;To control __horizontal text alignment__</p></td>
+<td><p><em>Markup</em>:<br />
+left = (<br />
+centered = <strong>:</strong><br />
+right = )</p></td>
+</tr>
+<tr class="odd">
+<td><p><em>Example</em>: The first column in this table uses (</p></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><p>&lt;( |2 30%&gt;To control __vertical text alignment__</p></td>
+<td><p><em>Markup</em>:<br />
+top = ^<br />
+bottom = v</p></td>
+</tr>
+<tr class="odd">
+<td><p><em>Note</em>: middle is the default so there is no markup for it.</p></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><p>&lt;rowbgcolor="#EDEDED"&gt;<em>Sizes</em></p></td>
+</tr>
+<tr class="odd">
+<td><p>&lt;( |2 30%&gt;To control __table width__</p></td>
+<td><p><em>Markup</em>: ```tablewidth="x%"``` where 0 &lt; x &lt; 100</p></td>
+</tr>
+<tr class="even">
+<td><p><em>Note</em>: This is only valid in the first cell of the table.</p></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><p>&lt;( |3 30%&gt;To control __column width__</p></td>
+<td><p><em>Markup</em>: In the column you wish to control, use ```x%``` or  where 0 &lt; x &lt; 100.</p></td>
+</tr>
+<tr class="even">
+<td><p><em>Note</em>: The remaining columns will auto-balance using the remaining percentage of table width and the size of the cell contents. (It may be the case that setting the column width in one cell will affect the whole table. I have not tested this extensively.)</p></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><p><em>Example</em>: This table uses <code>30%</code> in the first column</p></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><p>&lt;rowbgcolor="#EDEDED" : -2&gt;<em>Spanning</em></p></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><p>&lt;( |3 30%&gt;To cause a cell to __span multiple rows__</p></td>
+<td><p><em>Markup</em>: ```|x``` where x is the number of rows to span including the first</p></td>
+</tr>
+<tr class="even">
+<td><p><em>Note</em>: When creating the table, the cell(s) in the first row to span should be included on the same line as the spanning cell as usual. Each additional row should be on it's own table line, omitting the spanning cell.</p></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><p><em>Example</em>: Go into <span color="blue">Edit (Text)</span> mode and look at most any of the tables in this document.</p></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><p>&lt;( |7 30%&gt;To cause a cell to __span multiple columns__</p></td>
+<td><p><em>Markup 1</em>: Create empty cells at the beginning of the row equaling the number of cells to skip/span, then place your text in the last cell of that row.</p></td>
+</tr>
+<tr class="odd">
+<td><p><em>Example</em>: ```</p></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><p><em>Note</em>: Total number of columns should equal that of the table.</p></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><p><em>Note</em>: Centers text in the spanning row by default.</p></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><p><em>Markup 2</em>: Use ```-x``` where x is the number of columns to span including the first</p></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><p><em>Example</em>: ```</p></td>
+<td><p>&lt;-3&gt;text spanning 3 columns</p></td>
+</tr>
+<tr class="even">
+<td><p><em>Note</em>: Left justifies text in the spanning row by default.</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>More wiki markup for tables can be found at <a href="https://wiki.libsdl.org/HelpOnTables.html">HelpOnTables</a></p>
+<p>~-<a href="#ToC.html" title="wikilink">Return to Table of Contents</a>-~</p>
+<p><span id="headers"></span></p>
+<h3 id="section-headings">Section Headings</h3>
+<p><em>Markup</em>: Use 1 to 5 equals signs (=) surrounding header text, with a space between markup and text.</p>
+<ul>
+<li>One equals sign is the highest level heading (largest)</li>
+</ul>
+<dl>
+<dt></dt>
+<dd><em>Example</em>: = Title =<br />
+
+</dd>
+<dd><em>Note</em>: In this wiki a level 1 heading is reserved for the title of the page
+</dd>
+</dl>
+<ul>
+<li>Five equals signs is the lowest level heading (smallest)</li>
+</ul>
+<dl>
+<dt></dt>
+<dd><em>Example</em>: ===== Minor =====
+</dd>
+</dl>
+<p><em><span color="red">Important!</span></em> Heading lines must stand alone with no other markup on the same line or within the heading.</p>
+<p><em>Example</em>: ```== Some Wiki Markup Basics ==```</p>
+<p><em>Note</em>: All level 2 and lower headings will appear in an automatically generated <a href="#contents.html" title="wikilink">Table of Contents</a>.</p>
+<p>More (but not much) wiki markup for headings can be found at <a href="https://wiki.libsdl.org/HelpOnHeadlines.html">HelpOnHeadlines</a>.</p>
+<p>~-<a href="#ToC.html" title="wikilink">Return to Table of Contents</a>-~</p>
+<p><span id="contents"></span></p>
+<h3 id="table-of-contents">Table of Contents</h3>
+<p><em>Markup</em>: ```&lt;&lt;TableOfContents()&gt;&gt;```</p>
+<dl>
+<dt></dt>
+<dd>Place this markup on the page where you want a Table of Contents to appear. There should be no other markup on the same line.
+</dd>
+</dl>
+<p><em>Note</em>: All level 2 and lower headings will be included by default. The numbering scheme is set by a <code>#pragma</code> and, in most cases, should not be changed.</p>
+<p><span id="include"></span></p>
+<h3 id="includes">Includes</h3>
+<p>An include enables you to dynamically copy all or a portion of a page onto another page, allowing changes to one page (source) to be automatically updated on another page (recipient). This is especially useful for listing enumeration values for a function parameter on the function page, for example.</p>
+<p><em><span color="red">Important!</span></em> While very few pages have includes, it is important to scan over the source page for existing include markup before creating a new include. More than one set of include markup on a source page will cause conflicts on all pages using that source. See the table below to determine the best course of action.</p>
+<p><em><span color="red">Important!</span></em> Includes should be used sparingly in this wiki. It is only appropriate to copy page content using an Include if it is critical that the content remain up to date on the recipient page if the source page changes. In many cases it is better to do a one time copy and paste operation instead.</p>
+<p><em>Note</em>: Please choose the source page carefully. It should reflect the most primary version of the copied information. (For example, you should use the actual enumeration page as the source rather than another function page that also references the enumeration details.)</p>
+<p><em>Markup</em>: To create an Include is a 3 step process:</p>
+<p><em><code>Action</code><code> </code><code>1</code></em><code>: __On the recipient page__ place the following markup, verbatim, in the location where you wish the copied content to begin.</code></p>
+<ul>
+<li>Replace <PageName> with the name of the page to copy from (the source page where the original content is located).</li>
+</ul>
+<p><code> ```</code></p>
+<p>&lt;&lt;Include(<PageName>, , , from="Start Include here.", to="##End Include here.")&gt;&gt; ```</p>
+<dl>
+<dt></dt>
+<dd><em>Example</em>: To copy content from <a href="SDL_GLattr.html" title="wikilink">SDL_GLattr</a>
+</dd>
+</dl>
+<p><code>  ```&lt;&lt;Include(SDL_GLattr, , , from="Start Include here.", to="##End Include here.")&gt;&gt;```</code></p>
+<dl>
+<dt></dt>
+<dd><em>Example</em>: See the Remarks section of <a href="SDL_GetRevision.html" title="wikilink">SDL_GetRevision</a>() or the Return Value section of <a href="SDL_MasksToPixelFormatEnum.html" title="wikilink">SDL_MasksToPixelFormatEnum</a>() in the text editor.
+</dd>
+</dl>
+<p><em><code>Action</code><code> </code><code>2</code></em><code>: __On the source page__ place the following markup, verbatim, on the line immediately </code><em><code>before</code></em><code> the point where you wish to begin the include (to start copying content).</code></p>
+<ul>
+<li>Replace <PageName> with the name of the page to receive the Include (recipient). If this include will be used on more than one page add additional page names. Hyperlink markup and () after functions should be left out.</li>
+</ul>
+<p><code> ```</code></p>
+<ol>
+<li><ol>
+<li>The following content is included on `<PageName>`. Any changes between these comments will be reflected there as well. Please use caution when editing. Start Include here.</li>
+</ol></li>
+</ol>
+<p>```</p>
+<dl>
+<dt></dt>
+<dd><em>Example</em>: If this include will be used on <a href="SDL_GL_GetAttribute.html" title="wikilink">SDL_GL_GetAttribute</a>() and <a href="SDL_GL_SetAttribute.html" title="wikilink">SDL_GL_SetAttribute</a>() the comment on the source page should read:
+</dd>
+</dl>
+<p><code>  ##The following content is included on SDL_GL_GetAttribute and SDL_GL_SetAttribute.  Any changes between these comments will be reflected there as well.  Please use caution when editing.  Start Include here.</code></p>
+<dl>
+<dt></dt>
+<dd><em>Example</em>: See the Remarks section of <a href="SDL_REVISION.html" title="wikilink">SDL_REVISION</a> or Pixel Format Values on <a href="SDL_PixelFormatEnum.html" title="wikilink">SDL_PixelFormatEnum</a> in the text editor.
+</dd>
+</dl>
+<p><em><code>Action</code><code> </code><code>3</code></em><code>: __On the source page__ place the following markup, verbatim, on the line immediately </code><em><code>after</code></em><code> the point where you want to end the include (to stop copying content).</code><br />
+<code> ```</code></p>
+<ol>
+<li><ol>
+<li>End Include here.</li>
+</ol></li>
+</ol>
+<p>```</p>
+<dl>
+<dt></dt>
+<dd><em>Example</em>: See the Remarks section of <a href="SDL_REVISION.html" title="wikilink">SDL_REVISION</a> or Pixel Format Values on <a href="SDL_PixelFormatEnum.html" title="wikilink">SDL_PixelFormatEnum</a> in the text editor.
+</dd>
+</dl>
+<p><em>Note</em>: Includes are very literal. All content between the two <code>##comments</code>, beginning with the character immediately following "<code>Start Include here.</code>" and ending with the character immediately before "<code>##End...</code>", will be copied onto the recipient page, so be careful that you intend to include <em>all</em> content!</p>
+<table>
+<tbody>
+<tr class="odd">
+<td><p>&lt;( 30%&gt;<em>If</em> a source page __does not already have an include on it__</p></td>
+<td><p><em>Action 1</em>: Follow the instructions above to create a new include.</p></td>
+</tr>
+<tr class="even">
+<td><p>&lt;( 30%&gt;<em>If</em> a source page has an __existing Include that already contains the content that you need__ to include on another page</p></td>
+<td><p><em>Action</em>: Use <em>Action 1</em> above, add the name of the new recipient page to the existing markup on the source page (see <em>Action 2</em> above), and skip <em>Action 3</em>.</p></td>
+</tr>
+<tr class="odd">
+<td><p>&lt;( |2 30%&gt;<em>If</em> a source page has an __existing Include that does not contain the content that you need__ to include on another page</p></td>
+<td><p><em>Action</em>: See <em>Alternative Markup: Action A-C</em> below.</p></td>
+</tr>
+<tr class="even">
+<td><p><em>Note</em>: It is exceedingly rare to need more than one include on a page and should be avoided if at all possible.</p></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><p>&lt;( |2 30%&gt;<em>If</em> you want to __create an include using more than one continuous section__ on the source page (copying separate blocks)</p></td>
+<td><p><em>Action</em>: See <em>Alternative Markup: Action A-C</em> below.</p></td>
+</tr>
+<tr class="even">
+<td><p><em>Note</em>: It is exceedingly rare to need more than one include on a page and should be avoided if at all possible.</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><em>Alternative Markup</em>: For pages needing more than one Include use the following:</p>
+<p><em><code>Action</code><code> </code><code>A</code></em><code>: __On the recipient page__ place the following markup, verbatim, in the location where you wish the copied content to begin.</code></p>
+<ul>
+<li>Replace <PageName> with the name of the page to copy from (the source page where the original content is located).</li>
+<li>Replace X (at the end of the <code>from=</code> parameter) with a number.</li>
+</ul>
+<dl>
+<dt></dt>
+<dd>The second include on a page should use the number 2 for all occurrences of X. Increment the number as necessary if more includes are used on a single source page. ~-(This should not occur often if at all!)-~
+</dd>
+</dl>
+<p><code> ```</code></p>
+<p>&lt;&lt;Include(<PageName>, , , from="Start Include here.X", to="##XEnd Include here.")&gt;&gt; ```</p>
+<dl>
+<dt></dt>
+<dd><em>Example</em>: To copy a second block of content from <a href="SDL_GLattr.html" title="wikilink">SDL_GLattr</a>
+</dd>
+</dl>
+<p><code>  ```&lt;&lt;Include(SDL_GLattr, , , from="Start Include here.2", to="##2End Include here.")&gt;&gt;```</code></p>
+<p><em><code>Action</code><code> </code><code>B</code></em><code>: __On the source page__ place the following markup, verbatim, on the line immediately </code><em><code>before</code></em><code> the point where you wish to begin the additional include (to define the start of a different block of content).</code></p>
+<ul>
+<li>Replace <PageName> with the name of the page to receive the Include (recipient). If this include will be used on more than one page add additional page names. Hyperlink markup should be left out.</li>
+<li>Replace X (at the end) with a number.</li>
+</ul>
+<dl>
+<dt></dt>
+<dd>The second include on a page should use the number 2 for all occurrences of X. Increment the number as necessary if more includes are used on a single source page. ~-(This should not occur often if at all!)-~
+</dd>
+</dl>
+<p><code> ```</code></p>
+<ol>
+<li><ol>
+<li>The following content is included on `<PageName>`. Any changes between these comments will be reflected there as well. Please use caution when editing. Start Include here.X</li>
+</ol></li>
+</ol>
+<p>```</p>
+<dl>
+<dt></dt>
+<dd><em>Example</em>: If this is the 2nd include on the source page and will be used on <a href="SDL_GL_GetAttribute.html" title="wikilink">SDL_GL_GetAttribute</a>() and <a href="SDL_GL_SetAttribute.html" title="wikilink">SDL_GL_SetAttribute</a>() recipient pages the comment on the source page should read:
+</dd>
+</dl>
+<p><code>  ##The following content is included on SDL_GL_GetAttribute and SDL_GL_SetAttribute.  Any changes between these comments will be reflected there as well.  Please use caution when editing.  Start Include here.2</code></p>
+<p><em><code>Action</code><code> </code><code>C</code></em><code>: __On the source page__ place the following markup, verbatim, on the line immediately </code><em><code>after</code></em><code> the point where you want to end the include (to stop copying content).</code></p>
+<ul>
+<li>Replace X (at the beginning) with a number.</li>
+</ul>
+<dl>
+<dt></dt>
+<dd>The second include on a page should use the number 2 for all occurrences of X. Increment the number as necessary if more includes are used on a single source page. ~-(This should not occur often if at all!)-~
+</dd>
+</dl>
+<p><code> ```</code></p>
+<ol>
+<li><ol>
+<li>XEnd Include here.</li>
+</ol></li>
+</ol>
+<p>```</p>
+<dl>
+<dt></dt>
+<dd><em>Example</em>: If this is the 2nd include on the source page it should read:
+</dd>
+</dl>
+<p><code>  ```##2End Include here.```</code></p>
+<p><em><span color="red">Important!</span></em> Please send <em>Feedback</em> or email us at &lt;&lt;MailTo(ANTI SPAM wiki AT libsdl DOT org)&gt;&gt; with the names of the source and recipient page(s) so we can keep track of where the includes in the wiki are.</p>
+<dl>
+<dt></dt>
+<dd><em>Note</em>: The use of hidden comments to create include tags is deliberate. This include markup has been carefully crafted to not only be reliable if used correctly (per these instructions), but also to enhance traceability for maintenance purposes and to make it easier for others to edit without causing problems on pages without realizing it. If you are going to create an include, please follow these guidelines precisely and write to us if you have any trouble. We'd greatly appreciate it.
+</dd>
+</dl>
+<p>See <a href="https://wiki.libsdl.org/HelpOnMacros/Include.html">HelpOnMacros/Include</a> for details if a different include becomes necessary.</p>
+<p>~-<a href="#ToC.html" title="wikilink">Return to Table of Contents</a>-~</p>
+<p><span id="problems"></span></p>
+<h3 id="some-known-problems-and-solutions">Some Known Problems and Solutions</h3>
+<p>While creating this wiki we encountered several formatting challenges. This section reflects some of the solutions that we discovered in the process. Hopefully you will find them helpful if you encounter these same difficulties. Please note that updates to the wiki or various add-ons may change these at any time.</p>
+<p><span id="problems1"></span></p>
+<table>
+<tbody>
+<tr class="odd">
+<td></td>
+<td><p>&lt;bgcolor="#EDEDED"&gt;<em>Problem Category</em>: Vertical spacing isn't working properly</p></td>
+</tr>
+<tr class="even">
+<td><p>&lt;( |3 30%&gt;<em>Problem</em>: My text is on another line in the editor but grouped with the previous line in the preview/saved version</p></td>
+<td><p><em>Cause</em>: Using a hard return (Enter key) at the end of a line is often <strong>not</strong> parsed as a line break.</p></td>
+</tr>
+<tr class="odd">
+<td><p><em>Solution 1</em>: Press the Enter key <em>twice</em> to put a space between paragraphs</p></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><p><em>Solution 2</em>: Use a <a href="#break.html" title="wikilink">Hard Line Break</a>.</p></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><p>&lt;( |5 30%&gt;<em>Problem</em>: There is too much/little space between lines of text</p></td>
+<td><p><em>Cause</em>: Most of the vertical spacing in this wiki is fixed and is determined based on other formatting choices.</p></td>
+</tr>
+<tr class="even">
+<td><p><em>Solution</em>: You can force __additional__ space between lines of text using <a href="#break.html" title="wikilink">Hard Line Breaks</a>.</p></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><p><em>Note</em>: You <strong>cannot</strong> force __less__ space between lines of text in separate paragraphs. The only option for keeping lines of text close together is to use <a href="#break.html" title="wikilink">Hard Line Breaks</a> to keep lines within a paragraph.</p></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><p><span color="red"><em>Important!</em></span> There are limits to how you can change formatting within a paragraph.</p></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><p><em>Note</em>: Indenting can affect vertical spacing. See <em><a href="#vertical.html" title="wikilink">Note</a></em> above for details.</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><span id="problems2"></span></p>
+<table>
+<tbody>
+<tr class="odd">
+<td></td>
+<td><p>&lt;bgcolor="#EDEDED"&gt;<em>Problem Category</em>: My list isn't working properly</p></td>
+</tr>
+<tr class="even">
+<td><p>&lt;( |9 30%&gt;<em>Problem</em>: The __numbering__ in my list started over</p></td>
+<td><p><em>Cause</em>: Most likely your numbering restarted because something broke the list into two parts.</p></td>
+</tr>
+<tr class="odd">
+<td><p><em>Solution 1</em>: Remove the interfering item or change it's indent to be subordinate in the list (add more spaces to indent more).</p></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><p><em>Note</em>: This is the most successful solution.</p></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><p><em>Solution 2</em>: Try forcing a new starting number/letter.</p></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><p><em>Markup</em>: place <code>#value</code>, where # is the hash symbol and <code>value</code> is a number (like 2, 3, 4...; <strong>not</strong> the character you want), immediately after the starting numbering markup.</p></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><p><em>Example</em>: ``` 1.#4 text``` should force the list item to begin with the number 4.<br />
+ should force the list item to begin with the letter d.</p></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><p><span color="red"><em>Important!</em></span> This fix does not always work</p></td>
+<td><p>!</p></td>
+</tr>
+<tr class="odd">
+<td><p><em>Solution 3</em>: Put a blank line (Enter key) between list items and then force a number (or other sequential) value by using the <em>Markup</em> from <em>Solution 2</em> above.</p></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><p><em>Example</em>: See the Basic Format section of <a href="SGTutorials#Basic_Format.html" title="wikilink">SGTutorials</a> then go into edit mode to see the markup.</p></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><p>&lt;( |4 30%&gt;<em>Problem</em>: The __indenting__ of my next list item is wrong</p></td>
+<td><p><em>Cause</em>: The list is interrupted by another item (like a box of code) with __less indent__ (farther left) than the previous line of the list</p></td>
+</tr>
+<tr class="even">
+<td><p><em>Result</em>: The interfering block forces the end of a list so the list begun after it is treated as a new list. It also seems to default to a first level indent after an interruption of this type regardless of the number of spaces you actually put before your next line.</p></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><p><em>Solution</em>: One __possible__ workaround is to place a blank line containing a ```space(s) period space``` ( . ) between the interfering content and the next line.<br />
+~-<em>Note</em>: This seems to allow the wiki parser to interpret the indent count on the next line correctly but likely won't continue the list. It does not always work!-~</p></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><p><em>Note</em>: It may be necessary to indent one level <em>less</em> (farther left) than the line that is not being parsed correctly. For example, if you want a line following an interruption to be at 3 indents, put the space-period-space fix immediately above it at 2 indents (ie: ```space space period space; . ```).</p></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><p>&lt;( |2 30%&gt;<em>Problem</em>: I want to use a __mixed list__ where bullets follow numbers on the same indent level (or similar) but it just keeps numbering</p></td>
+<td><p><em>Cause</em>: This wiki seems to parse lists based on how they start and where they end. If they are not broken/ended it seems to ignore the actual intervening markup (except usually lines starting with a period).</p></td>
+</tr>
+<tr class="even">
+<td><p><em>Solution</em>: The same workarounds as above may or may not be able to resolve this issue as well. Your goal is to end one list and begin the next with new formatting. You may have to try several tricks to make this happen.</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><span color="red"><em>Important!</em></span> Some list breaks cannot currently be fixed without major formatting compromises so you should be very careful when interrupting a list as it may force formatting you will not want.</p>
+<p>See <a href="http://moinmo.in/MoinMoinBugs/MixedNumberedAndUnorderedLists?highlight=%28lists%29.html">Mixed Lists</a> for some discussion and examples of problems.<br />
+~-<em>Note</em>: The contents at this link may change at any time and this link may not always be up to date.-~</p>
+<p>~-<a href="#ToC.html" title="wikilink">Return to Table of Contents</a>-~<br />
+<br />
+</p>
+<hr />
+<h2 id="miscellaneous-notes">Miscellaneous Notes</h2>
+<h3 id="other-help">Other Help</h3>
+<p>Some other wiki help that might be of interest or helpful to find quickly:</p>
+<dl>
+<dt></dt>
+<dd><a href="https://wiki.libsdl.org/HelpIndex.html">Help Index</a>
+</dd>
+<dd><a href="https://wiki.libsdl.org/HelpOnMoinWikiSyntax.html">Help On Moin Wiki Syntax</a>
+</dd>
+<dd><a href="https://wiki.libsdl.org/HelpOnFormatting.html">Help On Formatting</a>
+</dd>
+<dd><a href="https://wiki.libsdl.org/HelpOnEditing.html">Help On Editing</a>
+</dd>
+<dd><a href="https://wiki.libsdl.org/HelpOnSmileys.html">Help On Smileys</a>
+</dd>
+<dd><a href="https://wiki.libsdl.org/HelpOnAdmonitions.html">Help On Admonitions</a>
+</dd>
+</dl>
+<p>~-<a href="#ToC.html" title="wikilink">Return to Table of Contents</a>-~</p>
+<h2 id="resources">Resources</h2>
+<p>Our goal is to create accurate, consistent, helpful, user-friendly documentation. We appreciate your efforts to make your additions fit into the existing framework and retain the same look and feel as much as possible.</p>
+<p>If you have questions that aren't addressed here:</p>
+<p><code>a. Search for another page that contains something similar to what you want to do and copy all the basics as much as applicable.  </code><br />
+<code>a. Check the other SDL </code><a href="Contributing#guides.html" title="wikilink"><code>Style</code><code> </code><code>Guides</code></a><code>.</code><br />
+<code>a. Post a question to </code><a href="Contributing#form.html" title="wikilink"><code>Feedback</code></a><code> and include a way to contact you.</code><br />
+<code>a. Post a question to the </code><a href="Contributing#list.html" title="wikilink"><code>Mailing</code><code> </code><code>List</code></a><code>.</code><br />
+<code>a. Send a comment or question to &lt;&lt;MailTo(ANTI SPAM wiki AT libsdl DOT org)&gt;&gt; for clarification.</code></p>
+<p>If you have suggestions for changes or additions to this document or any other portion of the wiki please don't hesitate to contact us with your thoughts. We are happy to have the participation!</p>
+<h2 id="disclaimer">Disclaimer</h2>
+<p>```#!wiki note All content modifications are subject to review for consistency and quality. We reserve the right to remove or modify any content added to this wiki at any time. You may direct questions or concerns to &lt;&lt;MailTo(ANTI SPAM wiki AT libsdl DOT org)&gt;&gt;. ```</p>
+</body>
+</html>

@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>FAQUsingSDL</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<nav id="TOC">
+<ul>
+<li><a href="#faq-using-sdl">FAQ: Using SDL</a><ul>
+<li><a href="#how-do-i-choose-a-specific-video-driver">How do I choose a specific video driver?</a><ul>
+<li><a href="#linux">Linux</a></li>
+<li><a href="#win32">Win32</a></li>
+</ul></li>
+<li><a href="#how-do-i-choose-a-specific-audio-driver">How do I choose a specific audio driver?</a><ul>
+<li><a href="#linux-1">Linux</a></li>
+<li><a href="#win32-1">Win32</a></li>
+</ul></li>
+<li><a href="#what-environment-variables-are-used-by-sdl">What environment variables are used by SDL?</a></li>
+<li><a href="#why-does-sdl-disable-my-screensaver-by-default">Why does SDL disable my screensaver by default?</a></li>
+</ul></li>
+</ul>
+</nav>
+<h1 id="faq-using-sdl">FAQ: Using SDL</h1>
+<h2 id="how-do-i-choose-a-specific-video-driver">How do I choose a specific video driver?</h2>
+<p>You can set the environment variable "SDL_VIDEODRIVER" to the name of the driver you want to use. The drivers available depend on the platform and SDL compile-time options. Here is a partial list for some platforms:</p>
+<h3 id="linux">Linux</h3>
+<table>
+<tbody>
+<tr class="odd">
+<td><p><em>Name</em></p></td>
+<td><p><em>Description</em></p></td>
+<td><p><em>1.2</em></p></td>
+<td><p><em>2.0</em></p></td>
+</tr>
+<tr class="even">
+<td><p>x11</p></td>
+<td><p>(default) Use the X11 windowing system</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+</tr>
+<tr class="odd">
+<td><p>dga</p></td>
+<td><p>Use XFree86 DGA 2.0 for fullscreen hardware acceleration</p></td>
+<td><p>yes</p></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><p>fbcon</p></td>
+<td><p>Use the framebuffer console</p></td>
+<td><p>yes</p></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><p>directfb</p></td>
+<td><p>Use the DirectFB API</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+</tr>
+<tr class="even">
+<td><p>svgalib</p></td>
+<td><p>Use the SVGAlib API</p></td>
+<td><p>yes</p></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><p>ggi</p></td>
+<td><p>Use the General Graphics Interface API</p></td>
+<td><p>yes</p></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><p>aalib</p></td>
+<td><p>Use the Ascii Art library</p></td>
+<td><p>yes</p></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><p>wayland</p></td>
+<td><p>Use Wayland protocol for hardware acceleration</p></td>
+<td></td>
+<td><p>yes</p></td>
+</tr>
+<tr class="even">
+<td><p>kmsdrm</p></td>
+<td><p>Use Direct Rendering Manager / Kernel Mode Setting</p></td>
+<td></td>
+<td><p>yes</p></td>
+</tr>
+</tbody>
+</table>
+<h3 id="win32">Win32</h3>
+<table>
+<tbody>
+<tr class="odd">
+<td><p><em>Name</em></p></td>
+<td><p><em>Description</em></p></td>
+<td><p><em>1.2</em></p></td>
+<td><p><em>2.0</em></p></td>
+</tr>
+<tr class="even">
+<td><p>directx</p></td>
+<td><p>(default) Use the DirectDraw API</p></td>
+<td><p>yes</p></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><p>windib</p></td>
+<td><p>Use the standard Win32 GDI</p></td>
+<td><p>yes</p></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><p>windows</p></td>
+<td><p>Use SDL Windows video driver</p></td>
+<td></td>
+<td><p>yes</p></td>
+</tr>
+</tbody>
+</table>
+<h2 id="how-do-i-choose-a-specific-audio-driver">How do I choose a specific audio driver?</h2>
+<p>You can set the environment variable "SDL_AUDIODRIVER" to the name of the driver you want to use. The drivers available depend on the platform and SDL compile-time options. Here is a partial list for some platforms:</p>
+<h3 id="linux-1">Linux</h3>
+<table>
+<tbody>
+<tr class="odd">
+<td><p><em>Name</em></p></td>
+<td><p><em>Description</em></p></td>
+<td><p><em>1.2</em></p></td>
+<td><p><em>2.0</em></p></td>
+</tr>
+<tr class="even">
+<td><p>pulseaudio</p></td>
+<td><p>(default) Use PulseAudio</p></td>
+<td></td>
+<td><p>yes</p></td>
+</tr>
+<tr class="odd">
+<td><p>pulse</p></td>
+<td><p>Use PulseAudio</p></td>
+<td><p>yes</p></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><p>alsa</p></td>
+<td><p>Use ALSA PCM audio</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+</tr>
+<tr class="odd">
+<td><p>artsc</p></td>
+<td><p>Connect to the ARTS audio daemon</p></td>
+<td><p>yes</p></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><p>arts</p></td>
+<td><p>Use Analog RealTime Synthesizer</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+</tr>
+<tr class="odd">
+<td><p>esd</p></td>
+<td><p>Connect to the ESound audio daemon</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+</tr>
+<tr class="even">
+<td><p>jack</p></td>
+<td><p>Use Jack Audio Connection Kit</p></td>
+<td></td>
+<td><p>yes</p></td>
+</tr>
+<tr class="odd">
+<td><p>pipewire</p></td>
+<td><p>Use PipeWire</p></td>
+<td></td>
+<td><p>yes</p></td>
+</tr>
+<tr class="even">
+<td><p>disk</p></td>
+<td><p>Write audio output to sdlaudio.raw file</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+</tr>
+<tr class="odd">
+<td><p>dsp</p></td>
+<td><p>Use the OSS API by opening /dev/dsp</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+</tr>
+<tr class="even">
+<td><p>dma</p></td>
+<td><p>Use the OSS API to perform DMA access on /dev/dsp</p></td>
+<td><p>yes</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="win32-1">Win32</h3>
+<table>
+<tbody>
+<tr class="odd">
+<td><p><em>Name</em></p></td>
+<td><p><em>Description</em></p></td>
+<td><p><em>1.2</em></p></td>
+<td><p><em>2.0</em></p></td>
+</tr>
+<tr class="even">
+<td><p>dsound</p></td>
+<td><p>(default) Use the DirectSound API</p></td>
+<td><p>yes</p></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><p>waveout</p></td>
+<td><p>Use the Win32 MultiMedia API</p></td>
+<td><p>yes</p></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><p>directsound</p></td>
+<td><p>Use DirectSound</p></td>
+<td></td>
+<td><p>yes</p></td>
+</tr>
+<tr class="odd">
+<td><p>winmm</p></td>
+<td><p>Use Windows Waveform Audio</p></td>
+<td></td>
+<td><p>yes</p></td>
+</tr>
+</tbody>
+</table>
+<h2 id="what-environment-variables-are-used-by-sdl">What environment variables are used by SDL?</h2>
+<p>Mattias Engdegård has made a partial list of the environment variables that SDL may use. Keep in mind that these environment variables are not officially supported, and may change or go away at any time. <a href="ftp://ptah.lnf.kth.se/pub/misc/sdl-env-vars.html">ftp://ptah.lnf.kth.se/pub/misc/sdl-env-vars</a></p>
+<h2 id="why-does-sdl-disable-my-screensaver-by-default">Why does SDL disable my screensaver by default?</h2>
+<p>Many applications using SDL are games or screensavers or media players where the user is either watching something for an extended period of time or using joystick input which generally does not prevent the screensaver from kicking on.</p>
+<p>You can disable this behavior by setting the environment variable: SDL_VIDEO_ALLOW_SCREENSAVER=1 This can be set globally for the user or on a per-application basis in code.</p>
+<p>In SDL 2.0.2 this can also be changed by setting the hint <a href="SDL_HINT_VIDEO_ALLOW_SCREENSAVER.html" title="wikilink">SDL_HINT_VIDEO_ALLOW_SCREENSAVER</a>.</p>
+<p>Additionally, SDL 2.0 provides the function <a href="SDL_EnableScreenSaver.html" title="wikilink">SDL_EnableScreenSaver</a>().</p>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>kmsbsd</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<nav id="TOC">
+<ul>
+<li><a href="#sdl-wscons-input-backend-features">SDL WSCONS input backend features</a></li>
+<li><a href="#partially-working-or-no-input-on-openbsdnetbsd">Partially working or no input on OpenBSD/NetBSD.</a></li>
+<li><a href="#partially-working-or-no-input-on-freebsd">Partially working or no input on FreeBSD.</a></li>
+</ul>
+</nav>
+<p>KMSDRM on *BSD ==================================================</p>
+<p>KMSDRM is supported on FreeBSD and OpenBSD. DragonFlyBSD works but requires being a root user. NetBSD isn't supported yet because the application will crash when creating the KMSDRM screen.</p>
+<p>WSCONS support has been brought back, but only as an input backend. It will not be brought back as a video backend to ease maintenance.</p>
+<p>OpenBSD note: Note that the video backend assumes that the user has read/write permissions to the /dev/drm* devices.</p>
+<h1 id="sdl-wscons-input-backend-features">SDL WSCONS input backend features</h1>
+<ol>
+<li>It is keymap-aware; it will work properly with different keymaps.</li>
+<li>It has mouse support.</li>
+<li>Accent input is supported.</li>
+<li>Compose keys are supported.</li>
+<li>AltGr and Meta Shift keys work as intended.</li>
+</ol>
+<h1 id="partially-working-or-no-input-on-openbsdnetbsd">Partially working or no input on OpenBSD/NetBSD.</h1>
+<p>The WSCONS input backend needs read/write access to the /dev/wskbd* devices, without which it will not work properly. /dev/wsmouse must also be read/write accessible, otherwise mouse input will not work.</p>
+<h1 id="partially-working-or-no-input-on-freebsd">Partially working or no input on FreeBSD.</h1>
+<p>The evdev devices are only accessible to the root user by default. Edit devfs rules to allow access to such devices. The /dev/kbd* devices are also only accessible to the root user by default. Edit devfs rules to allow access to such devices.</p>
+</body>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>SDL_SetAudioPostmixCallback</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+</head>
+<body>
+<nav id="TOC">
+<ul>
+<li><a href="#sdl_setaudiopostmixcallback">SDL_SetAudioPostmixCallback</a><ul>
+<li><a href="#syntax">Syntax</a></li>
+<li><a href="#function-parameters">Function Parameters</a></li>
+<li><a href="#return-value">Return Value</a></li>
+<li><a href="#remarks">Remarks</a></li>
+<li><a href="#thread-safety">Thread Safety</a></li>
+<li><a href="#version">Version</a></li>
+</ul></li>
+</ul>
+</nav>
+<h6 id="this-is-the-documentation-for-sdl3-which-is-under-heavy-development-and-the-api-is-changing-sdl2-is-the-current-stable-version">(This is the documentation for SDL3, which is under heavy development and the API is changing! <a href="https://wiki.libsdl.org/SDL2/.html">SDL2</a> is the current stable version!)</h6>
+<h1 id="sdl_setaudiopostmixcallback">SDL_SetAudioPostmixCallback</h1>
+<p>Set a callback that fires when data is about to be fed to an audio device.</p>
+<h2 id="syntax">Syntax</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode c"><code class="sourceCode c"><a class="sourceLine" id="cb1-1" title="1"><span class="dt">int</span> SDL_SetAudioPostmixCallback(SDL_AudioDeviceID devid, SDL_AudioPostmixCallback callback, <span class="dt">void</span> *userdata);</a></code></pre></div>
+<h2 id="function-parameters">Function Parameters</h2>
+<table>
+<tbody>
+<tr class="odd">
+<td><strong>devid</strong></td>
+<td>The ID of an opened audio device.</td>
+</tr>
+<tr class="even">
+<td><strong>callback</strong></td>
+<td>A callback function to be called. Can be NULL.</td>
+</tr>
+<tr class="odd">
+<td><strong>userdata</strong></td>
+<td>App-controlled pointer passed to callback. Can be NULL.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="return-value">Return Value</h2>
+<p>Returns zero on success, -1 on error; call <a href="SDL_GetError.html">SDL_GetError</a>() for more information.</p>
+<h2 id="remarks">Remarks</h2>
+<p>This is useful for accessing the final mix, perhaps for writing a visualizer or applying a final effect to the audio data before playback.</p>
+<p>The buffer is the final mix of all bound audio streams on an opened device; this callback will fire regularly for any device that is both opened and unpaused. If there is no new data to mix, either because no streams are bound to the device or all the streams are empty, this callback will still fire with the entire buffer set to silence.</p>
+<p>This callback is allowed to make changes to the data; the contents of the buffer after this call is what is ultimately passed along to the hardware.</p>
+<p>The callback is always provided the data in float format (values from -1.0f to 1.0f), but the number of channels or sample rate may be different than the format the app requested when opening the device; SDL might have had to manage a conversion behind the scenes, or the playback might have jumped to new physical hardware when a system default changed, etc. These details may change between calls. Accordingly, the size of the buffer might change between calls as well.</p>
+<p>This callback can run at any time, and from any thread; if you need to serialize access to your app's data, you should provide and use a mutex or other synchronization device.</p>
+<p>All of this to say: there are specific needs this callback can fulfill, but it is not the simplest interface. Apps should generally provide audio in their preferred format through an <a href="SDL_AudioStream.html">SDL_AudioStream</a> and let SDL handle the difference.</p>
+<p>This function is extremely time-sensitive; the callback should do the least amount of work possible and return as quickly as it can. The longer the callback runs, the higher the risk of audio dropouts or other problems.</p>
+<p>This function will block until the audio device is in between iterations, so any existing callback that might be running will finish before this function sets the new callback and returns.</p>
+<p>Setting a NULL callback function disables any previously-set callback.</p>
+<h2 id="thread-safety">Thread Safety</h2>
+<p>It is safe to call this function from any thread.</p>
+<h2 id="version">Version</h2>
+<p>This function is available since SDL 3.0.0.</p>
+<hr />
+<p><a href="CategoryAPI.html">CategoryAPI</a></p>
+</body>
+</html>

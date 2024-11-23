@@ -1,0 +1,1251 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>SGFunctions</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+</head>
+<body>
+<nav id="TOC">
+<ul>
+<li><a href="#style-guide-function-pages">Style Guide: Function Pages</a><ul>
+<li><a href="#general-guidelines">General Guidelines</a></li>
+<li><a href="#editing-specific-sections">Editing Specific Sections</a><ul>
+<li><a href="#title">Title</a></li>
+<li><a href="#function-parameters">Function Parameters</a></li>
+</ul></li>
+<li><a href="#related-functions">Related Functions</a><ul>
+<li><a href="#footer">Footer</a></li>
+<li><a href="#special">Special</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+<h1 id="style-guide-function-pages">Style Guide: Function Pages</h1>
+<p>This guide provides specific instructions for editing or adding your own content to each section of a Function page in this wiki.</p>
+<p><strong>Function pages should provide basic information about the SDL functions to allow users to most effectively utilize them in their projects.</strong></p>
+<p><span id="ToC"></span></p>
+<h2 id="general-guidelines">General Guidelines</h2>
+<table>
+<tbody>
+<tr class="odd">
+<td><p><span color="red">Important note about <strong>Macros</strong></span><br />
+The basic function template is also used for macros that have pages in the wiki. For simplicity, the following guidelines for functions will also apply to macros unless a specific difference is noted.</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Please observe the following for all function pages:</strong></p>
+<ul>
+<li>Do not post anything that you do not have permission to post publicly.</li>
+</ul>
+<ul>
+<li>Sections should have adequate details to make them clear and useful while remaining brief wherever possible. Code Examples and Remarks may be more extensive than other sections if necessary.</li>
+</ul>
+<ul>
+<li>Please remember to keep it accurate, simple, and easy to understand.</li>
+</ul>
+<ul>
+<li>Do not remove, modify, or add to the markup above the page title (<code>#pragma</code> or <code>#acl</code> processing instructions, etc.) except:</li>
+<li>On CategoryCompat pages, place the following markup above the page title, below the processing instructions or <span color="red">DRAFT</span> markup if present:</li>
+</ul>
+<dl>
+<dt></dt>
+<dd>```||&lt;tablewidth="100%" #000000 style="color: #FF8C00;" :&gt;<br />
+~+For Backward Compatibility Only+~<br />
+<br />
+||```
+</dd>
+</dl>
+<ul>
+<li>Do not remove, modify, or add section headings unless specifically mentioned below.</li>
+</ul>
+<ul>
+<li>In general, we prefer that you do not remove or modify existing content unless it is clearly incorrect or out of date.</li>
+</ul>
+<ul>
+<li>Pages with <span color="red">DRAFT</span> at the top are in progress and will often contain unusual content, formatting, or notes. Please do not remove or modify these. That will all be corrected/removed upon final edit.</li>
+</ul>
+<p>~-<a href="#ToC.html" title="wikilink">Return to Table of Contents</a>-~<br />
+<br />
+== Getting Started ==</p>
+<p><code>1. Begin by going to the page you wish to edit and selecting </code><span color="blue"><code>Edit (Text)</code></span><code> or </code><span color="blue"><code>Edit (GUI)</code></span><code> in the left column to begin editing.</code><br />
+<code> {i} ~-Markup info provided here is specifically for use in the Text editor but should work in both.-~</code><br />
+<code>1. Scroll down in the edit window to the section(s) you want to edit.  Add your content following the conventions in this style guide.</code><br />
+<code>1. Find information relevant to your content in the style guide sections </code><a href="#specifics.html" title="wikilink"><code>below</code></a><code> and apply the appropriate formatting as you edit.</code><br />
+<code>1. Preview your work as you go by clicking </code><span color="blue"><code>Preview</code></span><code> in the left column.  Preview often and any time you are unsure of formatting. </code></p>
+<dl>
+<dt></dt>
+<dd>~-(Keep in mind that a few things (like <a href="SGWikiBasics#color2.html" title="wikilink">Color2 text</a>) don't preview exactly as they parse.)-~
+</dd>
+</dl>
+<p><code>1. Save your work by clicking </code><span color="blue"><code>Save Changes</code></span><code> in the left column after you are satisfied with your content and have filled in the Comment field under the editing box. </code></p>
+<p>For assistance with editing, saving, or wiki-appropriate markup see the <a href="SGWikiBasics.html" title="wikilink">Wiki Basics</a> Style Guide or contact us at &lt;&lt;MailTo(ANTI SPAM wiki AT libsdl DOT org)&gt;&gt;.</p>
+<p>~-<a href="#ToC.html" title="wikilink">Return to Table of Contents</a>-~<br />
+<br />
+<span id="specifics"></span></p>
+<h2 id="editing-specific-sections">Editing Specific Sections</h2>
+<h3 id="title">Title</h3>
+<p><strong><em>Do not edit the Title.</em></strong></p>
+<p>The Title section consists of the page heading and its markup:</p>
+<p><code>```= SDL_FunctionName =``` </code></p>
+<p>For function pages this is the name of the function being described on the page and should match the address of the page.</p>
+<p><em>Example</em>: Page address ```https://wiki.libsdl.org/SDL_CreateWindow``` should have matching title  and describe the <a href="SDL_CreateWindow.html" title="wikilink">SDL_CreateWindow</a>() function.</p>
+<p>If you believe a change is necessary please submit <em>Feedback</em> from that page or contact us at &lt;&lt;MailTo(ANTI SPAM wiki AT libsdl DOT org)&gt;&gt;.</p>
+<p>~-<a href="#ToC.html" title="wikilink">Return to Table of Contents</a>-~<br />
+<br />
+=== Description === The Description section immediately follows the page title and does not have it's own heading.</p>
+<p>'''All function descriptions begin with:</p>
+<p><code>```Use this function to```'''</code><br />
+<code> or very rarely</code><br />
+<code>```Use this macro to```</code></p>
+<dl>
+<dt></dt>
+<dd>followed by a <em>clear and concise</em> description of what the function does.
+</dd>
+</dl>
+<p><span id="note1"></span> <em>Note</em>: Information presented in this section is meant to be limited. Extended description information for more complicated functions should be placed in the <a href="#Remarks.html" title="wikilink">Remarks</a> section instead.</p>
+<ul>
+<li>The Description should not contain a link to the Remarks section even if additional information is located there.</li>
+</ul>
+<table>
+<tbody>
+<tr class="odd">
+<td><p>&lt;( |3 30%&gt;<em>If</em> the page describes __a macro__ rather than a function</p></td>
+<td><p><em>Action</em>: Use the alternate description (<code>Use this macro to...</code>) and, if necessary, replace the word <code>function</code> with the word <code>macro</code> where appropriate throughout the page.</p></td>
+</tr>
+<tr class="even">
+<td><p><em>Note</em>: In some rare cases it has been deemed appropriate to refer to a macro as a function in the wiki. (eg: <a href="SDL_QuitRequested.html" title="wikilink">SDL_QuitRequested</a>()) This is not accidental. Please do not "correct" these instances. If you feel strongly that a change should be made please contact us.</p></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><p><em>Example</em>: <a href="SDL_VERSION.html" title="wikilink">SDL_VERSION</a>()</p></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><p>&lt;( |2 30%&gt;<em>If</em> __another API page__ is referenced in the description</p></td>
+<td><p><em>Action</em>: Be sure to <a href="SGWikiBasics#Hyperlinks.html" title="wikilink">hyperlink</a> it and use () outside the link markup if it is a function.</p></td>
+</tr>
+<tr class="odd">
+<td><p><em>Example</em>: ```<a href="SDL_FunctionName.html" title="wikilink">SDL_FunctionName</a>(), <a href="SDL_StructureName.html" title="wikilink">SDL_StructureName</a>```, <a href="SDL_GetThreadName.html" title="wikilink">SDL_GetThreadName</a>()</p></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><p>&lt;( |3 30%&gt;<em>If</em> __a parameter__ on that page is referenced in the description</p></td>
+<td><p><em>Action</em>: Use <strong><a href="SGWikiBasics#Text_Formatting.html" title="wikilink">bold</a></strong> for the parameter name.</p></td>
+</tr>
+<tr class="odd">
+<td><p><em>Note</em>: This is a very rare occurrence.</p></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><p><em>Note</em>: If the reference is to the parameter as a <em>concept</em> (ie: the window to do something with) rather than <em>directly</em> to the parameter itself (ie: SDL_Function(window)) do not make it bold.<br />
+~-Please don't just make the word bold every time it occurs on the page.-~</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>~-<a href="#ToC.html" title="wikilink">Return to Table of Contents</a>-~<br />
+<br />
+=== Table of Contents === <strong><em>Do not edit the Table of Contents.</em></strong></p>
+<p>The Table of Contents consists of the following markup and is generated automatically on the parsed page.</p>
+<p><code>```&lt;&lt;TableOfContents()&gt;&gt;```</code></p>
+<p>If you believe a change is necessary please submit <em>Feedback</em> from that page or contact us at &lt;&lt;MailTo(ANTI SPAM wiki AT libsdl DOT org)&gt;&gt;.</p>
+<p>~-<a href="#ToC.html" title="wikilink">Return to Table of Contents</a>-~<br />
+<br />
+=== Syntax === The Syntax section consists of a code box that displays the basic components of the function using some specific formatting conventions. Please apply the following conventions when editing this section.</p>
+<p><strong>The basic format is as follows:</strong> ```{ }</p>
+<p><span color="red"><em>Important!</em></span> All types and parameters should be vertically aligned.</p>
+<ul>
+<li>Spacing for parameter __types__ is left-aligned to the type on the first line.</li>
+<li>Spacing for __parameters__ is left-aligned to the longest param type so that there is only 1 space between the longest type (with any pointers) and its parameter.</li>
+<li>__Pointers__ (*, **) should be aligned next to the types (no space between) and should have at least one space following.</li>
+</ul>
+<p><em>Markup</em>: Use spaces as necessary to create the correct alignment. Within a code box spacing is fixed-width.</p>
+<p><em>Note</em>: __To be omitted__</p>
+<ul>
+<li>All additional text that may be found in the header or elsewhere, such as <code>extern</code>, <code>SDLCALL</code>, etc.</li>
+<li>The space between <code>SDL_FunctionName</code> and (.</li>
+<li>Ending semi-colon (;)</li>
+</ul>
+<p><em>Note</em>: __To be included__</p>
+<ul>
+<li>The code box and colorizing markup above and below the function syntax<br />
+<code>```</code>```c++```<br />
+<code>}}}</code></li>
+</ul>
+<p><code>* A single space between `returnType` and `SDL_FunctionName`</code><br />
+<code>* Commas at the end of each line before the last if there is more than 1 parameter</code><br />
+<code>* The parentheses enclosing the parameters</code></p>
+<p><em>Note</em>: Do not remove or alter the code box markup surrounding the function syntax. The starting and ending markup must remain on separate lines above and below the rest of the content in order to generate the code box.</p>
+<p>||&lt;( |3 30%&gt;<em>If</em> a function refers to a __callback function__||<em>Action</em>: See the special section on callback functions <a href="#callback.html" title="wikilink">below</a>.|| ||<em>Note</em>: Callback functions do not get their own pages.|| ||<em>Example</em>: <a href="SDL_AddEventWatch.html" title="wikilink">SDL_AddEventWatch</a>(), <a href="SDL_AddTimer.html" title="wikilink">SDL_AddTimer</a>()||</p>
+<p><em>Example</em>: }</p>
+<p>~-<a href="#ToC.html" title="wikilink">Return to Table of Contents</a>-~<br />
+<br />
+<span id="parameters"></span></p>
+<h3 id="function-parameters">Function Parameters</h3>
+<p>The Function Parameters section provides basic information about each parameter in the function and is presented in table format.</p>
+<p><em><span color="red">Important!</span></em></p>
+<table>
+<tbody>
+<tr class="odd">
+<td><p>&lt;( |2 30%&gt;<em>If</em> the only parameter is <strong>__void__</strong></p></td>
+<td><p><em>Action</em>: Delete the entire Function Parameters section, including the header.</p></td>
+</tr>
+<tr class="even">
+<td><p><em>Example</em>: <a href="SDL_AllocRW.html" title="wikilink">SDL_AllocRW</a>()</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Otherwise, <strong>function parameters follow this basic format:</strong></p>
+<p>``` ||<strong>parameter1</strong>||description|| ||<strong>parameter2</strong>||description|| ... ||<strong>parameterN</strong>||description|| ```</p>
+<p><em>Markup</em>: Use <a href="SGWikiBasics#Tables.html" title="wikilink">basic table markup</a> and enclose each parameter name in <a href="SGWikiBasics#Text_Formatting.html" title="wikilink">bold</a> markup. All text in the table is left-justified.</p>
+<ul>
+<li>The __first column__ contains the parameter names, without types or pointers, in bold.</li>
+<li>The __second column__ contains a simple description of each parameter using some specific formatting conventions.</li>
+</ul>
+<dl>
+<dt></dt>
+<dd><em><span color="red">Important!</span></em> All descriptions begin with a <em>lower case</em> letter, end <em>without</em> a period, and are generally <em>not</em> complete sentences.
+</dd>
+</dl>
+<ul>
+<li>There are a few content-dependent conventions we have chosen for consistency across pages - see the tables below for details.</li>
+</ul>
+<p><em>Example</em>: <a href="SDL_SetColorKey.html" title="wikilink">SDL_SetColorKey</a>()</p>
+<table>
+<tbody>
+<tr class="odd">
+<td></td>
+<td><p>&lt;bgcolor="#EDEDED"&gt;<em>Content-dependent formatting: General</em></p></td>
+</tr>
+<tr class="even">
+<td><p>&lt;( |3 30%&gt;<em>If</em> __more than one statement__ must be included in the description</p></td>
+<td><p><em>Action</em>: Separate them with a semi-colon (;)</p></td>
+</tr>
+<tr class="odd">
+<td><p><em>Note</em>: This should be avoided whenever possible. See "<em>If</em> a __<a href="#detailed.html" title="wikilink">more detailed description</a>__ is required to adequately explain a parameter" below for more details.</p></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><p><em>Example</em>: <a href="SDL_PixelFormatEnumToMasks.html" title="wikilink">SDL_PixelFormatEnumToMasks</a>()</p></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><p>&lt;( |4 30%&gt;<em>If</em> a __more detailed description__ is required to adequately explain a parameter</p></td>
+<td><p><span id="detailed"></span><em>Action 1</em> : Append the following, verbatim, to the end of the brief description<br />
+```; see <a href="#Remarks.html" title="wikilink">Remarks</a> for details```.</p></td>
+</tr>
+<tr class="even">
+<td><p><em>Action 2</em>: Place the more detailed information in the <a href="#Remarks.html" title="wikilink">Remarks</a> section.</p></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><p><em>Action 3</em>: See "<em>If</em> the __<a href="#large.html" title="wikilink">Remarks section is large</a>__" below for more details.</p></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><p><em>Example</em>: <a href="SDL_CreateWindow.html" title="wikilink">SDL_CreateWindow</a>()</p></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><p>&lt;( |3 30%&gt;<em>If</em> the __Remarks section is large__</p></td>
+<td><p><span id="large"></span><em>Action 1</em>: Create an <a href="SGWikiBasics#Anchors.html" title="wikilink">anchor</a> immediately before the additional comments you are adding to the Remarks section.</p></td>
+</tr>
+<tr class="even">
+<td><p><em>Markup</em>: Use ```<span id="anchorname"></span>```, where <code>anchorname</code> is a name of your choosing, to create the anchor in the Remarks section. See <a href="SGWikiBasics#Anchors.html" title="wikilink">Anchors</a> for details.</p></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><p><em>Action 2</em>: Modify the Remarks link in the parameter description (see <em>Action 1</em> in "<em>If</em> a __<a href="#detailed.html" title="wikilink">more detailed description</a>__ is required to adequately explain a parameter" above) to the following:<br />
+```; see <a href="#anchorname.html" title="wikilink">Remarks</a> for details```<br />
+where <code>anchorname</code> matches the name you chose for the anchor in <em>Action 1</em>.</p></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><p>&lt;( |2 30%&gt;<em>If</em> __there is a pointer__ associated with the parameter</p></td>
+<td><p><em>Action</em>: Avoid mentioning pointers unless they are critical to understanding the parameter or there is little other way to describe it (ie: void*)</p></td>
+</tr>
+<tr class="odd">
+<td><p><em>Example</em>: <a href="SDL_SetColorKey.html" title="wikilink">SDL_SetColorKey</a>()</p></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><p>&lt;( |2 30%&gt;<em>If</em> a pointer points to __something that is filled in by the function__ or that __has been filled in__</p></td>
+<td><p><em>Action</em>: Use the phrase <code>filled in with</code> in the description</p></td>
+</tr>
+<tr class="odd">
+<td><p><em>Example</em>: <a href="SDL_QueryTexturePixels.html" title="wikilink">SDL_QueryTexturePixels</a>()</p></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><p>&lt;( |4 30%&gt;<em>If</em> the description mentions __a structure that has a page__</p></td>
+<td><p><em>Action 1</em>: Use the following pattern to describe the parameter:<br />
+<code>the/an</code> ```<a href="SDL_StructureName.html" title="wikilink">SDL_StructureName</a>``` <code>structure to </code><action> or <code>representing </code><some piece of information></p></td>
+</tr>
+<tr class="odd">
+<td><p><em>Action 2</em>: Check the <a href="#specific.html" title="wikilink">table below</a> for structure-specific phrasing.</p></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><p><em>Note</em>: Be sure to hyperlink the structure name as shown in <em>Action 1</em> in the type and description columns (as appropriate) <strong><em>except</em></strong> if the row is greyed out (see <em>If</em> the parameter is __<a href="#grey.html" title="wikilink">for internal use, deprecated, or private</a>__ for details).</p></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><p><em>Example</em>: <a href="SDL_UnionRect.html" title="wikilink">SDL_UnionRect</a>()</p></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><p>&lt;( |3 30%&gt;<em>If</em> the description mentions __a structure that <em>does not</em> have a page__</p></td>
+<td><p><em>Action</em>: Use the plain English term to describe the structure (ie: SDL_Window == <code>the window</code>) and omit the hyperlink.</p></td>
+</tr>
+<tr class="odd">
+<td><p><em>Note</em>: Please check the current wiki before selecting this option for wording, as a page may have been created since this was written or since you last checked.</p></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><p><em>Example</em>: <a href="SDL_RenderClear.html" title="wikilink">SDL_RenderClear</a>()</p></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><p>&lt;( |2 30%&gt;<em>If</em> the description mentions __an enumeration__</p></td>
+<td><p><em>Action</em>: It is not necessary to specifically describe it as an enumeration as above for structures, but DO hyperlink if it has a page <strong><em>except</em></strong> if the row is greyed out (see <em>If</em> the parameter is __<a href="#grey.html" title="wikilink">for internal use, deprecated, or private</a>__ for details).</p></td>
+</tr>
+<tr class="even">
+<td><p><em>Example</em>: <a href="SDL_PixelFormat.html" title="wikilink">SDL_PixelFormat</a></p></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><p>&lt;( |1 30%&gt;<em>If</em> a description must refer to any other __page in the API__</p></td>
+<td><p><em>Action</em>: Create a <a href="SGWikiBasics#Hyperlinks.html" title="wikilink">hyperlink</a> to the page <strong><em>except</em></strong> if the row is greyed out (see <em>If</em> the parameter is __<a href="#grey.html" title="wikilink">for internal use, deprecated, or private</a>__ for details).</p></td>
+</tr>
+<tr class="even">
+<td><p>&lt;( |5 30%&gt;<em>If</em> the parameter is __for internal use, deprecated, or private__</p></td>
+<td><p><span id="grey"></span><em>Action 1</em>: Make the text in the row grey by including the following, verbatim, in the first cell of the row between the starting table markup and the text:<br />
+```&lt;rowstyle="color: #808080;"&gt;```</p></td>
+</tr>
+<tr class="odd">
+<td><p><em>Action 2</em>: Include the reason (ie: internal use, etc.) in parentheses at the end of the description.</p></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><p><em>Action 3</em>: DO NOT hyperlink any related API pages (ie: structure type) on greyed out parameters.</p></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><p><em>Example</em>: ```</p></td>
+<td><p>&lt;rowstyle="color: #808080;"&gt;<strong>param</strong></p></td>
+</tr>
+<tr class="even">
+<td><p><em>Note</em>: Although a rare case, any other table style markup should be included within the same set of angle brackets (<code>&lt;&gt;</code>) and separated from this markup by a space.</p></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><p>&lt;( |3 30%&gt;<em>If</em> a function refers to a __callback function__</p></td>
+<td><p><em>Action</em>: See the special section on callback functions <a href="#callback.html" title="wikilink">below</a>.</p></td>
+</tr>
+<tr class="even">
+<td><p><em>Note</em>: Callback functions do not get their own pages.</p></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><p><em>Example</em>: <a href="SDL_AddEventWatch.html" title="wikilink">SDL_AddEventWatch</a>(), <a href="SDL_AddTimer.html" title="wikilink">SDL_AddTimer</a>()</p></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><p>&lt;( |4 30%&gt;<em>If</em> __a parameter references another parameter__ on that same page</p></td>
+<td><p><em>Action</em>: Use <strong><a href="SGWikiBasics#Text_Formatting.html" title="wikilink">bold</a></strong> for the parameter name.</p></td>
+</tr>
+<tr class="odd">
+<td><p><em>Note</em>: This is a very rare occurrence.</p></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><p><em>Note</em>: If the reference is to the parameter as a <em>concept</em> (ie: the window to do something with) rather than <em>directly</em> to the parameter itself (ie: SDL_Function(window)) do not make it bold.<br />
+~-Please don't just make the word bold every time it occurs on the page.-~</p></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><p><em>Example</em>: <a href="SDL_EnclosePoints.html" title="wikilink">SDL_EnclosePoints</a>()</p></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><p>&lt;( |3 30%&gt;<em>If</em> a description is referring to something that could be __any one of a group of similar items__ (ie: rectangles)</p></td>
+<td><p><em>Action</em>: Begin the description with <code>a/an</code></p></td>
+</tr>
+<tr class="odd">
+<td><p><em>Example</em>: <a href="SDL_HasIntersection.html" title="wikilink">SDL_HasIntersection</a>()</p></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><p><em>Note</em>: We realize that this is a somewhat arbitrary distinction depending upon your perspective. If you are unsure whether to use <code>a/an</code> or <code>the</code> it may be helpful to do a quick text search for other pages with the same or similar parameter and copy the format there. Ultimately, though, it's not worth losing sleep over. ;) Just pick one.</p></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><p>&lt;( |3 30%&gt;<em>If</em> a description is referring __to a specific item from a group__ (ie: a specific window)</p></td>
+<td><p><em>Action</em>: Begin the description with <code>the</code></p></td>
+</tr>
+<tr class="even">
+<td><p><em>Example</em>: <a href="SDL_BlitScaled.html" title="wikilink">SDL_BlitScaled</a>()</p></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><p><em>Note</em>: We realize that this is a somewhat arbitrary distinction depending upon your perspective. If you are unsure whether to use <code>a/an</code> or <code>the</code> it may be helpful to do a quick text search for other pages with the same or similar parameter and copy the format there. Ultimately, though, it's not worth losing sleep over. ;) Just pick one.</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><em>Note</em>: It would only rarely be appropriate to use the exact same description of a common parameter every time that parameter appears in the API. However, the same or very similar description can be used for many occurrences of the same parameter, enhancing consistency across pages. The following table provides a list of these commonly used descriptions.</p>
+<p><em>Action</em>: When choosing a description phrase for a parameter please check this list to see if any of these common descriptions is applicable, even if a minor modification is required.</p>
+<p><span id="specific"></span></p>
+<table>
+<tbody>
+<tr class="odd">
+<td></td>
+<td><p>&lt;bgcolor="#EDEDED"&gt;<em>Content-dependent formatting: Specific</em></p></td>
+</tr>
+<tr class="even">
+<td><p>&lt;( |4 30%&gt;<em>If</em> the parameter is __SDL_Palette* palette__</p></td>
+<td><p><em>Action 1</em>: Most often this description begins with <code>the </code><a href="SDL_Palette.html" title="wikilink"><code>SDL_Palette</code></a><code> structure to</code>, followed by what to do with the palette (ie: free, modify, etc.).</p></td>
+</tr>
+<tr class="odd">
+<td><p><em>Action 2</em>: The most common version is <code>the </code><a href="SDL_Palette.html" title="wikilink"><code>SDL_Palette</code></a><code> structure to use</code></p></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><p><em>Example</em>: <a href="SDL_SetSurfacePalette.html" title="wikilink">SDL_SetSurfacePalette</a>(), <a href="SDL_FreePalette.html" title="wikilink">SDL_FreePalette</a>()</p></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><p><em>Note</em>: Of course other phrases to describe this parameter may become necessary. A text search for "SDL_Palette* palette" should provide you with other descriptions if they arise.</p></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><p>&lt;( |4 30%&gt;<em>If</em> the parameter is __SDL_Rect* rect(s)__</p></td>
+<td><p><em>Action 1 - __rect__</em>: Most often this description begins with <code>the/an</code> ```<a href="SDL_Rect.html" title="wikilink">SDL_Rect</a>``` <code>structure</code> <code>representing the rectangle to</code>, followed by what the rectangle is for (ie: fill, draw, intersect, etc).</p></td>
+</tr>
+<tr class="odd">
+<td><p><em>Action 2 - __rects__</em>: When the parameter is plural it refers to an array of rectangles and will most often begin with <code>an array of</code> ```<a href="SDL_Rect.html" title="wikilink">SDL_Rect</a>``` <code>structures</code> <code>representing the rectangles to</code>, followed by what the rectangles are for.</p></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><p><em>Example</em>: <a href="SDL_FillRect.html" title="wikilink">SDL_FillRect</a>(), <a href="SDL_RenderDrawRect.html" title="wikilink">SDL_RenderDrawRect</a>(), <a href="SDL_IntersectRectAndLine.html" title="wikilink">SDL_IntersectRectAndLine</a>(), <a href="SDL_RenderDrawRects.html" title="wikilink">SDL_RenderDrawRects</a>()</p></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><p><em>Note</em>: Of course there are some other phrases to describe these parameters. A text search for "SDL_Rect* rect" should provide you with plenty of other examples of both the singular and plural parameters.</p></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><p>&lt;( |3 30%&gt;<em>If</em> the parameter is __SDL_Renderer* renderer__</p></td>
+<td><p><em>Action</em>: A rare exception (at least so far), this description is __always__ <code>the rendering context</code>.</p></td>
+</tr>
+<tr class="odd">
+<td><p><em><span color="red">Important!</span></em> Please use <code>the rendering context</code> for <em>all</em> occurrences of this parameter unless/until it appears in the API in a different context that calls for another description. A text search for "SDL_Renderer* renderer" should be used to determine if this has become the case.</p></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><p><em>Example</em>: <a href="SDL_RenderPresent.html" title="wikilink">SDL_RenderPresent</a>(), <a href="SDL_RenderDrawLine.html" title="wikilink">SDL_RenderDrawLine</a>(), <a href="SDL_CreateTexture.html" title="wikilink">SDL_CreateTexture</a>()</p></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><p>&lt;( |5 30%&gt;<em>If</em> the parameter is __SDL_Surface* surface__</p></td>
+<td><p><em>Action 1</em>: Most often this description begins with <code>the </code><a href="SDL_Surface.html" title="wikilink"><code>SDL_Surface</code></a><code> structure to</code>, followed by what is happening with the structure (ie: optimize, be locked, etc.).</p></td>
+</tr>
+<tr class="even">
+<td><p><em>Action 2</em>: The most common versions are <code>the </code><a href="SDL_Surface.html" title="wikilink"><code>SDL_Surface</code></a><code> structure to update</code> (often used with Set functions) or <code>the </code><a href="SDL_Surface.html" title="wikilink"><code>SDL_Surface</code></a><code> structure to query</code> (often used with Get functions).</p></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><p><em>Action 3</em>: Some will be best described by the following instead: <code>the </code><a href="SDL_Surface.html" title="wikilink"><code>SDL_Surface</code></a><code> structure representing</code> <something>.</p></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><p><em>Example</em>: <a href="SDL_SetSurfaceRLE.html" title="wikilink">SDL_SetSurfaceRLE</a>(), <a href="SDL_LockSurface.html" title="wikilink">SDL_LockSurface</a>(), <a href="SDL_GetClipRect.html" title="wikilink">SDL_GetClipRect</a>(), <a href="SDL_SaveBMP_RW.html" title="wikilink">SDL_SaveBMP_RW</a>()</p></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><p><em>Note</em>: Of course there are some other phrases to describe this parameter. A text search for "SDL_Surface* surface" should provide you with plenty of other examples.</p></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><p>&lt;( |4 30%&gt;<em>If</em> the parameter is __SDL_Texture* texture__</p></td>
+<td><p><em>Action 1</em>: Most often this description begins with <code>the texture to</code>, followed by what is being done (ie: create, destroy, etc.).</p></td>
+</tr>
+<tr class="odd">
+<td><p><em>Action 2</em>: The most common versions are <code>the texture to update</code> (often used with Set functions) or <code>the texture to query</code> (often used with Get functions).</p></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><p><em>Example</em>: <a href="SDL_SetTextureAlphaMod.html" title="wikilink">SDL_SetTextureAlphaMod</a>(), <a href="SDL_QueryTexturePixels.html" title="wikilink">SDL_QueryTexturePixels</a>(), <a href="SDL_UnlockTexture.html" title="wikilink">SDL_UnlockTexture</a>()</p></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><p><em>Note</em>: Of course there are some other phrases to describe this parameter. A text search for "SDL_Texture* texture" should provide you with plenty of other examples.</p></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><p>&lt;( |4 30%&gt;<em>If</em> the parameter is __SDL_Window* window__</p></td>
+<td><p><em>Action 1</em>: Most often this description begins with <code>the window to</code>, followed by what is being done (ie: minimize, maximize, show, etc).</p></td>
+</tr>
+<tr class="odd">
+<td><p><em>Action 2</em>: The most common versions are <code>the window to change</code> (often used with Set functions) or <code>the window to query</code> (often used with Get functions).</p></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><p><em>Example</em>: <a href="SDL_RestoreWindow.html" title="wikilink">SDL_RestoreWindow</a>(), <a href="SDL_SetWindowTitle.html" title="wikilink">SDL_SetWindowTitle</a>(), <a href="SDL_GetWindowFlags.html" title="wikilink">SDL_GetWindowFlags</a>()</p></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><p><em>Note</em>: Of course there are some other phrases to describe this parameter. A text search for "SDL_Window* window" should provide you with plenty of examples.</p></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><p>&lt;( |3 30%&gt;<em>If</em> the parameters include __fmt and <strong>...</strong>__</p></td>
+<td><p><em>Action</em>: For fmt use <code>a</code> <code>printf()</code> <code>style</code> <code>message</code> <code>format</code> <code>string</code><br />
+For <strong>...</strong> use <code>additional</code> <code>parameters</code> <code>matching</code> <code>% tokens</code> <code>in</code> <code>the</code> <strong><code>fmt</code></strong> <code>string,</code> <code>if</code> <code>any</code>.</p></td>
+</tr>
+<tr class="odd">
+<td><p><em>Note</em>: To date this is the only context for the <strong>...</strong> parameter. If your case does not follow this pattern exactly it may be necessary to make some adjustments. Please keep them as minimal as possible while creating an accurate wiki entry.</p></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><p><em>Example</em>: <a href="SDL_SetError.html" title="wikilink">SDL_SetError</a>(), <a href="SDL_Log.html" title="wikilink">SDL_Log</a>()</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><em>Note</em>: Please do not use Includes in this section. It may occasionally be appropriate to copy and paste the parameters and descriptions from one function to another (perhaps with minor changes). This is the preferred method over using an Include.</p>
+<p>~-<a href="#ToC.html" title="wikilink">Return to Table of Contents</a>-~<br />
+<br />
+=== Return Value === The Return Value section provides basic information about what, if anything, a function will return upon success or failure.</p>
+<p><em><span color="red">Important!</span></em></p>
+<table>
+<tbody>
+<tr class="odd">
+<td><p>&lt;( |3 30%&gt;<em>If</em> the return value is <strong>__void__</strong></p></td>
+<td><p><em>Note</em>: This is <strong>not</strong> the same as __void*__! See the table below for <a href="#void*.html" title="wikilink">void*</a> return values.</p></td>
+</tr>
+<tr class="even">
+<td><p><em>Action</em>: Delete the entire Return Value section, including the header.</p></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><p><em>Example</em>: <a href="SDL_FreeSurface.html" title="wikilink">SDL_FreeSurface</a>()</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Otherwise, <strong>return values follow this basic format:</strong></p>
+<p><code>```</code></p>
+<p>Returns <something> on success or <something else> on failure; call <a href="SDL_GetError.html" title="wikilink">SDL_GetError</a>() for more information. ```</p>
+<p>Use the following tables to determine what to replace <something> and <something else> with in the standard statement above, and to determine whether some other action is required.</p>
+<ul>
+<li>Please check both tables.</li>
+</ul>
+<table>
+<tbody>
+<tr class="odd">
+<td></td>
+<td><p>&lt;bgcolor="#EDEDED"&gt;<em>Replacements by type</em></p></td>
+</tr>
+<tr class="even">
+<td><p>&lt;( 30%&gt;<em>If</em> the return value is __an int (0 or &lt;0)__</p></td>
+<td><p><em>Action</em>: Use <code>Returns 0</code> <code>on success or</code> <code>a negative error</code> <code>code on failure;</code> <code>call </code><a href="SDL_GetError.html" title="wikilink"><code>SDL_GetError</code></a><code>()</code> <code>for more information.</code></p></td>
+</tr>
+<tr class="odd">
+<td><p>&lt;( |2 30%&gt;<em>If</em> the return value is __an int other than above or a float__</p></td>
+<td><p><em>Action</em>: Replace <something> and <something else> with the applicable numbers.</p></td>
+</tr>
+<tr class="even">
+<td><p><em>Example</em>: <code>Returns 1</code> <code>on success</code> <code>or 0 on</code> <code>failure;</code> <code>call</code> <a href="SDL_GetError.html" title="wikilink"><code>SDL_GetError</code></a><code>()</code> <code>for more</code> <code>information.</code></p></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><p>&lt;( 30%&gt;<em>If</em> the return value is __SDL_bool__</p></td>
+<td><p><em>Action</em>: Use <code>Returns</code> <code>SDL_TRUE</code> <code>on success</code> <code>or</code> <code>SDL_FALSE</code> <code>on failure;</code> <code>call </code><a href="SDL_GetError.html" title="wikilink"><code>SDL_GetError</code></a><code>()</code> <code>for</code> <code>more</code> <code>information.</code></p></td>
+</tr>
+<tr class="even">
+<td><p>&lt;( |3 30%&gt;<em>If</em> the return value is __a pointer or NULL__</p></td>
+<td><p><span id="null*"></span><em>Action</em>:Replace <something> with an appropriate description of the pointer (usually leaving out any mention of the pointer, as in parameters) and replace <something else> with NULL.</p></td>
+</tr>
+<tr class="odd">
+<td><p><em>Note</em>: See "<em>If</em> the return value type is __a structure__" below for more details.</p></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><p><em>Example</em>: <a href="SDL_HapticOpen.html" title="wikilink">SDL_HapticOpen</a>(), <a href="SDL_GetRenderer.html" title="wikilink">SDL_GetRenderer</a>()</p></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><p>&lt;( |3 30%&gt;<em>If</em> the return value type is __a structure__</p></td>
+<td><p><em>Action</em>: The general format will approximate: <code>Returns an/the</code> ```<a href="SDL_StructureName.html" title="wikilink">SDL_StructureName</a>``` <code>representing</code> <what it represents>, for success. The failure statement will depend upon what is returned on failure, if anything. See other <em>If</em>s for options.</p></td>
+</tr>
+<tr class="even">
+<td><p><em>Note</em>: Ideally in this case, you would search for other functions using the same return value and replicate the phrasing of others as appropriate. (Example search: "<code>returnValue</code> SDL_", where <code>returnValue</code> is replaced with the value you are interested in.)</p></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><p><em>Example</em>: <a href="SDL_CreateRGBSurfaceFrom.html" title="wikilink">SDL_CreateRGBSurfaceFrom</a>()</p></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><p>&lt;( |3 30%&gt;<em>If</em> the return value is __void*__</p></td>
+<td><p><span id="void*"></span><em>Action</em>:See "<em>If</em> the return value is __<a href="#null*.html" title="wikilink">a pointer or NULL</a>__" above.</p></td>
+</tr>
+<tr class="odd">
+<td><p><em>Note</em>: In most cases it <em>will</em> be appropriate to mention the pointer for void*. Ideally, look at other similar functions for guidance.</p></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><p><em>Example</em>: <a href="SDL_LoadFunction.html" title="wikilink">SDL_LoadFunction</a>(), <a href="SDL_SetWindowData.html" title="wikilink">SDL_SetWindowData</a>()</p></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><p>&lt;( |3 30%&gt;<em>If</em> the return value type is __a Uint__</p></td>
+<td><p><em>Action</em>: Replace <something> with a brief, appropriate description of the Uint.</p></td>
+</tr>
+<tr class="even">
+<td><p><em>Example</em>: <a href="SDL_MapRGBA.html" title="wikilink">SDL_MapRGBA</a>(), <a href="SDL_WasInit.html" title="wikilink">SDL_WasInit</a>()</p></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><p><em>Note</em>: Very rarely the Uint that is returned is a mask of enumerated values. See <a href="SDL_MasksToPixelFormatEnum.html" title="wikilink">SDL_MasksToPixelFormatEnum</a>() for an example of how to handle this.</p></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><p>&lt;( |2 30%&gt;<em>If</em> the return value type is __a char or const char__</p></td>
+<td><p><em>Action</em>: Replace <something> with a brief, appropriate description of the returned string.</p></td>
+</tr>
+<tr class="odd">
+<td><p><em>Example</em>: <a href="SDL_GetCurrentVideoDriver.html" title="wikilink">SDL_GetCurrentVideoDriver</a>()</p></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><p>&lt;( |2 30%&gt;<em>If</em> there are __more than 2__ possible return values</p></td>
+<td><p><em>Action</em>: Add any additional values following the applicable rules above. Keep the primary success and primary failure values first and last, respectively, or place them in some other logical order (such as numerical).</p></td>
+</tr>
+<tr class="odd">
+<td><p><em>Example</em>: <a href="SDL_HapticOpened.html" title="wikilink">SDL_HapticOpened</a>(), <a href="SDL_OpenAudio.html" title="wikilink">SDL_OpenAudio</a>()</p></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><p>&lt;( |4 30%&gt;<em>If</em> the function __does not have a failure state__</p></td>
+<td><p><em>Note</em>: It is <em>very rare</em> for a function to be unable to fail. This option covers those rare cases only.</p></td>
+</tr>
+<tr class="odd">
+<td><p><em>Action 1</em>: <em>If</em> the function only has 1 return value state:<br />
+Omit the second part of the statement and omit the call to SDL_GetError().</p></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><p><em>Action 2</em>: <em>If</em> the function has 2 return values but they don't represent success and failure:<br />
+Use <code>Returns </code><something> <in this case><code> or</code> <something else><code> otherwise.</code><br />
+and omit the call to SDL_GetError().</p></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><p><em>Example</em>: only 1 return state <a href="SDL_GetAudioDeviceStatus.html" title="wikilink">SDL_GetAudioDeviceStatus</a>(); alternate return state <a href="SDL_QuitRequested.html" title="wikilink">SDL_QuitRequested</a>()</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<table>
+<tbody>
+<tr class="odd">
+<td></td>
+<td><p>&lt;bgcolor="#EDEDED"&gt;<em>Replacements by other criteria</em></p></td>
+</tr>
+<tr class="even">
+<td><p>&lt;( |4 30%&gt;<em>If</em> __a parameter__ on that page is referenced in the return value</p></td>
+<td><p><em>Action</em>: Use <strong><a href="SGWikiBasics#Text_Formatting.html" title="wikilink">bold</a></strong> for the parameter name.</p></td>
+</tr>
+<tr class="odd">
+<td><p><em>Note</em>: This is a very rare occurrence.</p></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><p><em>Note</em>: If the reference is to the parameter as a <em>concept</em> (ie: the window) rather than <em>directly</em> to the parameter itself (ie: window) do not make it bold.<br />
+~-Please don't just make the word bold every time it occurs on the page.-~</p></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><p><em>Example</em>: <a href="SDL_LoadWAV_RW.html" title="wikilink">SDL_LoadWAV_RW</a>(), <a href="SDL_GL_CreateContext.html" title="wikilink">SDL_GL_CreateContext</a>()</p></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><p>&lt;( |3 30%&gt;<em>If</em> the return value mentions __a structure that has a page__</p></td>
+<td><p><em>Action</em>: Use the following pattern to describe the return value:<br />
+Returns <code>the/an</code> ```<a href="SDL_StructureName.html" title="wikilink">SDL_StructureName</a>``` <code>structure</code> <code>representing &lt;some piece</code> <code>of information&gt;</code></p></td>
+</tr>
+<tr class="odd">
+<td><p><em>Note</em>: Be sure to hyperlink the structure name as shown.</p></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><p><em>Example</em>: <a href="SDL_UnionRect.html" title="wikilink">SDL_UnionRect</a>()</p></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><p>&lt;( |2 30%&gt;<em>If</em> the return value mentions __a structure that <em>does not</em> have a page__</p></td>
+<td><p><em>Action</em>: Use the plain English term to describe the structure (ie: SDL_Window == window).</p></td>
+</tr>
+<tr class="even">
+<td><p><em>Note</em>: These structures may eventually have pages or other references worth linking to, in which case please follow the instructions above for linking to items with pages of their own.</p></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><p>&lt;( |2 30%&gt;<em>If</em> the return value must refer to any other __page in the API__</p></td>
+<td><p><em>Action</em>: Create a <a href="SGWikiBasics#Hyperlinks.html" title="wikilink">hyperlink</a> to the page.</p></td>
+</tr>
+<tr class="even">
+<td><p><em>If</em> the page is for an __enumeration__ it is not necessary to describe it as an enumeration as above for structures.</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><em>Note</em>: It is extremely rare that an Include is appropriate in this section. If it were to occur it would only be to provide a list of possible return values that are based on an enumeration (or similar). In that case, please see the instructions for creating an Include in the <a href="SGWikiBasics#Includes.html" title="wikilink">Wiki Basics</a> style guide, and the Include section of the <a href="SGRemarks#Using_an_Include.html" title="wikilink">Remarks</a> style guide for details.</p>
+<ul>
+<li><em>If</em> you use an Include in this section, please email &lt;&lt;MailTo(ANTI SPAM wiki AT libsdl DOT org)&gt;&gt; telling us what page received the Include and what page was used as the source. We are keeping a list of all pages using Includes for future reference and this will help us to keep this list up to date. We appreciate your taking time for this extra step to help us keep our records accurate and useful. Thank you!</li>
+</ul>
+<p>~-<a href="#ToC.html" title="wikilink">Return to Table of Contents</a>-~<br />
+<br />
+=== Code Examples === The Code Examples section is meant to contain simple, meaningful examples of how to use the function in a program.</p>
+<ul>
+<li>Unlike other sections, which should rarely require editing once DRAFT is removed, this section is <em>expected</em> to change over time.</li>
+</ul>
+<p>This is one of the few sections that is intended to grow and adjust as users discover more information about a function that would be helpful to share with other users.</p>
+<p>For the most part the contents of the Code Examples section will be user-generated and this section will remain as-is until users input their examples.</p>
+<p><strong>Please see the <a href="SGCodeExamples.html" title="wikilink">Code Examples</a> Style Guide for details on editing this section.</strong></p>
+<p>~-<a href="#ToC.html" title="wikilink">Return to Table of Contents</a>-~<br />
+<br />
+=== Remarks === The Remarks section is meant to contain additional information that did not fit in the other sections as well as comments regarding the behavior and use of the function in real-world applications.</p>
+<ul>
+<li>Unlike other sections, which should rarely require editing once DRAFT is removed, this section is <em>expected</em> to change over time.</li>
+</ul>
+<p>This is one of the few sections that is intended to grow and adjust as users discover more information about how a function behaves under different circumstances.</p>
+<p>For the most part the contents of the Remarks section will be user-generated and this section will remain as-is until users input their comments.</p>
+<p><em>Note</em>: This is __not__ an appropriate place to post questions, suggestions, bugs, or commentary. Please use the other communication channels available to you, especially the <a href="http://forums.libsdl.org/.html">forums</a> and <em>Feedback</em> form, for these types of remarks.</p>
+<p><strong>Please see the <a href="SGRemarks.html" title="wikilink">Remarks</a> Style Guide for details on editing this section.</strong></p>
+<p>~-<a href="#ToC.html" title="wikilink">Return to Table of Contents</a>-~<br />
+<br />
+=== Related Functions === The Related Functions section provides a list of other functions specifically referenced by that function or otherwise <em>closely</em> related to it.</p>
+<ul>
+<li>In general, a "Related Function" is one that is important to the __use__ or __understanding__ of the given function.</li>
+</ul>
+<p><strong>This list __should__ include:</strong></p>
+<ul>
+<li>the opposite function in a function pair (ie: get/set, do/undo)</li>
+<li>functions that represent close alternatives (ie: general and specific versions, singular and plural versions)</li>
+<li>functions that are called by or otherwise very closely related to the actions of the primary function on the page</li>
+</ul>
+<p><strong>This list __should not__ include:</strong></p>
+<ul>
+<li>the primary function on that page</li>
+<li>every other function that might be considered "related"</li>
+</ul>
+<dl>
+<dt></dt>
+<dd>~-An argument can usually be made for a "relationship" between many functions. Including all of them would make these lists much less valuable.-~
+</dd>
+</dl>
+<ul>
+<li>all functions of similar type or action</li>
+<li>all functions of a related category</li>
+<li>functions that are indirectly related (ie: it might be common to use them together)</li>
+<li>functions that do not have a page in the wiki (usually because they are not public functions)</li>
+<li>non-functions (ie: do not include structures or enumerations in this list)</li>
+</ul>
+<p><em>Note</em>: In most cases a Related Function reference should be reciprocal - if you include function B on the page for function A then function A should be included on the page for function B.</p>
+<p><em>Markup</em>: Each line should begin with a single blank space and a period followed by the function name enclosed in double brackets to create a <a href="SGWikiBasics#Hyperlinks.html" title="wikilink">hyperlink</a>.</p>
+<dl>
+<dt></dt>
+<dd><em>Note</em>: Do not include empty parentheses after the function names in this section. They are all functions so it should be understood/unnecessary.
+</dd>
+</dl>
+<dl>
+<dt></dt>
+<dd><strong>The basic format for the Related Functions list is:</strong>
+</dd>
+</dl>
+<p>```</p>
+<h2 id="related-functions">Related Functions</h2>
+<p><code>.</code><a href="SDL_FunctionName.html" title="wikilink"><code>SDL_FunctionName</code></a><br />
+<code>.</code><a href="SDL_FunctionName.html" title="wikilink"><code>SDL_FunctionName</code></a></p>
+<p>```</p>
+<dl>
+<dt></dt>
+<dd>~-<em>Note</em>: The heading was included to more clearly illustrate the blank space before the period at the beginning of each list line. Without this markup the format will not parse correctly.-~
+</dd>
+</dl>
+<table>
+<tbody>
+<tr class="odd">
+<td><p>&lt;( 30%&gt;<em>If</em> there is __more than one function__ in the list</p></td>
+<td><p><em>Action</em>: List the functions in alphabetical order.</p></td>
+</tr>
+<tr class="even">
+<td><p>&lt;( 30%&gt;<em>If</em> there are __no related functions__</p></td>
+<td><p><em>Action</em>: This section may be removed entirely (including the heading) and added back at a later time if it becomes relevant.</p></td>
+</tr>
+</tbody>
+</table>
+<p><em>Note</em>: Function pages do not include a "Related Structures" or "Related Enumerations" section as some of the other page types do. If there are important related structures or enumerations they are to be included in the body of the page as links (usually in the Function Parameters or Remarks section). If you feel it is critical that a distinct section for one of these groups be included on a specific function page please submit <em>Feedback</em> from that page or contact us at &lt;&lt;MailTo(ANTI SPAM wiki AT libsdl DOT org)&gt;&gt; to discuss it.</p>
+<p>~-<a href="#ToC.html" title="wikilink">Return to Table of Contents</a>-~<br />
+<br />
+<span id="footer"></span></p>
+<h3 id="footer">Footer</h3>
+<p>The Footer section consists of a horizontal rule followed by two links separated by a comma.</p>
+<p><em>Markup</em>: ```</p>
+<hr />
+<p><a href="CategoryAPI.html" title="wikilink">CategoryAPI</a>, <a href="CategoryHeader.html" title="wikilink">CategoryHeader</a> ```</p>
+<dl>
+<dt></dt>
+<dd>where <code>CategoryAPI</code> is the same for every function page and <code>CategoryHeader</code> is function-specific with <code>Header</code> varying based on the header file containing the function (see below).
+</dd>
+</dl>
+<p><span color="red"><em>Important!</em></span> Category names do not always match the header file name. Please consult the following <a href="#CategoryTable.html" title="wikilink">table</a> for the correct name to use so the function will appear in the correct list(s).</p>
+<p><em>Action 1</em>: <strong>Do not edit the <code>CategoryAPI</code> link!</strong></p>
+<p><em>Action 2</em>: <strong>The ```CategoryHeader``` link may be edited</strong> <em>if</em> the page still says  (as on a new page) or <em>if</em> the function has been relocated to another header (very rare).</p>
+<p><em><span color="red">Important!</span></em> There are a few exceptions to this rule (pages with a category name that does not match their header file). These have been determined by the SDL team. Please do not change an existing page's category name simply because it does not match its header file. If you are concerned that a name is incorrect please submit <em>Feedback</em> from that page or contact us at &lt;&lt;MailTo(ANTI SPAM wiki AT libsdl DOT org)&gt;&gt; to confirm the change first.</p>
+<p><em>Markup</em>: Replace <code>CategoryHeader</code> with the appropriate category name from the table that follows, or contact us at &lt;&lt;MailTo(ANTI SPAM wiki AT libsdl DOT org)&gt;&gt; to find out what category name to use if you are unsure or if the category appears to be missing.</p>
+<p><span id="CategoryTable"></span></p>
+<table>
+<tbody>
+<tr class="odd">
+<td><p>&lt;rowbgcolor="#EDEDED"&gt;<em>Header File Containing the Function*</em></p></td>
+<td><p><em>Corresponding Category Name</em></p></td>
+</tr>
+<tr class="even">
+<td><p>SDL.h</p></td>
+<td><p>CategoryInit</p></td>
+</tr>
+<tr class="odd">
+<td><p>SDL_assert.h</p></td>
+<td><p>CategoryAssertions</p></td>
+</tr>
+<tr class="even">
+<td><p>SDL_atomic.h</p></td>
+<td><p>CategoryAtomic</p></td>
+</tr>
+<tr class="odd">
+<td><p>SDL_audio.h</p></td>
+<td><p>CategoryAudio</p></td>
+</tr>
+<tr class="even">
+<td><p>SDL_clipboard.h</p></td>
+<td><p>CategoryClipboard</p></td>
+</tr>
+<tr class="odd">
+<td><p>SDL_bits.h</p></td>
+<td><p>CategoryBits</p></td>
+</tr>
+</tbody>
+</table>
+<table>
+<tbody>
+<tr class="odd">
+<td><p>SDL_cpuinfo.h</p></td>
+<td><p>CategoryCPU</p></td>
+</tr>
+<tr class="even">
+<td><p>SDL_endian.h</p></td>
+<td><p>CategoryEndian</p></td>
+</tr>
+<tr class="odd">
+<td><p>SDL_error.h</p></td>
+<td><p>CategoryError</p></td>
+</tr>
+<tr class="even">
+<td><p>SDL_events.h</p></td>
+<td><p>CategoryEvents</p></td>
+</tr>
+<tr class="odd">
+<td><p>SDL_gamecontroller.h</p></td>
+<td><p>CategoryGameController</p></td>
+</tr>
+</tbody>
+</table>
+<table>
+<tbody>
+<tr class="odd">
+<td><p>SDL_haptic.h</p></td>
+<td><p>CategoryForceFeedback</p></td>
+</tr>
+<tr class="even">
+<td><p>SDL_hints.h</p></td>
+<td><p>CategoryHints</p></td>
+</tr>
+</tbody>
+</table>
+<table>
+<tbody>
+<tr class="odd">
+<td><p>SDL_joystick.h</p></td>
+<td><p>CategoryJoystick</p></td>
+</tr>
+<tr class="even">
+<td><p>SDL_keyboard.h</p></td>
+<td><p>CategoryKeyboard</p></td>
+</tr>
+<tr class="odd">
+<td><p>SDL_keycode.h</p></td>
+<td><p>CategoryKeyboard</p></td>
+</tr>
+<tr class="even">
+<td><p>SDL_loadso.h</p></td>
+<td><p>CategorySharedObject</p></td>
+</tr>
+<tr class="odd">
+<td><p>SDL_log.h</p></td>
+<td><p>CategoryLog</p></td>
+</tr>
+</tbody>
+</table>
+<table>
+<tbody>
+<tr class="odd">
+<td><p>SDL_mouse.h</p></td>
+<td><p>CategoryMouse</p></td>
+</tr>
+<tr class="even">
+<td><p>SDL_mutex.h</p></td>
+<td><p>CategoryMutex</p></td>
+</tr>
+</tbody>
+</table>
+<table>
+<tbody>
+<tr class="odd">
+<td><p>SDL_pixels.h</p></td>
+<td><p>CategoryPixels</p></td>
+</tr>
+<tr class="even">
+<td><p>SDL_platform.h</p></td>
+<td><p>CategoryPlatform</p></td>
+</tr>
+<tr class="odd">
+<td><p>SDL_power.h</p></td>
+<td><p>CategoryPower</p></td>
+</tr>
+<tr class="even">
+<td><p>SDL_quit.h</p></td>
+<td><p>CategoryEvents</p></td>
+</tr>
+<tr class="odd">
+<td><p>SDL_rect.h</p></td>
+<td><p>CategoryRect</p></td>
+</tr>
+<tr class="even">
+<td><p>SDL_render.h</p></td>
+<td><p>CategoryRender</p></td>
+</tr>
+</tbody>
+</table>
+<table>
+<tbody>
+<tr class="odd">
+<td><p>SDL_rwops.h</p></td>
+<td><p>CategoryIO</p></td>
+</tr>
+<tr class="even">
+<td><p>SDL_scancode.h</p></td>
+<td><p>CategoryKeyboard</p></td>
+</tr>
+</tbody>
+</table>
+<table>
+<tbody>
+<tr class="odd">
+<td><p>SDL_surface.h</p></td>
+<td><p>CategorySurface</p></td>
+</tr>
+<tr class="even">
+<td><p>SDL_syswm.h</p></td>
+<td><p>CategorySWM</p></td>
+</tr>
+<tr class="odd">
+<td><p>SDL_thread.h</p></td>
+<td><p>CategoryThread</p></td>
+</tr>
+<tr class="even">
+<td><p>SDL_timer.h</p></td>
+<td><p>CategoryTimer</p></td>
+</tr>
+</tbody>
+</table>
+<table>
+<tbody>
+<tr class="odd">
+<td><p>SDL_version.h</p></td>
+<td><p>CategoryVersion</p></td>
+</tr>
+<tr class="even">
+<td><p>SDL_video.h</p></td>
+<td><p>CategoryVideo</p></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><p>~-*Some exceptions exist. See above.-~</p></td>
+</tr>
+</tbody>
+</table>
+<p>~-<a href="#ToC.html" title="wikilink">Return to Table of Contents</a>-~<br />
+<br />
+</p>
+<h3 id="special">Special</h3>
+<p>This section contains details for special formatting circumstances that are best described separately from the average function page. In general these guidelines should be used in conjunction with the above.</p>
+<p><span id="callback"></span></p>
+<h4 id="callback-functions">Callback Functions</h4>
+<p>The presence of a callback function will affect two (2) sections of the main function's page - Function Parameters and Remarks.</p>
+<p><em>Action 1</em>: <strong>Use the following formatting specifics in addition to those listed for the main function <a href="#Function_Parameters.html" title="wikilink">above</a> whenever a callback function is included on a function page:</strong></p>
+<table>
+<tbody>
+<tr class="odd">
+<td></td>
+<td><p>&lt;bgcolor="#EDEDED"&gt;<em>Function Parameters Section Formatting Details</em></p></td>
+</tr>
+<tr class="even">
+<td><p>&lt;( |3 30%&gt;For the parameter that refers to the __callback__ function</p></td>
+<td><p><em>Action</em>: Use the following wording, modified as necessary, to describe the parameter:<br />
+<code>the</code> <code>function</code> <code>to</code> <code>call</code> <code>&lt;when</code><code>/</code><code>why&gt;;</code> <code>see</code> <a href="#Remarks.html" title="wikilink"><code>Remarks</code></a> <code>for</code> <code>details</code><br />
+where the text in <code>&lt;&gt;</code> is replaced with an appropriate description of when or why the callback would be called.</p></td>
+</tr>
+<tr class="odd">
+<td><p><em>Note</em>: This parameter is often named <strong>callback</strong> but may have other names (such as <strong>filter</strong>, <strong>fn</strong>, or <strong>handler</strong>).</p></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><p><em>Example</em>: <a href="SDL_LogSetOutputFunction.html" title="wikilink">SDL_LogSetOutputFunction</a>(), <a href="SDL_AddEventWatch.html" title="wikilink">SDL_AddEventWatch</a>(), <a href="SDL_CreateThread.html" title="wikilink">SDL_CreateThread</a>(), <a href="SDL_SetAssertionHandler.html" title="wikilink">SDL_SetAssertionHandler</a>()</p></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><p>&lt;( |4 30%&gt;For the parameter that passes __user data__ to the callback</p></td>
+<td><p><span id="UserData"></span><em>Action</em>: Use the following wording, modified as necessary, to describe the parameter:<br />
+<code>a</code> <code>pointer</code> <code>that</code> <code>is</code> <code>passed</code> <code>to</code> <strong><code>callback</code></strong><br />
+where <code>callback</code> is replaced with the callback function parameter name (if necessary).</p></td>
+</tr>
+<tr class="even">
+<td><p><em>Note</em>: In rare cases, often 'Get' functions, this is a pointer to a pointer and should be described as such.</p></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><p><em>Note</em>: This parameter is often named <strong>userdata</strong>, but may have other names (such as <strong>data</strong> or <strong>param</strong>). It is important to distinguish this parameter from other parameters that are passed to the callback also, but that are not strictly carrying "user data" (such as <strong>interval</strong>) and from other parameters that are unrelated to the callback function (such as <strong>name</strong>). See below for details.</p></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><p><em>Example</em>: <a href="SDL_LogSetOutputFunction.html" title="wikilink">SDL_LogSetOutputFunction</a>(), <a href="SDL_CreateThread.html" title="wikilink">SDL_CreateThread</a>(), <a href="SDL_AddTimer.html" title="wikilink">SDL_AddTimer</a>(), <a href="SDL_LogGetOutputFunction.html" title="wikilink">SDL_LogGetOutputFunction</a>()</p></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><p>&lt;( |2 30%&gt;For other parameters __related to the callback__</p></td>
+<td><p><em>Action</em>: There may be other parameters that are passed to the callback function but which are sufficiently different from the __<a href="#UserData.html" title="wikilink">user data</a>__ concept that the wording above does not really apply. In these cases use a description that is appropriate. Often it will still be appropriate to include the phrase <code>passed to</code> <strong><code>callback</code></strong> in these descriptions.</p></td>
+</tr>
+<tr class="even">
+<td><p><em>Example</em>: <a href="SDL_AddTimer.html" title="wikilink">SDL_AddTimer</a>()</p></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><p>&lt;( |2 30%&gt;For additional function parameters __<em>not</em> related to the callback__</p></td>
+<td><p><span id="notCallback"></span><em>Action</em>: Follow any applicable guidelines listed <a href="#Function_Parameters.html" title="wikilink">above</a></p></td>
+</tr>
+<tr class="even">
+<td><p><em>Example</em>: <a href="SDL_CreateThread.html" title="wikilink">SDL_CreateThread</a>()</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><span id="prototype"></span> <em>Action 2</em>: <strong>Detail the syntax and parameters of the callback function in the Remarks section using the following __basic format__ with the changes listed in the table below:</strong></p>
+<p><code>  ```{</code></p>
+<p>The function prototype for <strong>callback</strong> is:</p>
+<p><code>}</code></p>
+<dl>
+<dt></dt>
+<dd>to display
+</dd>
+</dl>
+<p>The function prototype for <strong>callback</strong> is:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode c++"><code class="sourceCode cpp"><a class="sourceLine" id="cb1-1" title="1">callback syntax</a></code></pre></div>
+<dl>
+<dt></dt>
+<dd>where its parameters are:
+</dd>
+</dl>
+<p><code>||callback parameter||description||</code></p>
+<dl>
+<dt></dt>
+<dd>optional return value info...
+</dd>
+<dd>optional remarks or details...
+</dd>
+</dl>
+<table>
+<tbody>
+<tr class="odd">
+<td></td>
+<td><p>&lt;bgcolor="#EDEDED"&gt;<em>Remarks Section Formatting Details</em></p></td>
+</tr>
+<tr class="even">
+<td><p>&lt;( |2 30%&gt;__Location__</p></td>
+<td><p><em>Action</em>: Generally the Remarks section is roughly organized in the same order as the function parameters. Callback details should be located accordingly, or at the top of the Remarks section if there isn't much else, but below any fundamental or critical remarks about the main function as a whole, if present. But, logic should prevail in determining where to place this information if the Remarks section is large. The callback information should be prominent.</p></td>
+</tr>
+<tr class="odd">
+<td><p><em>Example</em>: <a href="SDL_CreateThread.html" title="wikilink">SDL_CreateThread</a>(), <a href="SDL_AddEventWatch.html" title="wikilink">SDL_AddEventWatch</a>(), <a href="SDL_SetAssertionHandler.html" title="wikilink">SDL_SetAssertionHandler</a>()</p></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><p>&lt;( 30%&gt;__Alignment__</p></td>
+<td><p><em>Action</em>: As shown in the <a href="#prototype.html" title="wikilink">basic format</a> above, only the first line should be left-justified. Everything else related directly to the callback should be <a href="SGWikiBasics#Indenting.html" title="wikilink">indented</a> one level (or more) to indicate it's relationship to the callback as opposed to the main function.</p></td>
+</tr>
+<tr class="odd">
+<td><p>&lt;( |2 30%&gt;<em>If</em> the callback parameter is __not <strong>callback</strong>__</p></td>
+<td><p><em>Action</em>: Replace <strong>callback</strong> in the <a href="#prototype.html" title="wikilink">basic format</a> above with the function parameter name used in the main function to refer to the callback function.</p></td>
+</tr>
+<tr class="even">
+<td><p><em>Example</em>: <a href="SDL_SetEventFilter.html" title="wikilink">SDL_SetEventFilter</a>(), <a href="SDL_CreateThread.html" title="wikilink">SDL_CreateThread</a>(), <a href="SDL_SetAssertionHandler.html" title="wikilink">SDL_SetAssertionHandler</a>()</p></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><p>&lt;( 30%&gt;For __"callback syntax"__ in the <a href="#prototype.html" title="wikilink">basic format</a> above</p></td>
+<td><p><em>Action</em>: Replace "callback syntax" with the callback function's syntax formatted the same as the main function's syntax. (See <a href="#Syntax.html" title="wikilink">Syntax</a> above for details.)</p></td>
+</tr>
+<tr class="even">
+<td><p>&lt;( |2 30%&gt;<em>If</em> the __callback function name__ requires any explanation</p></td>
+<td><p><em>Action</em>: Replace "where its parameters are:" in the <a href="#prototype.html" title="wikilink">basic format</a> above with the following:<br />
+<code>where</code> <CallbackName> <code>is</code> <code>&lt;some</code> <code>explanation&gt;</code> <code>and</code> <code>its</code> <code>parameters</code> <code>are:</code><br />
+replacing <Callbackname> with the name of the callback function and <code>&lt;some</code> <code>explanation&gt;</code> with an explanation of the name (ie: your function name).</p></td>
+</tr>
+<tr class="odd">
+<td><p><em>Example</em>: <a href="SDL_AddEventWatch.html" title="wikilink">SDL_AddEventWatch</a>()</p></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><p>&lt;( |4 30%&gt;For __| <code>callback parameter</code> | description |__ in the <a href="#prototype.html" title="wikilink">basic format</a> above</p></td>
+<td><p><em>Action 1</em>: Duplicate the line from above for each parameter in the callback (ie: there should be 2 lines for 2 parameters).</p></td>
+</tr>
+<tr class="odd">
+<td><p><em>Action 2</em>: Replace "callback parameter" with the name of each callback function parameter using the same formatting instructions as the main function <strong><em>except</em></strong> use ```<code>monospace</code>``` (surrounding backticks) rather than bold to highlight the parameter names in the first column.</p></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><p><em>Action 3</em>: Replace "description" with an appropriate description of the callback's parameter. See the following for specific parameters.</p></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><p><em>Example</em>: <a href="SDL_FilterEvents.html" title="wikilink">SDL_FilterEvents</a>(), <a href="SDL_LogSetOutputFunction.html" title="wikilink">SDL_LogSetOutputFunction</a>()</p></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><p>&lt;( |2 30%&gt;For the __<code>userdata</code>__ parameter (or comparable)</p></td>
+<td><p><em>Action</em>: Use the following text (modified as necessary):<br />
+```what was passed as <strong>userdata</strong> to <a href="SDL_MainFunctionName.html" title="wikilink">SDL_MainFunctionName</a>()```<br />
+replacing <strong>userdata</strong> with the appropriate parameter name if necessary, and replacing <code>MainFunctionName</code> with the name of the primary function on the page.</p></td>
+</tr>
+<tr class="odd">
+<td><p><em>Example</em>: <a href="SDL_AddEventWatch.html" title="wikilink">SDL_AddEventWatch</a>(), <a href="SDL_AddTimer.html" title="wikilink">SDL_AddTimer</a>()</p></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><p>&lt;( |3 30%&gt;<em>If</em> the callback function's __return value__ is important</p></td>
+<td><p><em>Action 1</em>: Replace "optional return value info..." in the <a href="#prototype.html" title="wikilink">basic format</a> above with the relevant return value information. Be sure to indent text one level as shown.</p></td>
+</tr>
+<tr class="odd">
+<td><p><em>Note</em>: Callback return value information may be omitted if it is not important.</p></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><p><em>Example</em>: <a href="SDL_AddEventWatch.html" title="wikilink">SDL_AddEventWatch</a>(), <a href="SDL_AddTimer.html" title="wikilink">SDL_AddTimer</a>()</p></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><p>&lt;( |2 30%&gt;<em>If</em> there are __"optional remarks or details"__</p></td>
+<td><p><em>Action</em>: Replace "optional remarks or details..." in the <a href="#prototype.html" title="wikilink">basic format</a> above with any other relevant information about the callback function. Be sure to indent text at least one level as shown.</p></td>
+</tr>
+<tr class="even">
+<td><p><em>Example</em>: <a href="SDL_LogGetOutputFunction.html" title="wikilink">SDL_LogGetOutputFunction</a>(), <a href="SDL_LogSetOutputFunction.html" title="wikilink">SDL_LogSetOutputFunction</a>()</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><br />
+```{#!wiki comment <strong><em>This section has been left in for future reference if a compat section or similar is ever added back. It does not currently apply to any pages.</em></strong></p>
+<h4 id="compatibility-functions">Compatibility Functions</h4>
+<p>Compatibility functions are present in the API for backward compatibility only and thus are treated slightly differently than functions from the current version. <strong>Use the following formatting specifics in addition to those listed above for all <a href="#CategoryCompat.html" title="wikilink">CategoryCompat</a> pages:</strong>:</p>
+<p><em>Action 1</em>: The top of every compatibility function page should include the following, verbatim, to be placed below the pragma markup, below <span color="red">DRAFT</span> if present, and above the page title:</p>
+<p><code>}</code></p>
+<p>~-<a href="#ToC.html" title="wikilink">Return to Table of Contents</a>-~<br />
+<br />
+</p>
+<p>&lt;&lt;Include(SGWikiBasics, , , from="Start SG Include here.", to="##End SG Include here.")&gt;&gt;</p>
+</body>
+</html>

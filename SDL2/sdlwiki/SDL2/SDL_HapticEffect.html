@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>SDL_HapticEffect</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<nav id="TOC">
+<ul>
+<li><a href="#draft">Draft</a></li>
+<li><a href="#sdl_hapticeffect">SDL_HapticEffect</a><ul>
+<li><a href="#data-fields">Data Fields</a></li>
+<li><a href="#remarks">Remarks</a></li>
+<li><a href="#related-structures">Related Structures</a></li>
+<li><a href="#related-functions">Related Functions</a></li>
+</ul></li>
+</ul>
+</nav>
+<h2 id="draft">Draft</h2>
+<p><strong>THIS PAGE IS A WORK IN PROGRESS</strong> ... Please make edits to this page to improve it!</p>
+<h1 id="sdl_hapticeffect">SDL_HapticEffect</h1>
+<p>A union that contains the generic template for any haptic effect.</p>
+<h2 id="data-fields">Data Fields</h2>
+<table>
+<tbody>
+<tr class="odd">
+<td><p>Uint16</p></td>
+<td><p><strong>type</strong></p></td>
+<td><p>effect type; see <a href="SDL_HapticPeriodic.html" title="wikilink">SDL_HapticPeriodic</a> for details</p></td>
+</tr>
+<tr class="even">
+<td><p><a href="SDL_HapticConstant.html" title="wikilink">SDL_HapticConstant</a></p></td>
+<td><p><strong>constant</strong></p></td>
+<td><p>constant effect; see <a href="#Remarks.html" title="wikilink">Remarks</a> for details</p></td>
+</tr>
+<tr class="odd">
+<td><p><a href="SDL_HapticPeriodic.html" title="wikilink">SDL_HapticPeriodic</a></p></td>
+<td><p><strong>periodic</strong></p></td>
+<td><p>periodic effect; see <a href="#Remarks.html" title="wikilink">Remarks</a> for details</p></td>
+</tr>
+<tr class="even">
+<td><p><a href="SDL_HapticCondition.html" title="wikilink">SDL_HapticCondition</a></p></td>
+<td><p><strong>condition</strong></p></td>
+<td><p>condition effect; see <a href="#Remarks.html" title="wikilink">Remarks</a> for details</p></td>
+</tr>
+<tr class="odd">
+<td><p><a href="SDL_HapticRamp.html" title="wikilink">SDL_HapticRamp</a></p></td>
+<td><p><strong>ramp</strong></p></td>
+<td><p>ramp effect; see <a href="#Remarks.html" title="wikilink">Remarks</a> for details</p></td>
+</tr>
+<tr class="even">
+<td><p><a href="SDL_HapticLeftRight.html" title="wikilink">SDL_HapticLeftRight</a></p></td>
+<td><p><strong>leftright</strong></p></td>
+<td><p>left/right effect; see <a href="#Remarks.html" title="wikilink">Remarks</a> for details</p></td>
+</tr>
+<tr class="odd">
+<td><p><a href="SDL_HapticCustom.html" title="wikilink">SDL_HapticCustom</a></p></td>
+<td><p><strong>custom</strong></p></td>
+<td><p>custom effect; see <a href="#Remarks.html" title="wikilink">Remarks</a> for details</p></td>
+</tr>
+</tbody>
+</table>
+<h2 id="remarks">Remarks</h2>
+<p>All structures in this union contain the following common parts:</p>
+<table>
+<tbody>
+<tr class="odd">
+<td></td>
+<td></td>
+<td><p>&lt;bgcolor="#EDEDED"&gt;<em>Replay (all effects except left-right have this)</em></p></td>
+</tr>
+<tr class="even">
+<td><p>Uint32</p></td>
+<td><p><strong>length</strong></p></td>
+<td><p>duration of effect (ms)</p></td>
+</tr>
+<tr class="odd">
+<td><p>Uint16</p></td>
+<td><p><strong>delay</strong></p></td>
+<td><p>delay before starting effect</p></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td><p>&lt;bgcolor="#EDEDED"&gt;<em>Trigger (all effects except left-right have this)</em></p></td>
+</tr>
+<tr class="odd">
+<td><p>Uint16</p></td>
+<td><p><strong>button</strong></p></td>
+<td><p>button that triggers effect</p></td>
+</tr>
+<tr class="even">
+<td><p>Uint16</p></td>
+<td><p><strong>interval</strong></p></td>
+<td><p>how soon before effect can be triggered again</p></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td><p>&lt;bgcolor="#EDEDED"&gt;<em>Envelope (all effects except condition effects and left-right have this)</em></p></td>
+</tr>
+<tr class="even">
+<td><p>Uint16</p></td>
+<td><p><strong>attack_length</strong></p></td>
+<td><p>duration of the attack (ms)</p></td>
+</tr>
+<tr class="odd">
+<td><p>Uint16</p></td>
+<td><p><strong>attack_level</strong></p></td>
+<td><p>level at the start of the attack</p></td>
+</tr>
+<tr class="even">
+<td><p>Uint16</p></td>
+<td><p><strong>fade_length</strong></p></td>
+<td><p>duration of the fade out (ms)</p></td>
+</tr>
+<tr class="odd">
+<td><p>Uint16</p></td>
+<td><p><strong>fade_level</strong></p></td>
+<td><p>level at the end of the fade</p></td>
+</tr>
+</tbody>
+</table>
+<p>All values max at 32767 (0x7FFF). Signed values can be negative. Time values, unless specified otherwise, are in milliseconds.</p>
+<p>You can pass SDL_HAPTIC_INFINITY to <strong>length</strong> instead of a 0-32767 value. Neither <strong>delay</strong>, <strong>interval</strong>, <strong>attack_length</strong>, nor <strong>fade_length</strong> support SDL_HAPTIC_INFINITY. The SDL_HAPTIC_RAMP effect does not support a duration of SDL_HAPTIC_INFINITY. Fade will also not be used since effect never ends.</p>
+<p>Button triggers may not be supported on all devices. It is advised not to use them if possible. Buttons start at index 1 instead of index 0 like the joystick.</p>
+<p>If both <strong>attack_length</strong> and <strong>fade_level</strong> are 0 the <strong>envelope</strong> is not used, otherwise both values are used.</p>
+<p>Here is an example of a constant effect evolution in time: ``` Strength ^ | | effect level --&gt; _________________ | / \ | / \ | / \ | / \ | attack_level --&gt; | \ | | | &lt;--- fade_level | +--------------------------------------------------&gt; Time</p>
+<p><code>                  [--]                 [---]</code><br />
+<code>              attack_length          fade_length</code></p>
+<p>[------------------][-----------------------]</p>
+<p><code>      delay                 length</code></p>
+<p>```</p>
+<p>Note that either the <strong>attack_level</strong> or the <strong>fade_level</strong> may be above the actual effect level.</p>
+<h2 id="related-structures">Related Structures</h2>
+<dl>
+<dt></dt>
+<dd><a href="SDL_HapticCondition.html" title="wikilink">SDL_HapticCondition</a>
+</dd>
+<dd><a href="SDL_HapticConstant.html" title="wikilink">SDL_HapticConstant</a>
+</dd>
+<dd><a href="SDL_HapticCustom.html" title="wikilink">SDL_HapticCustom</a>
+</dd>
+<dd><a href="SDL_HapticLeftRight.html" title="wikilink">SDL_HapticLeftRight</a>
+</dd>
+<dd><a href="SDL_HapticPeriodic.html" title="wikilink">SDL_HapticPeriodic</a>
+</dd>
+<dd><a href="SDL_HapticRamp.html" title="wikilink">SDL_HapticRamp</a>
+</dd>
+</dl>
+<h2 id="related-functions">Related Functions</h2>
+<dl>
+<dt></dt>
+<dd><a href="SDL_HapticEffectSupported.html" title="wikilink">SDL_HapticEffectSupported</a>
+</dd>
+<dd><a href="SDL_HapticNewEffect.html" title="wikilink">SDL_HapticNewEffect</a>
+</dd>
+<dd><a href="SDL_HapticUpdateEffect.html" title="wikilink">SDL_HapticUpdateEffect</a>
+</dd>
+</dl>
+<hr />
+<p><a href="CategoryStruct.html" title="wikilink">CategoryStruct</a>, <a href="CategoryForceFeedback.html" title="wikilink">CategoryForceFeedback</a>, <a href="CategoryDraft.html" title="wikilink">CategoryDraft</a></p>
+</body>
+</html>

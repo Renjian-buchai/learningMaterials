@@ -1,0 +1,1098 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>SGStructures</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+</head>
+<body>
+<nav id="TOC">
+<ul>
+<li><a href="#style-guide-structure-pages">Style Guide: Structure Pages</a><ul>
+<li><a href="#general-guidelines">General Guidelines</a></li>
+<li><a href="#editing-specific-sections">Editing Specific Sections</a><ul>
+<li><a href="#title">Title</a></li>
+</ul></li>
+<li><a href="#related-enumerations">Related Enumerations</a></li>
+<li><a href="#related-structures">Related Structures</a><ul>
+<li><a href="#related-macros">Related Macros</a></li>
+<li><a href="#related-functions">Related Functions</a></li>
+</ul></li>
+<li><a href="#related-functions-1">Related Functions</a><ul>
+<li><a href="#footer">Footer</a></li>
+<li><a href="#special">Special</a></li>
+</ul></li>
+<li><a href="#sdl-1.3-replacements-a">SDL 1.3 Replacement(s) a</a></li>
+<li><a href="#sdl-1.3-replacements-b">SDL 1.3 Replacement(s) b</a></li>
+<li><a href="#sdl-1.3-replacements-c">SDL 1.3 Replacement(s) c</a></li>
+</ul></li>
+</ul>
+</nav>
+<h1 id="style-guide-structure-pages">Style Guide: Structure Pages</h1>
+<p>This guide provides specific instructions for editing or adding your own content to each section of a Structure page in this wiki.</p>
+<p><strong>Structure pages should provide basic information about the SDL structures to allow users to most effectively utilize them in their projects.</strong></p>
+<p><span id="ToC"></span></p>
+<h2 id="general-guidelines">General Guidelines</h2>
+<table>
+<tbody>
+<tr class="odd">
+<td><p><span color="red">Important note about <strong>Unions</strong></span><br />
+The basic structure template is also used for unions that have pages in the wiki. For simplicity, the following guidelines for structures will also apply to unions unless a specific difference is noted.</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Please observe the following for all structure pages:</strong></p>
+<ul>
+<li>Do not post anything that you do not have permission to post publicly.</li>
+</ul>
+<ul>
+<li>Sections should have adequate details to make them clear and useful while remaining brief wherever possible. Code Examples and Remarks may be more extensive than other sections if necessary.</li>
+</ul>
+<ul>
+<li>Please remember to keep it accurate, simple, and easy to understand.</li>
+</ul>
+<ul>
+<li>Do not remove, modify, or add to the markup above the page title ~-(processing instructions (ie: <code>#pragma</code>, <code>#acl</code>), <span color="red">DRAFT</span> markup, etc.)-~ except:</li>
+<li>On CategoryCompat pages, place the following markup above the page title and below the processing instructions or DRAFT markup, if present:</li>
+</ul>
+<dl>
+<dt></dt>
+<dd>```||&lt;tablewidth="100%" #000000 style="color: #FF8C00;" :&gt;<br />
+~+For Backward Compatibility Only+~<br />
+<br />
+||```
+</dd>
+</dl>
+<ul>
+<li>Do not remove, modify, or add section headings unless specifically mentioned below.</li>
+</ul>
+<ul>
+<li>In general, we prefer that you do not remove or modify existing content unless it is clearly incorrect or out of date.</li>
+</ul>
+<ul>
+<li>Pages with <span color="red">DRAFT</span> at the top are in progress and will often contain unusual content, formatting, or notes. Please do not remove or modify these. That will all be corrected/removed upon final edit.</li>
+</ul>
+<p>~-<a href="#ToC.html" title="wikilink">Return to Table of Contents</a>-~<br />
+<br />
+== Getting Started ==</p>
+<p><code>1. Begin by going to the page you wish to edit and selecting </code><span color="blue"><code>Edit (Text)</code></span><code> or </code><span color="blue"><code>Edit (GUI)</code></span><code> in the left column to begin editing.</code><br />
+<code> {i} ~-Markup info provided here is specifically for use in the Text editor but should work in both.-~</code><br />
+<code>1. Scroll down in the edit window to the section(s) you want to edit.  Add your content following the conventions in this style guide.</code><br />
+<code>1. Find information relevant to your content in the style guide sections </code><a href="#specifics.html" title="wikilink"><code>below</code></a><code> and apply the appropriate formatting as you edit.</code><br />
+<code>1. Preview your work as you go by clicking </code><span color="blue"><code>Preview</code></span><code> in the left column.  Preview often and any time you are unsure of formatting. </code></p>
+<dl>
+<dt></dt>
+<dd>~-(Keep in mind that a few things (like <a href="SGWikiBasics#color2.html" title="wikilink">Color2 text</a>) don't preview exactly as they parse.)-~
+</dd>
+</dl>
+<p><code>1. Save your work by clicking </code><span color="blue"><code>Save Changes</code></span><code> in the left column after you are satisfied with your content and have filled in the Comment field under the editing box. </code></p>
+<p>For assistance with editing, saving, or wiki-appropriate markup see the <a href="SGWikiBasics.html" title="wikilink">Wiki Basics</a> Style Guide or contact us at &lt;&lt;MailTo(ANTI SPAM wiki AT libsdl DOT org)&gt;&gt;.</p>
+<p>~-<a href="#ToC.html" title="wikilink">Return to Table of Contents</a>-~<br />
+<br />
+<span id="specifics"></span></p>
+<h2 id="editing-specific-sections">Editing Specific Sections</h2>
+<h3 id="title">Title</h3>
+<p><strong><em>Do not edit the Title.</em></strong></p>
+<p>The Title section consists of the page heading and its markup:</p>
+<p><code>```= SDL_StructureName =``` </code></p>
+<p>For structure pages this is the name of the structure being described on the page and should match the address of the page.</p>
+<p><em>Example</em>: The page address ```https://wiki.libsdl.org/SDL_PixelFormat``` should have matching title  and describe the <a href="SDL_PixelFormat.html" title="wikilink">SDL_PixelFormat</a> structure.</p>
+<p>If you believe a change is necessary please submit <em>Feedback</em> from that page or contact us at &lt;&lt;MailTo(ANTI SPAM wiki AT libsdl DOT org)&gt;&gt;.</p>
+<p>~-<a href="#ToC.html" title="wikilink">Return to Table of Contents</a>-~<br />
+<br />
+=== Description === The Description section immediately follows the page title and does not have it's own heading.</p>
+<p>'''Structure descriptions begin with:</p>
+<p><code>```A structure that contains```'''</code><br />
+<code> or very rarely</code><br />
+<code>```A union that contains```</code></p>
+<dl>
+<dt></dt>
+<dd>followed by a <em>clear and concise</em> description of what the structure contains.
+</dd>
+</dl>
+<p><span id="note1"></span> <em>Note</em>: Information presented in this section is meant to be limited. Extended description information for more complicated structures should be placed in the <a href="#Remarks.html" title="wikilink">Remarks</a> section instead.</p>
+<ul>
+<li>The Description should not contain a link to the Remarks section even if additional information is located there.</li>
+</ul>
+<p><em>Note</em>: Exceptions to the basic description are very unusual. Follow established patterns in the wiki (based on similar pages which may be found by text search) whenever possible if an exception seems appropriate.</p>
+<table>
+<tbody>
+<tr class="odd">
+<td><p>&lt;( |2 30%&gt;<em>If</em> the page describes __a union__ rather than a structure</p></td>
+<td><p><em>Action</em>: Use the alternate description (<code>A union that contains...</code>) and, if necessary, replace the word <code>structure</code> with the word <code>union</code> where appropriate throughout the page.</p></td>
+</tr>
+<tr class="even">
+<td><p><em>Example</em>: <a href="SDL_Event.html" title="wikilink">SDL_Event</a></p></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><p>&lt;( |2 30%&gt;<em>If</em> __another API page__ is referenced in the description</p></td>
+<td><p><em>Action</em>: Be sure to <a href="SGWikiBasics#Hyperlinks.html" title="wikilink">hyperlink</a> it and use () outside the link markup if it is a function.</p></td>
+</tr>
+<tr class="even">
+<td><p><em>Example</em>: ```<a href="SDL_FunctionName.html" title="wikilink">SDL_FunctionName</a>(), <a href="SDL_StructureName.html" title="wikilink">SDL_StructureName</a>```, <a href="SDL_GetThreadName.html" title="wikilink">SDL_GetThreadName</a>()</p></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><p>&lt;( |4 30%&gt;<em>If</em> __a data field on that page__ is referenced in the description</p></td>
+<td><p><em>Action</em>: Use <strong><a href="SGWikiBasics#Text_Formatting.html" title="wikilink">bold</a></strong> for the field name.</p></td>
+</tr>
+<tr class="even">
+<td><p><em>Note</em>: This is a very rare occurrence.</p></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><p><em>Note</em>: If the reference is to the data field as a <em>concept</em> (ie: the refresh rate) rather than <em>directly</em> to the parameter itself (ie: <code>refresh_rate</code>) do not make it bold.<br />
+~-Please don't just make the word bold every time it occurs on the page.-~</p></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><p><em>Example</em>: <a href="SDL_LoadWAV_RW.html" title="wikilink">SDL_LoadWAV_RW</a>(), <a href="SDL_DisplayMode.html" title="wikilink">SDL_DisplayMode</a>, <a href="SDL_Surface.html" title="wikilink">SDL_Surface</a></p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>~-<a href="#ToC.html" title="wikilink">Return to Table of Contents</a>-~<br />
+<br />
+=== Table of Contents === <strong><em>Do not edit the Table of Contents.</em></strong></p>
+<p>The Table of Contents consists of the following markup and is generated automatically on the parsed page.</p>
+<p><code>```&lt;&lt;TableOfContents()&gt;&gt;```</code></p>
+<p>If you believe a change is necessary please submit <em>Feedback</em> from that page or contact us at &lt;&lt;MailTo(ANTI SPAM wiki AT libsdl DOT org)&gt;&gt;.</p>
+<p>~-<a href="#ToC.html" title="wikilink">Return to Table of Contents</a>-~<br />
+<br />
+=== Data Fields === The Data Fields section provides basic information about each field in the structure and is presented in table format.</p>
+<p><strong>The basic format is as follows:</strong> ``` ||type1||<strong>field1</strong>||description|| ||type2*||<strong>field2</strong>||description|| ||<a href="type3.html" title="wikilink">type3</a>||<strong>field3</strong>||description|| ... ||typeN||<strong>fieldN</strong>||description|| ```</p>
+<p><em>Markup</em>: Use <a href="SGWikiBasics#Tables.html" title="wikilink">basic table markup</a> and enclose each field name in <a href="SGWikiBasics#Text_Formatting.html" title="wikilink">bold</a> markup. All text in the table is left-justified.</p>
+<ul>
+<li>The __first column__ contains the field type and any pointers if applicable.</li>
+<li>The __second column__ contains the field name, without types or pointers, in bold.</li>
+<li>The __third column__ contains a simple description of each field using some specific formatting conventions.</li>
+</ul>
+<dl>
+<dt></dt>
+<dd><em><span color="red">Important!</span></em> All descriptions begin with a <em>lower case</em> letter, end <em>without</em> a period, and are generally <em>not</em> complete sentences.
+</dd>
+</dl>
+<p><em>Example</em>: <a href="SDL_Surface.html" title="wikilink">SDL_Surface</a>, <a href="SDL_JoyButtonEvent.html" title="wikilink">SDL_JoyButtonEvent</a>, <a href="SDL_Palette.html" title="wikilink">SDL_Palette</a>, <a href="SDL_HapticCondition.html" title="wikilink">SDL_HapticCondition</a></p>
+<p><em>Action</em>: There are a few content-dependent conventions we have chosen for consistency across pages. See the tables below for details.</p>
+<table>
+<tbody>
+<tr class="odd">
+<td></td>
+<td><p>&lt;bgcolor="#EDEDED"&gt;<span id="general"></span><em>General (whole table)</em></p></td>
+</tr>
+<tr class="even">
+<td><p>&lt;( |4 30%&gt;<em>If</em> the field is __for internal use, deprecated, or unused__ (greyed out)</p></td>
+<td><p><span id="grey"></span><em>Action 1</em>: Place a text notation in parentheses at the <em>end</em> of the description (ie: <code>(deprecated)</code>)</p></td>
+</tr>
+<tr class="odd">
+<td><p><em>Action 2</em>: Make the text in the row grey by including the following, verbatim, in the first cell of the row between the starting table markup and the text:<br />
+```&lt;rowstyle="color: #808080;"&gt;```</p></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><p><em>Note</em>: Although a rare case, any other style markup for that row/cell should be included within the same set of angle brackets (<code>&lt;&gt;</code>) and separated from this markup by a space.</p></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><p><em>Example</em>: ```</p></td>
+<td><p>&lt;rowstyle="color: #808080;"&gt;type</p></td>
+</tr>
+<tr class="even">
+<td><p>&lt;( |3 30%&gt;<em>If</em> the field is __read-only__</p></td>
+<td><p><em>Action</em>: Place the text notation <code>(read-only)</code> in parentheses at the end of the description.<br />
+Do not grey out the line.<br />
+If <em>all</em> fields are read-only notate it in the Remarks instead.</p></td>
+</tr>
+<tr class="odd">
+<td><p><em>Note</em>: This also applies to the rare "<code>(read-write)</code>" field.</p></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><p><em>Example</em>: <a href="SDL_Surface.html" title="wikilink">SDL_Surface</a>, <a href="SDL_PixelFormat.html" title="wikilink">SDL_PixelFormat</a></p></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><p>&lt;( |3 30%&gt;<em>If</em> __another API page__ is referenced <em>and</em> __the field is greyed out__ (see <a href="#grey.html" title="wikilink">above</a>)</p></td>
+<td><p><em>Action 1</em>: DO NOT hyperlink the page in the type column.</p></td>
+</tr>
+<tr class="even">
+<td><p><em>Action 2</em>: List the page, with a hyperlink, in the description, Remarks, and/or in the appropriate "Related" section at the bottom of the page, if appropriate.</p></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><p><em>Example</em>: <a href="SDL_Event.html" title="wikilink">SDL_Event</a></p></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><p>&lt;( |3 30%&gt;<em>If</em> __another API page__ is referenced <em>and</em> __the field is <em>not</em> greyed out__ (see <a href="#grey.html" title="wikilink">above</a>)</p></td>
+<td><p><em>Action1</em>: Be sure to <a href="SGWikiBasics#Hyperlinks.html" title="wikilink">hyperlink</a> it and use () outside the link markup if it is a function.</p></td>
+</tr>
+<tr class="odd">
+<td><p><em>Action 2</em>: List the page in the appropriate "Related" section at the bottom of the page, if appropriate.</p></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><p><em>Example</em>: <a href="SDL_Event.html" title="wikilink">SDL_Event</a>, <a href="SDL_AudioSpec.html" title="wikilink">SDL_AudioSpec</a>, <a href="SDL_SysWMinfo.html" title="wikilink">SDL_SysWMinfo</a></p></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><p>&lt;( |4 30%&gt;<em>If</em> there are __important, distinct groups of fields__ within the structure</p></td>
+<td><p><em>Action</em>: Create sections by placing a full-width row with a grey background and centered, italics title above each group.</p></td>
+</tr>
+<tr class="even">
+<td><p><em>Markup</em>: Begin the row with empty table cells equal to the number of columns in the table -1 (ie: 2 empty cells for a 3 column table). Place the following markup in the next cell<br />
+<code>&lt;bgcolor="#EDEDED"&gt;</code><em><code>Section</code><code> </code><code>Title</code></em><br />
+Replace <code>Section Title</code> with appropriate text and close the last column.</p></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><p><em>Note</em>: This is a rare occurrence. Do not use sections unless they significantly improve the meaning, clarity, or usability of the information.</p></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><p><em>Example</em>: this table, <a href="SDL_HapticConstant.html" title="wikilink">SDL_HapticConstant</a>, <a href="SDL_HapticRamp.html" title="wikilink">SDL_HapticRamp</a></p></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><p>&lt;( |2 30%&gt;<em>If</em> the structure includes __padding__ fields</p></td>
+<td><p><em>Action</em>: Omit all <code>padding</code> fields from the wiki page.</p></td>
+</tr>
+<tr class="even">
+<td><p><em>Example</em>: <a href="SDL_AudioSpec.html" title="wikilink">SDL_AudioSpec</a>, <a href="SDL_WindowEvent.html" title="wikilink">SDL_WindowEvent</a></p></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><p>&lt;( |3 30%&gt;<em>If</em> there is __a pointer__ associated with the field</p></td>
+<td><p><em>Action 1</em>: Place the pointer symbol(s) at the end of the type in the <em>first column</em> with no space between.</p></td>
+</tr>
+<tr class="even">
+<td><p><em>Action 2</em>: In general, avoid mentioning the pointer in the description unless it is necessary to understand the field.</p></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><p><em>Example</em>: ```</p></td>
+<td><p>type*</p></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><p>&lt;bgcolor="#EDEDED"&gt;<em>First Column (type) &amp; Second Column (field)</em></p></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><p>&lt;(&gt;There are currently no special formatting instructions that affect only these columns. See <a href="#general.html" title="wikilink"><em>General</em></a> above.</p></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><p>&lt;bgcolor="#EDEDED"&gt;<em>Third Column (description)</em></p></td>
+</tr>
+<tr class="odd">
+<td><p>&lt;( |3 30%&gt;<em>If</em> __more than one statement__ must be included in the description</p></td>
+<td><p><em>Action</em>: Separate them with a semi-colon (;)</p></td>
+</tr>
+<tr class="even">
+<td><p><em>Note</em>: This should be avoided whenever possible. See "<em>If</em> a __<a href="#detailed.html" title="wikilink">more detailed description</a>__ is required to adequately explain a field" below for more details.</p></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><p><em>Example</em>: <a href="SDL_JoyButtonEvent.html" title="wikilink">SDL_JoyButtonEvent</a>, <a href="SDL_Keysym.html" title="wikilink">SDL_Keysym</a></p></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><p>&lt;( |4 30%&gt;<em>If</em> a __more detailed description__ is required to adequately explain a field</p></td>
+<td><p><span id="detailed"></span><em>Action 1</em> : Append the following, verbatim, to the end of the brief description<br />
+```; see <a href="#Remarks.html" title="wikilink">Remarks</a> for details```</p></td>
+</tr>
+<tr class="odd">
+<td><p><em>Action 2</em>: Place the more detailed information in the <a href="#Remarks.html" title="wikilink">Remarks</a> section.</p></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><p><em>Action 3</em>: See "<em>If</em> the __<a href="#large.html" title="wikilink">Remarks section is large</a>__" below for more details.</p></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><p><em>Example</em>: <a href="SDL_RendererInfo.html" title="wikilink">SDL_RendererInfo</a>, <a href="SDL_HapticEffect.html" title="wikilink">SDL_HapticEffect</a></p></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><p>&lt;( |4 30%&gt;<em>If</em> the __Remarks section is large__</p></td>
+<td><p><span id="large"></span><em>Action 1</em>: Create an <a href="SGWikiBasics#Anchors.html" title="wikilink">anchor</a> immediately before the additional comments you are adding to the Remarks section.</p></td>
+</tr>
+<tr class="odd">
+<td><p><em>Markup</em>: Use ```<span id="anchorname"></span>```, where <code>anchorname</code> is a name of your choosing, to create the anchor in the Remarks section. See <a href="SGWikiBasics#Anchors.html" title="wikilink">Anchors</a> for details.</p></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><p><em>Action 2</em>: Modify the Remarks link in the parameter description (see <em>Action 1</em> in "<em>If</em> a __<a href="#detailed.html" title="wikilink">more detailed description</a>__ is required to adequately explain a field" above) to the following:<br />
+```; see <a href="#anchorname.html" title="wikilink">Remarks</a> for details```<br />
+where <code>anchorname</code> matches the name you chose for the anchor in <em>Action 1</em>.</p></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><p><em>Example</em>: <a href="SDL_RendererInfo.html" title="wikilink">SDL_RendererInfo</a></p></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><p>&lt;( |4 30%&gt;<em>If</em> __a field references another field__ on that same page</p></td>
+<td><p><em>Action</em>: Use <strong><a href="SGWikiBasics#Text_Formatting.html" title="wikilink">bold</a></strong> for the field name.</p></td>
+</tr>
+<tr class="odd">
+<td><p><em>Note</em>: This is a very rare occurrence.</p></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><p><em>Note</em>: If the reference is to the field as a <em>concept</em> rather than <em>directly</em> to the field itself do not make it bold.<br />
+~-Please don't just make the word bold every time it occurs on the page.-~</p></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><p><em>Example</em>: <a href="SDL_AudioCVT.html" title="wikilink">SDL_AudioCVT</a>, <a href="SDL_HapticCustom.html" title="wikilink">SDL_HapticCustom</a></p></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><p>&lt;( |2 30%&gt;<em>If</em> there is __no relevant description text__</p></td>
+<td><p><em>Action</em>: It is acceptable to leave the description cell blank, although it is preferable to put some information there even if it is redundant with the field name or otherwise does not really provide any novel information.</p></td>
+</tr>
+<tr class="odd">
+<td><p><em>Example</em>: <a href="SDL_Color.html" title="wikilink">SDL_Color</a></p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>~-<a href="#ToC.html" title="wikilink">Return to Table of Contents</a>-~<br />
+<br />
+=== Code Examples === The Code Examples section is meant to contain simple, meaningful examples of how to use the structure in a program.</p>
+<ul>
+<li>Unlike other sections, which should rarely require editing once DRAFT is removed, this section is <em>expected</em> to change over time.</li>
+</ul>
+<p>This is one of the few sections that is intended to grow and adjust as users discover more information about a structure that would be helpful to share with other users.</p>
+<p>For the most part the contents of the Code Examples section will be user-generated and this section will remain as-is until users input their examples.</p>
+<p><strong>Please see the <a href="SGCodeExamples.html" title="wikilink">Code Examples</a> Style Guide for details on editing this section.</strong></p>
+<p>~-<a href="#ToC.html" title="wikilink">Return to Table of Contents</a>-~<br />
+<br />
+=== Remarks === The Remarks section is meant to contain additional information that did not fit in the other sections as well as comments regarding the behavior and use of the structure in real-world applications.</p>
+<ul>
+<li>Unlike other sections, which should rarely require editing once DRAFT is removed, this section is <em>expected</em> to change over time.</li>
+</ul>
+<p>This is one of the few sections that is intended to grow and adjust as users discover more information about how a structure behaves under different circumstances.</p>
+<p>For the most part the contents of the Remarks section will be user-generated and this section will remain as-is until users input their comments.</p>
+<p><em>Note</em>: This is __not__ an appropriate place to post questions, suggestions, bugs, or commentary. Please use the other communication channels available to you, especially the <a href="http://forums.libsdl.org/.html">forums</a> and <em>Feedback</em> form, for these types of remarks.</p>
+<p><strong>Please see the <a href="SGRemarks.html" title="wikilink">Remarks</a> Style Guide for details on editing this section.</strong></p>
+<p>~-<a href="#ToC.html" title="wikilink">Return to Table of Contents</a>-~<br />
+<br />
+=== Related Enumerations === The Related Enumerations section provides a list of enumerations specifically referenced by the structure or otherwise <em>closely</em> related to it.</p>
+<p><strong>This list __should__ include:</strong></p>
+<ul>
+<li>enumerations that are specifically referenced in the structure</li>
+<li>enumerations that are indirectly referenced by but still closely related to the structure</li>
+</ul>
+<dl>
+<dt></dt>
+<dd>~-(ie: the enum is not a field type but its values are used to fill in a field as with <a href="SDL_EventType.html" title="wikilink">SDL_EventType</a> for the <code>type</code> field in many event structures)-~
+</dd>
+</dl>
+<p><strong>This list __should not__ include:</strong></p>
+<ul>
+<li>every enumeration that might be considered "related" to the structure or any other listed enumerations</li>
+</ul>
+<dl>
+<dt></dt>
+<dd>~-Including too many would make these lists much less valuable.-~
+</dd>
+</dl>
+<ul>
+<li>all enumerations of similar type</li>
+<li>all enumerations of a related category</li>
+<li>enumerations that are indirectly related</li>
+</ul>
+<dl>
+<dt></dt>
+<dd>~-(ie: it might be common to use them together)-~
+</dd>
+</dl>
+<ul>
+<li>enumerations that do not have a page in the wiki</li>
+<li>non-enumerations</li>
+</ul>
+<dl>
+<dt></dt>
+<dd>~-(ie: do not include functions or structures in this list)-~
+</dd>
+</dl>
+<p><em>Markup</em>: Each line should begin with a single blank space and a period followed by the enumeration name enclosed in double brackets to create a <a href="SGWikiBasics#Hyperlinks.html" title="wikilink">hyperlink</a>.</p>
+<dl>
+<dt></dt>
+<dd><em>Note</em>: Do not include empty parentheses after the name.
+</dd>
+</dl>
+<dl>
+<dt></dt>
+<dd><strong>The basic format for the Related Enumerations list is:</strong>
+</dd>
+</dl>
+<p>```</p>
+<h2 id="related-enumerations">Related Enumerations</h2>
+<p><code>.</code><a href="SDL_EnumerationName.html" title="wikilink"><code>SDL_EnumerationName</code></a><br />
+<code>.</code><a href="SDL_EnumerationName.html" title="wikilink"><code>SDL_EnumerationName</code></a></p>
+<p>```</p>
+<dl>
+<dt></dt>
+<dd>~-<em>Note</em>: The heading was included to more clearly illustrate the blank space before the period at the beginning of each list line. Without this markup the format will not parse correctly.-~
+</dd>
+</dl>
+<table>
+<tbody>
+<tr class="odd">
+<td><p>&lt;( 30%&gt;<em>If</em> there is __more than one enumeration__ in the list</p></td>
+<td><p><em>Action</em>: List the enumerations in alphabetical order.</p></td>
+</tr>
+<tr class="even">
+<td><p>&lt;( 30%&gt;<em>If</em> the structure is __a member of the <a href="SDL_Event.html" title="wikilink">SDL_Event</a> union__</p></td>
+<td><p><em>Action</em>: Include <a href="SDL_EventType.html" title="wikilink">SDL_EventType</a> in this section of the page.</p></td>
+</tr>
+<tr class="odd">
+<td><p>&lt;( |2 30%&gt;<em>If</em> there are __no related enumerations__</p></td>
+<td><p><em>Action</em>: This section may be removed entirely (including the heading) and added back at a later time if it becomes relevant.</p></td>
+</tr>
+<tr class="even">
+<td><p><em>Note</em>: It is common for this section to be empty and removed from the page.</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><em>Example</em>: <a href="SDL_Event.html" title="wikilink">SDL_Event</a>, <a href="SDL_Keysym.html" title="wikilink">SDL_Keysym</a>, <a href="SDL_WindowEvent.html" title="wikilink">SDL_WindowEvent</a></p>
+<p>~-<a href="#ToC.html" title="wikilink">Return to Table of Contents</a>-~<br />
+<br />
+=== Related Structures === The Related Structures section provides a list of other structures (or unions) specifically referenced by the structure or otherwise <em>closely</em> related to it.</p>
+<p><strong>This list __should__ include:</strong></p>
+<ul>
+<li>other structures that are specifically referenced in the structure</li>
+<li>other structures that are indirectly referenced by but closely related to the structure</li>
+</ul>
+<dl>
+<dt></dt>
+<dd>~-This is uncommon.-~
+</dd>
+</dl>
+<p><strong>This list __should not__ include:</strong></p>
+<ul>
+<li>the primary structure on that page</li>
+<li>every other structure that might be considered "related"</li>
+</ul>
+<dl>
+<dt></dt>
+<dd>~-Including too many would make these lists much less valuable.-~
+</dd>
+</dl>
+<ul>
+<li>all structures of similar type</li>
+<li>all structures of a related category</li>
+<li>structures that are indirectly related</li>
+</ul>
+<dl>
+<dt></dt>
+<dd>~-(ie: it might be common to use them together)-~
+</dd>
+</dl>
+<ul>
+<li>structures that do not have a page in the wiki</li>
+<li>non-structures</li>
+</ul>
+<dl>
+<dt></dt>
+<dd>~-(ie: do not include functions or enumerations in this list)-~
+</dd>
+</dl>
+<p><em>Markup</em>: Each line should begin with a single blank space and a period followed by the structure name enclosed in double brackets to create a <a href="SGWikiBasics#Hyperlinks.html" title="wikilink">hyperlink</a>.</p>
+<dl>
+<dt></dt>
+<dd><em>Note</em>: Do not include empty parentheses after the name.
+</dd>
+</dl>
+<dl>
+<dt></dt>
+<dd><strong>The basic format for the Related Structures list is:</strong>
+</dd>
+</dl>
+<p>```</p>
+<h2 id="related-structures">Related Structures</h2>
+<p><code>.</code><a href="SDL_StructureName.html" title="wikilink"><code>SDL_StructureName</code></a><br />
+<code>.</code><a href="SDL_StructureName.html" title="wikilink"><code>SDL_StructureName</code></a></p>
+<p>```</p>
+<dl>
+<dt></dt>
+<dd>~-<em>Note</em>: The heading was included to more clearly illustrate the blank space before the period at the beginning of each list line. Without this markup the format will not parse correctly.-~
+</dd>
+</dl>
+<table>
+<tbody>
+<tr class="odd">
+<td><p>&lt;( 30%&gt;<em>If</em> there is __more than one structure__ in the list</p></td>
+<td><p><em>Action</em>: List the structures in alphabetical order.</p></td>
+</tr>
+<tr class="even">
+<td><p>&lt;( 30%&gt;<em>If</em> the structure is __a member of the <a href="SDL_Event.html" title="wikilink">SDL_Event</a> union__</p></td>
+<td><p><em>Action</em>: Include <a href="SDL_Event.html" title="wikilink">SDL_Event</a> in this section of the page.</p></td>
+</tr>
+<tr class="odd">
+<td><p>&lt;( |2 30%&gt;<em>If</em> there are __no related structures__</p></td>
+<td><p><em>Action</em>: This section may be removed entirely (including the heading) and added back at a later time if it becomes relevant.</p></td>
+</tr>
+<tr class="even">
+<td><p><em>Note</em>: It is common for this section to be empty and removed from the page.</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><em>Example</em>: <a href="SDL_Event.html" title="wikilink">SDL_Event</a>, <a href="SDL_Color.html" title="wikilink">SDL_Color</a>, <a href="SDL_HapticDirection.html" title="wikilink">SDL_HapticDirection</a></p>
+<p>~-<a href="#ToC.html" title="wikilink">Return to Table of Contents</a>-~<br />
+<br />
+<span id="RFs"></span></p>
+<h3 id="related-macros">Related Macros</h3>
+<p>{i} This is a custom section that should not be used except in the most specific circumstances. <em>Example</em>: <a href="SDL_version.html" title="wikilink">SDL_version</a> The Related Macros section provides a list of functions specifically associated with that structure or otherwise <em>closely</em> related to it.</p>
+<p>~-<a href="#ToC.html" title="wikilink">Return to Table of Contents</a>-~<br />
+<br />
+<span id="RFs"></span></p>
+<h3 id="related-functions">Related Functions</h3>
+<p>The Related Functions section provides a list of functions specifically associated with that structure or otherwise <em>closely</em> related to it.</p>
+<ul>
+<li>In general, a "Related Function" is one that __uses the given structure__.</li>
+</ul>
+<p><strong>This list __should__ include:</strong></p>
+<ul>
+<li>functions that use or are otherwise very closely related to the structure</li>
+</ul>
+<p><strong>This list __should not__ include:</strong></p>
+<ul>
+<li>every other function that might be considered "related"</li>
+</ul>
+<dl>
+<dt></dt>
+<dd>~-Including too many would make these lists much less valuable.-~
+</dd>
+</dl>
+<ul>
+<li>all functions of similar type or action</li>
+<li>all functions of a related category</li>
+<li>functions that are indirectly related (ie: a similar function that does not use the structure)</li>
+<li>functions that do not have a page in the wiki</li>
+<li>non-functions (ie: do not include structures or enumerations in this list)</li>
+</ul>
+<p><em>Markup</em>: Each line should begin with a single blank space and a period followed by the function name enclosed in double brackets to create a <a href="SGWikiBasics#Hyperlinks.html" title="wikilink">hyperlink</a>.</p>
+<dl>
+<dt></dt>
+<dd><em>Note</em>: Do not include empty parentheses after the function names in this section. They are all functions so it should be understood/unnecessary.
+</dd>
+</dl>
+<dl>
+<dt></dt>
+<dd><strong>The basic format for the Related Functions list is:</strong>
+</dd>
+</dl>
+<p>```</p>
+<h2 id="related-functions-1">Related Functions</h2>
+<p><code>.</code><a href="SDL_FunctionName.html" title="wikilink"><code>SDL_FunctionName</code></a><br />
+<code>.</code><a href="SDL_FunctionName.html" title="wikilink"><code>SDL_FunctionName</code></a></p>
+<p>```</p>
+<dl>
+<dt></dt>
+<dd>~-<em>Note</em>: The heading was included to more clearly illustrate the blank space before the period at the beginning of each list line. Without this markup the format will not parse correctly.-~
+</dd>
+</dl>
+<table>
+<tbody>
+<tr class="odd">
+<td><p>&lt;( 30%&gt;<em>If</em> there is __more than one function__ in the list</p></td>
+<td><p><em>Action</em>: List the functions in alphabetical order.</p></td>
+</tr>
+<tr class="even">
+<td><p>&lt;( 30%&gt;<em>If</em> there are __no related functions__</p></td>
+<td><p><em>Action</em>: This section may be removed entirely (including the heading) and added back at a later time if it becomes relevant.</p></td>
+</tr>
+</tbody>
+</table>
+<p><em>Example</em>: <a href="SDL_TextInputEvent.html" title="wikilink">SDL_TextInputEvent</a>, <a href="SDL_SysWMinfo.html" title="wikilink">SDL_SysWMinfo</a></p>
+<p>~-<a href="#ToC.html" title="wikilink">Return to Table of Contents</a>-~<br />
+<br />
+<span id="footer"></span></p>
+<h3 id="footer">Footer</h3>
+<p>The Footer section consists of a horizontal rule followed by two links separated by a comma.</p>
+<p><em>Markup</em>: ```</p>
+<hr />
+<p><a href="CategoryStruct.html" title="wikilink">CategoryStruct</a>, <a href="CategoryHeader.html" title="wikilink">CategoryHeader</a> ```</p>
+<dl>
+<dt></dt>
+<dd>where <code>CategoryStruct</code> is the same for every structure page and <code>CategoryHeader</code> is structure-specific with <code>Header</code> varying based on the header file containing the structure (see below).
+</dd>
+</dl>
+<p><span color="red"><em>Important!</em></span> Category names do not always match the header file name. Please consult the following <a href="#CategoryTable.html" title="wikilink">table</a> for the correct name to use so the structure will appear in the correct list(s).</p>
+<p><em>Action 1</em>: <strong>Do not edit the <code>CategoryStruct</code> link!</strong></p>
+<p><em>Action 2</em>: <strong>The ```CategoryHeader``` link may be edited</strong> <em>if</em> the page still says  (as on a new page) or <em>if</em> the structure has been relocated to another header (very rare).</p>
+<p><em><span color="red">Important!</span></em> There are a few exceptions to this rule (pages with a category name that does not match their header file). These have been determined by the SDL team. Please do not change an existing page's category name simply because it does not match its header file. If you are concerned that a name is incorrect please submit <em>Feedback</em> from that page or contact us at &lt;&lt;MailTo(ANTI SPAM wiki AT libsdl DOT org)&gt;&gt; to confirm the change first.</p>
+<p><em>Markup</em>: Replace <code>CategoryHeader</code> with the appropriate category name from the table that follows, or contact us at &lt;&lt;MailTo(ANTI SPAM wiki AT libsdl DOT org)&gt;&gt; to find out what category name to use if you are unsure or if the category appears to be missing.</p>
+<p><span id="CategoryTable"></span></p>
+<table>
+<tbody>
+<tr class="odd">
+<td><p>&lt;rowbgcolor="#EDEDED"&gt;<em>Header File Containing the Structure*</em></p></td>
+<td><p><em>Corresponding Category Name</em></p></td>
+</tr>
+<tr class="even">
+<td><p>SDL.h</p></td>
+<td><p>CategoryInit</p></td>
+</tr>
+<tr class="odd">
+<td><p>SDL_assert.h</p></td>
+<td><p>CategoryAssertions</p></td>
+</tr>
+<tr class="even">
+<td><p>SDL_atomic.h</p></td>
+<td><p>CategoryAtomic</p></td>
+</tr>
+<tr class="odd">
+<td><p>SDL_audio.h</p></td>
+<td><p>CategoryAudio</p></td>
+</tr>
+<tr class="even">
+<td><p>SDL_clipboard.h</p></td>
+<td><p>CategoryClipboard</p></td>
+</tr>
+<tr class="odd">
+<td><p>SDL_compat.h</p></td>
+<td><p>CategoryCompat</p></td>
+</tr>
+</tbody>
+</table>
+<table>
+<tbody>
+<tr class="odd">
+<td><p>SDL_cpuinfo.h</p></td>
+<td><p>CategoryCPU</p></td>
+</tr>
+<tr class="even">
+<td><p>SDL_endian.h</p></td>
+<td><p>CategoryEndian</p></td>
+</tr>
+<tr class="odd">
+<td><p>SDL_error.h</p></td>
+<td><p>CategoryError</p></td>
+</tr>
+<tr class="even">
+<td><p>SDL_events.h</p></td>
+<td><p>CategoryEvents</p></td>
+</tr>
+</tbody>
+</table>
+<table>
+<tbody>
+<tr class="odd">
+<td><p>SDL_haptic.h</p></td>
+<td><p>CategoryForceFeedback</p></td>
+</tr>
+<tr class="even">
+<td><p>SDL_hints.h</p></td>
+<td><p>CategoryHints</p></td>
+</tr>
+</tbody>
+</table>
+<table>
+<tbody>
+<tr class="odd">
+<td><p>SDL_joystick.h</p></td>
+<td><p>CategoryJoystick</p></td>
+</tr>
+<tr class="even">
+<td><p>SDL_keyboard.h</p></td>
+<td><p>CategoryKeyboard</p></td>
+</tr>
+<tr class="odd">
+<td><p>SDL_keycode.h</p></td>
+<td><p>CategoryKeyboard</p></td>
+</tr>
+<tr class="even">
+<td><p>SDL_loadso.h</p></td>
+<td><p>CategorySharedObject</p></td>
+</tr>
+<tr class="odd">
+<td><p>SDL_log.h</p></td>
+<td><p>CategoryLog</p></td>
+</tr>
+</tbody>
+</table>
+<table>
+<tbody>
+<tr class="odd">
+<td><p>SDL_mouse.h</p></td>
+<td><p>CategoryMouse</p></td>
+</tr>
+<tr class="even">
+<td><p>SDL_mutex.h</p></td>
+<td><p>CategoryMutex</p></td>
+</tr>
+</tbody>
+</table>
+<table>
+<tbody>
+<tr class="odd">
+<td><p>SDL_pixels.h</p></td>
+<td><p>CategoryPixels</p></td>
+</tr>
+<tr class="even">
+<td><p>SDL_platform.h</p></td>
+<td><p>CategoryPlatform</p></td>
+</tr>
+<tr class="odd">
+<td><p>SDL_power.h</p></td>
+<td><p>CategoryPower</p></td>
+</tr>
+<tr class="even">
+<td><p>SDL_quit.h</p></td>
+<td><p>CategoryEvents</p></td>
+</tr>
+<tr class="odd">
+<td><p>SDL_rect.h</p></td>
+<td><p>CategoryRect</p></td>
+</tr>
+<tr class="even">
+<td><p>SDL_render.h</p></td>
+<td><p>CategoryRender</p></td>
+</tr>
+</tbody>
+</table>
+<table>
+<tbody>
+<tr class="odd">
+<td><p>SDL_rwops.h</p></td>
+<td><p>CategoryIO</p></td>
+</tr>
+<tr class="even">
+<td><p>SDL_scancode.h</p></td>
+<td><p>CategoryKeyboard</p></td>
+</tr>
+</tbody>
+</table>
+<table>
+<tbody>
+<tr class="odd">
+<td><p>SDL_surface.h</p></td>
+<td><p>CategorySurface</p></td>
+</tr>
+<tr class="even">
+<td><p>SDL_syswm.h</p></td>
+<td><p>CategorySWM</p></td>
+</tr>
+<tr class="odd">
+<td><p>SDL_thread.h</p></td>
+<td><p>CategoryThread</p></td>
+</tr>
+<tr class="even">
+<td><p>SDL_timer.h</p></td>
+<td><p>CategoryTimer</p></td>
+</tr>
+</tbody>
+</table>
+<table>
+<tbody>
+<tr class="odd">
+<td><p>SDL_version.h</p></td>
+<td><p>CategoryVersion</p></td>
+</tr>
+<tr class="even">
+<td><p>SDL_video.h</p></td>
+<td><p>CategoryVideo</p></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><p>~-*Some exceptions exist. See above.-~</p></td>
+</tr>
+</tbody>
+</table>
+<p>~-<a href="#ToC.html" title="wikilink">Return to Table of Contents</a>-~<br />
+<br />
+</p>
+<h3 id="special">Special</h3>
+<p>This section contains details for special formatting circumstances that are best described separately from the average structure page. In general these guidelines should be used in conjunction with the above.</p>
+<p><span id="callback"></span></p>
+<h4 id="callback-functions">Callback Functions</h4>
+<p>Although having a callback function associated with a structure is rare, it does occasionally occur. Documenting this will affect two (2) sections of the structure's page - Data Fields and Remarks.</p>
+<dl>
+<dt></dt>
+<dd><em>Note</em>: Because callback functions are so rare with structures most of the examples listed here will be on function pages. This is for illustrative purposes only. <strong>As of this writing the only callback associated with a structure is the audio callback, found with <a href="SDL_AudioSpec.html" title="wikilink">SDL_AudioSpec</a>.</strong> Because of this rarity many of the guidelines below will not currently apply to a structure-based callback, but this is being written with the future possibilities in mind.
+</dd>
+</dl>
+<p><em>Action 1</em>: <strong>Use the following formatting specifics in addition to those listed <a href="#Data_Fields.html" title="wikilink">above</a> for the structure whenever a callback function is included on a structure page:</strong></p>
+<table>
+<tbody>
+<tr class="odd">
+<td></td>
+<td><p>&lt;bgcolor="#EDEDED"&gt;<em>Data Fields Section Formatting Details</em></p></td>
+</tr>
+<tr class="even">
+<td><p>&lt;( |3 30%&gt;For the field that refers to the __callback__ function</p></td>
+<td><p><em>Action</em>: Use the following wording, modified as necessary, to describe the field:<br />
+<code>the</code> <code>function</code> <code>to</code> <code>call</code> <code>&lt;when</code><code>/</code><code>why&gt;;</code> <code>see</code> <a href="#Remarks.html" title="wikilink"><code>Remarks</code></a> <code>for</code> <code>details</code><br />
+where the text in <code>&lt;&gt;</code> is replaced with an appropriate description of when or why the callback would be called.</p></td>
+</tr>
+<tr class="odd">
+<td><p><em>Note</em>: This parameter is often named <strong>callback</strong> but may have other names.</p></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><p><em>Example</em>: <a href="SDL_LogSetOutputFunction.html" title="wikilink">SDL_LogSetOutputFunction</a>(), <a href="SDL_AddEventWatch.html" title="wikilink">SDL_AddEventWatch</a>(), <a href="SDL_CreateThread.html" title="wikilink">SDL_CreateThread</a>(), <a href="SDL_SetAssertionHandler.html" title="wikilink">SDL_SetAssertionHandler</a>()</p></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><p>&lt;( |4 30%&gt;For the field that passes __user data__ to the callback</p></td>
+<td><p><span id="UserData"></span><em>Action</em>: Use the following wording, modified as necessary, to describe the field:<br />
+<code>a</code> <code>pointer</code> <code>that</code> <code>is</code> <code>passed</code> <code>to</code> <strong><code>callback</code></strong><br />
+where <code>callback</code> is replaced with the callback function field name (if necessary).</p></td>
+</tr>
+<tr class="even">
+<td><p><em>Note</em>: In rare cases this may be a pointer to a pointer and should be described as such.</p></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><p><em>Note</em>: This field is often named <strong>userdata</strong>, but may have other names. It is important to distinguish this field from other fields that are passed to the callback also, but that are not strictly carrying "user data", and from other fields that are unrelated to the callback function (such as <strong>samples</strong>, <strong>channels</strong>). See below for details.</p></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><p><em>Example</em>: <a href="SDL_AudioSpec.html" title="wikilink">SDL_AudioSpec</a>, <a href="SDL_LogSetOutputFunction.html" title="wikilink">SDL_LogSetOutputFunction</a>(), <a href="SDL_CreateThread.html" title="wikilink">SDL_CreateThread</a>()</p></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><p>&lt;( |2 30%&gt;For other fields __related to the callback__</p></td>
+<td><p><em>Action</em>: There may be other fields that are passed to the callback function but which are sufficiently different from the __<a href="#UserData.html" title="wikilink">user data</a>__ concept that the wording above does not really apply. In these cases use a description that is appropriate. Often it will still be appropriate to include the phrase <code>passed to</code> <strong><code>callback</code></strong> in these descriptions.</p></td>
+</tr>
+<tr class="even">
+<td><p><em>Example</em>: <a href="SDL_AddTimer.html" title="wikilink">SDL_AddTimer</a>()</p></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><p>&lt;( |2 30%&gt;For additional data fields __<em>not</em> related to the callback__</p></td>
+<td><p><span id="notCallback"></span><em>Action</em>: Follow any applicable guidelines listed <a href="#Data_Fields.html" title="wikilink">above</a></p></td>
+</tr>
+<tr class="even">
+<td><p><em>Example</em>: <a href="SDL_CreateThread.html" title="wikilink">SDL_CreateThread</a>()</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><span id="prototype"></span> <em>Action 2</em>: <strong>Detail the syntax and parameters of the callback function in the Remarks section using the following __basic format__ with the changes listed in the table below:</strong></p>
+<p><code>  ```{</code></p>
+<p>The function prototype for <strong>callback</strong> is:</p>
+<p><code>}</code></p>
+<dl>
+<dt></dt>
+<dd>to display
+</dd>
+</dl>
+<p>The function prototype for <strong>callback</strong> is:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode c++"><code class="sourceCode cpp"><a class="sourceLine" id="cb1-1" title="1">callback syntax</a></code></pre></div>
+<dl>
+<dt></dt>
+<dd>where its parameters are:
+</dd>
+</dl>
+<p><code>||callback parameter||description||</code></p>
+<dl>
+<dt></dt>
+<dd>optional return value info...
+</dd>
+<dd>optional remarks or details...
+</dd>
+</dl>
+<table>
+<tbody>
+<tr class="odd">
+<td></td>
+<td><p>&lt;bgcolor="#EDEDED"&gt;<em>Remarks Section Formatting Details</em></p></td>
+</tr>
+<tr class="even">
+<td><p>&lt;( |2 30%&gt;__Location__</p></td>
+<td><p><em>Action</em>: Generally the Remarks section is roughly organized in the same order as the data fields. Callback details should be located in the appropriate region of the Remarks section or at the top if all other Remarks are less directly related to a particular data field. But, logic should prevail in determining where to place this information if the Remarks section is large. The callback information should be prominent.</p></td>
+</tr>
+<tr class="odd">
+<td><p><em>Example</em>: <a href="SDL_CreateThread.html" title="wikilink">SDL_CreateThread</a>(), <a href="SDL_AddEventWatch.html" title="wikilink">SDL_AddEventWatch</a>(), <a href="SDL_SetAssertionHandler.html" title="wikilink">SDL_SetAssertionHandler</a>()</p></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><p>&lt;( 30%&gt;__Alignment__</p></td>
+<td><p><em>Action</em>: As shown in the <a href="#prototype.html" title="wikilink">basic format</a> above, only the first line should be left-justified. Everything else related directly to the callback should be <a href="SGWikiBasics#Indenting.html" title="wikilink">indented</a> one level (or more) to indicate it's relationship to the callback as opposed to the structure.</p></td>
+</tr>
+<tr class="odd">
+<td><p>&lt;( |2 30%&gt;<em>If</em> the callback field is __not <strong>callback</strong>__</p></td>
+<td><p><em>Action</em>: Replace <strong>callback</strong> in the <a href="#prototype.html" title="wikilink">basic format</a> above with the data field name used in the structure to refer to the callback function.</p></td>
+</tr>
+<tr class="even">
+<td><p><em>Example</em>: <a href="SDL_SetEventFilter.html" title="wikilink">SDL_SetEventFilter</a>(), <a href="SDL_CreateThread.html" title="wikilink">SDL_CreateThread</a>(), <a href="SDL_SetAssertionHandler.html" title="wikilink">SDL_SetAssertionHandler</a>()</p></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><p>&lt;( 30%&gt;For __"callback syntax"__ in the <a href="#prototype.html" title="wikilink">basic format</a> above</p></td>
+<td><p><em>Action</em>: Replace "callback syntax" with the callback function's syntax formatted the same as <a href="SGFunctions#Syntax.html" title="wikilink">regular functions</a>.</p></td>
+</tr>
+<tr class="even">
+<td><p>&lt;( |2 30%&gt;<em>If</em> the __callback function name__ requires any explanation</p></td>
+<td><p><em>Action</em>: Replace "where its parameters are:" in the <a href="#prototype.html" title="wikilink">basic format</a> above with the following:<br />
+<code>where</code> <CallbackName> <code>is</code> <code>&lt;some</code> <code>explanation&gt;</code> <code>and</code> <code>its</code> <code>parameters</code> <code>are:</code><br />
+replacing <CallbackName> with the name of the callback function and <code>&lt;some</code> <code>explanation&gt;</code> with an explanation of the name (ie: your function name).</p></td>
+</tr>
+<tr class="odd">
+<td><p><em>Example</em>: <a href="SDL_AddEventWatch.html" title="wikilink">SDL_AddEventWatch</a>()</p></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><p>&lt;( |4 30%&gt;For __| <code>callback parameter</code> | description |__ in the <a href="#prototype.html" title="wikilink">basic format</a> above</p></td>
+<td><p><em>Action 1</em>: Duplicate the line from above for each parameter in the callback (ie: there should be 2 lines for 2 parameters).</p></td>
+</tr>
+<tr class="odd">
+<td><p><em>Action 2</em>: Replace "callback parameter" with the name of each callback function parameter using the same formatting instructions as <a href="SGFunctions#Syntax.html" title="wikilink">regular functions</a> <strong><em>except</em></strong> use ```<code>monospace</code>``` (surrounding backticks) rather than bold to highlight the parameter names in the first column.</p></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><p><em>Action 3</em>: Replace "description" with an appropriate description of the callback's parameter. See the following for specific parameters.</p></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><p><em>Example</em>: <a href="SDL_FilterEvents.html" title="wikilink">SDL_FilterEvents</a>(), <a href="SDL_LogSetOutputFunction.html" title="wikilink">SDL_LogSetOutputFunction</a>()</p></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><p>&lt;( |2 30%&gt;For the __<code>userdata</code>__ parameter (or comparable)</p></td>
+<td><p><em>Action</em>: Use the following text (modified as necessary):<br />
+<code>an</code> <code>application-</code><code>specific</code> <code>parameter</code> <code>saved</code> <code>as</code> <strong><code>userdata</code></strong> <code>in</code> <a href="SDL_StructureName.html" title="wikilink"><code>SDL_StructureName</code></a><code>()</code><br />
+replacing <strong>userdata</strong> with the appropriate parameter name if necessary, and replacing <code>StructureName</code> with the name of the structure on the page.</p></td>
+</tr>
+<tr class="odd">
+<td><p><em>Example</em>: <a href="SDL_AddEventWatch.html" title="wikilink">SDL_AddEventWatch</a>(), <a href="SDL_AddTimer.html" title="wikilink">SDL_AddTimer</a>()</p></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><p>&lt;( |3 30%&gt;<em>If</em> the callback function's __return value__ is important</p></td>
+<td><p><em>Action 1</em>: Replace "optional return value info..." in the <a href="#prototype.html" title="wikilink">basic format</a> above with the relevant return value information. Be sure to indent text one level as shown.</p></td>
+</tr>
+<tr class="odd">
+<td><p><em>Note</em>: Callback return value information may be omitted if it is not important. It may be left-justified if it is discussed in the context of the structure rather than the callback itself.</p></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><p><em>Example</em>: <a href="SDL_AudioSpec.html" title="wikilink">SDL_AudioSpec</a>, <a href="SDL_AddEventWatch.html" title="wikilink">SDL_AddEventWatch</a>(), <a href="SDL_AddTimer.html" title="wikilink">SDL_AddTimer</a>()</p></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><p>&lt;( |2 30%&gt;<em>If</em> there are __"optional remarks or details"__</p></td>
+<td><p><em>Action</em>: Replace "optional remarks or details..." in the <a href="#prototype.html" title="wikilink">basic format</a> above with any other relevant information about the callback function. Be sure to indent text at least one level as shown.</p></td>
+</tr>
+<tr class="even">
+<td><p><em>Example</em>: <a href="SDL_LogGetOutputFunction.html" title="wikilink">SDL_LogGetOutputFunction</a>(), <a href="SDL_LogSetOutputFunction.html" title="wikilink">SDL_LogSetOutputFunction</a>()</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><br />
+</p>
+<h4 id="compatibility-structures">Compatibility Structures</h4>
+<p>Compatibility Structures are present in the API for backward compatibility only and thus are treated slightly differently than structures from the current version. <strong>Use the following formatting specifics in addition to those listed above for all <a href="#CategoryCompat.html" title="wikilink">CategoryCompat</a> pages:</strong>:</p>
+<p><em>Action 1</em>: The top of every compatibility structure page should include the following, verbatim, to be placed below the pragma markup, below <span color="red">DRAFT</span> if present, and above the page title:</p>
+<p><code>```</code></p>
+<p>||&lt;tablewidth="100%" #000000 style="color: #FF8C00;" :&gt; &lt;<br />
+&gt;~+For Backward Compatibility Only+~&lt;<br />
+&gt;&lt;<br />
+&gt; || ```</p>
+<p><em>Action 2</em>:</p>
+<p><code>||&lt;( 30%&gt;</code><em><code>If</code></em><code> __only one SDL 1.3 structure__ replaces the compatibility structure||</code><em><code>Action</code></em><code>: See </code><em><code>Markup</code><code> </code><code>A</code></em><code> below.||</code><br />
+<code>||&lt;( |2 30%&gt;</code><em><code>If</code></em><code> __more than one SDL 1.3 structure__ has replaced the compatibility structure||</code><em><code>Action</code></em><code>: See </code><em><code>Markup</code><code> </code><code>B</code></em><code> below.||</code><br />
+<code>||</code><em><code>Note</code></em><code>: This should occur only very rarely, if at all.  Please avoid making the list any larger than necessary.  This is NOT a related structures list!||</code><br />
+<code>||&lt;( 30%&gt;</code><em><code>If</code></em><code> there are __no equivalent structures__ in SDL 1.3||</code><em><code>Action</code></em><code>: See </code><em><code>Markup</code><code> </code><code>C</code></em><code> below.||</code><br />
+<code>||||</code><em><code>Example</code></em><code>: </code><a href="SDL_ActiveEvent.html" title="wikilink"><code>SDL_ActiveEvent</code></a><code>, </code><a href="SDL_Overlay.html" title="wikilink"><code>SDL_Overlay</code></a><code>, </code><a href="SDL_VideoInfo.html" title="wikilink"><code>SDL_VideoInfo</code></a><code>||</code></p>
+<p><br />
+: <em>Markup A</em>: Add the following section to the end of the page above the footer. Replace <code>SDL_Structure</code> with the name of the appropriate SDL 1.3 structure:</p>
+<p><code> ```</code></p>
+<h2 id="sdl-1.3-replacements-a">SDL 1.3 Replacement(s) a</h2>
+<p>||&lt;tablewidth="100%" #000000 style="color: #FF8C00;"&gt;<strong>This structure has been replaced by the following in SDL 1.3: <a href="SDL_Structure.html" title="wikilink">SDL_Structure</a></strong>|| ```<br />
+: <em>Markup B</em>: Add the following section to the end of the page above the footer. Create a list of structures by repeating the <a href="SDL_Structure.html" title="wikilink"><code>SDL_Structure</code></a> markup, separating each member of the list with a comma, and placing the most direct counterpart first, alphabetizing any additional structures after that.</p>
+<p><code> ```</code></p>
+<h2 id="sdl-1.3-replacements-b">SDL 1.3 Replacement(s) b</h2>
+<p>||&lt;tablewidth="100%" #000000 style="color: #FF8C00;"&gt;<strong>This structure has been replaced by the following in SDL 1.3: <a href="SDL_Structure.html" title="wikilink">SDL_Structure</a>, <a href="SDL_Structure.html" title="wikilink">SDL_Structure</a></strong>|| ```<br />
+: <em>Markup C</em>: Add the following section to the end of the page above the footer. Replace <code>Other options here</code> with text describing other options in SDL 1.3 that could be used to accomplish the same goal, or remove it if there is no applicable text:</p>
+<p><code> ```</code></p>
+<h2 id="sdl-1.3-replacements-c">SDL 1.3 Replacement(s) c</h2>
+<p>||&lt;tablewidth="100%" #000000 style="color: #FF8C00;"&gt;<strong>There are currently no equivalent structures in SDL 1.3.</strong>|| Other options here ```</p>
+<p><em>Example</em>: See other <a href="CategoryCompat.html" title="wikilink">CategoryCompat</a> pages for examples</p>
+<p>~-<a href="#ToC.html" title="wikilink">Return to Table of Contents</a>-~<br />
+<br />
+</p>
+<p>&lt;&lt;Include(SGWikiBasics, , , from="Start SG Include here.", to="##End SG Include here.")&gt;&gt;</p>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>SDL_Palette</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<nav id="TOC">
+<ul>
+<li><a href="#sdl_palette">SDL_Palette</a><ul>
+<li><a href="#data-fields">Data Fields</a></li>
+<li><a href="#remarks">Remarks</a></li>
+<li><a href="#related-structures">Related Structures</a></li>
+<li><a href="#related-functions">Related Functions</a></li>
+</ul></li>
+</ul>
+</nav>
+<h1 id="sdl_palette">SDL_Palette</h1>
+<p>A structure that contains palette information.</p>
+<h2 id="data-fields">Data Fields</h2>
+<table>
+<tbody>
+<tr class="odd">
+<td><p>int</p></td>
+<td><p><strong>ncolors</strong></p></td>
+<td><p>the number of colors in the palette</p></td>
+</tr>
+<tr class="even">
+<td><p><a href="SDL_Color.html" title="wikilink">SDL_Color</a>*</p></td>
+<td><p><strong>colors</strong></p></td>
+<td><p>an array of <a href="SDL_Color.html" title="wikilink">SDL_Color</a> structures representing the palette</p></td>
+</tr>
+<tr class="odd">
+<td><p>Uint32</p></td>
+<td><p><strong>version</strong></p></td>
+<td><p>incrementally tracks changes to the palette (internal use)</p></td>
+</tr>
+<tr class="even">
+<td><p>int</p></td>
+<td><p><strong>refcount</strong></p></td>
+<td><p>reference count (internal use)</p></td>
+</tr>
+</tbody>
+</table>
+<h2 id="remarks">Remarks</h2>
+<p>Each pixel in an 8-bit surface is an index into the <strong>colors</strong> field of the <a href="SDL_Palette.html" title="wikilink">SDL_Palette</a> structure stored in <a href="SDL_PixelFormat.html" title="wikilink">SDL_PixelFormat</a>. An <a href="SDL_Palette.html" title="wikilink">SDL_Palette</a> should never need to be created manually. It is automatically created when SDL allocates an <a href="SDL_PixelFormat.html" title="wikilink">SDL_PixelFormat</a> for a surface. The <strong>colors</strong> values of an <a href="SDL_Surface.html" title="wikilink">SDL_Surface</a>'s palette can be set with <a href="SDL_SetPaletteColors.html" title="wikilink">SDL_SetPaletteColors</a>().</p>
+<h2 id="related-structures">Related Structures</h2>
+<dl>
+<dt></dt>
+<dd><a href="SDL_PixelFormat.html" title="wikilink">SDL_PixelFormat</a>
+</dd>
+</dl>
+<h2 id="related-functions">Related Functions</h2>
+<dl>
+<dt></dt>
+<dd><a href="SDL_AllocPalette.html" title="wikilink">SDL_AllocPalette</a>
+</dd>
+<dd><a href="SDL_FreePalette.html" title="wikilink">SDL_FreePalette</a>
+</dd>
+<dd><a href="SDL_SetPaletteColors.html" title="wikilink">SDL_SetPaletteColors</a>
+</dd>
+</dl>
+<hr />
+<p><a href="CategoryStruct.html" title="wikilink">CategoryStruct</a>, <a href="CategoryPixels.html" title="wikilink">CategoryPixels</a></p>
+</body>
+</html>

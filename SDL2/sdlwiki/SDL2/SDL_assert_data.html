@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>SDL_assert_data</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<nav id="TOC">
+<ul>
+<li><a href="#sdl_assert_data">SDL_assert_data</a><ul>
+<li><a href="#data-fields">Data Fields</a></li>
+<li><a href="#remarks">Remarks</a></li>
+<li><a href="#related-functions">Related Functions</a></li>
+</ul></li>
+</ul>
+</nav>
+<h1 id="sdl_assert_data">SDL_assert_data</h1>
+<p>A structure that contains information about an assertion.</p>
+<h2 id="data-fields">Data Fields</h2>
+<table>
+<tbody>
+<tr class="odd">
+<td><p>int</p></td>
+<td><p><strong>always_ignore</strong></p></td>
+<td><p>1 if set, 0 otherwise</p></td>
+</tr>
+<tr class="even">
+<td><p>unsigned int</p></td>
+<td><p><strong>trigger_count</strong></p></td>
+<td><p>number of times this assertion was triggered</p></td>
+</tr>
+<tr class="odd">
+<td><p>const char*</p></td>
+<td><p><strong>condition</strong></p></td>
+<td><p>the assertion condition to check</p></td>
+</tr>
+<tr class="even">
+<td><p>const char*</p></td>
+<td><p><strong>filename</strong></p></td>
+<td><p>the file containing the assertion</p></td>
+</tr>
+<tr class="odd">
+<td><p>int</p></td>
+<td><p><strong>linenum</strong></p></td>
+<td><p>the location of the assertion in the file</p></td>
+</tr>
+<tr class="even">
+<td><p>const char*</p></td>
+<td><p><strong>function</strong></p></td>
+<td><p>the function containing the assertion</p></td>
+</tr>
+<tr class="odd">
+<td><p>const struct SDL_assert_data*</p></td>
+<td><p><strong>next</strong></p></td>
+<td><p>Pointer to next triggered assertion's info</p></td>
+</tr>
+</tbody>
+</table>
+<h2 id="remarks">Remarks</h2>
+<p>This structure is filled in with information about the assertion and is used by the assertion handler then added to the assertion report. This is returned as a linked list from <a href="SDL_GetAssertionReport.html" title="wikilink">SDL_GetAssertionReport</a>().</p>
+<h2 id="related-functions">Related Functions</h2>
+<dl>
+<dt></dt>
+<dd><a href="SDL_assert.html" title="wikilink">SDL_assert</a>
+</dd>
+<dd><a href="SDL_assert_paranoid.html" title="wikilink">SDL_assert_paranoid</a>
+</dd>
+<dd><a href="SDL_assert_release.html" title="wikilink">SDL_assert_release</a>
+</dd>
+<dd><a href="SDL_GetAssertionReport.html" title="wikilink">SDL_GetAssertionReport</a>
+</dd>
+</dl>
+<hr />
+<p><a href="CategoryStruct.html" title="wikilink">CategoryStruct</a>, <a href="CategoryAssertions.html" title="wikilink">CategoryAssertions</a></p>
+</body>
+</html>

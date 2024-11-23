@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>dynapi</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+</head>
+<body>
+<nav id="TOC">
+<ul>
+<li><a href="#dynamic-api">Dynamic API</a></li>
+</ul>
+</nav>
+<h1 id="dynamic-api">Dynamic API</h1>
+<p>Originally posted on Ryan's Google+ account.</p>
+<p>Background:</p>
+<ul>
+<li>The Steam Runtime has (at least in theory) a really kick-ass build of SDL, but developers are shipping their own SDL with individual Steam games. These games might stop getting updates, but a newer SDL might be needed later. Certainly we'll always be fixing bugs in SDL, even if a new video target isn't ever needed, and these fixes won't make it to a game shipping its own SDL.</li>
+<li>Even if we replace the SDL in those games with a compatible one, that is to say, edit a developer's Steam depot (yuck!), there are developers that are statically linking SDL that we can't do this for. We can't even force the dynamic loader to ignore their SDL in this case, of course.</li>
+<li>If you don't ship an SDL with the game in some form, people that disabled the Steam Runtime, or just tried to run the game from the command line instead of Steam might find themselves unable to run the game, due to a missing dependency.</li>
+<li>If you want to ship on non-Steam platforms like GOG or Humble Bundle, or target generic Linux boxes that may or may not have SDL installed, you have to ship the library or risk a total failure to launch. So now, you might have to have a non-Steam build plus a Steam build (that is, one with and one without SDL included), which is inconvenient if you could have had one universal build that works everywhere.</li>
+<li>We like the zlib license, but the biggest complaint from the open source community about the license change is the static linking. The LGPL forced this as a legal, not technical issue, but zlib doesn't care. Even those that aren't concerned about the GNU freedoms found themselves solving the same problems: swapping in a newer SDL to an older game often times can save the day. Static linking stops this dead.</li>
+</ul>
+<p>So here's what we did:</p>
+<p>SDL now has, internally, a table of function pointers. So, this is what SDL_Init now looks like:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode c"><code class="sourceCode c"><a class="sourceLine" id="cb1-1" title="1">UInt32 SDL_Init(Uint32 flags)</a>
+<a class="sourceLine" id="cb1-2" title="2">{</a>
+<a class="sourceLine" id="cb1-3" title="3">    <span class="cf">return</span> jump_table.SDL_Init(flags);</a>
+<a class="sourceLine" id="cb1-4" title="4">}</a></code></pre></div>
+<p>Except that is all done with a bunch of macro magic so we don't have to maintain every one of these.</p>
+<p>What is jump_table.SDL_init()? Eventually, that's a function pointer of the real SDL_Init() that you've been calling all this time. But at startup, it looks more like this:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode c"><code class="sourceCode c"><a class="sourceLine" id="cb2-1" title="1">Uint32 SDL_Init_DEFAULT(Uint32 flags)</a>
+<a class="sourceLine" id="cb2-2" title="2">{</a>
+<a class="sourceLine" id="cb2-3" title="3">    SDL_InitDynamicAPI();</a>
+<a class="sourceLine" id="cb2-4" title="4">    <span class="cf">return</span> jump_table.SDL_Init(flags);</a>
+<a class="sourceLine" id="cb2-5" title="5">}</a></code></pre></div>
+<p>SDL_InitDynamicAPI() fills in jump_table with all the actual SDL function pointers, which means that this <code>_DEFAULT</code> function never gets called again. First call to any SDL function sets the whole thing up.</p>
+<p>So you might be asking, what was the value in that? Isn't this what the operating system's dynamic loader was supposed to do for us? Yes, but now we've got this level of indirection, we can do things like this:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb3-1" title="1"><span class="bu">export</span> <span class="va">SDL3_DYNAMIC_API=</span>/my/actual/libSDL3.so.0</a>
+<a class="sourceLine" id="cb3-2" title="2"><span class="ex">./MyGameThatIsStaticallyLinkedToSDL</span></a></code></pre></div>
+<p>And now, this game that is statically linked to SDL, can still be overridden with a newer, or better, SDL. The statically linked one will only be used as far as calling into the jump table in this case. But in cases where no override is desired, the statically linked version will provide its own jump table, and everyone is happy.</p>
+<p>So now:</p>
+<ul>
+<li>Developers can statically link SDL, and users can still replace it. (We'd still rather you ship a shared library, though!)</li>
+<li>Developers can ship an SDL with their game, Valve can override it for, say, new features on SteamOS, or distros can override it for their own needs, but it'll also just work in the default case.</li>
+<li>Developers can ship the same package to everyone (Humble Bundle, GOG, etc), and it'll do the right thing.</li>
+<li>End users (and Valve) can update a game's SDL in almost any case, to keep abandoned games running on newer platforms.</li>
+<li>Everyone develops with SDL exactly as they have been doing all along. Same headers, same ABI. Just get the latest version to enable this magic.</li>
+</ul>
+<p>A little more about SDL_InitDynamicAPI():</p>
+<p>Internally, InitAPI does some locking to make sure everything waits until a single thread initializes everything (although even SDL_CreateThread() goes through here before spinning a thread, too), and then decides if it should use an external SDL library. If not, it sets up the jump table using the current SDL's function pointers (which might be statically linked into a program, or in a shared library of its own). If so, it loads that library and looks for and calls a single function:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode c"><code class="sourceCode c"><a class="sourceLine" id="cb4-1" title="1">SInt32 SDL_DYNAPI_entry(Uint32 version, <span class="dt">void</span> *table, Uint32 tablesize);</a></code></pre></div>
+<p>That function takes a version number (more on that in a moment), the address of the jump table, and the size, in bytes, of the table. Now, we've got policy here: this table's layout never changes; new stuff gets added to the end. Therefore SDL_DYNAPI_entry() knows that it can provide all the needed functions if tablesize &lt;= sizeof its own jump table. If tablesize is bigger (say, SDL 3.0.4 is trying to load SDL 3.0.3), then we know to abort, but if it's smaller, we know we can provide the entire API that the caller needs.</p>
+<p>The version variable is a failsafe switch. Right now it's always 1. This number changes when there are major API changes (so we know if the tablesize might be smaller, or entries in it have changed). Right now SDL_DYNAPI_entry gives up if the version doesn't match, but it's not inconceivable to have a small dispatch library that only supplies this one function and loads different, otherwise-incompatible SDL libraries and has the right one initialize the jump table based on the version. For something that must generically catch lots of different versions of SDL over time, like the Steam Client, this isn't a bad option.</p>
+<p>Finally, I'm sure some people are reading this and thinking, "I don't want that overhead in my project!"</p>
+<p>To which I would point out that the extra function call through the jump table probably wouldn't even show up in a profile, but lucky you: this can all be disabled. You can build SDL without this if you absolutely must, but we would encourage you not to do that. However, on heavily locked down platforms like iOS, or maybe when debugging, it makes sense to disable it. The way this is designed in SDL, you just have to change one #define, and the entire system vaporizes out, and SDL functions exactly like it always did. Most of it is macro magic, so the system is contained to one C file and a few headers. However, this is on by default and you have to edit a header file to turn it off. Our hopes is that if we make it easy to disable, but not too easy, everyone will ultimately be able to get what they want, but we've gently nudged everyone towards what we think is the best solution.</p>
+</body>
+</html>

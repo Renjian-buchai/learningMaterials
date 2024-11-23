@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>SDL_JoyButtonEvent</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<nav id="TOC">
+<ul>
+<li><a href="#sdl_joybuttonevent">SDL_JoyButtonEvent</a><ul>
+<li><a href="#data-fields">Data Fields</a></li>
+<li><a href="#remarks">Remarks</a></li>
+<li><a href="#related-enumerations">Related Enumerations</a></li>
+<li><a href="#related-structures">Related Structures</a></li>
+<li><a href="#related-functions">Related Functions</a></li>
+</ul></li>
+</ul>
+</nav>
+<h1 id="sdl_joybuttonevent">SDL_JoyButtonEvent</h1>
+<p>A structure that contains joystick button event information.</p>
+<h2 id="data-fields">Data Fields</h2>
+<table>
+<tbody>
+<tr class="odd">
+<td><p>Uint32</p></td>
+<td><p><strong>type</strong></p></td>
+<td><p>the event type; SDL_JOYBUTTONDOWN or SDL_JOYBUTTONUP</p></td>
+</tr>
+<tr class="even">
+<td><p>Uint32</p></td>
+<td><p><strong>timestamp</strong></p></td>
+<td><p>timestamp of the event</p></td>
+</tr>
+<tr class="odd">
+<td><p>SDL_JoystickID</p></td>
+<td><p><strong>which</strong></p></td>
+<td><p>the instance id of the joystick that reported the event</p></td>
+</tr>
+<tr class="even">
+<td><p>Uint8</p></td>
+<td><p><strong>button</strong></p></td>
+<td><p>the index of the button that changed</p></td>
+</tr>
+<tr class="odd">
+<td><p>Uint8</p></td>
+<td><p><strong>state</strong></p></td>
+<td><p>the state of the button; SDL_PRESSED or SDL_RELEASED</p></td>
+</tr>
+</tbody>
+</table>
+<h2 id="remarks">Remarks</h2>
+<p><a href="SDL_JoyButtonEvent.html" title="wikilink">SDL_JoyButtonEvent</a> is a member of the <a href="SDL_Event.html" title="wikilink">SDL_Event</a> union and is used when an event of type SDL_JOYBUTTONDOWN or SDL_JOYBUTTONUP is reported. You would access it through the event's <code>jbutton</code> field.</p>
+<p>An SDL_JOYBUTTONDOWN or SDL_JOYBUTTONUP event occurs whenever a user presses or releases a button on a joystick.</p>
+<h2 id="related-enumerations">Related Enumerations</h2>
+<dl>
+<dt></dt>
+<dd><a href="SDL_EventType.html" title="wikilink">SDL_EventType</a>
+</dd>
+</dl>
+<h2 id="related-structures">Related Structures</h2>
+<dl>
+<dt></dt>
+<dd><a href="SDL_Event.html" title="wikilink">SDL_Event</a>
+</dd>
+<dd><a href="SDL_JoyAxisEvent.html" title="wikilink">SDL_JoyAxisEvent</a>
+</dd>
+<dd><a href="SDL_JoyBallEvent.html" title="wikilink">SDL_JoyBallEvent</a>
+</dd>
+<dd><a href="SDL_JoyHatEvent.html" title="wikilink">SDL_JoyHatEvent</a>
+</dd>
+</dl>
+<h2 id="related-functions">Related Functions</h2>
+<dl>
+<dt></dt>
+<dd><a href="SDL_JoystickEventState.html" title="wikilink">SDL_JoystickEventState</a>
+</dd>
+<dd><a href="SDL_JoystickGetButton.html" title="wikilink">SDL_JoystickGetButton</a>
+</dd>
+</dl>
+<hr />
+<p><a href="CategoryStruct.html" title="wikilink">CategoryStruct</a>, <a href="CategoryEvents.html" title="wikilink">CategoryEvents</a></p>
+</body>
+</html>

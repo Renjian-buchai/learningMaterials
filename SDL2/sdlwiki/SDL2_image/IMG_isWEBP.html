@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>IMG_isWEBP</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+</head>
+<body>
+<nav id="TOC">
+<ul>
+<li><a href="#img_iswebp">IMG_isWEBP</a><ul>
+<li><a href="#syntax">Syntax</a></li>
+<li><a href="#function-parameters">Function Parameters</a></li>
+<li><a href="#return-value">Return Value</a></li>
+<li><a href="#remarks">Remarks</a></li>
+<li><a href="#version">Version</a></li>
+<li><a href="#related-functions">Related Functions</a></li>
+</ul></li>
+</ul>
+</nav>
+<h6 id="this-function-is-part-of-sdl_image-a-separate-library-from-sdl">(This function is part of SDL_image, a separate library from SDL.)</h6>
+<h1 id="img_iswebp">IMG_isWEBP</h1>
+<p>Detect WEBP image data on a readable/seekable SDL_RWops.</p>
+<h2 id="syntax">Syntax</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode c"><code class="sourceCode c"><a class="sourceLine" id="cb1-1" title="1"><span class="dt">int</span> IMG_isWEBP(SDL_RWops *src);</a></code></pre></div>
+<h2 id="function-parameters">Function Parameters</h2>
+<table>
+<tbody>
+<tr class="odd">
+<td><strong>src</strong></td>
+<td>a seekable/readable SDL_RWops to provide image data.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="return-value">Return Value</h2>
+<p>Returns non-zero if this is WEBP data, zero otherwise.</p>
+<h2 id="remarks">Remarks</h2>
+<p>This function attempts to determine if a file is a given filetype, reading the least amount possible from the SDL_RWops (usually a few bytes).</p>
+<p>There is no distinction made between "not the filetype in question" and basic i/o errors.</p>
+<p>This function will always attempt to seek the RWops back to where it started when this function was called, but it will not report any errors in doing so, but assuming seeking works, this means you can immediately use this with a different <a href="IMG_isTYPE.html">IMG_isTYPE</a> function, or load the image without further seeking.</p>
+<p>You do not need to call this function to load data; SDL_image can work to determine file type in many cases in its standard load functions.</p>
+<h2 id="version">Version</h2>
+<p>This function is available since SDL_image 2.0.0.</p>
+<h2 id="related-functions">Related Functions</h2>
+<ul>
+<li><a href="IMG_isAVIF.html">IMG_isAVIF</a></li>
+<li><a href="IMG_isICO.html">IMG_isICO</a></li>
+<li><a href="IMG_isCUR.html">IMG_isCUR</a></li>
+<li><a href="IMG_isBMP.html">IMG_isBMP</a></li>
+<li><a href="IMG_isGIF.html">IMG_isGIF</a></li>
+<li><a href="IMG_isJPG.html">IMG_isJPG</a></li>
+<li><a href="IMG_isJXL.html">IMG_isJXL</a></li>
+<li><a href="IMG_isLBM.html">IMG_isLBM</a></li>
+<li><a href="IMG_isPCX.html">IMG_isPCX</a></li>
+<li><a href="IMG_isPNG.html">IMG_isPNG</a></li>
+<li><a href="IMG_isPNM.html">IMG_isPNM</a></li>
+<li><a href="IMG_isSVG.html">IMG_isSVG</a></li>
+<li><a href="IMG_isQOI.html">IMG_isQOI</a></li>
+<li><a href="IMG_isTIF.html">IMG_isTIF</a></li>
+<li><a href="IMG_isXCF.html">IMG_isXCF</a></li>
+<li><a href="IMG_isXPM.html">IMG_isXPM</a></li>
+<li><a href="IMG_isXV.html">IMG_isXV</a></li>
+</ul>
+<hr />
+<p><a href="CategoryAPI.html">CategoryAPI</a></p>
+</body>
+</html>

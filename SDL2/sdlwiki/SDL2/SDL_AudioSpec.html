@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>SDL_AudioSpec</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+</head>
+<body>
+<nav id="TOC">
+<ul>
+<li><a href="#sdl_audiospec">SDL_AudioSpec</a><ul>
+<li><a href="#data-fields">Data Fields</a></li>
+<li><a href="#code-examples">Code Examples</a></li>
+<li><a href="#remarks">Remarks</a></li>
+<li><a href="#related-functions">Related Functions</a></li>
+</ul></li>
+</ul>
+</nav>
+<h1 id="sdl_audiospec">SDL_AudioSpec</h1>
+<p>A structure that contains the audio output format. It also contains a callback that is called when the audio device needs more data.</p>
+<h2 id="data-fields">Data Fields</h2>
+<table>
+<tbody>
+<tr class="odd">
+<td><p>int</p></td>
+<td><p><strong>freq</strong></p></td>
+<td><p>DSP frequency (samples per second); see <a href="#Remarks.html" title="wikilink">Remarks</a> for details</p></td>
+</tr>
+<tr class="even">
+<td><p><a href="SDL_AudioFormat.html" title="wikilink">SDL_AudioFormat</a></p></td>
+<td><p><strong>format</strong></p></td>
+<td><p>audio data format; see <a href="#Remarks.html" title="wikilink">Remarks</a> for details</p></td>
+</tr>
+<tr class="odd">
+<td><p>Uint8</p></td>
+<td><p><strong>channels</strong></p></td>
+<td><p>number of separate sound channels: see <a href="#Remarks.html" title="wikilink">Remarks</a> for details</p></td>
+</tr>
+<tr class="even">
+<td><p>Uint8</p></td>
+<td><p><strong>silence</strong></p></td>
+<td><p>audio buffer silence value (calculated)</p></td>
+</tr>
+<tr class="odd">
+<td><p>Uint16</p></td>
+<td><p><strong>samples</strong></p></td>
+<td><p>audio buffer size in samples (power of 2); see <a href="#Remarks.html" title="wikilink">Remarks</a> for details</p></td>
+</tr>
+<tr class="even">
+<td><p>Uint32</p></td>
+<td><p><strong>size</strong></p></td>
+<td><p>audio buffer size in bytes (calculated)</p></td>
+</tr>
+<tr class="odd">
+<td><p>SDL_AudioCallback</p></td>
+<td><p><strong>callback</strong></p></td>
+<td><p>the function to call when the audio device needs more data; see <a href="#callback.html" title="wikilink">Remarks</a> for details</p></td>
+</tr>
+<tr class="even">
+<td><p>void*</p></td>
+<td><p><strong>userdata</strong></p></td>
+<td><p>a pointer that is passed to <strong>callback</strong> (otherwise ignored by SDL)</p></td>
+</tr>
+</tbody>
+</table>
+<h2 id="code-examples">Code Examples</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode c++"><code class="sourceCode cpp"><a class="sourceLine" id="cb1-1" title="1">SDL_AudioSpec want, have;</a>
+<a class="sourceLine" id="cb1-2" title="2">SDL_AudioDeviceID dev;</a>
+<a class="sourceLine" id="cb1-3" title="3"></a>
+<a class="sourceLine" id="cb1-4" title="4">SDL_memset(&amp;want, <span class="dv">0</span>, <span class="kw">sizeof</span>(want)); <span class="co">/* or SDL_zero(want) */</span></a>
+<a class="sourceLine" id="cb1-5" title="5">want.freq = <span class="dv">48000</span>;</a>
+<a class="sourceLine" id="cb1-6" title="6">want.format = AUDIO_F32;</a>
+<a class="sourceLine" id="cb1-7" title="7">want.channels = <span class="dv">2</span>;</a>
+<a class="sourceLine" id="cb1-8" title="8">want.samples = <span class="dv">4096</span>;</a>
+<a class="sourceLine" id="cb1-9" title="9">want.callback = MyAudioCallback;  <span class="co">// you wrote this function elsewhere.</span></a>
+<a class="sourceLine" id="cb1-10" title="10">dev = SDL_OpenAudioDevice(NULL, <span class="dv">0</span>, &amp;want, &amp;have, SDL_AUDIO_ALLOW_FORMAT_CHANGE);</a></code></pre></div>
+<h2 id="remarks">Remarks</h2>
+<p>This structure is used by <a href="SDL_OpenAudioDevice.html" title="wikilink">SDL_OpenAudioDevice</a>() and <a href="SDL_LoadWAV.html" title="wikilink">SDL_LoadWAV</a>(). While all fields are used by <a href="SDL_OpenAudioDevice.html" title="wikilink">SDL_OpenAudioDevice</a>(), only <strong>freq</strong>, <strong>format</strong>, <strong>channels</strong>, and <strong>samples</strong> are used by <a href="SDL_LoadWAV.html" title="wikilink">SDL_LoadWAV</a>().</p>
+<p><strong>freq</strong> specifies the number of sample frames sent to the sound device per second. The Nyquist Theorem states that the audio sampling frequency must be exactly twice the highest frequency represented in the audio. Humans can hear up to slightly under 20kHz, declining to 16kHz or lower as we age. Standard CD quality audio uses 44100. DVDs and the <a href="https://opus-codec.org/.html">Opus audio codec</a> use 48000. Values higher than 48000 generally should not be used for playback purposes because they use more memory, use more CPU, and can cause other problems as explained in <a href="https://people.xiph.org/~xiphmont/demo/neil-young.html.html">this blog post by Chris Montgomery of Xiph</a>.</p>
+<p><strong>format</strong> specifies the size and type of each sample element and may be one of the following:</p>
+<table>
+<tbody>
+<tr class="odd">
+<td><p>AUDIO_S8</p></td>
+<td><p>signed 8-bit samples</p></td>
+</tr>
+<tr class="even">
+<td><p>AUDIO_U8</p></td>
+<td><p>unsigned 8-bit samples</p></td>
+</tr>
+<tr class="odd">
+<td><p>AUDIO_S16LSB</p></td>
+<td><p>signed 16-bit samples in little-endian byte order</p></td>
+</tr>
+<tr class="even">
+<td><p>AUDIO_S16MSB</p></td>
+<td><p>signed 16-bit samples in big-endian byte order</p></td>
+</tr>
+<tr class="odd">
+<td><p>AUDIO_S16SYS</p></td>
+<td><p>signed 16-bit samples in native byte order</p></td>
+</tr>
+<tr class="even">
+<td><p>AUDIO_S16</p></td>
+<td><p>AUDIO_S16LSB</p></td>
+</tr>
+<tr class="odd">
+<td><p>AUDIO_U16LSB</p></td>
+<td><p>unsigned 16-bit samples in little-endian byte order</p></td>
+</tr>
+<tr class="even">
+<td><p>AUDIO_U16MSB</p></td>
+<td><p>unsigned 16-bit samples in big-endian byte order</p></td>
+</tr>
+<tr class="odd">
+<td><p>AUDIO_U16SYS</p></td>
+<td><p>unsigned 16-bit samples in native byte order</p></td>
+</tr>
+<tr class="even">
+<td><p>AUDIO_U16</p></td>
+<td><p>AUDIO_U16LSB</p></td>
+</tr>
+<tr class="odd">
+<td><p>AUDIO_S32LSB</p></td>
+<td><p>32-bit integer samples in little-endian byte order</p></td>
+</tr>
+<tr class="even">
+<td><p>AUDIO_S32MSB</p></td>
+<td><p>32-bit integer samples in big-endian byte order</p></td>
+</tr>
+<tr class="odd">
+<td><p>AUDIO_S32SYS</p></td>
+<td><p>32-bit integer samples in native byte order</p></td>
+</tr>
+<tr class="even">
+<td><p>AUDIO_S32</p></td>
+<td><p>AUDIO_S32LSB</p></td>
+</tr>
+<tr class="odd">
+<td><p>AUDIO_F32LSB</p></td>
+<td><p>32-bit floating point samples in little-endian byte order</p></td>
+</tr>
+<tr class="even">
+<td><p>AUDIO_F32MSB</p></td>
+<td><p>32-bit floating point samples in big-endian byte order</p></td>
+</tr>
+<tr class="odd">
+<td><p>AUDIO_F32SYS</p></td>
+<td><p>32-bit floating point samples in native byte order</p></td>
+</tr>
+<tr class="even">
+<td><p>AUDIO_F32</p></td>
+<td><p>AUDIO_F32LSB</p></td>
+</tr>
+</tbody>
+</table>
+<p>See <a href="SDL_AudioFormat.html" title="wikilink">SDL_AudioFormat</a> for more info.</p>
+<p><strong>channels</strong> specifies the number of output channels. As of SDL 2.0, supported values are 1 (mono), 2 (stereo), 4 (quad), and 6 (5.1).</p>
+<p><strong>samples</strong> specifies a unit of audio data. When used with <a href="SDL_OpenAudioDevice.html" title="wikilink">SDL_OpenAudioDevice</a>() this refers to the size of the audio buffer in sample frames. A sample frame is a chunk of audio data of the size specified in <strong>format</strong> multiplied by the number of channels. When the <a href="SDL_AudioSpec.html" title="wikilink">SDL_AudioSpec</a> is used with <a href="SDL_LoadWAV.html" title="wikilink">SDL_LoadWAV</a>() <strong>samples</strong> is set to 4096. This field's value must be a power of two.</p>
+<p>The values <strong>silence</strong> and <strong>size</strong> are calculated by <a href="SDL_OpenAudioDevice.html" title="wikilink">SDL_OpenAudioDevice</a>().</p>
+<p>Channel data is interleaved. Stereo samples are stored in left/right ordering. Quad is stored in front-left/front-right/rear-left/rear-right order. 5.1 is stored in front-left/front-right/center/low-freq/rear-left/rear-right ordering ("low-freq" is the ".1" speaker).</p>
+<p><span id="callback"></span> The function prototype for <strong>callback</strong> is:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode c++"><code class="sourceCode cpp"><a class="sourceLine" id="cb2-1" title="1"><span class="dt">void</span> SDL_AudioCallback(<span class="dt">void</span>*  userdata,</a>
+<a class="sourceLine" id="cb2-2" title="2">                       Uint8* stream,</a>
+<a class="sourceLine" id="cb2-3" title="3">                       <span class="dt">int</span>    len)</a></code></pre></div>
+<p>where its parameters are:</p>
+<table>
+<tbody>
+<tr class="odd">
+<td><p><strong>userdata</strong></p></td>
+<td><p>an application-specific parameter saved in the <a href="SDL_AudioSpec.html" title="wikilink">SDL_AudioSpec</a> structure's <strong>userdata</strong> field</p></td>
+</tr>
+<tr class="even">
+<td><p><strong>stream</strong></p></td>
+<td><p>a pointer to the audio data buffer filled in by SDL_AudioCallback()</p></td>
+</tr>
+<tr class="odd">
+<td><p><strong>len</strong></p></td>
+<td><p>the length of that buffer in bytes</p></td>
+</tr>
+</tbody>
+</table>
+<p>Once the callback returns, the buffer will no longer be valid. Stereo samples are stored in a LRLRLR ordering.</p>
+<p>The callback <em>must</em> completely initialize the buffer; as of SDL 2.0, this buffer is not initialized before the callback is called. If there is nothing to play, the callback should fill the buffer with silence.</p>
+<p>With SDL &gt;= 2.0.4 you can choose to avoid callbacks and use <a href="SDL_QueueAudio.html" title="wikilink">SDL_QueueAudio</a>() instead, if you like. Just open your audio device with a NULL callback.</p>
+<h2 id="related-functions">Related Functions</h2>
+<dl>
+<dt></dt>
+<dd><a href="SDL_LoadWAV.html" title="wikilink">SDL_LoadWAV</a>
+</dd>
+<dd><a href="SDL_LoadWAV_RW.html" title="wikilink">SDL_LoadWAV_RW</a>
+</dd>
+<dd><a href="SDL_OpenAudioDevice.html" title="wikilink">SDL_OpenAudioDevice</a>
+</dd>
+</dl>
+<hr />
+<p><a href="CategoryStruct.html" title="wikilink">CategoryStruct</a>, <a href="CategoryAudio.html" title="wikilink">CategoryAudio</a></p>
+</body>
+</html>

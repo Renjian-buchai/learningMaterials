@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>SDL_JoyDeviceEvent</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<nav id="TOC">
+<ul>
+<li><a href="#draft">Draft</a></li>
+<li><a href="#sdl_joydeviceevent">SDL_JoyDeviceEvent</a><ul>
+<li><a href="#data-fields">Data Fields</a></li>
+<li><a href="#remarks">Remarks</a></li>
+<li><a href="#related-enumerations">Related Enumerations</a></li>
+<li><a href="#related-structures">Related Structures</a></li>
+<li><a href="#related-functions">Related Functions</a></li>
+</ul></li>
+</ul>
+</nav>
+<h2 id="draft">Draft</h2>
+<p><strong>THIS PAGE IS A WORK IN PROGRESS</strong> ... Please make edits to this page to improve it!</p>
+<h1 id="sdl_joydeviceevent">SDL_JoyDeviceEvent</h1>
+<p>A structure that contains joystick device event information.</p>
+<h2 id="data-fields">Data Fields</h2>
+<table>
+<tbody>
+<tr class="odd">
+<td><p>Uint32</p></td>
+<td><p><strong>type</strong></p></td>
+<td><p>SDL_JOYDEVICEADDED or SDL_JOYDEVICEREMOVED</p></td>
+</tr>
+<tr class="even">
+<td><p>Uint32</p></td>
+<td><p><strong>timestamp</strong></p></td>
+<td><p>the timestamp of the event</p></td>
+</tr>
+<tr class="odd">
+<td><p>Sint32</p></td>
+<td><p><strong>which</strong></p></td>
+<td><p>the joystick device index for the SDL_JOYDEVICEADDED event or the instance id for the SDL_JOYDEVICEREMOVED event</p></td>
+</tr>
+</tbody>
+</table>
+<h2 id="remarks">Remarks</h2>
+<p>You would access it through the event's <code>jdevice</code> field.</p>
+<h2 id="related-enumerations">Related Enumerations</h2>
+<dl>
+<dt></dt>
+<dd><a href="SDL_EventType.html" title="wikilink">SDL_EventType</a>
+</dd>
+</dl>
+<h2 id="related-structures">Related Structures</h2>
+<dl>
+<dt></dt>
+<dd><a href="SDL_Event.html" title="wikilink">SDL_Event</a>
+</dd>
+</dl>
+<h2 id="related-functions">Related Functions</h2>
+<dl>
+<dt></dt>
+<dd><a href="SDL_JoystickOpen.html" title="wikilink">SDL_JoystickOpen</a>
+</dd>
+</dl>
+<hr />
+<p><a href="CategoryStruct.html" title="wikilink">CategoryStruct</a>, <a href="CategoryEvents.html" title="wikilink">CategoryEvents</a>, <a href="CategoryDraft.html" title="wikilink">CategoryDraft</a></p>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>SDL_Finger</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<nav id="TOC">
+<ul>
+<li><a href="#draft">Draft</a></li>
+<li><a href="#sdl_finger">SDL_Finger</a><ul>
+<li><a href="#data-fields">Data Fields</a></li>
+<li><a href="#version">Version</a></li>
+<li><a href="#related-structures">Related Structures</a></li>
+<li><a href="#related-functions">Related Functions</a></li>
+</ul></li>
+</ul>
+</nav>
+<h2 id="draft">Draft</h2>
+<p><strong>THIS PAGE IS A WORK IN PROGRESS</strong> ... Please make edits to this page to improve it!</p>
+<h1 id="sdl_finger">SDL_Finger</h1>
+<p>A structure that contains touch information.</p>
+<h2 id="data-fields">Data Fields</h2>
+<table>
+<tbody>
+<tr class="odd">
+<td><p>SDL_FingerID</p></td>
+<td><p><strong>id</strong></p></td>
+<td><p>the finger id</p></td>
+</tr>
+<tr class="even">
+<td><p>float</p></td>
+<td><p><strong>x</strong></p></td>
+<td><p>the x-axis location of the touch event, normalized (0...1)</p></td>
+</tr>
+<tr class="odd">
+<td><p>float</p></td>
+<td><p><strong>y</strong></p></td>
+<td><p>the y-axis location of the touch event, normalized (0...1)</p></td>
+</tr>
+<tr class="even">
+<td><p>float</p></td>
+<td><p><strong>pressure</strong></p></td>
+<td><p>the quantity of pressure applied, normalized (0...1)</p></td>
+</tr>
+</tbody>
+</table>
+<h2 id="version">Version</h2>
+<p>This structure is available since SDL 2.0.0.</p>
+<h2 id="related-structures">Related Structures</h2>
+<dl>
+<dt></dt>
+<dd><a href="SDL_TouchFingerEvent.html" title="wikilink">SDL_TouchFingerEvent</a>
+</dd>
+</dl>
+<h2 id="related-functions">Related Functions</h2>
+<dl>
+<dt></dt>
+<dd><a href="SDL_GetNumTouchFingers.html" title="wikilink">SDL_GetNumTouchFingers</a>
+</dd>
+<dd><a href="SDL_GetTouchFinger.html" title="wikilink">SDL_GetTouchFinger</a>
+</dd>
+</dl>
+<hr />
+<p><a href="CategoryStruct.html" title="wikilink">CategoryStruct</a>, <a href="CategoryEvents.html" title="wikilink">CategoryEvents</a>, <a href="CategoryDraft.html" title="wikilink">CategoryDraft</a></p>
+</body>
+</html>

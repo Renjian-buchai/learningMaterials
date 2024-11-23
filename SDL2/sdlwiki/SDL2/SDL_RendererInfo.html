@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>SDL_RendererInfo</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<nav id="TOC">
+<ul>
+<li><a href="#sdl_rendererinfo">SDL_RendererInfo</a><ul>
+<li><a href="#data-fields">Data Fields</a></li>
+<li><a href="#remarks">Remarks</a></li>
+<li><a href="#related-enumerations">Related Enumerations</a></li>
+<li><a href="#related-functions">Related Functions</a></li>
+</ul></li>
+</ul>
+</nav>
+<h1 id="sdl_rendererinfo">SDL_RendererInfo</h1>
+<p>A structure that contains information on the capabilities of a render driver or the current render context.</p>
+<h2 id="data-fields">Data Fields</h2>
+<table>
+<tbody>
+<tr class="odd">
+<td><p>const char*</p></td>
+<td><p><strong>name</strong></p></td>
+<td><p>the name of the renderer</p></td>
+</tr>
+<tr class="even">
+<td><p>Uint32</p></td>
+<td><p><strong>flags</strong></p></td>
+<td><p>a mask of supported renderer flags; see <a href="#flags.html" title="wikilink">Remarks</a> for details</p></td>
+</tr>
+<tr class="odd">
+<td><p>Uint32</p></td>
+<td><p><strong>num_texture_formats</strong></p></td>
+<td><p>the number of available texture formats</p></td>
+</tr>
+<tr class="even">
+<td><p>Uint32[16]</p></td>
+<td><p><strong>texture_formats</strong></p></td>
+<td><p>the available texture formats; see <a href="#texture_formats.html" title="wikilink">Remarks</a> for details</p></td>
+</tr>
+<tr class="odd">
+<td><p>int</p></td>
+<td><p><strong>max_texture_width</strong></p></td>
+<td><p>the maximum texture width</p></td>
+</tr>
+<tr class="even">
+<td><p>int</p></td>
+<td><p><strong>max_texture_height</strong></p></td>
+<td><p>the maximum texture height</p></td>
+</tr>
+</tbody>
+</table>
+<h2 id="remarks">Remarks</h2>
+<p><span id="flags"></span> <strong>flags</strong> may be 0 or a mask of any of the following <a href="SDL_RendererFlags.html" title="wikilink">SDL_RendererFlags</a> values OR'd together: &lt;&lt;Include(SDL_RendererFlags, , , from="== Values ==", to="== Code Examples ==")&gt;&gt;</p>
+<p><span id="texture_formats"></span> <strong>texture_formats</strong> is an array of <a href="SDL_PixelFormatEnum.html" title="wikilink">SDL_PixelFormatEnum</a> values representing the available texture formats for the renderer &lt;&lt;Include(SDL_PixelFormatEnum, , , from="== Values ==", to="== Code Examples ==")&gt;&gt;</p>
+<h2 id="related-enumerations">Related Enumerations</h2>
+<dl>
+<dt></dt>
+<dd><a href="SDL_BlendMode.html" title="wikilink">SDL_BlendMode</a>
+</dd>
+<dd><a href="SDL_PixelFormatEnum.html" title="wikilink">SDL_PixelFormatEnum</a>
+</dd>
+<dd><a href="SDL_RendererFlags.html" title="wikilink">SDL_RendererFlags</a>
+</dd>
+<dd><a href="SDL_TextureModulate.html" title="wikilink">SDL_TextureModulate</a>
+</dd>
+</dl>
+<h2 id="related-functions">Related Functions</h2>
+<dl>
+<dt></dt>
+<dd><a href="SDL_GetRenderDriverInfo.html" title="wikilink">SDL_GetRenderDriverInfo</a>
+</dd>
+<dd><a href="SDL_GetRendererInfo.html" title="wikilink">SDL_GetRendererInfo</a>
+</dd>
+<dd><a href="SDL_RenderCopy.html" title="wikilink">SDL_RenderCopy</a>
+</dd>
+</dl>
+<hr />
+<p><a href="CategoryStruct.html" title="wikilink">CategoryStruct</a>, <a href="CategoryRender.html" title="wikilink">CategoryRender</a></p>
+</body>
+</html>

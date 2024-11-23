@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>APIByCategory</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<nav id="TOC">
+<ul>
+<li><a href="#sdl-2.0-api-by-category">SDL 2.0 API by Category</a><ul>
+<li><a href="#basics">Basics</a></li>
+<li><a href="#video">Video</a></li>
+<li><a href="#input-events">Input Events</a></li>
+<li><a href="#force-feedback">Force Feedback</a></li>
+<li><a href="#audio">Audio</a></li>
+<li><a href="#threads">Threads</a></li>
+<li><a href="#timers">Timers</a></li>
+<li><a href="#file-abstraction">File Abstraction</a></li>
+<li><a href="#shared-object-support">Shared Object Support</a></li>
+<li><a href="#platform-and-cpu-information">Platform and CPU Information</a></li>
+<li><a href="#power-management">Power Management</a></li>
+<li><a href="#additional-functionality">Additional Functionality</a></li>
+</ul></li>
+</ul>
+</nav>
+<h1 id="sdl-2.0-api-by-category">SDL 2.0 API by Category</h1>
+<h2 id="basics">Basics</h2>
+<table>
+<tbody>
+<tr class="odd">
+<td><p><strong>View information and functions related to...</strong></p></td>
+<td><p><strong>View the header</strong></p></td>
+</tr>
+<tr class="even">
+<td><p><a href="CategoryInit.html" title="wikilink">Initialization and Shutdown</a></p></td>
+<td><p><a href="https://github.com/libsdl-org/SDL/blob/SDL2/include/SDL.h.html">SDL.h</a></p></td>
+</tr>
+<tr class="odd">
+<td><p><a href="CategoryHints.html" title="wikilink">Configuration Variables</a></p></td>
+<td><p><a href="https://github.com/libsdl-org/SDL/blob/SDL2/include/SDL_hints.h.html">SDL_hints.h</a></p></td>
+</tr>
+<tr class="even">
+<td><p><a href="CategoryError.html" title="wikilink">Error Handling</a></p></td>
+<td><p><a href="https://github.com/libsdl-org/SDL/blob/SDL2/include/SDL_error.h.html">SDL_error.h</a></p></td>
+</tr>
+<tr class="odd">
+<td><p><a href="CategoryLog.html" title="wikilink">Log Handling</a></p></td>
+<td><p><a href="https://github.com/libsdl-org/SDL/blob/SDL2/include/SDL_log.h.html">SDL_log.h</a></p></td>
+</tr>
+<tr class="even">
+<td><p><a href="CategoryAssertions.html" title="wikilink">Assertions</a></p></td>
+<td><p><a href="https://github.com/libsdl-org/SDL/blob/SDL2/include/SDL_assert.h.html">SDL_assert.h</a></p></td>
+</tr>
+<tr class="odd">
+<td><p><a href="CategoryVersion.html" title="wikilink">Querying SDL Version</a></p></td>
+<td><p><a href="https://github.com/libsdl-org/SDL/blob/SDL2/include/SDL_version.h.html">SDL_version.h</a></p></td>
+</tr>
+</tbody>
+</table>
+<h2 id="video">Video</h2>
+<table>
+<tbody>
+<tr class="odd">
+<td><p><strong>View information and functions related to...</strong></p></td>
+<td><p><strong>View the header</strong></p></td>
+</tr>
+<tr class="even">
+<td><p><a href="CategoryVideo.html" title="wikilink">Display and Window Management</a></p></td>
+<td><p><a href="https://github.com/libsdl-org/SDL/blob/SDL2/include/SDL_video.h.html">SDL_video.h</a></p></td>
+</tr>
+<tr class="odd">
+<td><p><a href="CategoryRender.html" title="wikilink">2D Accelerated Rendering</a></p></td>
+<td><p><a href="https://github.com/libsdl-org/SDL/blob/SDL2/include/SDL_render.h.html">SDL_render.h</a></p></td>
+</tr>
+<tr class="even">
+<td><p><a href="CategoryPixels.html" title="wikilink">Pixel Formats and Conversion Routines</a></p></td>
+<td><p><a href="https://github.com/libsdl-org/SDL/blob/SDL2/include/SDL_pixels.h.html">SDL_pixels.h</a></p></td>
+</tr>
+<tr class="odd">
+<td><p><a href="CategoryRect.html" title="wikilink">Rectangle Functions</a></p></td>
+<td><p><a href="https://github.com/libsdl-org/SDL/blob/SDL2/include/SDL_rect.h.html">SDL_rect.h</a></p></td>
+</tr>
+<tr class="even">
+<td><p><a href="CategorySurface.html" title="wikilink">Surface Creation and Simple Drawing</a></p></td>
+<td><p><a href="https://github.com/libsdl-org/SDL/blob/SDL2/include/SDL_surface.h.html">SDL_surface.h</a></p></td>
+</tr>
+<tr class="odd">
+<td><p><a href="CategorySWM.html" title="wikilink">Platform-specific Window Management</a></p></td>
+<td><p><a href="https://github.com/libsdl-org/SDL/blob/SDL2/include/SDL_syswm.h.html">SDL_syswm.h</a></p></td>
+</tr>
+<tr class="even">
+<td><p><a href="CategoryClipboard.html" title="wikilink">Clipboard Handling</a></p></td>
+<td><p><a href="https://github.com/libsdl-org/SDL/blob/SDL2/include/SDL_clipboard.h.html">SDL_clipboard.h</a></p></td>
+</tr>
+<tr class="odd">
+<td><p><a href="CategoryVulkan.html" title="wikilink">Vulkan Support</a></p></td>
+<td><p><a href="https://github.com/libsdl-org/SDL/blob/SDL2/include/SDL_vulkan.h.html">SDL_vulkan.h</a></p></td>
+</tr>
+<tr class="even">
+<td><p><a href="CategoryMetal.html" title="wikilink">Metal Support</a></p></td>
+<td><p><a href="https://github.com/libsdl-org/SDL/blob/SDL2/include/SDL_metal.h.html">SDL_metal.h</a></p></td>
+</tr>
+</tbody>
+</table>
+<h2 id="input-events">Input Events</h2>
+<table>
+<tbody>
+<tr class="odd">
+<td><p><strong>View information and functions related to...</strong></p></td>
+<td><p><strong>View the header</strong></p></td>
+</tr>
+<tr class="even">
+<td><p><a href="CategoryEvents.html" title="wikilink">Event Handling</a></p></td>
+<td><p><a href="https://github.com/libsdl-org/SDL/blob/SDL2/include/SDL_events.h.html">SDL_events.h</a></p></td>
+</tr>
+<tr class="odd">
+<td><p><a href="CategoryKeyboard.html" title="wikilink">Keyboard Support</a></p></td>
+<td><p><a href="https://github.com/libsdl-org/SDL/blob/SDL2/include/SDL_keyboard.h.html">SDL_keyboard.h</a><br />
+<a href="https://github.com/libsdl-org/SDL/blob/SDL2/include/SDL_keycode.h.html">SDL_keycode.h</a><br />
+<a href="https://github.com/libsdl-org/SDL/blob/SDL2/include/SDL_scancode.h.html">SDL_scancode.h</a></p></td>
+</tr>
+<tr class="even">
+<td><p><a href="CategoryMouse.html" title="wikilink">Mouse Support</a></p></td>
+<td><p><a href="https://github.com/libsdl-org/SDL/blob/SDL2/include/SDL_mouse.h.html">SDL_mouse.h</a></p></td>
+</tr>
+<tr class="odd">
+<td><p><a href="CategoryJoystick.html" title="wikilink">Joystick Support</a></p></td>
+<td><p><a href="https://github.com/libsdl-org/SDL/blob/SDL2/include/SDL_joystick.h.html">SDL_joystick.h</a></p></td>
+</tr>
+<tr class="even">
+<td><p><a href="CategoryGameController.html" title="wikilink">Game Controller Support</a></p></td>
+<td><p><a href="https://github.com/libsdl-org/SDL/blob/SDL2/include/SDL_gamecontroller.h.html">SDL_gamecontroller.h</a></p></td>
+</tr>
+<tr class="odd">
+<td><p><a href="CategorySensor.html" title="wikilink">Sensors</a></p></td>
+<td><p><a href="https://github.com/libsdl-org/SDL/blob/SDL2/include/SDL_sensor.h.html">SDL_sensor.h</a></p></td>
+</tr>
+</tbody>
+</table>
+<h2 id="force-feedback">Force Feedback</h2>
+<table>
+<tbody>
+<tr class="odd">
+<td><p><strong>View information and functions related to...</strong></p></td>
+<td><p><strong>View the header</strong></p></td>
+</tr>
+<tr class="even">
+<td><p><a href="CategoryForceFeedback.html" title="wikilink">Force Feedback Support</a></p></td>
+<td><p><a href="https://github.com/libsdl-org/SDL/blob/SDL2/include/SDL_haptic.h.html">SDL_haptic.h</a></p></td>
+</tr>
+</tbody>
+</table>
+<h2 id="audio">Audio</h2>
+<table>
+<tbody>
+<tr class="odd">
+<td><p><strong>View information and functions related to...</strong></p></td>
+<td><p><strong>View the header</strong></p></td>
+</tr>
+<tr class="even">
+<td><p><a href="CategoryAudio.html" title="wikilink">Audio Device Management, Playing and Recording</a></p></td>
+<td><p><a href="https://github.com/libsdl-org/SDL/blob/SDL2/include/SDL_audio.h.html">SDL_audio.h</a></p></td>
+</tr>
+</tbody>
+</table>
+<h2 id="threads">Threads</h2>
+<table>
+<tbody>
+<tr class="odd">
+<td><p><strong>View information and functions related to...</strong></p></td>
+<td><p><strong>View the header</strong></p></td>
+</tr>
+<tr class="even">
+<td><p><a href="CategoryThread.html" title="wikilink">Thread Management</a></p></td>
+<td><p><a href="https://github.com/libsdl-org/SDL/blob/SDL2/include/SDL_thread.h.html">SDL_thread.h</a></p></td>
+</tr>
+<tr class="odd">
+<td><p><a href="CategoryMutex.html" title="wikilink">Thread Synchronization Primitives</a></p></td>
+<td><p><a href="https://github.com/libsdl-org/SDL/blob/SDL2/include/SDL_mutex.h.html">SDL_mutex.h</a></p></td>
+</tr>
+<tr class="even">
+<td><p><a href="CategoryAtomic.html" title="wikilink">Atomic Operations</a></p></td>
+<td><p><a href="https://github.com/libsdl-org/SDL/blob/SDL2/include/SDL_atomic.h.html">SDL_atomic.h</a></p></td>
+</tr>
+</tbody>
+</table>
+<h2 id="timers">Timers</h2>
+<table>
+<tbody>
+<tr class="odd">
+<td><p><strong>View information and functions related to...</strong></p></td>
+<td><p><strong>View the header</strong></p></td>
+</tr>
+<tr class="even">
+<td><p><a href="CategoryTimer.html" title="wikilink">Timer Support</a></p></td>
+<td><p><a href="https://github.com/libsdl-org/SDL/blob/SDL2/include/SDL_timer.h.html">SDL_timer.h</a></p></td>
+</tr>
+</tbody>
+</table>
+<h2 id="file-abstraction">File Abstraction</h2>
+<table>
+<tbody>
+<tr class="odd">
+<td><p><strong>View information and functions related to...</strong></p></td>
+<td><p><strong>View the header</strong></p></td>
+</tr>
+<tr class="even">
+<td><p><a href="CategoryFilesystem.html" title="wikilink">Filesystem Paths</a></p></td>
+<td><p><a href="https://github.com/libsdl-org/SDL/blob/SDL2/include/SDL_filesystem.h.html">SDL_filesystem.h</a></p></td>
+</tr>
+<tr class="odd">
+<td><p><a href="CategoryIO.html" title="wikilink">File I/O Abstraction</a></p></td>
+<td><p><a href="https://github.com/libsdl-org/SDL/blob/SDL2/include/SDL_rwops.h.html">SDL_rwops.h</a></p></td>
+</tr>
+</tbody>
+</table>
+<h2 id="shared-object-support">Shared Object Support</h2>
+<table>
+<tbody>
+<tr class="odd">
+<td><p><strong>View information and functions related to...</strong></p></td>
+<td><p><strong>View the header</strong></p></td>
+</tr>
+<tr class="even">
+<td><p><a href="CategorySharedObject.html" title="wikilink">Shared Object Loading and Function Lookup</a></p></td>
+<td><p><a href="https://github.com/libsdl-org/SDL/blob/SDL2/include/SDL_loadso.h.html">SDL_loadso.h</a></p></td>
+</tr>
+</tbody>
+</table>
+<h2 id="platform-and-cpu-information">Platform and CPU Information</h2>
+<table>
+<tbody>
+<tr class="odd">
+<td><p><strong>View information and functions related to...</strong></p></td>
+<td><p><strong>View the header</strong></p></td>
+</tr>
+<tr class="even">
+<td><p><a href="CategoryPlatform.html" title="wikilink">Platform Detection</a></p></td>
+<td><p><a href="https://github.com/libsdl-org/SDL/blob/SDL2/include/SDL_platform.h.html">SDL_platform.h</a></p></td>
+</tr>
+<tr class="odd">
+<td><p><a href="CategoryCPU.html" title="wikilink">CPU Feature Detection</a></p></td>
+<td><p><a href="https://github.com/libsdl-org/SDL/blob/SDL2/include/SDL_cpuinfo.h.html">SDL_cpuinfo.h</a></p></td>
+</tr>
+<tr class="even">
+<td><p><a href="CategoryEndian.html" title="wikilink">Byte Order and Byte Swapping</a></p></td>
+<td><p><a href="https://github.com/libsdl-org/SDL/blob/SDL2/include/SDL_endian.h.html">SDL_endian.h</a></p></td>
+</tr>
+<tr class="odd">
+<td><p><a href="CategoryBits.html" title="wikilink">Bit Manipulation</a></p></td>
+<td><p><a href="https://github.com/libsdl-org/SDL/blob/SDL2/include/SDL_bits.h.html">SDL_bits.h</a></p></td>
+</tr>
+</tbody>
+</table>
+<h2 id="power-management">Power Management</h2>
+<table>
+<tbody>
+<tr class="odd">
+<td><p><strong>View information and functions related to...</strong></p></td>
+<td><p><strong>View the header</strong></p></td>
+</tr>
+<tr class="even">
+<td><p><a href="CategoryPower.html" title="wikilink">Power Management Status</a></p></td>
+<td><p><a href="https://github.com/libsdl-org/SDL/blob/SDL2/include/SDL_power.h.html">SDL_power.h</a></p></td>
+</tr>
+</tbody>
+</table>
+<h2 id="additional-functionality">Additional Functionality</h2>
+<table>
+<tbody>
+<tr class="odd">
+<td><p><strong>View information and functions related to...</strong></p></td>
+<td><p><strong>View the header</strong></p></td>
+</tr>
+<tr class="even">
+<td><p><a href="CategoryMessageBox.html" title="wikilink">Message boxes</a></p></td>
+<td><p><a href="https://github.com/libsdl-org/SDL/blob/SDL2/include/SDL_messagebox.h.html">SDL_messagebox.h</a></p></td>
+</tr>
+<tr class="odd">
+<td><p><a href="CategorySystem.html" title="wikilink">Platform-specific Functionality</a></p></td>
+<td><p><a href="https://github.com/libsdl-org/SDL/blob/SDL2/include/SDL_system.h.html">SDL_system.h</a></p></td>
+</tr>
+<tr class="even">
+<td><p><a href="CategoryStandard.html" title="wikilink">Standard Library Functionality</a></p></td>
+<td><p><a href="https://github.com/libsdl-org/SDL/blob/SDL2/include/SDL_stdinc.h.html">SDL_stdinc.h</a></p></td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>

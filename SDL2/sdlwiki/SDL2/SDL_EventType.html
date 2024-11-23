@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>SDL_EventType</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+</head>
+<body>
+<nav id="TOC">
+<ul>
+<li><a href="#sdl_eventtype">SDL_EventType</a><ul>
+<li><a href="#values">Values</a></li>
+<li><a href="#code-examples">Code Examples</a></li>
+<li><a href="#remarks">Remarks</a><ul>
+<li><a href="#sdl_quit">SDL_QUIT</a></li>
+<li><a href="#android-ios-and-winrt-events">Android, iOS and WinRT Events</a></li>
+</ul></li>
+<li><a href="#related-structures">Related Structures</a></li>
+<li><a href="#related-functions">Related Functions</a></li>
+</ul></li>
+</ul>
+</nav>
+<h1 id="sdl_eventtype">SDL_EventType</h1>
+<p>An enumeration of the types of events that can be delivered.</p>
+<h2 id="values">Values</h2>
+<table>
+<tbody>
+<tr class="odd">
+<td><p><span style="color: #808080;">SDL_FIRSTEVENT</span></p></td>
+<td><p><span style="color: #808080;">do not remove (unused)</span></p></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><p><span style="background-color:#EDEDED;"><em>Application events</em></span></p></td>
+</tr>
+<tr class="odd">
+<td><p>SDL_QUIT</p></td>
+<td><p>user-requested quit; see <a href="#Remarks.html" title="wikilink">Remarks</a> for details</p></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><p><span style="background-color:#EDEDED;"><em>Android, iOS and WinRT events; see <a href="#Android,_iOS_and_WinRT_Events.html" title="wikilink">Remarks</a> for details</em></span></p></td>
+</tr>
+<tr class="odd">
+<td><p>SDL_APP_TERMINATING</p></td>
+<td><p>OS is terminating the application</p></td>
+</tr>
+<tr class="even">
+<td><p>SDL_APP_LOWMEMORY</p></td>
+<td><p>OS is low on memory; free some</p></td>
+</tr>
+<tr class="odd">
+<td><p>SDL_APP_WILLENTERBACKGROUND</p></td>
+<td><p>application is entering background</p></td>
+</tr>
+<tr class="even">
+<td><p>SDL_APP_DIDENTERBACKGROUND</p></td>
+<td><p>application entered background</p></td>
+</tr>
+<tr class="odd">
+<td><p>SDL_APP_WILLENTERFOREGROUND</p></td>
+<td><p>application is entering foreground</p></td>
+</tr>
+<tr class="even">
+<td><p>SDL_APP_DIDENTERFOREGROUND</p></td>
+<td><p>application entered foreground</p></td>
+</tr>
+<tr class="odd">
+<td><p>SDL_LOCALECHANGED</p></td>
+<td><p>The user's locale preferences have changed.</p></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><p><span style="background-color:#EDEDED;"><em>Display events</em></span></p></td>
+</tr>
+<tr class="odd">
+<td><p><a href="SDL_DisplayEvent.html" title="wikilink">SDL_DISPLAYEVENT</a></p></td>
+<td><p>Display state change</p></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><p><span style="background-color:#EDEDED;"><em>Window events</em></span></p></td>
+</tr>
+<tr class="odd">
+<td><p><a href="SDL_WindowEvent.html" title="wikilink">SDL_WINDOWEVENT</a></p></td>
+<td><p>window state change</p></td>
+</tr>
+<tr class="even">
+<td><p><a href="SDL_SysWMEvent.html" title="wikilink">SDL_SYSWMEVENT</a></p></td>
+<td><p>system specific event</p></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><p><span style="background-color:#EDEDED;"><em>Keyboard events</em></span></p></td>
+</tr>
+<tr class="even">
+<td><p><a href="SDL_KeyboardEvent.html" title="wikilink">SDL_KEYDOWN</a></p></td>
+<td><p>key pressed</p></td>
+</tr>
+<tr class="odd">
+<td><p><a href="SDL_KeyboardEvent.html" title="wikilink">SDL_KEYUP</a></p></td>
+<td><p>key released</p></td>
+</tr>
+<tr class="even">
+<td><p><a href="SDL_TextEditingEvent.html" title="wikilink">SDL_TEXTEDITING</a></p></td>
+<td><p>keyboard text editing (composition)</p></td>
+</tr>
+<tr class="odd">
+<td><p><a href="SDL_TextInputEvent.html" title="wikilink">SDL_TEXTINPUT</a></p></td>
+<td><p>keyboard text input</p></td>
+</tr>
+<tr class="even">
+<td><p>SDL_KEYMAPCHANGED</p></td>
+<td><p>keymap changed due to a system event such as an input language or keyboard layout change (&gt;= SDL 2.0.4)</p></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><p><span style="background-color:#EDEDED;"><em>Mouse events</em></span></p></td>
+</tr>
+<tr class="even">
+<td><p><a href="SDL_MouseMotionEvent.html" title="wikilink">SDL_MOUSEMOTION</a></p></td>
+<td><p>mouse moved</p></td>
+</tr>
+<tr class="odd">
+<td><p><a href="SDL_MouseButtonEvent.html" title="wikilink">SDL_MOUSEBUTTONDOWN</a></p></td>
+<td><p>mouse button pressed</p></td>
+</tr>
+<tr class="even">
+<td><p><a href="SDL_MouseButtonEvent.html" title="wikilink">SDL_MOUSEBUTTONUP</a></p></td>
+<td><p>mouse button released</p></td>
+</tr>
+<tr class="odd">
+<td><p><a href="SDL_MouseWheelEvent.html" title="wikilink">SDL_MOUSEWHEEL</a></p></td>
+<td><p>mouse wheel motion</p></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><p><span style="background-color:#EDEDED;"><em>Joystick events</em></span></p></td>
+</tr>
+<tr class="odd">
+<td><p><a href="SDL_JoyAxisEvent.html" title="wikilink">SDL_JOYAXISMOTION</a></p></td>
+<td><p>joystick axis motion</p></td>
+</tr>
+<tr class="even">
+<td><p><a href="SDL_JoyBallEvent.html" title="wikilink">SDL_JOYBALLMOTION</a></p></td>
+<td><p>joystick trackball motion</p></td>
+</tr>
+<tr class="odd">
+<td><p><a href="SDL_JoyHatEvent.html" title="wikilink">SDL_JOYHATMOTION</a></p></td>
+<td><p>joystick hat position change</p></td>
+</tr>
+<tr class="even">
+<td><p><a href="SDL_JoyButtonEvent.html" title="wikilink">SDL_JOYBUTTONDOWN</a></p></td>
+<td><p>joystick button pressed</p></td>
+</tr>
+<tr class="odd">
+<td><p><a href="SDL_JoyButtonEvent.html" title="wikilink">SDL_JOYBUTTONUP</a></p></td>
+<td><p>joystick button released</p></td>
+</tr>
+<tr class="even">
+<td><p><a href="SDL_JoyDeviceEvent.html" title="wikilink">SDL_JOYDEVICEADDED</a></p></td>
+<td><p>joystick connected</p></td>
+</tr>
+<tr class="odd">
+<td><p><a href="SDL_JoyDeviceEvent.html" title="wikilink">SDL_JOYDEVICEREMOVED</a></p></td>
+<td><p>joystick disconnected</p></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><p><span style="background-color:#EDEDED;"><em>Controller events</em></span></p></td>
+</tr>
+<tr class="odd">
+<td><p><a href="SDL_ControllerAxisEvent.html" title="wikilink">SDL_CONTROLLERAXISMOTION</a></p></td>
+<td><p>controller axis motion</p></td>
+</tr>
+<tr class="even">
+<td><p><a href="SDL_ControllerButtonEvent.html" title="wikilink">SDL_CONTROLLERBUTTONDOWN</a></p></td>
+<td><p>controller button pressed</p></td>
+</tr>
+<tr class="odd">
+<td><p><a href="SDL_ControllerButtonEvent.html" title="wikilink">SDL_CONTROLLERBUTTONUP</a></p></td>
+<td><p>controller button released</p></td>
+</tr>
+<tr class="even">
+<td><p><a href="SDL_ControllerDeviceEvent.html" title="wikilink">SDL_CONTROLLERDEVICEADDED</a></p></td>
+<td><p>controller connected</p></td>
+</tr>
+<tr class="odd">
+<td><p><a href="SDL_ControllerDeviceEvent.html" title="wikilink">SDL_CONTROLLERDEVICEREMOVED</a></p></td>
+<td><p>controller disconnected</p></td>
+</tr>
+<tr class="even">
+<td><p><a href="SDL_ControllerDeviceEvent.html" title="wikilink">SDL_CONTROLLERDEVICEREMAPPED</a></p></td>
+<td><p>controller mapping updated</p></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><p><span style="background-color:#EDEDED;"><em>Touch events</em></span></p></td>
+</tr>
+<tr class="even">
+<td><p><a href="SDL_TouchFingerEvent.html" title="wikilink">SDL_FINGERDOWN</a></p></td>
+<td><p>user has touched input device</p></td>
+</tr>
+<tr class="odd">
+<td><p><a href="SDL_TouchFingerEvent.html" title="wikilink">SDL_FINGERUP</a></p></td>
+<td><p>user stopped touching input device</p></td>
+</tr>
+<tr class="even">
+<td><p><a href="SDL_TouchFingerEvent.html" title="wikilink">SDL_FINGERMOTION</a></p></td>
+<td><p>user is dragging finger on input device</p></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><p><span style="background-color:#EDEDED;"><em>Gesture events</em></span></p></td>
+</tr>
+<tr class="even">
+<td><p><a href="SDL_DollarGestureEvent.html" title="wikilink">SDL_DOLLARGESTURE</a></p></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><p><a href="SDL_DollarGestureEvent.html" title="wikilink">SDL_DOLLARRECORD</a></p></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><p><a href="SDL_MultiGestureEvent.html" title="wikilink">SDL_MULTIGESTURE</a></p></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><p><span style="background-color:#EDEDED;"><em>Clipboard events</em></span></p></td>
+</tr>
+<tr class="even">
+<td><p>SDL_CLIPBOARDUPDATE</p></td>
+<td><p>the clipboard changed</p></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><p><span style="background-color:#EDEDED;"><em>Drag and drop events</em></span></p></td>
+</tr>
+<tr class="even">
+<td><p><a href="SDL_DropEvent.html" title="wikilink">SDL_DROPFILE</a></p></td>
+<td><p>the system requests a file open</p></td>
+</tr>
+<tr class="odd">
+<td><p><a href="SDL_DropEvent.html" title="wikilink">SDL_DROPTEXT</a></p></td>
+<td><p>text/plain drag-and-drop event</p></td>
+</tr>
+<tr class="even">
+<td><p><a href="SDL_DropEvent.html" title="wikilink">SDL_DROPBEGIN</a></p></td>
+<td><p>a new set of drops is beginning (&gt;= SDL 2.0.5)</p></td>
+</tr>
+<tr class="odd">
+<td><p><a href="SDL_DropEvent.html" title="wikilink">SDL_DROPCOMPLETE</a></p></td>
+<td><p>current set of drops is now complete (&gt;= SDL 2.0.5)</p></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><p><span style="background-color:#EDEDED;"><em>Audio hotplug events</em></span></p></td>
+</tr>
+<tr class="odd">
+<td><p><a href="SDL_AudioDeviceEvent.html" title="wikilink">SDL_AUDIODEVICEADDED</a></p></td>
+<td><p>a new audio device is available (&gt;= SDL 2.0.4)</p></td>
+</tr>
+<tr class="even">
+<td><p><a href="SDL_AudioDeviceEvent.html" title="wikilink">SDL_AUDIODEVICEREMOVED</a></p></td>
+<td><p>an audio device has been removed (&gt;= SDL 2.0.4)</p></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><p><span style="background-color:#EDEDED;"><em>Render events</em></span></p></td>
+</tr>
+<tr class="even">
+<td><p>SDL_RENDER_TARGETS_RESET</p></td>
+<td><p>the render targets have been reset and their contents need to be updated (&gt;= SDL 2.0.2)</p></td>
+</tr>
+<tr class="odd">
+<td><p>SDL_RENDER_DEVICE_RESET</p></td>
+<td><p>the device has been reset and all textures need to be recreated (&gt;= SDL 2.0.4)</p></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><p><span style="background-color:#EDEDED;"><em>These are for your use, and should be allocated with <a href="SDL_RegisterEvents.html" title="wikilink">SDL_RegisterEvents</a>()</em></span></p></td>
+</tr>
+<tr class="odd">
+<td><p>SDL_USEREVENT</p></td>
+<td><p>a user-specified event</p></td>
+</tr>
+<tr class="even">
+<td><p>SDL_LASTEVENT</p></td>
+<td><p>only for bounding internal arrays</p></td>
+</tr>
+</tbody>
+</table>
+<h2 id="code-examples">Code Examples</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode c++"><code class="sourceCode cpp"><a class="sourceLine" id="cb1-1" title="1">SDL_Event e;</a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="cf">while</span> (SDL_PollEvent(&amp;e)) {</a>
+<a class="sourceLine" id="cb1-3" title="3">    <span class="cf">if</span> (e.type == SDL_KEYDOWN) {</a>
+<a class="sourceLine" id="cb1-4" title="4">        SDL_Log(<span class="st">&quot;User just pressed down a key!&quot;</span>);</a>
+<a class="sourceLine" id="cb1-5" title="5">    }</a>
+<a class="sourceLine" id="cb1-6" title="6">}</a></code></pre></div>
+<h2 id="remarks">Remarks</h2>
+<h3 id="sdl_quit">SDL_QUIT</h3>
+<p>SDL_QUIT events are generated for a variety of reasons. An application can choose to ignore the event, for example, if it wants to offer a prompt asking the user to save the current work.</p>
+<p>An SDL_QUIT event is generated when the user clicks on the close button of the last existing window. This happens in addition to the SDL_WINDOWEVENT/SDL_WINDOWEVENT_CLOSE event, so the application can check whichever is appropriate, or both, or neither. If the application ignores this event and creates another window, SDL_QUIT will be sent again the next time the user clicks on the last remaining window's close button.</p>
+<p>SDL_QUIT is not limited to window closing. On Mac OS X, pressing Command-Q (the standard keyboard shortcut for "Quit this application") will cause SDL to generate an SDL_QUIT event, regardless of what windows exist at the time. The application is still responsible for terminating itself properly, however. Applications that completely ignore Command-Q will fail Mac App Store certification.</p>
+<p>On POSIX systems, <a href="SDL_Init.html" title="wikilink">SDL_Init</a>() installs <a href="http://en.wikipedia.org/wiki/Unix_signal.html" title="wikilink">signal handlers</a> for <code>SIGINT</code> (keyboard interrupt) and <code>SIGTERM</code> (system termination request), if handlers do not already exist, that generate SDL_QUIT events as well. There is no way to determine the cause of an SDL_QUIT event, but setting a signal handler in your application will override the default generation of quit events for that signal.</p>
+<h3 id="android-ios-and-winrt-events">Android, iOS and WinRT Events</h3>
+<p>What we currently label as "Android, iOS and WinRT events" are specific to mobile and embedded devices that have different requirements than your usual desktop application. These events <em>must</em> be handled in an event filter, since often the OS needs an immediate response and will terminate your process shortly after sending the event, and if it sits in the SDL event queue, it'll be too late. You can handle everything else through a normal <a href="SDL_PollEvent.html" title="wikilink">SDL_PollEvent</a>() loop, but you should set up a callback with <a href="SDL_SetEventFilter.html" title="wikilink">SDL_SetEventFilter</a>() for these specific events.</p>
+<p>This is how these events currently map to the underlying OS:</p>
+<table>
+<tbody>
+<tr class="odd">
+<td><p>SDL event</p></td>
+<td><p>What</p></td>
+<td><p>iOS</p></td>
+<td><p>Android</p></td>
+<td><p>WinRT</p></td>
+</tr>
+<tr class="even">
+<td><p>SDL_APP_TERMINATING</p></td>
+<td><p>The application is being terminated by the OS.</p></td>
+<td><p><code>applicationWillTerminate()</code></p></td>
+<td><p><code>onDestroy()</code></p></td>
+<td><p><code>Exiting()</code></p></td>
+</tr>
+<tr class="odd">
+<td><p>SDL_APP_LOWMEMORY</p></td>
+<td><p>The application is low on memory, free memory if possible.</p></td>
+<td><p><code>applicationDidReceiveMemoryWarning()</code></p></td>
+<td><p><code>onLowMemory()</code></p></td>
+<td><p>--</p></td>
+</tr>
+<tr class="even">
+<td><p>SDL_APP_WILLENTERBACKGROUND</p></td>
+<td><p>The application is about to enter the background.</p></td>
+<td><p><code>applicationWillResignActive()</code></p></td>
+<td><p><code>onPause()</code></p></td>
+<td><p><code>Suspending()</code></p></td>
+</tr>
+<tr class="odd">
+<td><p>SDL_APP_DIDENTERBACKGROUND</p></td>
+<td><p>The application did enter the background and may not get CPU for some time.</p></td>
+<td><p><code>applicationDidEnterBackground()</code></p></td>
+<td><p><code>onPause()</code></p></td>
+<td><p><code>Suspending()</code></p></td>
+</tr>
+<tr class="even">
+<td><p>SDL_APP_WILLENTERFOREGROUND</p></td>
+<td><p>The application is about to enter the foreground.</p></td>
+<td><p><code>applicationWillEnterForeground()</code></p></td>
+<td><p><code>onResume()</code></p></td>
+<td><p><code>Resuming()</code></p></td>
+</tr>
+<tr class="odd">
+<td><p>SDL_APP_DIDENTERFOREGROUND</p></td>
+<td><p>The application is now interactive.</p></td>
+<td><p><code>applicationDidBecomeActive()</code></p></td>
+<td><p><code>onResume()</code></p></td>
+<td><p><code>Resuming()</code></p></td>
+</tr>
+</tbody>
+</table>
+<h2 id="related-structures">Related Structures</h2>
+<dl>
+<dt></dt>
+<dd><a href="SDL_JoyAxisEvent.html" title="wikilink">SDL_JoyAxisEvent</a>
+</dd>
+<dd><a href="SDL_JoyBallEvent.html" title="wikilink">SDL_JoyBallEvent</a>
+</dd>
+<dd><a href="SDL_JoyButtonEvent.html" title="wikilink">SDL_JoyButtonEvent</a>
+</dd>
+<dd><a href="SDL_JoyHatEvent.html" title="wikilink">SDL_JoyHatEvent</a>
+</dd>
+<dd><a href="SDL_JoyDeviceEvent.html" title="wikilink">SDL_JoyDeviceEvent</a>
+</dd>
+<dd><a href="SDL_ControllerAxisEvent.html" title="wikilink">SDL_ControllerAxisEvent</a>
+</dd>
+<dd><a href="SDL_ControllerButtonEvent.html" title="wikilink">SDL_ControllerButtonEvent</a>
+</dd>
+<dd><a href="SDL_ControllerDeviceEvent.html" title="wikilink">SDL_ControllerDeviceEvent</a>
+</dd>
+<dd><a href="SDL_KeyboardEvent.html" title="wikilink">SDL_KeyboardEvent</a>
+</dd>
+<dd><a href="SDL_MouseButtonEvent.html" title="wikilink">SDL_MouseButtonEvent</a>
+</dd>
+<dd><a href="SDL_MouseMotionEvent.html" title="wikilink">SDL_MouseMotionEvent</a>
+</dd>
+<dd><a href="SDL_MouseWheelEvent.html" title="wikilink">SDL_MouseWheelEvent</a>
+</dd>
+<dd><a href="SDL_QuitEvent.html" title="wikilink">SDL_QuitEvent</a>
+</dd>
+<dd><a href="SDL_SysWMEvent.html" title="wikilink">SDL_SysWMEvent</a>
+</dd>
+<dd><a href="SDL_TextEditingEvent.html" title="wikilink">SDL_TextEditingEvent</a>
+</dd>
+<dd><a href="SDL_TextInputEvent.html" title="wikilink">SDL_TextInputEvent</a>
+</dd>
+<dd><a href="SDL_UserEvent.html" title="wikilink">SDL_UserEvent</a>
+</dd>
+<dd><a href="SDL_WindowEvent.html" title="wikilink">SDL_WindowEvent</a>
+</dd>
+<dd><a href="SDL_DropEvent.html" title="wikilink">SDL_DropEvent</a>
+</dd>
+<dd><a href="SDL_AudioDeviceEvent.html" title="wikilink">SDL_AudioDeviceEvent</a>
+</dd>
+<dd><a href="SDL_TouchFingerEvent.html" title="wikilink">SDL_TouchFingerEvent</a>
+</dd>
+<dd><a href="SDL_DollarGestureEvent.html" title="wikilink">SDL_DollarGestureEvent</a>
+</dd>
+<dd><a href="SDL_MultiGestureEvent.html" title="wikilink">SDL_MultiGestureEvent</a>
+</dd>
+</dl>
+<h2 id="related-functions">Related Functions</h2>
+<dl>
+<dt></dt>
+<dd><a href="SDL_PollEvent.html" title="wikilink">SDL_PollEvent</a>
+</dd>
+<dd><a href="SDL_SetEventFilter.html" title="wikilink">SDL_SetEventFilter</a>
+</dd>
+</dl>
+<hr />
+<p><a href="CategoryEnum.html" title="wikilink">CategoryEnum</a>, <a href="CategoryEvents.html" title="wikilink">CategoryEvents</a></p>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>SDL_HINT_WINRT_PRIVACY_POLICY_LABEL</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<nav id="TOC">
+<ul>
+<li><a href="#draft">Draft</a></li>
+<li><a href="#sdl_hint_winrt_privacy_policy_label">SDL_HINT_WINRT_PRIVACY_POLICY_LABEL</a><ul>
+<li><a href="#values">Values</a></li>
+<li><a href="#default">Default</a></li>
+<li><a href="#remarks">Remarks</a></li>
+<li><a href="#version">Version</a></li>
+</ul></li>
+</ul>
+</nav>
+<h2 id="draft">Draft</h2>
+<p><strong>THIS PAGE IS A WORK IN PROGRESS</strong> ... Please make edits to this page to improve it!</p>
+<h1 id="sdl_hint_winrt_privacy_policy_label">SDL_HINT_WINRT_PRIVACY_POLICY_LABEL</h1>
+<p>A hint that specifies a label text for a WinRT app's privacy policy link.</p>
+<h2 id="values">Values</h2>
+<table>
+<tbody>
+<tr class="odd">
+<td><p>X</p></td>
+<td><p>a label text for a WinRT app's privacy policy link</p></td>
+</tr>
+</tbody>
+</table>
+<h2 id="default">Default</h2>
+<p>By default this hint's value is "Privacy Policy".</p>
+<h2 id="remarks">Remarks</h2>
+<p>Network-enabled WinRT apps must include a privacy policy. On Windows 8, 8.1, and RT, Microsoft mandates that this policy be available via the Windows Settings charm. SDL provides code to add a link there, with its label text being set via the optional hint, SDL_HINT_WINRT_PRIVACY_POLICY_LABEL.</p>
+<p>Please note that a privacy policy's contents are not set via this hint. A separate hint, <a href="SDL_HINT_WINRT_PRIVACY_POLICY_URL.html" title="wikilink">SDL_HINT_WINRT_PRIVACY_POLICY_URL</a>, is used to link to the actual text of the policy.</p>
+<p>The contents of this hint should be encoded as a UTF8 string.</p>
+<p>The default value is "Privacy Policy". This hint should only be set during app initialization, preferably before any calls to <a href="SDL_Init.html" title="wikilink">SDL_Init</a>().</p>
+<p>For additional information on linking to a privacy policy, see the documentation for <a href="SDL_HINT_WINRT_PRIVACY_POLICY_URL.html" title="wikilink">SDL_HINT_WINRT_PRIVACY_POLICY_URL</a>.</p>
+<h2 id="version">Version</h2>
+<p>This hint is available since SDL 2.0.3.</p>
+<hr />
+<p><a href="CategoryDefine.html" title="wikilink">CategoryDefine</a>, <a href="CategoryHints.html" title="wikilink">CategoryHints</a>, <a href="CategoryDraft.html" title="wikilink">CategoryDraft</a></p>
+</body>
+</html>

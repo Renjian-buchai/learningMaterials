@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>wayland</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<nav id="TOC">
+<ul>
+<li><a href="#wayland">Wayland</a><ul>
+<li><a href="#common-issues">Common issues:</a><ul>
+<li><a href="#window-decorations-are-missing-or-the-decorations-look-strange">Window decorations are missing, or the decorations look strange</a></li>
+<li><a href="#windows-do-not-appear-immediately-after-creation">Windows do not appear immediately after creation</a></li>
+<li><a href="#sdl_setwindowposition-doesnt-work-on-non-popup-windows"><code>SDL_SetWindowPosition()</code> doesn't work on non-popup windows</a></li>
+<li><a href="#retrieving-the-global-mouse-cursor-position-when-the-cursor-is-outside-a-window-doesnt-work">Retrieving the global mouse cursor position when the cursor is outside a window doesn't work</a></li>
+<li><a href="#warping-the-global-mouse-cursor-position-via-sdl_warpmouseglobal-doesnt-work">Warping the global mouse cursor position via <code>SDL_WarpMouseGlobal()</code> doesn't work</a></li>
+<li><a href="#the-application-icon-cant-be-set-via-sdl_setwindowicon">The application icon can't be set via <code>SDL_SetWindowIcon()</code></a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+<h1 id="wayland">Wayland</h1>
+<p>Wayland is a replacement for the X11 window system protocol and architecture and is favored over X11 by default in SDL3 for communicating with desktop compositors. It works well for the majority of applications, however, applications may encounter limitations or behavior that is different from other windowing systems.</p>
+<h2 id="common-issues">Common issues:</h2>
+<h3 id="window-decorations-are-missing-or-the-decorations-look-strange">Window decorations are missing, or the decorations look strange</h3>
+<ul>
+<li>On some desktops (i.e. GNOME), Wayland applications use a library called <a href="https://gitlab.freedesktop.org/libdecor/libdecor.html">libdecor</a> to provide window decorations. If this library is not installed, the decorations will be missing. This library uses plugins to generate different decoration styles, and if a plugin to generate native-looking decorations is not installed (i.e. the GTK plugin), the decorations will not appear to be 'native'.</li>
+</ul>
+<h3 id="windows-do-not-appear-immediately-after-creation">Windows do not appear immediately after creation</h3>
+<ul>
+<li>Wayland requires that the application initially present a buffer before the window becomes visible. Additionally, applications <em>must</em> have an event loop and processes messages on a regular basis, or the application can appear unresponsive to both the user and desktop compositor.</li>
+</ul>
+<h3 id="sdl_setwindowposition-doesnt-work-on-non-popup-windows"><code>SDL_SetWindowPosition()</code> doesn't work on non-popup windows</h3>
+<ul>
+<li>Wayland does not allow toplevel windows to position themselves programmatically.</li>
+</ul>
+<h3 id="retrieving-the-global-mouse-cursor-position-when-the-cursor-is-outside-a-window-doesnt-work">Retrieving the global mouse cursor position when the cursor is outside a window doesn't work</h3>
+<ul>
+<li>Wayland only provides applications with the cursor position within the borders of the application windows. Querying the global position when an application window does not have mouse focus returns 0,0 as the actual cursor position is unknown. In most cases, applications don't actually need the global cursor position and should use the window-relative coordinates as provided by the mouse movement event or from <code>SDL_GetMouseState()</code> instead.</li>
+</ul>
+<h3 id="warping-the-global-mouse-cursor-position-via-sdl_warpmouseglobal-doesnt-work">Warping the global mouse cursor position via <code>SDL_WarpMouseGlobal()</code> doesn't work</h3>
+<ul>
+<li>For security reasons, Wayland does not allow warping the global mouse cursor position.</li>
+</ul>
+<h3 id="the-application-icon-cant-be-set-via-sdl_setwindowicon">The application icon can't be set via <code>SDL_SetWindowIcon()</code></h3>
+<ul>
+<li>Wayland doesn't support programmatically setting the application icon. To provide a custom icon for your application, you must create an associated desktop entry file, aka a <code>.desktop</code> file, that points to the icon image. Please see the <a href="https://specifications.freedesktop.org/desktop-entry-spec/latest/.html">Desktop Entry Specification</a> for more information on the format of this file. Note that if your application manually sets the application ID via the <code>SDL_APP_ID</code> hint string, the desktop entry file name should match the application ID. For example, if your application ID is set to <code>org.my_org.sdl_app</code>, the desktop entry file should be named <code>org.my_org.sdl_app.desktop</code>.</li>
+</ul>
+</body>
+</html>

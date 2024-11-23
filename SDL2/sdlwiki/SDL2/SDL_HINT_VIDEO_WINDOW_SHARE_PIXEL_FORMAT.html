@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>SDL_HINT_VIDEO_WINDOW_SHARE_PIXEL_FORMAT</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<nav id="TOC">
+<ul>
+<li><a href="#sdl_hint_video_window_share_pixel_format">SDL_HINT_VIDEO_WINDOW_SHARE_PIXEL_FORMAT</a><ul>
+<li><a href="#values">Values</a></li>
+<li><a href="#default">Default</a></li>
+<li><a href="#remarks">Remarks</a></li>
+<li><a href="#version">Version</a></li>
+</ul></li>
+</ul>
+</nav>
+<h1 id="sdl_hint_video_window_share_pixel_format">SDL_HINT_VIDEO_WINDOW_SHARE_PIXEL_FORMAT</h1>
+<p>A hint that specifies the address of another SDL_Window* (as a hex string formatted with "%p").</p>
+<h2 id="values">Values</h2>
+<table>
+<tbody>
+<tr class="odd">
+<td><p>X</p></td>
+<td><p>the address (as a string "%p") of the SDL_Window* that new windows created with <a href="SDL_CreateWindowFrom.html" title="wikilink">SDL_CreateWindowFrom</a>() should share a pixel format with</p></td>
+</tr>
+</tbody>
+</table>
+<h2 id="default">Default</h2>
+<p>By default this hint is not set.</p>
+<h2 id="remarks">Remarks</h2>
+<p>If this hint is set before <a href="SDL_CreateWindowFrom.html" title="wikilink">SDL_CreateWindowFrom</a>() and the SDL_Window* it is set to has SDL_WINDOW_OPENGL set (and running on WGL only, currently), then two things will occur on the newly created SDL_Window:</p>
+<p><code>1. Its pixel format will be set to the same pixel format as this SDL_Window.  This is needed for example when sharing an OpenGL context across multiple windows.</code></p>
+<p><code>1. The flag SDL_WINDOW_OPENGL will be set on the new window so it can be used for OpenGL rendering.</code></p>
+<h2 id="version">Version</h2>
+<p>This hint is available since SDL 2.0.2.</p>
+<hr />
+<p><a href="CategoryDefine.html" title="wikilink">CategoryDefine</a>, <a href="CategoryHints.html" title="wikilink">CategoryHints</a></p>
+</body>
+</html>

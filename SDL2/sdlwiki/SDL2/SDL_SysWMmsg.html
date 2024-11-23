@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>SDL_SysWMmsg</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<nav id="TOC">
+<ul>
+<li><a href="#sdl_syswmmsg">SDL_SysWMmsg</a><ul>
+<li><a href="#data-fields">Data Fields</a></li>
+<li><a href="#remarks">Remarks</a></li>
+<li><a href="#related-enumerations">Related Enumerations</a></li>
+<li><a href="#related-structures">Related Structures</a></li>
+</ul></li>
+</ul>
+</nav>
+<h1 id="sdl_syswmmsg">SDL_SysWMmsg</h1>
+<p>A structure that contains system-dependent window manager messages.</p>
+<h2 id="data-fields">Data Fields</h2>
+<table>
+<tbody>
+<tr class="odd">
+<td></td>
+<td></td>
+<td><p>&lt;bgcolor="#EDEDED"&gt;<em>All Subsystems</em></p></td>
+</tr>
+<tr class="even">
+<td><p><a href="SDL_version.html" title="wikilink">SDL_version</a></p></td>
+<td><p><strong>version</strong></p></td>
+<td><p>an <a href="SDL_version.html" title="wikilink">SDL_version</a> structure that contains the current SDL version</p></td>
+</tr>
+<tr class="odd">
+<td><p><a href="SDL_SYSWM_TYPE.html" title="wikilink">SDL_SYSWM_TYPE</a></p></td>
+<td><p><strong>subsystem</strong></p></td>
+<td><p>the windowing system type; see <a href="#Remarks.html" title="wikilink">Remarks</a> for details</p></td>
+</tr>
+<tr class="even">
+<td><p>&lt;style="color: #808080;"&gt;int</p></td>
+<td><p>&lt;style="color: #808080;"&gt;<strong>dummy</strong></p></td>
+<td><p>&lt;style="color: #808080;"&gt;unused (to help compilers when no specific system is available)</p></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td><p>&lt;bgcolor="#EDEDED"&gt;<em>SDL_SYSWM_WINDOWS</em></p></td>
+</tr>
+<tr class="even">
+<td><p>HWND</p></td>
+<td><p><strong>win.hwnd</strong></p></td>
+<td><p>the window for the message</p></td>
+</tr>
+<tr class="odd">
+<td><p>UINT</p></td>
+<td><p><strong>win.msg</strong></p></td>
+<td><p>the type of message</p></td>
+</tr>
+<tr class="even">
+<td><p>WPARAM</p></td>
+<td><p><strong>win.wParam</strong></p></td>
+<td><p>WORD message parameter</p></td>
+</tr>
+<tr class="odd">
+<td><p>LPARAM</p></td>
+<td><p><strong>win.lParam</strong></p></td>
+<td><p>LONG message parameter</p></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td><p>&lt;bgcolor="#EDEDED"&gt;<em>SDL_SYSWM_X11</em></p></td>
+</tr>
+<tr class="odd">
+<td><p>XEvent</p></td>
+<td><p><strong>x11.event</strong></p></td>
+<td><p>the native x11 event structure</p></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td><p>&lt;bgcolor="#EDEDED"&gt;<em>SDL_SYSWM_DIRECTFB</em></p></td>
+</tr>
+<tr class="odd">
+<td><p>DFBEvent</p></td>
+<td><p><strong>dfb.event</strong></p></td>
+<td><p>the DirectFB event</p></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td><p>&lt;bgcolor="#EDEDED"&gt;<em>SDL_SYSWM_COCOA</em></p></td>
+</tr>
+<tr class="odd">
+<td><p>&lt;style="color: #808080;"&gt;int</p></td>
+<td><p>&lt;style="color: #808080;"&gt;<strong>cocoa.dummy</strong></p></td>
+<td><p>&lt;style="color: #808080;"&gt;unused (&gt;= SDL 2.0.4)</p></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td><p>&lt;bgcolor="#EDEDED"&gt;<em>SDL_SYSWM_UIKIT</em></p></td>
+</tr>
+<tr class="odd">
+<td><p>&lt;style="color: #808080;"&gt;int</p></td>
+<td><p>&lt;style="color: #808080;"&gt;<strong>uikit.dummy</strong></p></td>
+<td><p>&lt;style="color: #808080;"&gt;unused (&gt;= SDL 2.0.4)</p></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td><p>&lt;bgcolor="#EDEDED"&gt;<em>SDL_SYSWM_VIVANTE</em></p></td>
+</tr>
+<tr class="odd">
+<td><p>&lt;style="color: #808080;"&gt;int</p></td>
+<td><p>&lt;style="color: #808080;"&gt;<strong>vivante.dummy</strong></p></td>
+<td><p>&lt;style="color: #808080;"&gt;unused (&gt;= SDL 2.0.5)</p></td>
+</tr>
+</tbody>
+</table>
+<h2 id="remarks">Remarks</h2>
+<p><strong>subsystem</strong> may be one of the following: &lt;&lt;Include(SDL_SYSWM_TYPE, , , from="== Values ==", to="== Code Examples ==")&gt;&gt;</p>
+<p>There are currently no Cocoa or UIKit window events.</p>
+<h2 id="related-enumerations">Related Enumerations</h2>
+<dl>
+<dt></dt>
+<dd><a href="SDL_SYSWM_TYPE.html" title="wikilink">SDL_SYSWM_TYPE</a>
+</dd>
+</dl>
+<h2 id="related-structures">Related Structures</h2>
+<dl>
+<dt></dt>
+<dd><a href="SDL_version.html" title="wikilink">SDL_version</a>
+</dd>
+</dl>
+<hr />
+<p><a href="CategoryStruct.html" title="wikilink">CategoryStruct</a>, <a href="CategorySWM.html" title="wikilink">CategorySWM</a></p>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>FrontPage</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<nav id="TOC">
+<ul>
+<li><a href="#sdl_image-2.0">SDL_image 2.0</a></li>
+</ul>
+</nav>
+<h1 id="sdl_image-2.0">SDL_image 2.0</h1>
+<p>The latest version of this library is available from <a href="https://github.com/libsdl-org/SDL_image/releases.html">GitHub</a>.</p>
+<p>This is a simple library to load images of various formats as SDL surfaces.</p>
+<p>It can load BMP, GIF, JPEG, LBM, PCX, PNG, PNM (PPM/PGM/PBM), QOI, TGA, XCF, XPM, and simple SVG format images. It can also load AVIF, JPEG-XL, TIFF, and WebP images, depending on build options (see the note below for details.)</p>
+<p>Refer to <a href="CategoryAPI.html" title="wikilink">CategoryAPI</a> for a list of functions, and the examples <a href="https://github.com/libsdl-org/SDL_image/blob/main/examples/showimage.c.html">showimage.c</a> for documentation on this library.</p>
+<p>This library is under the zlib License, see the file <a href="https://github.com/libsdl-org/SDL_image/blob/main/LICENSE.txt.html">LICENSE.txt</a> for details.</p>
+<p>Note:</p>
+<ul>
+<li>Support for AVIF, JPEG-XL, TIFF, and WebP are not included by default because of the size of the decode libraries, but you can get them by running external/download.sh</li>
+<li>When building with CMake, you can enable the appropriate SUPPORT_* options defined in CMakeLists.txt.</li>
+<li>When building with configure/make, you can build and install them normally and the configure script will detect and use them.</li>
+<li>When building with Visual Studio, you will need to build the libraries and then add the appropriate LOAD_* preprocessor define to the Visual Studio project.</li>
+<li>When building with Xcode, you can edit the config at the top of the project to enable them, and you will need to include the appropriate framework in your application.</li>
+<li>For Android, you can edit the config at the top of Android.mk to enable them.</li>
+</ul>
+</body>
+</html>

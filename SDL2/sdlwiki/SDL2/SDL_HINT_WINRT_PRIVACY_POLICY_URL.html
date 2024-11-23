@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>SDL_HINT_WINRT_PRIVACY_POLICY_URL</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<nav id="TOC">
+<ul>
+<li><a href="#draft">Draft</a></li>
+<li><a href="#sdl_hint_winrt_privacy_policy_url">SDL_HINT_WINRT_PRIVACY_POLICY_URL</a><ul>
+<li><a href="#values">Values</a></li>
+<li><a href="#default">Default</a></li>
+<li><a href="#remarks">Remarks</a></li>
+<li><a href="#version">Version</a></li>
+</ul></li>
+</ul>
+</nav>
+<h2 id="draft">Draft</h2>
+<p><strong>THIS PAGE IS A WORK IN PROGRESS</strong> ... Please make edits to this page to improve it!</p>
+<h1 id="sdl_hint_winrt_privacy_policy_url">SDL_HINT_WINRT_PRIVACY_POLICY_URL</h1>
+<p>A hint that specifies a URL to a WinRT app's privacy policy.</p>
+<h2 id="values">Values</h2>
+<table>
+<tbody>
+<tr class="odd">
+<td><p>X</p></td>
+<td><p>a URL to a WinRT app's privacy policy</p></td>
+</tr>
+</tbody>
+</table>
+<h2 id="default">Default</h2>
+<p>By default this hint is not set.</p>
+<h2 id="remarks">Remarks</h2>
+<p>All network-enabled WinRT apps must make a privacy policy available to its users. On Windows 8, 8.1, and RT, Microsoft mandates that this policy be available in the Windows Settings charm, as accessed from within the app. SDL provides code to add a URL-based link there, which can point to the app's privacy policy.</p>
+<p>To setup a URL to an app's privacy policy, set SDL_HINT_WINRT_PRIVACY_POLICY_URL before calling any <a href="SDL_Init.html" title="wikilink">SDL_Init</a>() functions. The contents of the hint should be a valid URL. For example, "<a href="http://www.example.com.html">http://www.example.com</a>".</p>
+<p>The default value is "", which will prevent SDL from adding a privacy policy link to the Settings charm. This hint should only be set during app init.</p>
+<p>The label text of an app's "Privacy Policy" link may be customized via another hint, <a href="SDL_HINT_WINRT_PRIVACY_POLICY_LABEL.html" title="wikilink">SDL_HINT_WINRT_PRIVACY_POLICY_LABEL</a>.</p>
+<p>Please note that on Windows Phone, Microsoft does not provide standard UI for displaying a privacy policy link, and as such, SDL_HINT_WINRT_PRIVACY_POLICY_URL will not get used on that platform. Network-enabled phone apps should display their privacy policy through some other, in-app means.</p>
+<h2 id="version">Version</h2>
+<p>This hint is available since SDL 2.0.3.</p>
+<hr />
+<p><a href="CategoryDefine.html" title="wikilink">CategoryDefine</a>, <a href="CategoryHints.html" title="wikilink">CategoryHints</a>, <a href="CategoryDraft.html" title="wikilink">CategoryDraft</a></p>
+</body>
+</html>

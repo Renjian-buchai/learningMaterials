@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>CategoryAPI</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<ul>
+<li><a href="Mix_AllocateChannels.html" title="wikilink">Mix_AllocateChannels</a></li>
+<li><a href="Mix_ChannelFinished.html" title="wikilink">Mix_ChannelFinished</a></li>
+<li><a href="Mix_CloseAudio.html" title="wikilink">Mix_CloseAudio</a></li>
+<li><a href="Mix_EachSoundFont.html" title="wikilink">Mix_EachSoundFont</a></li>
+<li><a href="Mix_ExpireChannel.html" title="wikilink">Mix_ExpireChannel</a></li>
+<li><a href="Mix_FadeInChannel.html" title="wikilink">Mix_FadeInChannel</a></li>
+<li><a href="Mix_FadeInChannelTimed.html" title="wikilink">Mix_FadeInChannelTimed</a></li>
+<li><a href="Mix_FadeInMusic.html" title="wikilink">Mix_FadeInMusic</a></li>
+<li><a href="Mix_FadeInMusicPos.html" title="wikilink">Mix_FadeInMusicPos</a></li>
+<li><a href="Mix_FadeOutChannel.html" title="wikilink">Mix_FadeOutChannel</a></li>
+<li><a href="Mix_FadeOutGroup.html" title="wikilink">Mix_FadeOutGroup</a></li>
+<li><a href="Mix_FadeOutMusic.html" title="wikilink">Mix_FadeOutMusic</a></li>
+<li><a href="Mix_FadingChannel.html" title="wikilink">Mix_FadingChannel</a></li>
+<li><a href="Mix_FadingMusic.html" title="wikilink">Mix_FadingMusic</a></li>
+<li><a href="Mix_FreeChunk.html" title="wikilink">Mix_FreeChunk</a></li>
+<li><a href="Mix_FreeMusic.html" title="wikilink">Mix_FreeMusic</a></li>
+<li><a href="Mix_GetChunk.html" title="wikilink">Mix_GetChunk</a></li>
+<li><a href="Mix_GetChunkDecoder.html" title="wikilink">Mix_GetChunkDecoder</a></li>
+<li><a href="Mix_GetMusicAlbumTag.html" title="wikilink">Mix_GetMusicAlbumTag</a></li>
+<li><a href="Mix_GetMusicArtistTag.html" title="wikilink">Mix_GetMusicArtistTag</a></li>
+<li><a href="Mix_GetMusicCopyrightTag.html" title="wikilink">Mix_GetMusicCopyrightTag</a></li>
+<li><a href="Mix_GetMusicDecoder.html" title="wikilink">Mix_GetMusicDecoder</a></li>
+<li><a href="Mix_GetMusicHookData.html" title="wikilink">Mix_GetMusicHookData</a></li>
+<li><a href="Mix_GetMusicLoopEndTime.html" title="wikilink">Mix_GetMusicLoopEndTime</a></li>
+<li><a href="Mix_GetMusicLoopLengthTime.html" title="wikilink">Mix_GetMusicLoopLengthTime</a></li>
+<li><a href="Mix_GetMusicLoopStartTime.html" title="wikilink">Mix_GetMusicLoopStartTime</a></li>
+<li><a href="Mix_GetMusicPosition.html" title="wikilink">Mix_GetMusicPosition</a></li>
+<li><a href="Mix_GetMusicTitle.html" title="wikilink">Mix_GetMusicTitle</a></li>
+<li><a href="Mix_GetMusicTitleTag.html" title="wikilink">Mix_GetMusicTitleTag</a></li>
+<li><a href="Mix_GetMusicType.html" title="wikilink">Mix_GetMusicType</a></li>
+<li><a href="Mix_GetMusicVolume.html" title="wikilink">Mix_GetMusicVolume</a></li>
+<li><a href="Mix_GetNumChunkDecoders.html" title="wikilink">Mix_GetNumChunkDecoders</a></li>
+<li><a href="Mix_GetNumMusicDecoders.html" title="wikilink">Mix_GetNumMusicDecoders</a></li>
+<li><a href="Mix_GetSoundFonts.html" title="wikilink">Mix_GetSoundFonts</a></li>
+<li><a href="Mix_GetSynchroValue.html" title="wikilink">Mix_GetSynchroValue</a></li>
+<li><a href="Mix_GetTimidityCfg.html" title="wikilink">Mix_GetTimidityCfg</a></li>
+<li><a href="Mix_GroupAvailable.html" title="wikilink">Mix_GroupAvailable</a></li>
+<li><a href="Mix_GroupChannel.html" title="wikilink">Mix_GroupChannel</a></li>
+<li><a href="Mix_GroupChannels.html" title="wikilink">Mix_GroupChannels</a></li>
+<li><a href="Mix_GroupCount.html" title="wikilink">Mix_GroupCount</a></li>
+<li><a href="Mix_GroupNewer.html" title="wikilink">Mix_GroupNewer</a></li>
+<li><a href="Mix_GroupOldest.html" title="wikilink">Mix_GroupOldest</a></li>
+<li><a href="Mix_HaltChannel.html" title="wikilink">Mix_HaltChannel</a></li>
+<li><a href="Mix_HaltGroup.html" title="wikilink">Mix_HaltGroup</a></li>
+<li><a href="Mix_HaltMusic.html" title="wikilink">Mix_HaltMusic</a></li>
+<li><a href="Mix_HasChunkDecoder.html" title="wikilink">Mix_HasChunkDecoder</a></li>
+<li><a href="Mix_HasMusicDecoder.html" title="wikilink">Mix_HasMusicDecoder</a></li>
+<li><a href="Mix_HookMusic.html" title="wikilink">Mix_HookMusic</a></li>
+<li><a href="Mix_HookMusicFinished.html" title="wikilink">Mix_HookMusicFinished</a></li>
+<li><a href="Mix_Init.html" title="wikilink">Mix_Init</a></li>
+<li><a href="Mix_Linked_Version.html" title="wikilink">Mix_Linked_Version</a></li>
+<li><a href="Mix_LoadMUS.html" title="wikilink">Mix_LoadMUS</a></li>
+<li><a href="Mix_LoadMUS_RW.html" title="wikilink">Mix_LoadMUS_RW</a></li>
+<li><a href="Mix_LoadMUSType_RW.html" title="wikilink">Mix_LoadMUSType_RW</a></li>
+<li><a href="Mix_LoadWAV.html" title="wikilink">Mix_LoadWAV</a></li>
+<li><a href="Mix_LoadWAV_RW.html" title="wikilink">Mix_LoadWAV_RW</a></li>
+<li><a href="Mix_MasterVolume.html" title="wikilink">Mix_MasterVolume</a></li>
+<li><a href="Mix_ModMusicJumpToOrder.html" title="wikilink">Mix_ModMusicJumpToOrder</a></li>
+<li><a href="Mix_MusicDuration.html" title="wikilink">Mix_MusicDuration</a></li>
+<li><a href="Mix_OpenAudio.html" title="wikilink">Mix_OpenAudio</a></li>
+<li><a href="Mix_OpenAudioDevice.html" title="wikilink">Mix_OpenAudioDevice</a></li>
+<li><a href="Mix_Pause.html" title="wikilink">Mix_Pause</a></li>
+<li><a href="Mix_PauseAudio.html" title="wikilink">Mix_PauseAudio</a></li>
+<li><a href="Mix_Paused.html" title="wikilink">Mix_Paused</a></li>
+<li><a href="Mix_PausedMusic.html" title="wikilink">Mix_PausedMusic</a></li>
+<li><a href="Mix_PauseMusic.html" title="wikilink">Mix_PauseMusic</a></li>
+<li><a href="Mix_PlayChannel.html" title="wikilink">Mix_PlayChannel</a></li>
+<li><a href="Mix_PlayChannelTimed.html" title="wikilink">Mix_PlayChannelTimed</a></li>
+<li><a href="Mix_Playing.html" title="wikilink">Mix_Playing</a></li>
+<li><a href="Mix_PlayingMusic.html" title="wikilink">Mix_PlayingMusic</a></li>
+<li><a href="Mix_PlayMusic.html" title="wikilink">Mix_PlayMusic</a></li>
+<li><a href="Mix_QuerySpec.html" title="wikilink">Mix_QuerySpec</a></li>
+<li><a href="Mix_QuickLoad_RAW.html" title="wikilink">Mix_QuickLoad_RAW</a></li>
+<li><a href="Mix_QuickLoad_WAV.html" title="wikilink">Mix_QuickLoad_WAV</a></li>
+<li><a href="Mix_Quit.html" title="wikilink">Mix_Quit</a></li>
+<li><a href="Mix_RegisterEffect.html" title="wikilink">Mix_RegisterEffect</a></li>
+<li><a href="Mix_ReserveChannels.html" title="wikilink">Mix_ReserveChannels</a></li>
+<li><a href="Mix_Resume.html" title="wikilink">Mix_Resume</a></li>
+<li><a href="Mix_ResumeMusic.html" title="wikilink">Mix_ResumeMusic</a></li>
+<li><a href="Mix_RewindMusic.html" title="wikilink">Mix_RewindMusic</a></li>
+<li><a href="Mix_SetDistance.html" title="wikilink">Mix_SetDistance</a></li>
+<li><a href="Mix_SetMusicCMD.html" title="wikilink">Mix_SetMusicCMD</a></li>
+<li><a href="Mix_SetMusicPosition.html" title="wikilink">Mix_SetMusicPosition</a></li>
+<li><a href="Mix_SetPanning.html" title="wikilink">Mix_SetPanning</a></li>
+<li><a href="Mix_SetPosition.html" title="wikilink">Mix_SetPosition</a></li>
+<li><a href="Mix_SetPostMix.html" title="wikilink">Mix_SetPostMix</a></li>
+<li><a href="Mix_SetReverseStereo.html" title="wikilink">Mix_SetReverseStereo</a></li>
+<li><a href="Mix_SetSoundFonts.html" title="wikilink">Mix_SetSoundFonts</a></li>
+<li><a href="Mix_SetSynchroValue.html" title="wikilink">Mix_SetSynchroValue</a></li>
+<li><a href="Mix_SetTimidityCfg.html" title="wikilink">Mix_SetTimidityCfg</a></li>
+<li><a href="Mix_UnregisterAllEffects.html" title="wikilink">Mix_UnregisterAllEffects</a></li>
+<li><a href="Mix_UnregisterEffect.html" title="wikilink">Mix_UnregisterEffect</a></li>
+<li><a href="Mix_Volume.html" title="wikilink">Mix_Volume</a></li>
+<li><a href="Mix_VolumeChunk.html" title="wikilink">Mix_VolumeChunk</a></li>
+<li><a href="Mix_VolumeMusic.html" title="wikilink">Mix_VolumeMusic</a></li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>highdpi</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<p>SDL 3.0 has new support for high DPI displays</p>
+<p>Displays now have a content display scale, which is the expected scale for content based on the DPI settings of the display. For example, a 4K display might have a 2.0 (200%) display scale, which means that the user expects UI elements to be twice as big on this display, to aid in readability. You can query the display content scale using <code>SDL_GetDisplayContentScale()</code>, and when this changes you get an <code>SDL_EVENT_WINDOW_DISPLAY_SCALE_CHANGED</code> event.</p>
+<p>The window size is now distinct from the window pixel size, and the ratio between the two is the window pixel density. If the window is created with the <code>SDL_WINDOW_HIGH_PIXEL_DENSITY</code> flag, SDL will try to match the native pixel density for the display, otherwise it will try to have the pixel size match the window size. You can query the window pixel density using <code>SDL_GetWindowPixelDensity()</code>. You can query the window pixel size using <code>SDL_GetWindowSizeInPixels()</code>, and when this changes you get an <code>SDL_EVENT_WINDOW_PIXEL_SIZE_CHANGED</code> event. You are guaranteed to get a <code>SDL_EVENT_WINDOW_PIXEL_SIZE_CHANGED</code> event when a window is created and resized, and you can use this event to create and resize your graphics context for the window.</p>
+<p>The window has a display scale, which is the scale from the pixel resolution to the desired content size, e.g. the combination of the pixel density and the content scale. For example, a 3840x2160 window displayed at 200% on Windows, and a 1920x1080 window with the high density flag on a 2x display on macOS will both have a pixel size of 3840x2160 and a display scale of 2.0. You can query the window display scale using <code>SDL_GetWindowDisplayScale()</code>, and when this changes you get an <code>SDL_EVENT_WINDOW_DISPLAY_SCALE_CHANGED</code> event.</p>
+</body>
+</html>

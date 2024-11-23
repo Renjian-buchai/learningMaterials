@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>SDL_BlendOperation</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<nav id="TOC">
+<ul>
+<li><a href="#draft">Draft</a></li>
+<li><a href="#sdl_blendoperation">SDL_BlendOperation</a><ul>
+<li><a href="#values">Values</a></li>
+<li><a href="#remarks">Remarks</a></li>
+<li><a href="#version">Version</a></li>
+<li><a href="#related-enumerations">Related Enumerations</a></li>
+<li><a href="#related-functions">Related Functions</a></li>
+</ul></li>
+</ul>
+</nav>
+<h2 id="draft">Draft</h2>
+<p><strong>THIS PAGE IS A WORK IN PROGRESS</strong> ... Please make edits to this page to improve it!</p>
+<h1 id="sdl_blendoperation">SDL_BlendOperation</h1>
+<p>An enumeration of blend operations used when creating a custom blend mode with <a href="SDL_ComposeCustomBlendMode.html" title="wikilink">SDL_ComposeCustomBlendMode</a>().</p>
+<h2 id="values">Values</h2>
+<table>
+<tbody>
+<tr class="odd">
+<td><p>SDL_BLENDOPERATION_ADD</p></td>
+<td><p>additive operation</p></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><p>dst + src</p></td>
+</tr>
+<tr class="odd">
+<td><p>SDL_BLENDOPERATION_SUBTRACT</p></td>
+<td><p>subtractive operation</p></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><p>dst - src</p></td>
+</tr>
+<tr class="odd">
+<td><p>SDL_BLENDOPERATION_REV_SUBTRACT</p></td>
+<td><p>reversed subtractive operation</p></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><p>src - dst</p></td>
+</tr>
+<tr class="odd">
+<td><p>SDL_BLENDOPERATION_MINIMUM</p></td>
+<td><p>minimum operation</p></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><p>min(dst, src)</p></td>
+</tr>
+<tr class="odd">
+<td><p>SDL_BLENDOPERATION_MAXIMUM</p></td>
+<td><p>maximum operation</p></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><p>max(dst, src)</p></td>
+</tr>
+</tbody>
+</table>
+<h2 id="remarks">Remarks</h2>
+<p>The blend operation takes place when the calculated pixels from a drawing operation (src) and the pixels from the render target (dst) get combined. Each component (red, green, blue, and alpha) is calculated separately. The result is then stored in the render target.</p>
+<p>Some renderers may not support all operations. See <a href="SDL_ComposeCustomBlendMode.html" title="wikilink">SDL_ComposeCustomBlendMode</a>() for a list of what the current renderers support.</p>
+<h2 id="version">Version</h2>
+<p>This enumeration is available since SDL 2.0.6.</p>
+<h2 id="related-enumerations">Related Enumerations</h2>
+<dl>
+<dt></dt>
+<dd><a href="SDL_BlendFactor.html" title="wikilink">SDL_BlendFactor</a>
+</dd>
+</dl>
+<h2 id="related-functions">Related Functions</h2>
+<dl>
+<dt></dt>
+<dd><a href="SDL_ComposeCustomBlendMode.html" title="wikilink">SDL_ComposeCustomBlendMode</a>
+</dd>
+<dd><a href="SDL_SetRenderDrawBlendMode.html" title="wikilink">SDL_SetRenderDrawBlendMode</a>
+</dd>
+<dd><a href="SDL_SetTextureBlendMode.html" title="wikilink">SDL_SetTextureBlendMode</a>
+</dd>
+</dl>
+<hr />
+<p><a href="CategoryEnum.html" title="wikilink">CategoryEnum</a>, <a href="CategoryRender.html" title="wikilink">CategoryRender</a>, <a href="CategoryDraft.html" title="wikilink">CategoryDraft</a></p>
+</body>
+</html>

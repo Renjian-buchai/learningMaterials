@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>SDL_SysWMinfo</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<nav id="TOC">
+<ul>
+<li><a href="#sdl_syswminfo">SDL_SysWMinfo</a><ul>
+<li><a href="#data-fields">Data Fields</a></li>
+<li><a href="#remarks">Remarks</a></li>
+<li><a href="#related-enumerations">Related Enumerations</a></li>
+<li><a href="#related-structures">Related Structures</a></li>
+<li><a href="#related-functions">Related Functions</a></li>
+</ul></li>
+</ul>
+</nav>
+<h1 id="sdl_syswminfo">SDL_SysWMinfo</h1>
+<p>A structure that contains system-dependent information about a window.</p>
+<h2 id="data-fields">Data Fields</h2>
+<table>
+<tbody>
+<tr class="odd">
+<td></td>
+<td></td>
+<td><p>&lt;bgcolor="#EDEDED"&gt;<em>All Subsystems</em></p></td>
+</tr>
+<tr class="even">
+<td><p><a href="SDL_version.html" title="wikilink">SDL_version</a></p></td>
+<td><p><strong>version</strong></p></td>
+<td><p>an <a href="SDL_version.html" title="wikilink">SDL_version</a> structure that contains the current SDL version</p></td>
+</tr>
+<tr class="odd">
+<td><p><a href="SDL_SYSWM_TYPE.html" title="wikilink">SDL_SYSWM_TYPE</a></p></td>
+<td><p><strong>subsystem</strong></p></td>
+<td><p>the windowing system type; see <a href="#Remarks.html" title="wikilink">Remarks</a> for details</p></td>
+</tr>
+<tr class="even">
+<td><p>&lt;style="color: #808080;"&gt;int</p></td>
+<td><p>&lt;style="color: #808080;"&gt;<strong>dummy</strong></p></td>
+<td><p>&lt;style="color: #808080;"&gt;unused (to help compilers when no specific system is available)</p></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td><p>&lt;bgcolor="#EDEDED"&gt;<em>SDL_SYSWM_WINDOWS</em></p></td>
+</tr>
+<tr class="even">
+<td><p>HWND</p></td>
+<td><p><strong>win.window</strong></p></td>
+<td><p>the window handle</p></td>
+</tr>
+<tr class="odd">
+<td><p>HDC</p></td>
+<td><p><strong>win.hdc</strong></p></td>
+<td><p>the window device context (&gt;= SDL 2.0.4)</p></td>
+</tr>
+<tr class="even">
+<td><p>HINSTANCE</p></td>
+<td><p><strong>win.hinstance</strong></p></td>
+<td><p>the window hinstance (&gt;= SDL 2.0.6)</p></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td><p>&lt;bgcolor="#EDEDED"&gt;<em>SDL_SYSWM_WINRT</em> (&gt;= SDL 2.0.3)</p></td>
+</tr>
+<tr class="even">
+<td><p>IInspectable*</p></td>
+<td><p><strong>winrt.window</strong></p></td>
+<td><p>the WinRT CoreWindow</p></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td><p>&lt;bgcolor="#EDEDED"&gt;<em>SDL_SYSWM_X11</em></p></td>
+</tr>
+<tr class="even">
+<td><p>Display*</p></td>
+<td><p><strong>x11.display</strong></p></td>
+<td><p>the X11 display</p></td>
+</tr>
+<tr class="odd">
+<td><p>Window</p></td>
+<td><p><strong>x11.window</strong></p></td>
+<td><p>the X11 window</p></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td><p>&lt;bgcolor="#EDEDED"&gt;<em>SDL_SYSWM_DIRECTFB</em></p></td>
+</tr>
+<tr class="odd">
+<td><p>IDirectFB*</p></td>
+<td><p><strong>dfb.dfb</strong></p></td>
+<td><p>the DirectFB main interface</p></td>
+</tr>
+<tr class="even">
+<td><p>IDirectFBWindow*</p></td>
+<td><p><strong>dfb.window</strong></p></td>
+<td><p>the DirectFB window handle</p></td>
+</tr>
+<tr class="odd">
+<td><p>IDirectFBSurface*</p></td>
+<td><p><strong>dfb.surface</strong></p></td>
+<td><p>the DirectFB client surface</p></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td><p>&lt;bgcolor="#EDEDED"&gt;<em>SDL_SYSWM_COCOA</em></p></td>
+</tr>
+<tr class="odd">
+<td><p>NSWindow*</p></td>
+<td><p><strong>cocoa.window</strong></p></td>
+<td><p>the Cocoa window</p></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td><p>&lt;bgcolor="#EDEDED"&gt;<em>SDL_SYSWM_UIKIT</em></p></td>
+</tr>
+<tr class="odd">
+<td><p>UIWindow*</p></td>
+<td><p><strong>uikit.window</strong></p></td>
+<td><p>the UIKit window</p></td>
+</tr>
+<tr class="even">
+<td><p>GLuint</p></td>
+<td><p><strong>uikit.framebuffer</strong></p></td>
+<td><p>the GL view's Framebuffer Object; it must be bound when rendering to the screen using GL (&gt;= SDL 2.0.4)</p></td>
+</tr>
+<tr class="odd">
+<td><p>GLuint</p></td>
+<td><p><strong>uikit.colorbuffer</strong></p></td>
+<td><p>the GL view's color Renderbuffer Object; it must be bound when <a href="SDL_GL_SwapWindow.html" title="wikilink">SDL_GL_SwapWindow</a>() is called (&gt;= SDL 2.0.4)</p></td>
+</tr>
+<tr class="even">
+<td><p>GLuint</p></td>
+<td><p><strong>uikit.resolveFramebuffer</strong></p></td>
+<td><p>the Framebuffer Object which holds the resolve color Renderbuffer, when MSAA is used (&gt;= SDL 2.0.4)</p></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td><p>&lt;bgcolor="#EDEDED"&gt;<em>SDL_SYSWM_WAYLAND</em> (&gt;= SDL 2.0.2)</p></td>
+</tr>
+<tr class="even">
+<td><p>wl_display*</p></td>
+<td><p><strong>wl.display</strong></p></td>
+<td><p>the Wayland display</p></td>
+</tr>
+<tr class="odd">
+<td><p>wl_surface*</p></td>
+<td><p><strong>wl.surface</strong></p></td>
+<td><p>the Wayland surface</p></td>
+</tr>
+<tr class="even">
+<td><p>wl_shell_surface*</p></td>
+<td><p><strong>wl.shell_surface</strong></p></td>
+<td><p>the Wayland shell_surface (window manager handle)</p></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td><p>&lt;bgcolor="#EDEDED"&gt;<em>SDL_SYSWM_MIR</em> (&gt;= SDL 2.0.2)</p></td>
+</tr>
+<tr class="even">
+<td><p>MirConnection*</p></td>
+<td><p><strong>mir.connection</strong></p></td>
+<td><p>the Mir display server connection</p></td>
+</tr>
+<tr class="odd">
+<td><p>MirSurface*</p></td>
+<td><p><strong>mir.surface</strong></p></td>
+<td><p>the Mir surface</p></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td><p>&lt;bgcolor="#EDEDED"&gt;<em>SDL_SYSWM_ANDROID</em> (&gt;= SDL 2.0.4)</p></td>
+</tr>
+<tr class="odd">
+<td><p>ANativeWindow*</p></td>
+<td><p><strong>android.window</strong></p></td>
+<td><p>the Android native window</p></td>
+</tr>
+<tr class="even">
+<td><p>EGLSurface</p></td>
+<td><p><strong>android.surface</strong></p></td>
+<td><p>the Android EGL surface</p></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td><p>&lt;bgcolor="#EDEDED"&gt;<em>SDL_SYSWM_VIVANTE</em> (&gt;= SDL 2.0.5)</p></td>
+</tr>
+<tr class="even">
+<td><p>EGLNativeDisplayType</p></td>
+<td><p><strong>vivante.display</strong></p></td>
+<td><p>the Vivante EGL display type</p></td>
+</tr>
+<tr class="odd">
+<td><p>EGLNativeWindowType</p></td>
+<td><p><strong>vivante.window</strong></p></td>
+<td><p>the Vivante EGL window type</p></td>
+</tr>
+</tbody>
+</table>
+<h2 id="remarks">Remarks</h2>
+<p>This structure is filled in by <a href="SDL_GetWindowWMInfo.html" title="wikilink">SDL_GetWindowWMInfo</a>().</p>
+<p>This structure holds low level information about the window and <strong>subsystem</strong> is set to the windowing system in use, one of: &lt;&lt;Include(SDL_SYSWM_TYPE, , , from="== Values ==", to="== Code Examples ==")&gt;&gt;</p>
+<h2 id="related-enumerations">Related Enumerations</h2>
+<dl>
+<dt></dt>
+<dd><a href="SDL_SYSWM_TYPE.html" title="wikilink">SDL_SYSWM_TYPE</a>
+</dd>
+</dl>
+<h2 id="related-structures">Related Structures</h2>
+<dl>
+<dt></dt>
+<dd><a href="SDL_version.html" title="wikilink">SDL_version</a>
+</dd>
+</dl>
+<h2 id="related-functions">Related Functions</h2>
+<dl>
+<dt></dt>
+<dd><a href="SDL_GetWindowWMInfo.html" title="wikilink">SDL_GetWindowWMInfo</a>
+</dd>
+</dl>
+<hr />
+<p><a href="CategoryStruct.html" title="wikilink">CategoryStruct</a>, <a href="CategorySWM.html" title="wikilink">CategorySWM</a></p>
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>SDL_Keymod</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<nav id="TOC">
+<ul>
+<li><a href="#draft">Draft</a></li>
+<li><a href="#sdl_keymod">SDL_Keymod</a><ul>
+<li><a href="#values">Values</a></li>
+<li><a href="#remarks">Remarks</a></li>
+<li><a href="#related-functions">Related Functions</a></li>
+</ul></li>
+</ul>
+</nav>
+<h2 id="draft">Draft</h2>
+<p><strong>THIS PAGE IS A WORK IN PROGRESS</strong> ... Please make edits to this page to improve it!</p>
+<h1 id="sdl_keymod">SDL_Keymod</h1>
+<p>An enumeration of key modifier masks.</p>
+<h2 id="values">Values</h2>
+<table>
+<tbody>
+<tr class="odd">
+<td><p>KMOD_NONE</p></td>
+<td><p>0 (no modifier is applicable)</p></td>
+</tr>
+<tr class="even">
+<td><p>KMOD_LSHIFT</p></td>
+<td><p>the left Shift key is down</p></td>
+</tr>
+<tr class="odd">
+<td><p>KMOD_RSHIFT</p></td>
+<td><p>the right Shift key is down</p></td>
+</tr>
+<tr class="even">
+<td><p>KMOD_LCTRL</p></td>
+<td><p>the left Ctrl (Control) key is down</p></td>
+</tr>
+<tr class="odd">
+<td><p>KMOD_RCTRL</p></td>
+<td><p>the right Ctrl (Control) key is down</p></td>
+</tr>
+<tr class="even">
+<td><p>KMOD_LALT</p></td>
+<td><p>the left Alt key is down</p></td>
+</tr>
+<tr class="odd">
+<td><p>KMOD_RALT</p></td>
+<td><p>the right Alt key is down</p></td>
+</tr>
+<tr class="even">
+<td><p>KMOD_LGUI</p></td>
+<td><p>the left GUI key (often the Windows key) is down</p></td>
+</tr>
+<tr class="odd">
+<td><p>KMOD_RGUI</p></td>
+<td><p>the right GUI key (often the Windows key) is down</p></td>
+</tr>
+<tr class="even">
+<td><p>KMOD_NUM</p></td>
+<td><p>the Num Lock key (may be located on an extended keypad) is down</p></td>
+</tr>
+<tr class="odd">
+<td><p>KMOD_CAPS</p></td>
+<td><p>the Caps Lock key is down</p></td>
+</tr>
+<tr class="even">
+<td><p>KMOD_MODE</p></td>
+<td><p>the !AltGr key is down</p></td>
+</tr>
+<tr class="odd">
+<td><p>KMOD_SCROLL</p></td>
+<td><p>the Scroll Lock key is down (available since SDL 2.0.18)</p></td>
+</tr>
+<tr class="even">
+<td><p>KMOD_CTRL</p></td>
+<td><p>(KMOD_LCTRL|KMOD_RCTRL)</p></td>
+</tr>
+<tr class="odd">
+<td><p>KMOD_SHIFT</p></td>
+<td><p>(KMOD_LSHIFT|KMOD_RSHIFT)</p></td>
+</tr>
+<tr class="even">
+<td><p>KMOD_ALT</p></td>
+<td><p>(KMOD_LALT|KMOD_RALT)</p></td>
+</tr>
+<tr class="odd">
+<td><p>KMOD_GUI</p></td>
+<td><p>(KMOD_LGUI|KMOD_RGUI)</p></td>
+</tr>
+</tbody>
+</table>
+<h2 id="remarks">Remarks</h2>
+<p>These may be OR'd together.</p>
+<h2 id="related-functions">Related Functions</h2>
+<dl>
+<dt></dt>
+<dd><a href="SDL_GetModState.html" title="wikilink">SDL_GetModState</a>
+</dd>
+<dd><a href="SDL_SetModState.html" title="wikilink">SDL_SetModState</a>
+</dd>
+</dl>
+<hr />
+<p><a href="CategoryEnum.html" title="wikilink">CategoryEnum</a>, <a href="CategoryKeyboard.html" title="wikilink">CategoryKeyboard</a>, <a href="CategoryDraft.html" title="wikilink">CategoryDraft</a></p>
+</body>
+</html>

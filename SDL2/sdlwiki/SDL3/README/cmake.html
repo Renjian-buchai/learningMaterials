@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>cmake</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+</head>
+<body>
+<nav id="TOC">
+<ul>
+<li><a href="#cmake">CMake</a><ul>
+<li><a href="#building-sdl">Building SDL</a><ul>
+<li><a href="#building-sdl-tests">Building SDL tests</a></li>
+</ul></li>
+<li><a href="#including-sdl-in-your-project">Including SDL in your project</a><ul>
+<li><a href="#a-system-sdl-library">A system SDL library</a></li>
+<li><a href="#using-a-vendored-sdl">Using a vendored SDL</a></li>
+</ul></li>
+<li><a href="#cmake-configuration-options">CMake configuration options</a><ul>
+<li><a href="#build-optimized-library">Build optimized library</a></li>
+<li><a href="#shared-or-static">Shared or static</a></li>
+<li><a href="#pass-custom-compile-options-to-the-compiler">Pass custom compile options to the compiler</a></li>
+<li><a href="#iostvos">iOS/tvOS</a></li>
+</ul></li>
+<li><a href="#sdl-specific-cmake-options">SDL-specific CMake options</a></li>
+<li><a href="#help-it-doesnt-work">Help, it doesn't work!</a></li>
+</ul></li>
+</ul>
+</nav>
+<h1 id="cmake">CMake</h1>
+<p><a href="https://www.cmake.org/.html">www.cmake.org</a></p>
+<p>The CMake build system is supported on the following platforms:</p>
+<ul>
+<li>FreeBSD</li>
+<li>Linux</li>
+<li>Microsoft Visual C</li>
+<li>MinGW and Msys</li>
+<li>macOS, iOS, and tvOS, with support for XCode</li>
+<li>Android</li>
+<li>Emscripten</li>
+<li>FreeBSD</li>
+<li>Haiku</li>
+<li>Nintendo 3DS</li>
+<li>Playstation 2</li>
+<li>Playstation Vita</li>
+<li>QNX 7.x/8.x</li>
+<li>RiscOS</li>
+</ul>
+<h2 id="building-sdl">Building SDL</h2>
+<p>Assuming the source tree of SDL is located at <code>~/sdl</code>, this will configure and build SDL in the <code>~/build</code> directory:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" title="1"><span class="fu">cmake</span> -S ~/sdl -B ~/build</a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="fu">cmake</span> --build ~/build</a></code></pre></div>
+<p>Installation can be done using:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb2-1" title="1"><span class="fu">cmake</span> --install ~/build --prefix /usr/local        <span class="co"># &#39;--install&#39; requires CMake 3.15, or newer</span></a></code></pre></div>
+<p>This will install SDL to /usr/local.</p>
+<h3 id="building-sdl-tests">Building SDL tests</h3>
+<p>You can build the SDL test programs by adding <code>-DSDL_TESTS=ON</code> to the first cmake command above:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb3-1" title="1"><span class="fu">cmake</span> -S ~/sdl -B ~/build -DSDL_TEST_LIBRARY=ON -DSDL_TESTS=ON</a></code></pre></div>
+<p>and then building normally. In this example, the test programs will be built and can be run from <code>~/build/tests/</code>.</p>
+<h2 id="including-sdl-in-your-project">Including SDL in your project</h2>
+<p>SDL can be included in your project in 2 major ways:</p>
+<ul>
+<li>using a system SDL library, provided by your (*nix) distribution or a package manager</li>
+<li>using a vendored SDL library: this is SDL copied or symlinked in a subfolder.</li>
+</ul>
+<p>The following CMake script supports both, depending on the value of <code>MYGAME_VENDORED</code>.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode cmake"><code class="sourceCode cmake"><a class="sourceLine" id="cb4-1" title="1"><span class="kw">cmake_minimum_required</span>(<span class="ot">VERSION</span> 3.5)</a>
+<a class="sourceLine" id="cb4-2" title="2"><span class="kw">project</span>(mygame)</a>
+<a class="sourceLine" id="cb4-3" title="3"></a>
+<a class="sourceLine" id="cb4-4" title="4"><span class="co"># Create an option to switch between a system sdl library and a vendored SDL library</span></a>
+<a class="sourceLine" id="cb4-5" title="5"><span class="kw">option</span>(MYGAME_VENDORED <span class="st">&quot;Use vendored libraries&quot;</span> OFF)</a>
+<a class="sourceLine" id="cb4-6" title="6"></a>
+<a class="sourceLine" id="cb4-7" title="7"><span class="kw">if</span>(MYGAME_VENDORED)</a>
+<a class="sourceLine" id="cb4-8" title="8">    <span class="co"># This assumes you have added SDL as a submodule in vendored/SDL</span></a>
+<a class="sourceLine" id="cb4-9" title="9">    <span class="kw">add_subdirectory</span>(vendored/SDL <span class="ot">EXCLUDE_FROM_ALL</span>)</a>
+<a class="sourceLine" id="cb4-10" title="10"><span class="kw">else</span>()</a>
+<a class="sourceLine" id="cb4-11" title="11">    <span class="co"># 1. Look for a SDL3 package,</span></a>
+<a class="sourceLine" id="cb4-12" title="12">    <span class="co"># 2. look for the SDL3-shared component, and</span></a>
+<a class="sourceLine" id="cb4-13" title="13">    <span class="co"># 3. fail if the shared component cannot be found.</span></a>
+<a class="sourceLine" id="cb4-14" title="14">    <span class="kw">find_package</span>(SDL3 <span class="ot">REQUIRED</span> <span class="ot">CONFIG</span> <span class="ot">REQUIRED</span> <span class="ot">COMPONENTS</span> SDL3-shared)</a>
+<a class="sourceLine" id="cb4-15" title="15"><span class="kw">endif</span>()</a>
+<a class="sourceLine" id="cb4-16" title="16"></a>
+<a class="sourceLine" id="cb4-17" title="17"><span class="co"># Create your game executable target as usual</span></a>
+<a class="sourceLine" id="cb4-18" title="18"><span class="kw">add_executable</span>(mygame <span class="ot">WIN32</span> mygame.c)</a>
+<a class="sourceLine" id="cb4-19" title="19"></a>
+<a class="sourceLine" id="cb4-20" title="20"><span class="co"># Link to the actual SDL3 library.</span></a>
+<a class="sourceLine" id="cb4-21" title="21"><span class="kw">target_link_libraries</span>(mygame <span class="ot">PRIVATE</span> SDL3::SDL3)</a></code></pre></div>
+<h3 id="a-system-sdl-library">A system SDL library</h3>
+<p>For CMake to find SDL, it must be installed in <a href="https://cmake.org/cmake/help/latest/command/find_package.html#config-mode-search-procedure.html">a default location CMake is looking for</a>.</p>
+<p>The following components are available, to be used as an argument of <code>find_package</code>.</p>
+<table>
+<colgroup>
+<col style="width: 8%" />
+<col style="width: 91%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Component name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>SDL3-shared</td>
+<td>The SDL3 shared library, available through the <code>SDL3::SDL3-shared</code> target</td>
+</tr>
+<tr class="even">
+<td>SDL3-static</td>
+<td>The SDL3 static library, available through the <code>SDL3::SDL3-static</code> target</td>
+</tr>
+<tr class="odd">
+<td>SDL3_test</td>
+<td>The SDL3_test static library, available through the <code>SDL3::SDL3_test</code> target</td>
+</tr>
+<tr class="even">
+<td>SDL3</td>
+<td>The SDL3 library, available through the <code>SDL3::SDL3</code> target. This is an alias of <code>SDL3::SDL3-shared</code> or <code>SDL3::SDL3-static</code>. This component is always available.</td>
+</tr>
+<tr class="odd">
+<td>Headers</td>
+<td>The SDL3 headers, available through the <code>SDL3::Headers</code> target. This component is always available.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="using-a-vendored-sdl">Using a vendored SDL</h3>
+<p>This only requires a copy of SDL in a subdirectory + <code>add_subdirectory</code>. Alternatively, use <a href="https://cmake.org/cmake/help/latest/module/FetchContent.html.html">FetchContent</a>. Depending on the configuration, the same targets as a system SDL package are available.</p>
+<h2 id="cmake-configuration-options">CMake configuration options</h2>
+<h3 id="build-optimized-library">Build optimized library</h3>
+<p>By default, CMake provides 4 build types: <code>Debug</code>, <code>Release</code>, <code>RelWithDebInfo</code> and <code>MinSizeRel</code>. The main difference(s) between these are the optimization options and the generation of debug info. To configure SDL as an optimized <code>Release</code> library, configure SDL with:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb5-1" title="1"><span class="fu">cmake</span> ~/SDL -DCMAKE_BUILD_TYPE=Release</a></code></pre></div>
+<p>To build it, run:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb6-1" title="1"><span class="fu">cmake</span> --build . --config Release</a></code></pre></div>
+<h3 id="shared-or-static">Shared or static</h3>
+<p>By default, only a shared SDL library is built and installed. The options <code>-DSDL_SHARED=</code> and <code>-DSDL_STATIC=</code> accept boolean values to change this.</p>
+<h3 id="pass-custom-compile-options-to-the-compiler">Pass custom compile options to the compiler</h3>
+<ul>
+<li>Use <a href="https://cmake.org/cmake/help/latest/variable/CMAKE_LANG_FLAGS.html.html"><code>CMAKE_&lt;LANG&gt;_FLAGS</code></a> to pass extra flags to the compiler.</li>
+<li>Use <a href="https://cmake.org/cmake/help/latest/variable/CMAKE_EXE_LINKER_FLAGS.html.html"><code>CMAKE_EXE_LINKER_FLAGS</code></a> to pass extra option to the linker for executables.</li>
+<li>Use <a href="https://cmake.org/cmake/help/latest/variable/CMAKE_SHARED_LINKER_FLAGS.html.html"><code>CMAKE_SHARED_LINKER_FLAGS</code></a> to pass extra options to the linker for shared libraries.</li>
+</ul>
+<h4 id="examples">Examples</h4>
+<ul>
+<li><p>build a SDL library optimized for (more) modern x64 microprocessor architectures.</p>
+<p>With gcc or clang: <code>sh   cmake ~/sdl -DCMAKE_C_FLAGS="-march=x86-64-v3" -DCMAKE_CXX_FLAGS="-march=x86-64-v3"</code> With Visual C: <code>sh   cmake .. -DCMAKE_C_FLAGS="/ARCH:AVX2" -DCMAKE_CXX_FLAGS="/ARCH:AVX2"</code></p></li>
+</ul>
+<h3 id="iostvos">iOS/tvOS</h3>
+<p>CMake 3.14+ natively includes support for iOS and tvOS. SDL binaries may be built using Xcode or Make, possibly among other build-systems.</p>
+<p>When using a recent version of CMake (3.14+), it should be possible to:</p>
+<ul>
+<li>build SDL for iOS, both static and dynamic</li>
+<li>build SDL test apps (as iOS/tvOS .app bundles)</li>
+<li>generate a working SDL_build_config.h for iOS (using SDL_build_config.h.cmake as a basis)</li>
+</ul>
+<p>To use, set the following CMake variables when running CMake's configuration stage:</p>
+<ul>
+<li><code>CMAKE_SYSTEM_NAME=&lt;OS&gt;</code> (either <code>iOS</code> or <code>tvOS</code>)</li>
+<li><code>CMAKE_OSX_SYSROOT=&lt;SDK&gt;</code> (examples: <code>iphoneos</code>, <code>iphonesimulator</code>, <code>iphoneos12.4</code>, <code>/full/path/to/iPhoneOS.sdk</code>, <code>appletvos</code>, <code>appletvsimulator</code>, <code>appletvos12.4</code>, <code>/full/path/to/AppleTVOS.sdk</code>, etc.)</li>
+<li><code>CMAKE_OSX_ARCHITECTURES=&lt;semicolon-separated list of CPU architectures&gt;</code> (example: "arm64;armv7s;x86_64")</li>
+</ul>
+<h4 id="examples-1">Examples</h4>
+<ul>
+<li><p>for iOS-Simulator, using the latest, installed SDK:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb7-1" title="1"><span class="fu">cmake</span> ~/sdl -DCMAKE_SYSTEM_NAME=iOS -DCMAKE_OSX_SYSROOT=iphonesimulator -DCMAKE_OSX_ARCHITECTURES=x86_64</a></code></pre></div></li>
+<li><p>for iOS-Device, using the latest, installed SDK, 64-bit only</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb8-1" title="1"><span class="fu">cmake</span> ~/sdl -DCMAKE_SYSTEM_NAME=iOS -DCMAKE_OSX_SYSROOT=iphoneos -DCMAKE_OSX_ARCHITECTURES=arm64</a></code></pre></div></li>
+<li><p>for iOS-Device, using the latest, installed SDK, mixed 32/64 bit</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode cmake"><code class="sourceCode cmake"><a class="sourceLine" id="cb9-1" title="1"><span class="fu">cmake ~/sdl -DCMAKE_SYSTEM_NAME=iOS -DCMAKE_OSX_SYSROOT=iphoneos -DCMAKE_OSX_ARCHITECTURES=&quot;arm64;armv7s&quot;</span></a></code></pre></div></li>
+<li><p>for iOS-Device, using a specific SDK revision (iOS 12.4, in this example):</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode cmake"><code class="sourceCode cmake"><a class="sourceLine" id="cb10-1" title="1"><span class="fu">cmake ~/sdl -DCMAKE_SYSTEM_NAME=iOS -DCMAKE_OSX_SYSROOT=iphoneos12.4 -DCMAKE_OSX_ARCHITECTURES=arm64</span></a></code></pre></div></li>
+<li><p>for iOS-Simulator, using the latest, installed SDK, and building SDL test apps (as .app bundles):</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode cmake"><code class="sourceCode cmake"><a class="sourceLine" id="cb11-1" title="1"><span class="fu">cmake ~/sdl -DSDL_TESTS=1 -DCMAKE_SYSTEM_NAME=iOS -DCMAKE_OSX_SYSROOT=iphonesimulator -DCMAKE_OSX_ARCHITECTURES=x86_64</span></a></code></pre></div></li>
+<li><p>for tvOS-Simulator, using the latest, installed SDK:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode cmake"><code class="sourceCode cmake"><a class="sourceLine" id="cb12-1" title="1"><span class="fu">cmake ~/sdl -DCMAKE_SYSTEM_NAME=tvOS -DCMAKE_OSX_SYSROOT=appletvsimulator -DCMAKE_OSX_ARCHITECTURES=x86_64</span></a></code></pre></div></li>
+<li><p>for tvOS-Device, using the latest, installed SDK:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode cmake"><code class="sourceCode cmake"><a class="sourceLine" id="cb13-1" title="1"><span class="fu">cmake ~/sdl -DCMAKE_SYSTEM_NAME=tvOS -DCMAKE_OSX_SYSROOT=appletvos -DCMAKE_OSX_ARCHITECTURES=arm64`</span></a></code></pre></div></li>
+<li><p>for QNX/aarch64, using the latest, installed SDK:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode cmake"><code class="sourceCode cmake"><a class="sourceLine" id="cb14-1" title="1"><span class="fu">cmake ~/sdl -DCMAKE_TOOLCHAIN_FILE=~/sdl/build-scripts/cmake-toolchain-qnx-aarch64le.cmake -DSDL_X11=0</span></a></code></pre></div></li>
+</ul>
+<h2 id="sdl-specific-cmake-options">SDL-specific CMake options</h2>
+<p>SDL can be customized through (platform-specific) CMake options. The following table shows generic options that are available for most platforms. At the end of SDL CMake configuration, a table shows all CMake options along with its detected value.</p>
+<table>
+<colgroup>
+<col style="width: 21%" />
+<col style="width: 9%" />
+<col style="width: 69%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>CMake option</th>
+<th>Valid values</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>-DSDL_SHARED=</code></td>
+<td><code>ON</code>/<code>OFF</code></td>
+<td>Build SDL shared library (not all platforms support this) (<code>libSDL3.so</code>/<code>libSDL3.dylib</code>/<code>SDL3.dll</code>)</td>
+</tr>
+<tr class="even">
+<td><code>-DSDL_STATIC=</code></td>
+<td><code>ON</code>/<code>OFF</code></td>
+<td>Build SDL static library (<code>libSDL3.a</code>/<code>SDL3-static.lib</code>)</td>
+</tr>
+<tr class="odd">
+<td><code>-DSDL_TEST_LIBRARY=</code></td>
+<td><code>ON</code>/<code>OFF</code></td>
+<td>Build SDL test library (<code>libSDL3_test.a</code>/<code>SDL3_test.lib</code>)</td>
+</tr>
+<tr class="even">
+<td><code>-DSDL_TESTS=</code></td>
+<td><code>ON</code>/<code>OFF</code></td>
+<td>Build SDL test programs (<strong>requires <code>-DSDL_TEST_LIBRARY=ON</code></strong>)</td>
+</tr>
+<tr class="odd">
+<td><code>-DSDL_DISABLE_INSTALL=</code></td>
+<td><code>ON</code>/<code>OFF</code></td>
+<td>Don't create a SDL install target</td>
+</tr>
+<tr class="even">
+<td><code>-DSDL_DISABLE_INSTALL_DOCS=</code></td>
+<td><code>ON</code>/<code>OFF</code></td>
+<td>Don't install the SDL documentation</td>
+</tr>
+<tr class="odd">
+<td><code>-DSDL_INSTALL_TESTS=</code></td>
+<td><code>ON</code>/<code>OFF</code></td>
+<td>Install the SDL test programs</td>
+</tr>
+</tbody>
+</table>
+<h2 id="help-it-doesnt-work">Help, it doesn't work!</h2>
+<p>Below, a SDL3 CMake project can be found that builds 99.9% of time (assuming you have internet connectivity). When you have a problem with building or using SDL, please modify it until it reproduces your issue.</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode cmake"><code class="sourceCode cmake"><a class="sourceLine" id="cb15-1" title="1"><span class="kw">cmake_minimum_required</span>(<span class="ot">VERSION</span> 3.16)</a>
+<a class="sourceLine" id="cb15-2" title="2"><span class="kw">project</span>(sdl_issue)</a>
+<a class="sourceLine" id="cb15-3" title="3"></a>
+<a class="sourceLine" id="cb15-4" title="4"><span class="co"># !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!</span></a>
+<a class="sourceLine" id="cb15-5" title="5"><span class="co"># !!!!!!                                                                            !!!!!!</span></a>
+<a class="sourceLine" id="cb15-6" title="6"><span class="co"># !!!!!!     This CMake script is not using &quot;CMake best practices&quot;.                 !!!!!!</span></a>
+<a class="sourceLine" id="cb15-7" title="7"><span class="co"># !!!!!!                 Don&#39;t use it in your project.                              !!!!!!</span></a>
+<a class="sourceLine" id="cb15-8" title="8"><span class="co"># !!!!!!                                                                            !!!!!!</span></a>
+<a class="sourceLine" id="cb15-9" title="9"><span class="co"># !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!</span></a>
+<a class="sourceLine" id="cb15-10" title="10"></a>
+<a class="sourceLine" id="cb15-11" title="11"><span class="co"># 1. Try system SDL3 package first</span></a>
+<a class="sourceLine" id="cb15-12" title="12"><span class="kw">find_package</span>(SDL3 <span class="ot">QUIET</span>)</a>
+<a class="sourceLine" id="cb15-13" title="13"><span class="kw">if</span>(<span class="dv">SDL3_FOUND</span>)</a>
+<a class="sourceLine" id="cb15-14" title="14">    <span class="kw">message</span>(<span class="ot">STATUS</span> <span class="st">&quot;Using SDL3 via find_package&quot;</span>)</a>
+<a class="sourceLine" id="cb15-15" title="15"><span class="kw">endif</span>()</a>
+<a class="sourceLine" id="cb15-16" title="16"></a>
+<a class="sourceLine" id="cb15-17" title="17"><span class="co"># 2. Try using a vendored SDL library</span></a>
+<a class="sourceLine" id="cb15-18" title="18"><span class="kw">if</span>(<span class="ot">NOT</span> <span class="dv">SDL3_FOUND</span> <span class="ot">AND</span> <span class="ot">EXISTS</span> <span class="st">&quot;</span><span class="dv">${CMAKE_CURRENT_LIST_DIR}</span><span class="st">/SDL/CMakeLists.txt&quot;</span>)</a>
+<a class="sourceLine" id="cb15-19" title="19">    <span class="kw">add_subdirectory</span>(SDL)</a>
+<a class="sourceLine" id="cb15-20" title="20">    <span class="kw">message</span>(<span class="ot">STATUS</span> <span class="st">&quot;Using SDL3 via add_subdirectory&quot;</span>)</a>
+<a class="sourceLine" id="cb15-21" title="21">    <span class="kw">set</span>(<span class="dv">SDL3_FOUND</span> TRUE)</a>
+<a class="sourceLine" id="cb15-22" title="22"><span class="kw">endif</span>()</a>
+<a class="sourceLine" id="cb15-23" title="23"></a>
+<a class="sourceLine" id="cb15-24" title="24"><span class="co"># 3. Download SDL, and use that.</span></a>
+<a class="sourceLine" id="cb15-25" title="25"><span class="kw">if</span>(<span class="ot">NOT</span> <span class="dv">SDL3_FOUND</span>)</a>
+<a class="sourceLine" id="cb15-26" title="26">    <span class="kw">include</span>(FetchContent)</a>
+<a class="sourceLine" id="cb15-27" title="27">    <span class="kw">set</span>(SDL_SHARED TRUE <span class="ot">CACHE</span> <span class="ot">BOOL</span> <span class="st">&quot;Build a SDL shared library (if available)&quot;</span>)</a>
+<a class="sourceLine" id="cb15-28" title="28">    <span class="kw">set</span>(SDL_STATIC TRUE <span class="ot">CACHE</span> <span class="ot">BOOL</span> <span class="st">&quot;Build a SDL static library (if available)&quot;</span>)</a>
+<a class="sourceLine" id="cb15-29" title="29">    <span class="fu">FetchContent_Declare</span>(</a>
+<a class="sourceLine" id="cb15-30" title="30">        SDL</a>
+<a class="sourceLine" id="cb15-31" title="31">        GIT_REPOSITORY https://github.com/libsdl-org/SDL.git</a>
+<a class="sourceLine" id="cb15-32" title="32">        GIT_TAG main  <span class="co"># Replace this with a particular git tag or git hash</span></a>
+<a class="sourceLine" id="cb15-33" title="33">        GIT_SHALLOW TRUE</a>
+<a class="sourceLine" id="cb15-34" title="34">        GIT_PROGRESS TRUE</a>
+<a class="sourceLine" id="cb15-35" title="35">    )</a>
+<a class="sourceLine" id="cb15-36" title="36">    <span class="kw">message</span>(<span class="ot">STATUS</span> <span class="st">&quot;Using SDL3 via FetchContent&quot;</span>)</a>
+<a class="sourceLine" id="cb15-37" title="37">    <span class="fu">FetchContent_MakeAvailable</span>(SDL)</a>
+<a class="sourceLine" id="cb15-38" title="38">    <span class="kw">set_property</span>(<span class="ot">DIRECTORY</span> <span class="st">&quot;</span><span class="dv">${CMAKE_CURRENT_BINARY_DIR}</span><span class="st">/_deps/sdl-src&quot;</span> <span class="ot">PROPERTY</span> <span class="ot">EXCLUDE_FROM_ALL</span> TRUE)</a>
+<a class="sourceLine" id="cb15-39" title="39"><span class="kw">endif</span>()</a>
+<a class="sourceLine" id="cb15-40" title="40"></a>
+<a class="sourceLine" id="cb15-41" title="41"><span class="kw">file</span>(<span class="ot">WRITE</span> main.c <span class="st">[===========================================[</span></a>
+<a class="sourceLine" id="cb15-42" title="42"><span class="st">/**</span></a>
+<a class="sourceLine" id="cb15-43" title="43"><span class="st"> * Modify this source such that it reproduces your problem.</span></a>
+<a class="sourceLine" id="cb15-44" title="44"><span class="st"> */</span></a>
+<a class="sourceLine" id="cb15-45" title="45"></a>
+<a class="sourceLine" id="cb15-46" title="46"><span class="st">/* START of source modifications */</span></a>
+<a class="sourceLine" id="cb15-47" title="47"></a>
+<a class="sourceLine" id="cb15-48" title="48"><span class="st">#include &lt;SDL3/SDL.h&gt;</span></a>
+<a class="sourceLine" id="cb15-49" title="49"></a>
+<a class="sourceLine" id="cb15-50" title="50"><span class="st">int main(int argc, char *argv[]) {</span></a>
+<a class="sourceLine" id="cb15-51" title="51"><span class="st">    if (SDL_Init(SDL_INIT_EVERYTHING) &lt; 0) {</span></a>
+<a class="sourceLine" id="cb15-52" title="52"><span class="st">        SDL_Log(&quot;SDL_Init failed (%s)&quot;, SDL_GetError());</span></a>
+<a class="sourceLine" id="cb15-53" title="53"><span class="st">        return 1;</span></a>
+<a class="sourceLine" id="cb15-54" title="54"><span class="st">    }</span></a>
+<a class="sourceLine" id="cb15-55" title="55"></a>
+<a class="sourceLine" id="cb15-56" title="56"><span class="st">    SDL_Window *window = NULL;</span></a>
+<a class="sourceLine" id="cb15-57" title="57"><span class="st">    SDL_Renderer *renderer = NULL;</span></a>
+<a class="sourceLine" id="cb15-58" title="58"></a>
+<a class="sourceLine" id="cb15-59" title="59"><span class="st">    if (SDL_CreateWindowAndRenderer(640, 480, 0, &amp;window, &amp;renderer) &lt; 0) {</span></a>
+<a class="sourceLine" id="cb15-60" title="60"><span class="st">        SDL_Log(&quot;SDL_CreateWindowAndRenderer failed (%s)&quot;, SDL_GetError());</span></a>
+<a class="sourceLine" id="cb15-61" title="61"><span class="st">        SDL_Quit();</span></a>
+<a class="sourceLine" id="cb15-62" title="62"><span class="st">        return 1;</span></a>
+<a class="sourceLine" id="cb15-63" title="63"><span class="st">    }</span></a>
+<a class="sourceLine" id="cb15-64" title="64"><span class="st">    SDL_SetWindowTitle(window, &quot;SDL issue&quot;);</span></a>
+<a class="sourceLine" id="cb15-65" title="65"></a>
+<a class="sourceLine" id="cb15-66" title="66"><span class="st">    while (1) {</span></a>
+<a class="sourceLine" id="cb15-67" title="67"><span class="st">        int finished = 0;</span></a>
+<a class="sourceLine" id="cb15-68" title="68"><span class="st">        SDL_Event event;</span></a>
+<a class="sourceLine" id="cb15-69" title="69"><span class="st">        while (SDL_PollEvent(&amp;event)) {</span></a>
+<a class="sourceLine" id="cb15-70" title="70"><span class="st">            if (event.type == SDL_EVENT_QUIT) {</span></a>
+<a class="sourceLine" id="cb15-71" title="71"><span class="st">                finished = 1;</span></a>
+<a class="sourceLine" id="cb15-72" title="72"><span class="st">                break;</span></a>
+<a class="sourceLine" id="cb15-73" title="73"><span class="st">            }</span></a>
+<a class="sourceLine" id="cb15-74" title="74"><span class="st">        }</span></a>
+<a class="sourceLine" id="cb15-75" title="75"><span class="st">        if (finished) {</span></a>
+<a class="sourceLine" id="cb15-76" title="76"><span class="st">            break;</span></a>
+<a class="sourceLine" id="cb15-77" title="77"><span class="st">        }</span></a>
+<a class="sourceLine" id="cb15-78" title="78"></a>
+<a class="sourceLine" id="cb15-79" title="79"><span class="st">        SDL_SetRenderDrawColor(renderer, 80, 80, 80, SDL_ALPHA_OPAQUE);</span></a>
+<a class="sourceLine" id="cb15-80" title="80"><span class="st">        SDL_RenderClear(renderer);</span></a>
+<a class="sourceLine" id="cb15-81" title="81"><span class="st">        SDL_RenderPresent(renderer);</span></a>
+<a class="sourceLine" id="cb15-82" title="82"><span class="st">    }</span></a>
+<a class="sourceLine" id="cb15-83" title="83"></a>
+<a class="sourceLine" id="cb15-84" title="84"><span class="st">    SDL_DestroyRenderer(renderer);</span></a>
+<a class="sourceLine" id="cb15-85" title="85"><span class="st">    SDL_DestroyWindow(window);</span></a>
+<a class="sourceLine" id="cb15-86" title="86"></a>
+<a class="sourceLine" id="cb15-87" title="87"><span class="st">    SDL_Quit();</span></a>
+<a class="sourceLine" id="cb15-88" title="88"><span class="st">}</span></a>
+<a class="sourceLine" id="cb15-89" title="89"></a>
+<a class="sourceLine" id="cb15-90" title="90"><span class="st">/* END of source modifications */</span></a>
+<a class="sourceLine" id="cb15-91" title="91"></a>
+<a class="sourceLine" id="cb15-92" title="92"><span class="st">]===========================================]</span>)</a>
+<a class="sourceLine" id="cb15-93" title="93"></a>
+<a class="sourceLine" id="cb15-94" title="94"><span class="kw">add_executable</span>(sdl_issue main.c)</a>
+<a class="sourceLine" id="cb15-95" title="95"></a>
+<a class="sourceLine" id="cb15-96" title="96"><span class="kw">target_link_libraries</span>(sdl_issue <span class="ot">PRIVATE</span> SDL3::SDL3)</a>
+<a class="sourceLine" id="cb15-97" title="97"><span class="co"># target_link_libraries(sdl_issue PRIVATE SDL3::SDL3-shared)</span></a>
+<a class="sourceLine" id="cb15-98" title="98"><span class="co"># target_link_libraries(sdl_issue PRIVATE SDL3::SDL3-static)</span></a></code></pre></div>
+</body>
+</html>

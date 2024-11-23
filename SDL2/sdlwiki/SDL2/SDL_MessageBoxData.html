@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>SDL_MessageBoxData</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<nav id="TOC">
+<ul>
+<li><a href="#draft">Draft</a></li>
+<li><a href="#sdl_messageboxdata">SDL_MessageBoxData</a><ul>
+<li><a href="#data-fields">Data Fields</a></li>
+<li><a href="#remarks">Remarks</a></li>
+<li><a href="#related-enumerations">Related Enumerations</a></li>
+<li><a href="#related-structures">Related Structures</a></li>
+<li><a href="#related-functions">Related Functions</a></li>
+</ul></li>
+</ul>
+</nav>
+<h2 id="draft">Draft</h2>
+<p><strong>THIS PAGE IS A WORK IN PROGRESS</strong> ... Please make edits to this page to improve it!</p>
+<h1 id="sdl_messageboxdata">SDL_MessageBoxData</h1>
+<p>A structure that contains title, text, window and other data for a message box.</p>
+<h2 id="data-fields">Data Fields</h2>
+<table>
+<tbody>
+<tr class="odd">
+<td><p>Uint32</p></td>
+<td><p><strong>flags</strong></p></td>
+<td><p>an <a href="SDL_MessageBoxFlags.html" title="wikilink">SDL_MessageBoxFlags</a></p></td>
+</tr>
+<tr class="even">
+<td><p>SDL_Window*</p></td>
+<td><p><strong>window</strong></p></td>
+<td><p>an parent window, can be NULL</p></td>
+</tr>
+<tr class="odd">
+<td><p>const char*</p></td>
+<td><p><strong>title</strong></p></td>
+<td><p>an UTF-8 title</p></td>
+</tr>
+<tr class="even">
+<td><p>const char*</p></td>
+<td><p><strong>message</strong></p></td>
+<td><p>an UTF-8 message text</p></td>
+</tr>
+<tr class="odd">
+<td><p>int</p></td>
+<td><p><strong>numbuttons</strong></p></td>
+<td><p>the number of buttons</p></td>
+</tr>
+<tr class="even">
+<td><p>const <a href="SDL_MessageBoxButtonData.html" title="wikilink">SDL_MessageBoxButtonData</a>*</p></td>
+<td><p><strong>buttons</strong></p></td>
+<td><p>an array of <a href="SDL_MessageBoxButtonData.html" title="wikilink">SDL_MessageBoxButtonData</a> with length of <strong>numbuttons</strong></p></td>
+</tr>
+<tr class="odd">
+<td><p>const <a href="SDL_MessageBoxColorScheme.html" title="wikilink">SDL_MessageBoxColorScheme</a>*</p></td>
+<td><p><strong>colorScheme</strong></p></td>
+<td><p>an <a href="SDL_MessageBoxColorScheme.html" title="wikilink">SDL_MessageBoxColorScheme</a>, can be NULL to use system settings</p></td>
+</tr>
+</tbody>
+</table>
+<h2 id="remarks">Remarks</h2>
+<p>See <a href="SDL_ShowMessageBox.html" title="wikilink">SDL_ShowMessageBox</a>() for a complete code example.</p>
+<h2 id="related-enumerations">Related Enumerations</h2>
+<dl>
+<dt></dt>
+<dd><a href="SDL_MessageBoxFlags.html" title="wikilink">SDL_MessageBoxFlags</a>
+</dd>
+</dl>
+<h2 id="related-structures">Related Structures</h2>
+<dl>
+<dt></dt>
+<dd><a href="SDL_MessageBoxButtonData.html" title="wikilink">SDL_MessageBoxButtonData</a>
+</dd>
+<dd><a href="SDL_MessageBoxColorScheme.html" title="wikilink">SDL_MessageBoxColorScheme</a>
+</dd>
+</dl>
+<h2 id="related-functions">Related Functions</h2>
+<dl>
+<dt></dt>
+<dd><a href="SDL_ShowMessageBox.html" title="wikilink">SDL_ShowMessageBox</a>
+</dd>
+</dl>
+<hr />
+<p><a href="CategoryStruct.html" title="wikilink">CategoryStruct</a>, <a href="CategoryVideo.html" title="wikilink">CategoryVideo</a>, <a href="CategoryDraft.html" title="wikilink">CategoryDraft</a></p>
+</body>
+</html>

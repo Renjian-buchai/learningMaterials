@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>SGEnumerations</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<nav id="TOC">
+<ul>
+<li><a href="#style-guide-enumerations-pages">Style Guide: Enumerations Pages</a><ul>
+<li><a href="#general-guidelines">General Guidelines</a></li>
+<li><a href="#editing-specific-sections">Editing Specific Sections</a><ul>
+<li><a href="#title">Title</a></li>
+</ul></li>
+<li><a href="#related-enumerations">Related Enumerations</a></li>
+<li><a href="#related-structures">Related Structures</a><ul>
+<li><a href="#related-functions">Related Functions</a></li>
+</ul></li>
+<li><a href="#related-functions-1">Related Functions</a><ul>
+<li><a href="#footer">Footer</a></li>
+<li><a href="#special">Special</a></li>
+</ul></li>
+<li><a href="#default">Default</a></li>
+</ul></li>
+</ul>
+</nav>
+<h1 id="style-guide-enumerations-pages">Style Guide: Enumerations Pages</h1>
+<p>This guide provides specific instructions for editing or adding your own content to each section of an Enumeration page in this wiki.</p>
+<p><strong>Enumeration pages should provide basic information about the SDL enumerations to allow users to most effectively utilize them in their projects.</strong></p>
+<p><span id="ToC"></span></p>
+<h2 id="general-guidelines">General Guidelines</h2>
+<table>
+<tbody>
+<tr class="odd">
+<td><p><span color="red">Important note about <strong>Hints</strong></span><br />
+The basic enumeration template is also used for hints that have pages in the wiki. For simplicity, the following guidelines for enumerations will also apply to hints unless a specific difference is noted.</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Please observe the following for all enumeration pages:</strong></p>
+<ul>
+<li>Do not post anything that you do not have permission to post publicly.</li>
+</ul>
+<ul>
+<li>Sections should have adequate details to make them clear and useful while remaining brief wherever possible. Code Examples and Remarks may be more extensive than other sections if necessary.</li>
+</ul>
+<ul>
+<li>Please remember to keep it accurate, simple, and easy to understand.</li>
+</ul>
+<ul>
+<li>Do not remove, modify, or add to the markup above the page title ~-(processing instructions (ie: <code>#pragma</code>, <code>#acl</code>), <span color="red">DRAFT</span> markup, etc.)-~ except:</li>
+<li>On CategoryCompat pages, place the following markup above the page title and below the processing instructions or DRAFT markup, if present:</li>
+</ul>
+<dl>
+<dt></dt>
+<dd>```||&lt;tablewidth="100%" #000000 style="color: #FF8C00;" :&gt;<br />
+~+For Backward Compatibility Only+~<br />
+<br />
+||```
+</dd>
+</dl>
+<ul>
+<li>Do not remove, modify, or add section headings unless specifically mentioned below.</li>
+</ul>
+<ul>
+<li>In general, we prefer that you do not remove or modify existing content unless it is clearly incorrect or out of date.</li>
+</ul>
+<ul>
+<li>Pages with <span color="red">DRAFT</span> at the top are in progress and will often contain unusual content, formatting, or notes. Please do not remove or modify these. That will all be corrected/removed upon final edit.</li>
+</ul>
+<p>~-<a href="#ToC.html" title="wikilink">Return to Table of Contents</a>-~<br />
+<br />
+== Getting Started ==</p>
+<p><code>1. Begin by going to the page you wish to edit and selecting </code><span color="blue"><code>Edit (Text)</code></span><code> or </code><span color="blue"><code>Edit (GUI)</code></span><code> in the left column to begin editing.</code><br />
+<code> {i} ~-Markup info provided here is specifically for use in the Text editor but should work in both.-~</code><br />
+<code>1. Scroll down in the edit window to the section(s) you want to edit.  Add your content following the conventions in this style guide.</code><br />
+<code>1. Find information relevant to your content in the style guide sections </code><a href="#specifics.html" title="wikilink"><code>below</code></a><code> and apply the appropriate formatting as you edit.</code><br />
+<code>1. Preview your work as you go by clicking </code><span color="blue"><code>Preview</code></span><code> in the left column.  Preview often and any time you are unsure of formatting. </code></p>
+<dl>
+<dt></dt>
+<dd>~-(Keep in mind that a few things (like <a href="SGWikiBasics#color2.html" title="wikilink">Color2 text</a>) don't preview exactly as they parse.)-~
+</dd>
+</dl>
+<p><code>1. Save your work by clicking </code><span color="blue"><code>Save Changes</code></span><code> in the left column after you are satisfied with your content and have filled in the Comment field under the editing box. </code></p>
+<p>For assistance with editing, saving, or wiki-appropriate markup see the <a href="SGWikiBasics.html" title="wikilink">Wiki Basics</a> Style Guide or contact us at &lt;&lt;MailTo(ANTI SPAM wiki AT libsdl DOT org)&gt;&gt;.</p>
+<p>~-<a href="#ToC.html" title="wikilink">Return to Table of Contents</a>-~<br />
+<br />
+<span id="specifics"></span></p>
+<h2 id="editing-specific-sections">Editing Specific Sections</h2>
+<h3 id="title">Title</h3>
+<p><strong><em>Do not edit the Title.</em></strong></p>
+<p>The Title section consists of the page heading and its markup:</p>
+<p><code>```= SDL_EnumerationName =``` </code></p>
+<p>For enumeration pages this is the name of the enumeration being described on the page and should match the address of the page.</p>
+<p><em>Example</em>: The page address ```https://wiki.libsdl.org/SDL_EventType``` should have matching title  and describe the <a href="SDL_EventType.html" title="wikilink">SDL_EventType</a> structure.</p>
+<p>If you believe a change is necessary please submit <em>Feedback</em> from that page or contact us at &lt;&lt;MailTo(ANTI SPAM wiki AT libsdl DOT org)&gt;&gt;.</p>
+<p>~-<a href="#ToC.html" title="wikilink">Return to Table of Contents</a>-~<br />
+<br />
+=== Description === The Description section immediately follows the page title and does not have it's own heading.</p>
+<p>'''Enumeration descriptions begin with:</p>
+<p><code>```An enumeration of```'''</code><br />
+<code> or very rarely</code><br />
+<code>```A hint that specifies```</code></p>
+<dl>
+<dt></dt>
+<dd>followed by a <em>clear and concise</em> description of what the enumeration (or hint) is.
+</dd>
+</dl>
+<p><span id="note1"></span> <em>Note</em>: Information presented in this section is meant to be limited. Extended description information for more complicated enumerations should be placed in the <a href="#Remarks.html" title="wikilink">Remarks</a> section instead.</p>
+<ul>
+<li>The Description should not contain a link to the Remarks section even if additional information is located there.</li>
+</ul>
+<p><em>Note</em>: Exceptions to the basic description are very unusual. Follow established patterns in the wiki (based on similar pages which may be found by text search) whenever possible if an exception seems appropriate.</p>
+<table>
+<tbody>
+<tr class="odd">
+<td><p>&lt;( |2 30%&gt;<em>If</em> the page describes __a hint__ rather than an enumeration</p></td>
+<td><p><em>Action</em>: Use the alternate description (<code>A hint that specifies...</code>) and, if necessary, replace the word <code>enumeration</code> with the word <code>hint</code> where appropriate throughout the page.</p></td>
+</tr>
+<tr class="even">
+<td><p><em>Example</em>: <a href="SDL_EventType.html" title="wikilink">SDL_EventType</a>, <a href="SDL_HINT_RENDER_SCALE_QUALITY.html" title="wikilink">SDL_HINT_RENDER_SCALE_QUALITY</a></p></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><p>&lt;( |2 30%&gt;<em>If</em> __another API page__ is referenced in the description</p></td>
+<td><p><em>Action</em>: Be sure to <a href="SGWikiBasics#Hyperlinks.html" title="wikilink">hyperlink</a> it and use () outside the link markup if it is a function.</p></td>
+</tr>
+<tr class="even">
+<td><p><em>Example</em>: ```<a href="SDL_FunctionName.html" title="wikilink">SDL_FunctionName</a>(), <a href="SDL_StructureName.html" title="wikilink">SDL_StructureName</a>```, <a href="SDL_BlendMode.html" title="wikilink">SDL_BlendMode</a></p></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><p>&lt;( 30%&gt;<em>If</em> __a value on that page__ is referenced in the description</p></td>
+<td><p><em>Action</em>: There is no special formatting for enumeration values since most are already in all caps and distinct enough. (This is different from function parameters or structure data values.)</p></td>
+</tr>
+</tbody>
+</table>
+<p>~-<a href="#ToC.html" title="wikilink">Return to Table of Contents</a>-~<br />
+<br />
+=== Table of Contents === <strong><em>Do not edit the Table of Contents.</em></strong></p>
+<p>The Table of Contents consists of the following markup and is generated automatically on the parsed page.</p>
+<p><code>```&lt;&lt;TableOfContents()&gt;&gt;```</code></p>
+<p>If you believe a change is necessary please submit <em>Feedback</em> from that page or contact us at &lt;&lt;MailTo(ANTI SPAM wiki AT libsdl DOT org)&gt;&gt;.</p>
+<p>~-<a href="#ToC.html" title="wikilink">Return to Table of Contents</a>-~<br />
+<br />
+=== Values === The Values section provides basic information about each value in the enumeration and is presented in table format.</p>
+<p><strong>The basic format is as follows:</strong> ``` ||value1||description|| ||value2||description|| ... ||valueN||description|| ```</p>
+<p><em>Markup</em>: Use <a href="SGWikiBasics#Tables.html" title="wikilink">basic table markup</a>. All text in the table is left-justified. Do not use bold.</p>
+<ul>
+<li>The __first column__ contains the value name, usually in all caps (format as in the API).</li>
+<li>The __second column__ contains a simple description of each value using some specific formatting conventions.</li>
+</ul>
+<dl>
+<dt></dt>
+<dd><em><span color="red">Important!</span></em> All descriptions begin with a <em>lower case</em> letter, end <em>without</em> a period, and are generally <em>not</em> complete sentences.
+</dd>
+</dl>
+<p><em>Example</em>: <a href="SDL_BlendMode.html" title="wikilink">SDL_BlendMode</a>, <a href="SDL_HintPriority.html" title="wikilink">SDL_HintPriority</a>, <a href="SDL_PowerState.html" title="wikilink">SDL_PowerState</a>, <a href="SDL_WindowFlags.html" title="wikilink">SDL_WindowFlags</a></p>
+<p><em>Action</em>: There are a few content-dependent conventions we have chosen for consistency across pages. See the tables below for details.</p>
+<table>
+<tbody>
+<tr class="odd">
+<td></td>
+<td><p>&lt;bgcolor="#EDEDED"&gt;<span id="general"></span><em>General (whole table)</em></p></td>
+</tr>
+<tr class="even">
+<td><p>&lt;( |5 30%&gt;<em>If</em> the value is __for internal use, deprecated, or unused__ (greyed out)</p></td>
+<td><p><span id="grey"></span><em>Action 1</em>: Place a text notation in parentheses at the <em>end</em> of the description (ie: <code>(deprecated)</code>)</p></td>
+</tr>
+<tr class="odd">
+<td><p><em>Action 2</em>: Make the text in the row grey by including the following, verbatim, in the first cell of the row between the starting table markup and the text:<br />
+```&lt;rowstyle="color: #808080;"&gt;```</p></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><p><em>Note</em>: Although a rare case, any other style markup for that row/cell should be included within the same set of angle brackets (<code>&lt;&gt;</code>) and separated from this markup by a space.</p></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><p><em>Markup</em>: ```</p></td>
+<td><p>&lt;rowstyle="color: #808080;"&gt;value</p></td>
+</tr>
+<tr class="even">
+<td><p><em>Example</em>: <a href="SDL_EventType.html" title="wikilink">SDL_EventType</a>, <a href="SDL_LOG_CATEGORY.html" title="wikilink">SDL_LOG_CATEGORY</a></p></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><p>&lt;( |3 30%&gt;<em>If</em> the value is specified as __read-only__</p></td>
+<td><p><em>Action</em>: Place the text notation <code>(read-only)</code> in parentheses at the end of the description.<br />
+Do not grey out the line.<br />
+If <em>all</em> values are read-only notate it in the Remarks instead.</p></td>
+</tr>
+<tr class="even">
+<td><p><em>Note</em>: This also applies to the rare case that "<code>(read-write)</code>" is specified.</p></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><p><em>Example</em>: There are currently no enumeration examples of this. <a href="SDL_Surface.html" title="wikilink">SDL_Surface</a>, <a href="SDL_PixelFormat.html" title="wikilink">SDL_PixelFormat</a></p></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><p>&lt;( |3 30%&gt;<em>If</em> __another API page__ is referenced <em>and</em> __the value is greyed out__ (see <a href="#grey.html" title="wikilink">above</a>)</p></td>
+<td><p><em>Action 1</em>: DO NOT hyperlink the page in the table.</p></td>
+</tr>
+<tr class="odd">
+<td><p><em>Action 2</em>: List the page, with a hyperlink, in the description and/or in the appropriate "Related" section at the bottom of the page, if appropriate.</p></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><p><em>Example</em>: There are currently no enumeration examples of this. <a href="SDL_Event.html" title="wikilink">SDL_Event</a></p></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><p>&lt;( |3 30%&gt;<em>If</em> __another API page__ is referenced <em>and</em> __the value is <em>not</em> greyed out__ (see <a href="#grey.html" title="wikilink">above</a>)</p></td>
+<td><p><em>Action1</em>: Be sure to <a href="SGWikiBasics#Hyperlinks.html" title="wikilink">hyperlink</a> it and use () outside the link markup if it is a function.</p></td>
+</tr>
+<tr class="even">
+<td><p><em>Action 2</em>: List the page in the appropriate "Related" section at the bottom of the page, if appropriate.</p></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><p><em>Example</em>: There are currently no enumeration examples of this. <a href="SDL_Event.html" title="wikilink">SDL_Event</a>, <a href="SDL_BlendMode.html" title="wikilink">SDL_BlendMode</a></p></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><p>&lt;( |4 30%&gt;<em>If</em> there are __important, distinct groups of values__ within the enumeration</p></td>
+<td><p><em>Action</em>: Create sections by placing a full-width row with a grey background and centered, italics title above each group.</p></td>
+</tr>
+<tr class="odd">
+<td><p><em>Markup</em>: Begin the row with empty table cells equal to the number of columns in the table -1 (ie: 1 empty cell for a 2 column table). Place the following markup in the last cell<br />
+<code>&lt;bgcolor="#EDEDED"&gt;</code><em><code>Section</code><code> </code><code>Title</code></em><br />
+Replace <code>Section Title</code> with appropriate text and close the last column.</p></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><p><em>Note</em>: This is a rare occurrence. Do not use sections unless they significantly improve the meaning, clarity, or usability of the information.</p></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><p><em>Example</em>: this table, <a href="SDL_AudioFormat.html" title="wikilink">SDL_AudioFormat</a>, <a href="SDL_EventType.html" title="wikilink">SDL_EventType</a></p></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><p>&lt;bgcolor="#EDEDED"&gt;<em>Specific (description column)</em></p></td>
+</tr>
+<tr class="odd">
+<td><p>&lt;( |3 30%&gt;<em>If</em> __more than one statement__ must be included in the description</p></td>
+<td><p><em>Action</em>: Separate them with a semi-colon (;)</p></td>
+</tr>
+<tr class="even">
+<td><p><em>Note</em>: This should be avoided whenever possible. See "<em>If</em> a __<a href="#detailed.html" title="wikilink">more detailed description</a>__ is required to adequately explain a value" below for more details.</p></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><p><em>Example</em>: <a href="SDL_HintPriority.html" title="wikilink">SDL_HintPriority</a>, <a href="SDL_GLattr.html" title="wikilink">SDL_GLattr</a></p></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><p>&lt;( |4 30%&gt;<em>If</em> a __more detailed description__ is required to adequately explain a value</p></td>
+<td><p><span id="detailed"></span><em>Action 1</em> : Append the following, verbatim, to the end of the brief description<br />
+```; see <a href="#Remarks.html" title="wikilink">Remarks</a> for details```</p></td>
+</tr>
+<tr class="odd">
+<td><p><em>Action 2</em>: Place the more detailed information in the <a href="#Remarks.html" title="wikilink">Remarks</a> section.</p></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><p><em>Action 3</em>: See "<em>If</em> the __<a href="#large.html" title="wikilink">Remarks section is large</a>__" below for more details.</p></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><p><em>Example</em>: <a href="SDL_PixelFormatEnum.html" title="wikilink">SDL_PixelFormatEnum</a>, <a href="SDL_GLattr.html" title="wikilink">SDL_GLattr</a></p></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><p>&lt;( |4 30%&gt;<em>If</em> the __Remarks section is large__</p></td>
+<td><p><span id="large"></span><em>Action 1</em>: Create an <a href="SGWikiBasics#Anchors.html" title="wikilink">anchor</a> immediately before the additional comments you are adding to the Remarks section.</p></td>
+</tr>
+<tr class="odd">
+<td><p><em>Markup</em>: Use ```<span id="anchorname"></span>```, where <code>anchorname</code> is a name of your choosing, to create the anchor in the Remarks section. See <a href="SGWikiBasics#Anchors.html" title="wikilink">Anchors</a> for details.</p></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><p><em>Action 2</em>: Modify the Remarks link in the parameter description (see <em>Action 1</em> in "<em>If</em> a __<a href="#detailed.html" title="wikilink">more detailed description</a>__ is required to adequately explain a value" above) to the following:<br />
+```; see <a href="#anchorname.html" title="wikilink">Remarks</a> for details```<br />
+where <code>anchorname</code> matches the name you chose for the anchor in <em>Action 1</em>.</p></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><p><em>Example</em>: <a href="SDL_GLattr.html" title="wikilink">SDL_GLattr</a>, <a href="SDL_PixelFormatEnum.html" title="wikilink">SDL_PixelFormatEnum</a></p></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><p>&lt;( |3 30%&gt;<em>If</em> there is __no relevant description text__</p></td>
+<td><p><em>Action</em>: It is acceptable to leave the description cell blank, although it is preferable to put some information there even if it is redundant with the field name or otherwise does not really provide any novel information.</p></td>
+</tr>
+<tr class="odd">
+<td><p><em>Note</em>: If <em>none</em> of the values has relevant description text it is acceptable to remove the entire description column, but this should be done with caution and only extremely rarely.</p></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><p><em>Example</em>: <a href="SDL_PixelFormatEnum.html" title="wikilink">SDL_PixelFormatEnum</a>, <a href="SDL_AudioStatus.html" title="wikilink">SDL_AudioStatus</a>, <a href="SDL_HINT_RENDER_DRIVER.html" title="wikilink">SDL_HINT_RENDER_DRIVER</a></p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>~-<a href="#ToC.html" title="wikilink">Return to Table of Contents</a>-~<br />
+<br />
+=== Code Examples === The Code Examples section is meant to contain simple, meaningful examples of how to use the enumeration in a program.</p>
+<ul>
+<li>Unlike other sections, which should rarely require editing once DRAFT is removed, this section is <em>expected</em> to change over time.</li>
+</ul>
+<p>This is one of the few sections that is intended to grow and adjust as users discover more information about an enumeration that would be helpful to share with other users.</p>
+<p>For the most part the contents of the Code Examples section will be user-generated and this section will remain as-is until users input their examples.</p>
+<p><strong>Please see the <a href="SGCodeExamples.html" title="wikilink">Code Examples</a> Style Guide for details on editing this section.</strong></p>
+<p>~-<a href="#ToC.html" title="wikilink">Return to Table of Contents</a>-~<br />
+<br />
+=== Remarks === The Remarks section is meant to contain additional information that did not fit in the other sections as well as comments regarding the behavior and use of the enumeration in real-world applications.</p>
+<ul>
+<li>Unlike other sections, which should rarely require editing once DRAFT is removed, this section is <em>expected</em> to change over time.</li>
+</ul>
+<p>This is one of the few sections that is intended to grow and adjust as users discover more information about how an enumeration behaves under different circumstances.</p>
+<p>For the most part the contents of the Remarks section will be user-generated and this section will remain as-is until users input their comments.</p>
+<p><em>Note</em>: This is __not__ an appropriate place to post questions, suggestions, bugs, or commentary. Please use the other communication channels available to you, especially the <a href="http://forums.libsdl.org/.html">forums</a> and <a href="http://www.libsdl.org/mailing-list.php.html">mailing lists</a>, for these types of remarks.</p>
+<p><strong>Please see the <a href="SGRemarks.html" title="wikilink">Remarks</a> Style Guide for details on editing this section.</strong></p>
+<p>~-<a href="#ToC.html" title="wikilink">Return to Table of Contents</a>-~<br />
+<br />
+=== Related Enumerations === The Related Enumerations section provides a list of enumerations specifically referenced by the enumeration or otherwise <em>closely</em> related to it. <strong>This section is very rarely used.</strong></p>
+<p><strong>This list __should__ include:</strong></p>
+<ul>
+<li>other enumerations that are specifically referenced in the enumeration (may never occur)</li>
+<li>other enumerations that are indirectly referenced by or <em>very</em> closely related to the enumeration</li>
+</ul>
+<dl>
+<dt></dt>
+<dd>~-(ie: the enum is not used as a value but its values are used to fill in a value or they are different aspects of the same idea)-~
+</dd>
+<dd>~-This is very uncommon.-~
+</dd>
+</dl>
+<p><strong>This list __should not__ include:</strong></p>
+<ul>
+<li>the primary enumeration on that page</li>
+<li>every enumeration that might be considered "related" to the enumeration or any other listed enumerations</li>
+</ul>
+<dl>
+<dt></dt>
+<dd>~-Including too many would make these lists much less valuable.-~
+</dd>
+</dl>
+<ul>
+<li>all enumerations of similar type</li>
+<li>all enumerations of a related category</li>
+<li>enumerations that are indirectly related</li>
+</ul>
+<dl>
+<dt></dt>
+<dd>~-(ie: it might be common to use them together)-~
+</dd>
+</dl>
+<ul>
+<li>enumerations that do not have a page in the wiki</li>
+<li>non-enumerations</li>
+</ul>
+<dl>
+<dt></dt>
+<dd>~-(ie: do not include functions or structures in this list)-~
+</dd>
+</dl>
+<p><em>Markup</em>: Each line should begin with a single blank space and a period followed by the enumeration name enclosed in double brackets to create a <a href="SGWikiBasics#Hyperlinks.html" title="wikilink">hyperlink</a>.</p>
+<dl>
+<dt></dt>
+<dd><em>Note</em>: Do not include empty parentheses after the name.
+</dd>
+</dl>
+<dl>
+<dt></dt>
+<dd><strong>The basic format for the Related Enumerations list is:</strong>
+</dd>
+</dl>
+<p>```</p>
+<h2 id="related-enumerations">Related Enumerations</h2>
+<p><code>.</code><a href="SDL_EnumerationName.html" title="wikilink"><code>SDL_EnumerationName</code></a><br />
+<code>.</code><a href="SDL_EnumerationName.html" title="wikilink"><code>SDL_EnumerationName</code></a></p>
+<p>```</p>
+<dl>
+<dt></dt>
+<dd>~-<em>Note</em>: The heading was included to more clearly illustrate the blank space before the period at the beginning of each list line. Without this markup the format will not parse correctly.-~
+</dd>
+</dl>
+<table>
+<tbody>
+<tr class="odd">
+<td><p>&lt;( 30%&gt;<em>If</em> there is __more than one enumeration__ in the list</p></td>
+<td><p><em>Action</em>: List the enumerations in alphabetical order.</p></td>
+</tr>
+<tr class="even">
+<td><p>&lt;( |2 30%&gt;<em>If</em> there are __no related enumerations__</p></td>
+<td><p><em>Action</em>: This section may be removed entirely (including the heading) and added back at a later time if it becomes relevant.</p></td>
+</tr>
+<tr class="odd">
+<td><p><em>Note</em>: It is common for this section to be empty and removed from the page.</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><em>Example</em>: <a href="SDL_Keycode.html" title="wikilink">SDL_Keycode</a>, <a href="SDL_Scancode.html" title="wikilink">SDL_Scancode</a></p>
+<p>~-<a href="#ToC.html" title="wikilink">Return to Table of Contents</a>-~<br />
+<br />
+=== Related Structures === The Related Structures section provides a list of structures (or unions) specifically referenced by the enumeration or otherwise <em>closely</em> related to it.</p>
+<p><strong>This list __should__ include:</strong></p>
+<ul>
+<li>structures that specifically reference the enumeration</li>
+<li>structures that indirectly reference but are closely related to the enumeration</li>
+</ul>
+<dl>
+<dt></dt>
+<dd>~-This is uncommon.-~
+</dd>
+</dl>
+<p><strong>This list __should not__ include:</strong></p>
+<ul>
+<li>every other structure that might be considered "related"</li>
+</ul>
+<dl>
+<dt></dt>
+<dd>~-Including too many would make these lists much less valuable.-~
+</dd>
+</dl>
+<ul>
+<li>all structures of similar type</li>
+<li>all structures of a related category</li>
+<li>structures that are indirectly related</li>
+</ul>
+<dl>
+<dt></dt>
+<dd>~-(ie: it might be common to use them together)-~
+</dd>
+</dl>
+<ul>
+<li>structures that do not have a page in the wiki</li>
+<li>non-structures</li>
+</ul>
+<dl>
+<dt></dt>
+<dd>~-(ie: do not include functions or enumerations in this list)-~
+</dd>
+</dl>
+<p><em>Markup</em>: Each line should begin with a single blank space and a period followed by the structure name enclosed in double brackets to create a <a href="SGWikiBasics#Hyperlinks.html" title="wikilink">hyperlink</a>.</p>
+<dl>
+<dt></dt>
+<dd><em>Note</em>: Do not include empty parentheses after the name.
+</dd>
+</dl>
+<dl>
+<dt></dt>
+<dd><strong>The basic format for the Related Structures list is:</strong>
+</dd>
+</dl>
+<p>```</p>
+<h2 id="related-structures">Related Structures</h2>
+<p><code>.</code><a href="SDL_StructureName.html" title="wikilink"><code>SDL_StructureName</code></a><br />
+<code>.</code><a href="SDL_StructureName.html" title="wikilink"><code>SDL_StructureName</code></a></p>
+<p>```</p>
+<dl>
+<dt></dt>
+<dd>~-<em>Note</em>: The heading was included to more clearly illustrate the blank space before the period at the beginning of each list line. Without this markup the format will not parse correctly.-~
+</dd>
+</dl>
+<table>
+<tbody>
+<tr class="odd">
+<td><p>&lt;( 30%&gt;<em>If</em> there is __more than one structure__ in the list</p></td>
+<td><p><em>Action</em>: List the structures in alphabetical order.</p></td>
+</tr>
+<tr class="even">
+<td><p>&lt;( 30%&gt;<em>If</em> the structure is __a member of the <a href="SDL_Event.html" title="wikilink">SDL_Event</a> union__</p></td>
+<td><p><em>Action</em>: Include <a href="SDL_Event.html" title="wikilink">SDL_Event</a> in this section of the page.</p></td>
+</tr>
+<tr class="odd">
+<td><p>&lt;( |2 30%&gt;<em>If</em> there are __no related structures__</p></td>
+<td><p><em>Action</em>: This section may be removed entirely (including the heading) and added back at a later time if it becomes relevant.</p></td>
+</tr>
+<tr class="even">
+<td><p><em>Note</em>: It is common for this section to be empty and removed from the page.</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><em>Example</em>: <a href="SDL_AudioFormat.html" title="wikilink">SDL_AudioFormat</a>, <a href="SDL_BlendMode.html" title="wikilink">SDL_BlendMode</a>, <a href="SDL_PixelFormatEnum.html" title="wikilink">SDL_PixelFormatEnum</a></p>
+<p>~-<a href="#ToC.html" title="wikilink">Return to Table of Contents</a>-~<br />
+<br />
+<span id="RFs"></span></p>
+<h3 id="related-functions">Related Functions</h3>
+<p>The Related Functions section provides a list of functions specifically associated with that enumeration or otherwise <em>closely</em> related to it.</p>
+<ul>
+<li>In general, a "Related Function" is one that __uses the given enumeration__.</li>
+</ul>
+<p><strong>This list __should__ include:</strong></p>
+<ul>
+<li>functions that use or are otherwise very closely related to the enumeration</li>
+</ul>
+<p><strong>This list __should not__ include:</strong></p>
+<ul>
+<li>every other function that might be considered "related"</li>
+</ul>
+<dl>
+<dt></dt>
+<dd>~-Including too many would make these lists much less valuable.-~
+</dd>
+</dl>
+<ul>
+<li>all functions of similar type or action</li>
+<li>all functions of a related category</li>
+<li>functions that are indirectly related (ie: a similar function that does not use the structure)</li>
+<li>functions that do not have a page in the wiki</li>
+<li>non-functions (ie: do not include structures or enumerations in this list)</li>
+</ul>
+<p><em>Markup</em>: Each line should begin with a single blank space and a period followed by the function name enclosed in double brackets to create a <a href="SGWikiBasics#Hyperlinks.html" title="wikilink">hyperlink</a>.</p>
+<dl>
+<dt></dt>
+<dd><em>Note</em>: Do not include empty parentheses after the function names in this section. They are all functions so it should be understood/unnecessary.
+</dd>
+</dl>
+<dl>
+<dt></dt>
+<dd><strong>The basic format for the Related Functions list is:</strong>
+</dd>
+</dl>
+<p>```</p>
+<h2 id="related-functions-1">Related Functions</h2>
+<p><code>.</code><a href="SDL_FunctionName.html" title="wikilink"><code>SDL_FunctionName</code></a><br />
+<code>.</code><a href="SDL_FunctionName.html" title="wikilink"><code>SDL_FunctionName</code></a></p>
+<p>```</p>
+<dl>
+<dt></dt>
+<dd>~-<em>Note</em>: The heading was included to more clearly illustrate the blank space before the period at the beginning of each list line. Without this markup the format will not parse correctly.-~
+</dd>
+</dl>
+<table>
+<tbody>
+<tr class="odd">
+<td><p>&lt;( 30%&gt;<em>If</em> there is __more than one function__ in the list</p></td>
+<td><p><em>Action</em>: List the functions in alphabetical order.</p></td>
+</tr>
+<tr class="even">
+<td><p>&lt;( 30%&gt;<em>If</em> there are __no related functions__</p></td>
+<td><p><em>Action</em>: This section may be removed entirely (including the heading) and added back at a later time if it becomes relevant.</p></td>
+</tr>
+</tbody>
+</table>
+<p><em>Example</em>: <a href="SDL_AudioStatus.html" title="wikilink">SDL_AudioStatus</a>, <a href="SDL_HintPriority.html" title="wikilink">SDL_HintPriority</a>, <a href="SDL_TextureAccess.html" title="wikilink">SDL_TextureAccess</a></p>
+<p>~-<a href="#ToC.html" title="wikilink">Return to Table of Contents</a>-~<br />
+<br />
+<span id="footer"></span></p>
+<h3 id="footer">Footer</h3>
+<table>
+<tbody>
+<tr class="odd">
+<td><p>&lt;tablewidth="100%" &gt;<span color="red"><em>Important!</em></span><br />
+See <a href="#hints.html" title="wikilink">Hint Pages</a> below for details on how this section is different for Hint pages.</p></td>
+</tr>
+</tbody>
+</table>
+<p>The Footer section consists of a horizontal rule followed by two links separated by a comma.</p>
+<p><em>Markup</em>: ```</p>
+<hr />
+<p><a href="CategoryEnum.html" title="wikilink">CategoryEnum</a>, <a href="CategoryHeader.html" title="wikilink">CategoryHeader</a> ```</p>
+<dl>
+<dt></dt>
+<dd>where <code>CategoryEnum</code> is the same for every enumeration page and <code>CategoryHeader</code> is enumeration-specific with <code>Header</code> varying based on the header file containing the enumeration (see below).
+</dd>
+</dl>
+<p><span color="red"><em>Important!</em></span> Category names do not always match the header file name. Please consult the following <a href="#CategoryTable.html" title="wikilink">table</a> for the correct name to use so the enumeration will appear in the correct list(s).</p>
+<p><em>Action 1</em>: <strong>Do not edit the <code>CategoryEnum</code> link!</strong></p>
+<p><em>Action 2</em>: <strong>The ```CategoryHeader``` link may be edited</strong> <em>if</em> the page still says  (as on a new page) or <em>if</em> the structure has been relocated to another header (very rare).</p>
+<p><em><span color="red">Important!</span></em> There are a few exceptions to this rule (pages with a category name that does not match their header file according to the table). These have been determined by the SDL team. Please do not change an existing page's category name simply because it does not match its header file. If you are concerned that a name is incorrect please submit your concern in the <a href="http://forums.libsdl.org/.html">forums</a> or <a href="http://www.libsdl.org/mailing-list.php.html">mailing lists</a> or contact us at &lt;&lt;MailTo(ANTI SPAM wiki AT libsdl DOT org)&gt;&gt; to confirm the change first.</p>
+<p><em>Markup</em>: Replace <code>CategoryHeader</code> with the appropriate category name from the table that follows, or contact us at &lt;&lt;MailTo(ANTI SPAM wiki AT libsdl DOT org)&gt;&gt; to find out what category name to use if you are unsure or if the category appears to be missing.</p>
+<p><span id="CategoryTable"></span></p>
+<table>
+<tbody>
+<tr class="odd">
+<td><p>&lt;rowbgcolor="#EDEDED"&gt;<em>Header File Containing the Structure*</em></p></td>
+<td><p><em>Corresponding Category Name</em></p></td>
+</tr>
+<tr class="even">
+<td><p>SDL.h</p></td>
+<td><p>CategoryInit</p></td>
+</tr>
+<tr class="odd">
+<td><p>SDL_assert.h</p></td>
+<td><p>CategoryAssertions</p></td>
+</tr>
+<tr class="even">
+<td><p>SDL_atomic.h</p></td>
+<td><p>CategoryAtomic</p></td>
+</tr>
+<tr class="odd">
+<td><p>SDL_audio.h</p></td>
+<td><p>CategoryAudio</p></td>
+</tr>
+<tr class="even">
+<td><p>SDL_clipboard.h</p></td>
+<td><p>CategoryClipboard</p></td>
+</tr>
+<tr class="odd">
+<td><p>SDL_compat.h</p></td>
+<td><p>CategoryCompat</p></td>
+</tr>
+</tbody>
+</table>
+<table>
+<tbody>
+<tr class="odd">
+<td><p>SDL_cpuinfo.h</p></td>
+<td><p>CategoryCPU</p></td>
+</tr>
+<tr class="even">
+<td><p>SDL_endian.h</p></td>
+<td><p>CategoryEndian</p></td>
+</tr>
+<tr class="odd">
+<td><p>SDL_error.h</p></td>
+<td><p>CategoryError</p></td>
+</tr>
+<tr class="even">
+<td><p>SDL_events.h</p></td>
+<td><p>CategoryEvents</p></td>
+</tr>
+</tbody>
+</table>
+<table>
+<tbody>
+<tr class="odd">
+<td><p>SDL_haptic.h</p></td>
+<td><p>CategoryForceFeedback</p></td>
+</tr>
+<tr class="even">
+<td><p>SDL_hints.h</p></td>
+<td><p>CategoryHints</p></td>
+</tr>
+</tbody>
+</table>
+<table>
+<tbody>
+<tr class="odd">
+<td><p>SDL_joystick.h</p></td>
+<td><p>CategoryJoystick</p></td>
+</tr>
+<tr class="even">
+<td><p>SDL_keyboard.h</p></td>
+<td><p>CategoryKeyboard</p></td>
+</tr>
+<tr class="odd">
+<td><p>SDL_keycode.h</p></td>
+<td><p>CategoryKeyboard</p></td>
+</tr>
+<tr class="even">
+<td><p>SDL_loadso.h</p></td>
+<td><p>CategorySharedObject</p></td>
+</tr>
+<tr class="odd">
+<td><p>SDL_log.h</p></td>
+<td><p>CategoryLog</p></td>
+</tr>
+</tbody>
+</table>
+<table>
+<tbody>
+<tr class="odd">
+<td><p>SDL_mouse.h</p></td>
+<td><p>CategoryMouse</p></td>
+</tr>
+<tr class="even">
+<td><p>SDL_mutex.h</p></td>
+<td><p>CategoryMutex</p></td>
+</tr>
+</tbody>
+</table>
+<table>
+<tbody>
+<tr class="odd">
+<td><p>SDL_pixels.h</p></td>
+<td><p>CategoryPixels</p></td>
+</tr>
+<tr class="even">
+<td><p>SDL_platform.h</p></td>
+<td><p>CategoryPlatform</p></td>
+</tr>
+<tr class="odd">
+<td><p>SDL_power.h</p></td>
+<td><p>CategoryPower</p></td>
+</tr>
+<tr class="even">
+<td><p>SDL_quit.h</p></td>
+<td><p>CategoryEvents</p></td>
+</tr>
+<tr class="odd">
+<td><p>SDL_rect.h</p></td>
+<td><p>CategoryRect</p></td>
+</tr>
+<tr class="even">
+<td><p>SDL_render.h</p></td>
+<td><p>CategoryRender</p></td>
+</tr>
+</tbody>
+</table>
+<table>
+<tbody>
+<tr class="odd">
+<td><p>SDL_rwops.h</p></td>
+<td><p>CategoryIO</p></td>
+</tr>
+<tr class="even">
+<td><p>SDL_scancode.h</p></td>
+<td><p>CategoryKeyboard</p></td>
+</tr>
+</tbody>
+</table>
+<table>
+<tbody>
+<tr class="odd">
+<td><p>SDL_surface.h</p></td>
+<td><p>CategorySurface</p></td>
+</tr>
+<tr class="even">
+<td><p>SDL_syswm.h</p></td>
+<td><p>CategorySWM</p></td>
+</tr>
+<tr class="odd">
+<td><p>SDL_thread.h</p></td>
+<td><p>CategoryThread</p></td>
+</tr>
+<tr class="even">
+<td><p>SDL_timer.h</p></td>
+<td><p>CategoryTimer</p></td>
+</tr>
+</tbody>
+</table>
+<table>
+<tbody>
+<tr class="odd">
+<td><p>SDL_version.h</p></td>
+<td><p>CategoryVersion</p></td>
+</tr>
+<tr class="even">
+<td><p>SDL_video.h</p></td>
+<td><p>CategoryVideo</p></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><p>~-*Some exceptions exist. See above.-~</p></td>
+</tr>
+</tbody>
+</table>
+<p>~-<a href="#ToC.html" title="wikilink">Return to Table of Contents</a>-~<br />
+<br />
+</p>
+<h3 id="special">Special</h3>
+<p>This section contains details for special formatting circumstances that are best described separately from the average enumeration page. In general these guidelines should be used in conjunction with the above.</p>
+<p><span id="hints"></span></p>
+<h4 id="hint-pages">Hint Pages</h4>
+<p>In some cases Hints are formatted slightly differently than enumerations. <strong>Use the following formatting specifics in addition to those listed above for all <a href="CategoryHints.html" title="wikilink">CategoryHints</a> pages:</strong>:</p>
+<p><em>Action 1</em>: All Hint pages contain an additional section not present on enumeration pages - Default</p>
+<p><em>Markup</em>: Add the following section to all <code>CategoryHints</code> pages between the Values and Code Examples sections.</p>
+<p><code> ```</code></p>
+<h2 id="default">Default</h2>
+<p>```</p>
+<dl>
+<dt></dt>
+<dd><em>Action</em>: Immediately under this section include at least one sentence beginning with the following, and describing the default state, if any, for that hint:
+</dd>
+</dl>
+<p><code> By default...</code></p>
+<p><em>Example</em>: <a href="SDL_HINT_FRAMEBUFFER_ACCELERATION.html" title="wikilink">SDL_HINT_FRAMEBUFFER_ACCELERATION</a>, <a href="SDL_HINT_RENDER_SCALE_QUALITY.html" title="wikilink">SDL_HINT_RENDER_SCALE_QUALITY</a></p>
+<p><em>Action 2</em>: The <a href="#Footer.html" title="wikilink">Footer</a> section of a Hint page follows the same guidelines as for an enumeration page with the following differences:</p>
+<dl>
+<dt></dt>
+<dd>Use ```<a href="CategoryDefine.html" title="wikilink">CategoryDefine</a>, <a href="CategoryHints.html" title="wikilink">CategoryHints</a>``` as the link pair at the bottom instead.
+</dd>
+<dd>The table above is irrelevant to this section since they are all the same.
+</dd>
+</dl>
+<p><em>Note</em>: To date there are no Related Enumerations, Related Structures, or Related Functions listed on any Hint page. Should there be, follow the same general guidelines as for enumerations.</p>
+<p>~-<a href="#ToC.html" title="wikilink">Return to Table of Contents</a>-~<br />
+<br />
+</p>
+<p>&lt;&lt;Include(SGWikiBasics, , , from="Start SG Include here.", to="##End SG Include here.")&gt;&gt;</p>
+</body>
+</html>

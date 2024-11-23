@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>SDL_AudioCVT</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+</head>
+<body>
+<nav id="TOC">
+<ul>
+<li><a href="#sdl_audiocvt">SDL_AudioCVT</a><ul>
+<li><a href="#data-fields">Data Fields</a></li>
+<li><a href="#code-examples">Code Examples</a></li>
+<li><a href="#remarks">Remarks</a></li>
+<li><a href="#related-functions">Related Functions</a></li>
+</ul></li>
+</ul>
+</nav>
+<h1 id="sdl_audiocvt">SDL_AudioCVT</h1>
+<p>A structure that contains audio data conversion information.</p>
+<h2 id="data-fields">Data Fields</h2>
+<table>
+<tbody>
+<tr class="odd">
+<td><p>int</p></td>
+<td><p><strong>needed</strong></p></td>
+<td><p>set to 1 if conversion possible</p></td>
+</tr>
+<tr class="even">
+<td><p><a href="SDL_AudioFormat.html" title="wikilink">SDL_AudioFormat</a></p></td>
+<td><p><strong>src_format</strong></p></td>
+<td><p>source audio format</p></td>
+</tr>
+<tr class="odd">
+<td><p><a href="SDL_AudioFormat.html" title="wikilink">SDL_AudioFormat</a></p></td>
+<td><p><strong>dst_format</strong></p></td>
+<td><p>target audio format</p></td>
+</tr>
+<tr class="even">
+<td><p>double</p></td>
+<td><p><strong>rate_incr</strong></p></td>
+<td><p>rate conversion increment</p></td>
+</tr>
+<tr class="odd">
+<td><p>Uint8*</p></td>
+<td><p><strong>buf</strong></p></td>
+<td><p>the buffer to hold entire audio data; see <a href="#buf.html" title="wikilink">Remarks</a> for details</p></td>
+</tr>
+<tr class="even">
+<td><p>int</p></td>
+<td><p><strong>len</strong></p></td>
+<td><p>length of original audio buffer; see <a href="#len.html" title="wikilink">Remarks</a> for details</p></td>
+</tr>
+<tr class="odd">
+<td><p>int</p></td>
+<td><p><strong>len_cvt</strong></p></td>
+<td><p>length of converted audio buffer</p></td>
+</tr>
+<tr class="even">
+<td><p>int</p></td>
+<td><p><strong>len_mult</strong></p></td>
+<td><p><strong>buf</strong> must be len*len_mult big; see <a href="#len_mult.html" title="wikilink">Remarks</a> for details</p></td>
+</tr>
+<tr class="odd">
+<td><p>double</p></td>
+<td><p><strong>len_ratio</strong></p></td>
+<td><p>given <strong>len</strong>, final size is len*len_ratio; see <a href="#len_ratio.html" title="wikilink">Remarks</a> for details</p></td>
+</tr>
+<tr class="even">
+<td><p>&lt;rowstyle="color: #808080;"&gt;SDL_AudioFilter[10]</p></td>
+<td><p><strong>filters</strong></p></td>
+<td><p>filter list (internal use)</p></td>
+</tr>
+<tr class="odd">
+<td><p>&lt;rowstyle="color: #808080;"&gt;int</p></td>
+<td><p><strong>filter_index</strong></p></td>
+<td><p>current audio conversion function (internal use)</p></td>
+</tr>
+</tbody>
+</table>
+<h2 id="code-examples">Code Examples</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode c++"><code class="sourceCode cpp"><a class="sourceLine" id="cb1-1" title="1"><span class="co">// Change 1024 stereo sample frames at 48000Hz from float32 to int16.</span></a>
+<a class="sourceLine" id="cb1-2" title="2">SDL_AudioCVT cvt;</a>
+<a class="sourceLine" id="cb1-3" title="3">SDL_BuildAudioCVT(&amp;cvt, AUDIO_F32, <span class="dv">2</span>, <span class="dv">48000</span>, AUDIO_S16, <span class="dv">2</span>, <span class="dv">48000</span>);</a>
+<a class="sourceLine" id="cb1-4" title="4">SDL_assert(cvt.needed); <span class="co">// obviously, this one is always needed.</span></a>
+<a class="sourceLine" id="cb1-5" title="5">cvt.len = <span class="dv">1024</span> * <span class="dv">2</span> * <span class="dv">4</span>;  <span class="co">// 1024 stereo float32 sample frames.</span></a>
+<a class="sourceLine" id="cb1-6" title="6">cvt.buf = (Uint8 *) SDL_malloc(cvt.len * cvt.len_mult);</a>
+<a class="sourceLine" id="cb1-7" title="7"><span class="co">// read your float32 data into cvt.buf here.</span></a>
+<a class="sourceLine" id="cb1-8" title="8">SDL_ConvertAudio(&amp;cvt);</a>
+<a class="sourceLine" id="cb1-9" title="9"><span class="co">// cvt.buf has cvt.len_cvt bytes of converted data now.</span></a></code></pre></div>
+<h2 id="remarks">Remarks</h2>
+<p>The <a href="SDL_AudioCVT.html" title="wikilink">SDL_AudioCVT</a> structure is used to convert audio data between different formats. An <a href="SDL_AudioCVT.html" title="wikilink">SDL_AudioCVT</a> structure is initialized with the <a href="SDL_BuildAudioCVT.html" title="wikilink">SDL_BuildAudioCVT</a>() function, while the actual conversion is done by the <a href="SDL_ConvertAudio.html" title="wikilink">SDL_ConvertAudio</a>() function, once the application has set up appropriately-sized buffers between these two function calls.</p>
+<p><span id="buf"></span><strong>buf</strong> points to the audio data that will be used in the conversion. It is both the source and the destination, which means the converted audio data overwrites the original data. It also means that the converted data may be larger than the original data (if you were converting from 8-bit to 16-bit, for instance), so you must ensure <strong>buf</strong> is large enough for any stage of the conversion, regardless of the final converted data's size. See <strong>len_mult</strong> below for more info.</p>
+<p><span id="len"></span><strong>len</strong> is the length of the original audio data in bytes.</p>
+<p><span id="len_mult"></span><strong>len_mult</strong> is the length multiplier for determining the size of the converted data. The audio buffer may need to be larger than either the original data or the converted data.. The allocated size of <strong>buf</strong> should be <strong>len</strong>*<strong>len_mult</strong>.</p>
+<p><span id="len_ratio"></span><strong>len_ratio</strong> is the length ratio of the converted data to the original data. When you have finished converting your audio data, you need to know how much of your audio buffer is valid. <strong>len</strong>*<strong>len_ratio</strong> is the size of the converted audio data in bytes. This is very similar to <strong>len_mult</strong>, however when the converted audio data is shorter than the original, <strong>len_mult</strong> would be 1. <strong>len_ratio</strong>, on the other hand, would be a fractional number between 0 and 1.</p>
+<h2 id="related-functions">Related Functions</h2>
+<dl>
+<dt></dt>
+<dd><a href="SDL_BuildAudioCVT.html" title="wikilink">SDL_BuildAudioCVT</a>
+</dd>
+<dd><a href="SDL_ConvertAudio.html" title="wikilink">SDL_ConvertAudio</a>
+</dd>
+</dl>
+<hr />
+<p><a href="CategoryStruct.html" title="wikilink">CategoryStruct</a>, <a href="CategoryAudio.html" title="wikilink">CategoryAudio</a></p>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>SDL-gsoc2010_android</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<nav id="TOC">
+<ul>
+<li><a href="#status">Status</a></li>
+<li><a href="#documentation">Documentation</a></li>
+<li><a href="#how-to-build">How to build</a></li>
+<li><a href="#notes">Notes</a></li>
+</ul>
+</nav>
+<p>This is a scratch pad for the Android Google Summer of Code 2010 project, by Paul Hunkin</p>
+<p>The code is available here: <a href="http://hg.libsdl.org/SDL-gsoc2010_android.html">http://hg.libsdl.org/SDL-gsoc2010_android</a></p>
+<h2 id="status">Status</h2>
+<ul>
+<li>Builds against the current (r4) <a href="http://developer.android.com/sdk/ndk/index.html.html">Android NDK</a></li>
+<li>Works enough to get a 'hello world'.</li>
+<li>None of the subsystems are implemented yet</li>
+</ul>
+<h2 id="documentation">Documentation</h2>
+<p>TODO</p>
+<h2 id="how-to-build">How to build</h2>
+<p>To build SDL:</p>
+<ul>
+<li>Extract the NDK somewhere</li>
+<li>Currently you must set the correct paths to the NDK in:</li>
+<li>build-scripts/acc.sh</li>
+<li>build-scripts/ald.sh</li>
+<li>Makefile.android</li>
+<li>'make -f Makefile.android' should produce libsdl.a</li>
+</ul>
+<p>To build a test program:</p>
+<p>acc.sh/ald.sh are wrapper scripts designed to make it easier to compile things with the Android toolchain. So, you can build with <code>acc.sh test.c -o test</code>, the same as you would do with normal gcc.</p>
+<p>Or in a makefile, use:</p>
+<ul>
+<li>CC=/path/to/sdl/build-scripts/acc.sh</li>
+<li>LD=/path/to/sdl/build-scripts/ald.sh</li>
+</ul>
+<h2 id="notes">Notes</h2>
+<ul>
+<li>Screenshots of the current progress may be available here: <a href="http://home.bieh.net/~paul/sdl/.html"><a href="http://home.bieh.net/~paul/sdl/.html">http://home.bieh.net/~paul/sdl/</a></a></li>
+</ul>
+</body>
+</html>

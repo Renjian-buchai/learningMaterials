@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>nacl</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<nav id="TOC">
+<ul>
+<li><a href="#native-client">Native Client</a></li>
+</ul>
+</nav>
+<h1 id="native-client">Native Client</h1>
+<p>Requirements:</p>
+<ul>
+<li>Native Client SDK (<a href="https://developer.chrome.com/native-client.html" class="uri">https://developer.chrome.com/native-client</a>), (tested with Pepper version 33 or higher).</li>
+</ul>
+<p>The SDL backend for Chrome's Native Client has been tested only with the PNaCl toolchain, which generates binaries designed to run on ARM and x86_32/64 platforms. This does not mean it won't work with the other toolchains!</p>
+<p>================================================================================ Building SDL for NaCl ================================================================================</p>
+<p>Set up the right environment variables (see naclbuild.sh), then configure SDL with:</p>
+<pre><code>configure --host=pnacl --prefix some/install/destination</code></pre>
+<p>Then "make".</p>
+<p>As an example of how to create a deployable app a Makefile project is provided in test/nacl/Makefile, which includes some monkey patching of the common.mk file provided by NaCl, without which linking properly to SDL won't work (the search path can't be modified externally, so the linker won't find SDL's binaries unless you dump them into the SDK path, which is inconvenient). Also provided in test/nacl is the required support file, such as index.html, manifest.json, etc. SDL apps for NaCl run on a worker thread using the ppapi_simple infrastructure. This allows for blocking calls on all the relevant systems (OpenGL ES, filesystem), hiding the asynchronous nature of the browser behind the scenes...which is not the same as making it disappear!</p>
+<p>================================================================================ Running tests ================================================================================</p>
+<p>Due to the nature of NaCl programs, building and running SDL tests is not as straightforward as one would hope. The script naclbuild.sh in build-scripts automates the process and should serve as a guide for users of SDL trying to build their own applications.</p>
+<p>Basic usage:</p>
+<pre><code>./naclbuild.sh path/to/pepper/toolchain (i.e. ~/naclsdk/pepper_35)</code></pre>
+<p>This will build testgles2.c by default.</p>
+<p>If you want to build a different test, for example testrendercopyex.c:</p>
+<pre><code>SOURCES=~/sdl/SDL/test/testrendercopyex.c ./naclbuild.sh ~/naclsdk/pepper_35</code></pre>
+<p>Once the build finishes, you have to serve the contents with a web server (the script will give you instructions on how to do that with Python).</p>
+<p>================================================================================ RWops and nacl_io ================================================================================</p>
+<p>SDL_RWops work transparently with nacl_io. Two functions control the mount points:</p>
+<pre><code>int mount(const char* source, const char* target,
+                  const char* filesystemtype,
+                  unsigned long mountflags, const void *data);
+int umount(const char *target);
+
+For convenience, SDL will by default mount an httpfs tree at / before calling</code></pre>
+<p>the app's main function. Such setting can be overridden by calling:</p>
+<pre><code>umount(&quot;/&quot;);</code></pre>
+<p>And then mounting a different filesystem at /</p>
+<p>It's important to consider that the asynchronous nature of file operations on a browser is hidden from the application, effectively providing the developer with a set of blocking file operations just like you get in a regular desktop environment, which eases the job of porting to Native Client, but also introduces a set of challenges of its own, in particular when big file sizes and slow connections are involved.</p>
+<p>For more information on how nacl_io and mount points work, see:</p>
+<pre><code>https://developer.chrome.com/native-client/devguide/coding/nacl_io
+https://src.chromium.org/chrome/trunk/src/native_client_sdk/src/libraries/nacl_io/nacl_io.h</code></pre>
+<p>To be able to save into the directory "/save/" (like backup of game) :</p>
+<pre><code>mount(&quot;&quot;, &quot;/save&quot;, &quot;html5fs&quot;, 0, &quot;type=PERSISTENT&quot;);</code></pre>
+<p>And add to manifest.json :</p>
+<pre><code>&quot;permissions&quot;: [
+    &quot;unlimitedStorage&quot;
+]</code></pre>
+<p>================================================================================ TODO - Known Issues ================================================================================</p>
+<ul>
+<li>Testing of all systems with a real application (something other than SDL's tests)</li>
+<li>Key events don't seem to work properly</li>
+</ul>
+</body>
+</html>

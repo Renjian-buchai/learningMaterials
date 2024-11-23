@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>SDL-gsoc2010_xrender</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<nav id="TOC">
+<ul>
+<li><a href="#status">Status</a></li>
+<li><a href="#documentation">Documentation</a></li>
+<li><a href="#notes">Notes</a></li>
+</ul>
+</nav>
+<p>This is a scratch pad for the XRender Google Summer of Code 2010 project, by Sunny Sachanandani</p>
+<p>The code is available here: <a href="http://hg.libsdl.org/SDL-gsoc2010_xrender.html">http://hg.libsdl.org/SDL-gsoc2010_xrender</a></p>
+<p>A (mostly) project blog is up at: <a href="http://tocodeisdivine.wordpress.com/.html">http://tocodeisdivine.wordpress.com/</a></p>
+<h2 id="status">Status</h2>
+<p>June 2, 2010: <strong>SDL_RenderFillRect(s) should now be using XRender on supported systems.</strong> By default alpha blending (SDL_BLENDMODE_BLEND) is done but I will soon add support for the other blending modes as well.</p>
+<p>There is a slight difficulty in supporting streaming textures (textures with access set to SDL_TEXTUREACCESS_STREAMING).</p>
+<p>June 13, 2010: <strong>SDL_RenderFillRect (s) has been changed to use XRenderCompositeTrapezoids which should be faster. SDL_RenderDrawRect (s) also uses XRender now.</strong></p>
+<p>SDL_RenderDrawLine (s) will use XRender soon.</p>
+<h2 id="documentation">Documentation</h2>
+<p>libXrender documentation: <a href="http://www.x.org/releases/X11R7.5/doc/libXrender/libXrender.txt.html">http://www.x.org/releases/X11R7.5/doc/libXrender/libXrender.txt</a></p>
+<p>Render protocol description: <a href="http://www.x.org/releases/X11R7.5/doc/renderproto/renderproto.txt.html">http://www.x.org/releases/X11R7.5/doc/renderproto/renderproto.txt</a></p>
+<p>The difficulty with streaming textures is because shared pixmaps are not allowed on most modern X11 drivers. Since XRender requires a Drawable type (i.e. a Pixmap or a Window) to work with, one solution (only when shared memory is available) is to use XShmPutImage to transfer texture data onto a Pixmap and then use XRender but this approach would waste memory. Where there is no shared memory support we can't even employ XPutImage since there will be a lot of overhead in transmitting the texture data to the server.</p>
+<p>As soon as the work on supporting textures is done, I will add support for cool stuff like scaling, modulating etc.</p>
+<p>June 13, 2010: It has been decided that XRender won't support streaming textures since this will cause a lot of overhead since shared memory pixmaps are not common in most X11 drivers. This means that streaming textures will continue to be supported by the fallback i.e. the old rendering code.</p>
+<h2 id="notes">Notes</h2>
+<p>Remember that XRender uses 16 bit per color channel and hence there might be a slight mismatch between the intended color (which is in 8 bit per channel) and the color on the screen. Such a mismatch should not be noticeable to the human eye.</p>
+<p>Also the various geometric primitives used in XRender use the XFixed type which is basically a fixed decimal type with a scaling factor of 65536, so all SDL coordinates have to be converted with the XDoubleToFixed macro.</p>
+<p>It appears that XRenderAddTraps, which is supposed to be a better and faster alternative to XRenderCompositeTrapezoids is not well supported, at least on my hardware.</p>
+</body>
+</html>

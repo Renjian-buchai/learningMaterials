@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>SDL_HINT_VIDEO_WIN_D3DCOMPILER</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<nav id="TOC">
+<ul>
+<li><a href="#sdl_hint_video_win_d3dcompiler">SDL_HINT_VIDEO_WIN_D3DCOMPILER</a><ul>
+<li><a href="#values">Values</a></li>
+<li><a href="#default">Default</a></li>
+<li><a href="#remarks">Remarks</a></li>
+<li><a href="#version">Version</a></li>
+</ul></li>
+</ul>
+</nav>
+<h1 id="sdl_hint_video_win_d3dcompiler">SDL_HINT_VIDEO_WIN_D3DCOMPILER</h1>
+<p>A hint that specifies which shader compiler to preload when using the Chrome ANGLE binaries.</p>
+<h2 id="values">Values</h2>
+<table>
+<tbody>
+<tr class="odd">
+<td><p>d3dcompiler_46.dll</p></td>
+<td><p>default, best for Vista or later</p></td>
+</tr>
+<tr class="even">
+<td><p>d3dcompiler_43.dll</p></td>
+<td><p>for XP support</p></td>
+</tr>
+<tr class="odd">
+<td><p>none</p></td>
+<td><p>do not load any library, useful if you compiled ANGLE from source and included the compiler in your binaries</p></td>
+</tr>
+</tbody>
+</table>
+<h2 id="default">Default</h2>
+<p>By default "d3dcompiler_46.dll" will be used.</p>
+<h2 id="remarks">Remarks</h2>
+<p>SDL has EGL and OpenGL ES2 support on Windows via the ANGLE project. It can use two different sets of binaries, those compiled by the user from source or those provided by the Chrome browser. In the later case, these binaries require that SDL loads a DLL providing the shader compiler.</p>
+<h2 id="version">Version</h2>
+<p>This hint is available since SDL 2.0.2.</p>
+<hr />
+<p><a href="CategoryDefine.html" title="wikilink">CategoryDefine</a>, <a href="CategoryHints.html" title="wikilink">CategoryHints</a></p>
+</body>
+</html>

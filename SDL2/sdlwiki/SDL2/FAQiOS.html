@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>FAQiOS</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<nav id="TOC">
+<ul>
+<li><a href="#faq-ios">FAQ: iOS</a><ul>
+<li><a href="#using-sdl">Using SDL</a><ul>
+<li><a href="#general">General</a></li>
+</ul></li>
+<li><a href="#developing-with-sdl">Developing with SDL</a><ul>
+<li><a href="#general-1">General</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+<h1 id="faq-ios">FAQ: iOS</h1>
+<h2 id="using-sdl">Using SDL</h2>
+<h3 id="general">General</h3>
+<h4 id="what-is-supported">What is supported?</h4>
+<p>SDL 2.0.0 supports iOS 5.1.1 or newer. Older versions of SDL support iOS 3.1.3 or newer.</p>
+<p>For the latest information see <a href="Installation.html" title="wikilink">the page about Installation</a>.</p>
+<h2 id="developing-with-sdl">Developing with SDL</h2>
+<h3 id="general-1">General</h3>
+<h4 id="im-getting-exc_bad_access-in-the-function-_class_getmeta-what-do-i-do">I'm getting EXC_BAD_ACCESS in the function _class_getMeta, what do I do?</h4>
+<p>Go to the Xcode menu Project -&gt; Edit Project Settings, scroll down to the Linking section, and add -ObjC to the "Other Linker Flags" option. If you have target specific settings for your linker flags, you'll need to add this at the target level instead, by right clicking the target and selecting the "Get Info" menu option.</p>
+<h4 id="why-does-my-application-quit-at-the-loading-screen-on-systems-running-ios-3.1">Why does my application quit at the loading screen on systems running iOS 3.1?</h4>
+<p>These devices are probably using the ARMv6 architecture instead of the ARMv7 architecture. Try changing your "Active Architecture" to ARMv6 in the Xcode main project window.</p>
+</body>
+</html>

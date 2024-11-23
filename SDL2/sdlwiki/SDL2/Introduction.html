@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Introduction</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<nav id="TOC">
+<ul>
+<li><a href="#introduction-to-sdl-2.0">Introduction to SDL 2.0</a><ul>
+<li><a href="#introduction-to-sdl">Introduction to SDL</a><ul>
+<li><a href="#what-is-sdl">What is SDL?</a></li>
+<li><a href="#what-can-sdl-do">What can SDL do?</a></li>
+<li><a href="#what-platforms-does-sdl-run-on">What platforms does SDL run on?</a></li>
+</ul></li>
+<li><a href="#how-to-get-and-install-sdl">How to get and install SDL</a></li>
+<li><a href="#transitioning-from-sdl-1.2-to-2.0">Transitioning from SDL 1.2 to 2.0</a></li>
+</ul></li>
+</ul>
+</nav>
+<h1 id="introduction-to-sdl-2.0">Introduction to SDL 2.0</h1>
+<h2 id="introduction-to-sdl">Introduction to SDL</h2>
+<h3 id="what-is-sdl">What is SDL?</h3>
+<p>Simple DirectMedia Layer is a cross-platform development library designed to provide low level access to audio, keyboard, mouse, joystick, and graphics hardware via OpenGL and Direct3D. It is used by video playback software, emulators, and popular games including <a href="http://valvesoftware.com.html">Valve</a>'s award winning catalog and many <a href="https://www.humblebundle.com.html">Humble Bundle</a> games.</p>
+<p>SDL officially supports Windows, Mac OS X, Linux, iOS, and <a href="Android.html" title="wikilink">Android</a>. Support for other platforms may be found in the source code.</p>
+<dl>
+<dt></dt>
+<dd>For the latest information on what is supported see <a href="Installation.html" title="wikilink">the page about Installation</a>.
+</dd>
+</dl>
+<p>SDL is written in C, works natively with C++, and there are bindings available for several other languages, including C# and Python.</p>
+<dl>
+<dt></dt>
+<dd>For the latest list of languages see <a href="http://www.libsdl.org/languages.php.html">http://www.libsdl.org/languages.php</a>
+</dd>
+</dl>
+<p>SDL 2.0 is distributed under the <a href="http://www.gzip.org/zlib/zlib_license.html.html">zlib license</a>. This license allows you to use SDL freely in any software. The Simple DirectMedia Layer library (SDL) is a general API that provides low level access to audio, keyboard, mouse, joystick, 3D hardware via OpenGL, and 2D framebuffer across multiple platforms.</p>
+<h3 id="what-can-sdl-do">What can SDL do?</h3>
+<p>Read ahead for an overview of what SDL is capable of. If you're simply interested in the changes from 1.2 to 2.0, check out the <a href="MigrationGuide.html" title="wikilink">Migration Guide</a>.</p>
+<p><strong>'' Video</strong>''</p>
+<ul>
+<li>3D graphics:</li>
+<li>SDL can be used in combination with the OpenGL API or Direct3D API for 3D graphics</li>
+<li>Accelerated 2D render API:</li>
+<li>Supports easy rotation, scaling and alpha blending, all accelerated using modern 3D APIs</li>
+<li>Acceleration is supported using OpenGL and Direct3D, and there is a software fallback</li>
+<li>Create and manage multiple windows</li>
+</ul>
+<p><strong><em>Input Events</em></strong></p>
+<ul>
+<li>Events and API functions provided for:</li>
+<li>Application and window state changes</li>
+<li>Mouse input</li>
+<li>Keyboard input</li>
+<li>Joystick and game controller input</li>
+<li>Multitouch gestures</li>
+<li>Each event can be enabled or disabled with <a href="SDL_EventState.html" title="wikilink">SDL_EventState</a>()</li>
+<li>Events are passed through a user-specified filter function before being posted to the internal event queue</li>
+<li>Thread-safe event queue</li>
+</ul>
+<p><strong>'' Force Feedback</strong>''</p>
+<ul>
+<li>Force feedback is supported under Windows, Mac OS X and Linux</li>
+</ul>
+<p><strong><em>Audio</em></strong></p>
+<ul>
+<li>Set audio playback of 8-bit and 16-bit audio, mono stereo or 5.1 surround sound, with optional conversion if the format is not supported by the hardware</li>
+<li>Audio runs independently in a separate thread, filled via a user callback mechanism</li>
+<li>Designed for custom software audio mixers, but <a href="http://www.libsdl.org/projects/SDL_mixer/.html">SDL_mixer</a> provides a complete audio/music output library</li>
+</ul>
+<p><strong><em>File I/O Abstraction</em></strong></p>
+<ul>
+<li>General purpose abstraction for opening, reading and writing data</li>
+<li>Built-in support for files and memory</li>
+</ul>
+<p><strong><em>Shared Object Support</em></strong></p>
+<ul>
+<li>Load shared objects (DLL on Windows, .dylib on Mac OS X, .so on Linux)</li>
+<li>Lookup functions in shared objects</li>
+</ul>
+<p><strong><em>Threads</em></strong></p>
+<ul>
+<li>Simple thread creation API</li>
+<li>Simple thread local storage API</li>
+<li>Mutexes, semaphores and condition variables</li>
+<li>Atomic operations for lockless programming</li>
+</ul>
+<p><strong><em>Timers</em></strong></p>
+<ul>
+<li>Get the number of milliseconds elapsed</li>
+<li>Wait a specified number of milliseconds</li>
+<li>Create timers that run alongside your code in a separate thread</li>
+<li>Use high resolution counter for profiling</li>
+</ul>
+<p><strong><em>CPU Feature Detection</em></strong></p>
+<ul>
+<li>Query the number of CPUs</li>
+<li>Detect CPU features and supported instruction sets</li>
+</ul>
+<p><strong><em>Endian Independence</em></strong></p>
+<ul>
+<li>Detect the endianness of the current system</li>
+<li>Routines for fast swapping of data values</li>
+<li>Read and write data of a specified endianness</li>
+</ul>
+<p><strong><em>Power Management</em></strong></p>
+<ul>
+<li>Querying power management status</li>
+</ul>
+<h3 id="what-platforms-does-sdl-run-on">What platforms does SDL run on?</h3>
+<p><strong><em>Windows</em></strong></p>
+<ul>
+<li>Uses Win32 APIs for display, taking advantage of Direct3D for hardware acceleration</li>
+<li>Uses DirectSound and XAudio2 for sound</li>
+</ul>
+<p><strong><em>Mac OS X</em></strong></p>
+<ul>
+<li>Uses Cocoa for video display, taking advantage of OpenGL for hardware acceleration</li>
+<li>Uses Core Audio for sound</li>
+</ul>
+<p><strong><em>Linux</em></strong></p>
+<ul>
+<li>Uses X11 for video display, taking advantage of OpenGL for hardware acceleration</li>
+<li>Uses the ALSA, OSS and PulseAudio APIs for sound</li>
+</ul>
+<p><strong><em>iOS</em></strong></p>
+<ul>
+<li>Uses UIKit for video display, taking advantage of OpenGL ES 2.0 for hardware acceleration</li>
+<li>Uses Core Audio for sound</li>
+</ul>
+<p><strong><em>Android</em></strong></p>
+<ul>
+<li>Uses JNI interfaces for video display, taking advantage of OpenGL ES 1.1 and 2.0 for hardware acceleration</li>
+<li>Uses JNI audio callbacks for sound</li>
+<li>See also <a href="Android.html" title="wikilink">Android</a></li>
+</ul>
+<h2 id="how-to-get-and-install-sdl">How to get and install SDL</h2>
+<p>You can <a href="SourceCode.html" title="wikilink">get the source code</a> and <a href="Installation.html" title="wikilink">build and install it</a>.</p>
+<h2 id="transitioning-from-sdl-1.2-to-2.0">Transitioning from SDL 1.2 to 2.0</h2>
+<p>If you used SDL 1.2 previously and you want to use SDL 2.0, please note there are some API changes and some of your code will need to be adapted.</p>
+<p>The migration guide lists the feature differences and how to adapt old code to the new SDL 2.0:</p>
+<ul>
+<li><a href="MigrationGuide.html" title="wikilink">Migration Guide</a></li>
+</ul>
+</body>
+</html>

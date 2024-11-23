@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>FAQDevelopment</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+</head>
+<body>
+<nav id="TOC">
+<ul>
+<li><a href="#faq-development">FAQ: Development</a><ul>
+<li><a href="#is-sdl-multi-threaded">Is SDL multi-threaded?</a></li>
+<li><a href="#can-i-call-sdl-video-functions-from-multiple-threads">Can I call SDL video functions from multiple threads?</a></li>
+<li><a href="#does-sdl-support-3d-acceleration">Does SDL support 3D acceleration?</a></li>
+<li><a href="#does-sdl-support-networking">Does SDL support networking?</a></li>
+<li><a href="#does-sdl-support-pcx-jpg-png-etc...">Does SDL support PCX, JPG, PNG, etc...</a></li>
+<li><a href="#does-sdl-support-mp3-ogg-vorbis-etc...">Does SDL support MP3, Ogg Vorbis, etc...</a></li>
+<li><a href="#does-sdl-have-text-drawing-support">Does SDL have text drawing support?</a></li>
+<li><a href="#what-kind-of-guis-are-there-for-sdl">What kind of GUIs are there for SDL?</a></li>
+<li><a href="#do-i-include-sdl.h-or-sdlsdl.h">Do I #include &lt;SDL.h&gt; or &lt;SDL/SDL.h&gt;?</a></li>
+<li><a href="#i-get-the-sdl_dummy_enum-assertion-in-sdl_types.h">I get the SDL_DUMMY_ENUM assertion in SDL_types.h</a></li>
+<li><a href="#i-have-an-accelerated-video-card-but-sdl-tells-me-that-i-have-zero-video-memory-and-no-acceleration">I have an accelerated video card, but SDL tells me that I have zero video memory and no acceleration!</a></li>
+<li><a href="#im-using-sdl_doublebuf-and-i-still-get-tearing.">I'm using SDL_DOUBLEBUF and I still get tearing.</a></li>
+<li><a href="#my-mouse-cursor-disappears-when-in-fullscreen-mode">My mouse cursor disappears when in fullscreen mode!</a></li>
+</ul></li>
+</ul>
+</nav>
+<h1 id="faq-development">FAQ: Development</h1>
+<h2 id="is-sdl-multi-threaded">Is SDL multi-threaded?</h2>
+<p>SDL provides simple cross-platform functions for the creation of threads and synchronization using mutexes. These are used internally by SDL for some implementations of the audio subsystem and input handling.</p>
+<h2 id="can-i-call-sdl-video-functions-from-multiple-threads">Can I call SDL video functions from multiple threads?</h2>
+<p>No, most graphics back ends are not thread-safe, so you should only call SDL video functions from the main thread of your application.</p>
+<h2 id="does-sdl-support-3d-acceleration">Does SDL support 3D acceleration?</h2>
+<p>Yes, SDL supports 3D acceleration:</p>
+<ul>
+<li>You can use the OpenGL API or the Direct3D API in combination with SDL, for 2D and 3D graphics.</li>
+<li>Alternatively, you can use <a href="CategoryRender.html" title="wikilink">SDL's 2D accelerated render API</a> using <a href="SDL_Texture.html" title="wikilink">SDL_Texture</a> for pure 2D graphics which itself uses either OpenGL or Direct3D for acceleration (but it is easier to use than OpenGL/Direct3D directly and you get support for both for free).</li>
+</ul>
+<h2 id="does-sdl-support-networking">Does SDL support networking?</h2>
+<p>Networking is outside of the scope of SDL, but due to popular demand a simple cross-platform sockets wrapper called "SDL_net" is available at the SDL libraries page. A simple chat client/server is included which makes use of an example GUI library as well.</p>
+<h2 id="does-sdl-support-pcx-jpg-png-etc...">Does SDL support PCX, JPG, PNG, etc...</h2>
+<p>The BMP and WAV file loaders included with SDL are simple examples demonstrating how to load an image and sound format. You should be able to write your own reader for any format. The main library is supposed to be fast and small, and so does not include any additional loaders. A sample image loader library called "<a href="http://www.libsdl.org/projects/SDL_image/.html">SDL_image</a>" is available from the SDL libraries page which supports loading BMP, PCX, GIF, JPG, PNG and TGA images to SDL surfaces.</p>
+<h2 id="does-sdl-support-mp3-ogg-vorbis-etc...">Does SDL support MP3, Ogg Vorbis, etc...</h2>
+<p>The BMP and WAV file loaders included with SDL are simple examples demonstrating how to load an image and sound format. You should be able to write your own reader for any format. The main library is supposed to be fast and small, and so does not include any additional loaders. A sample sound library called "<a href="http://www.icculus.org/SDL_sound/.html">SDL_sound</a>" is available from the SDL libraries page which supports loading many different audio formats.</p>
+<h2 id="does-sdl-have-text-drawing-support">Does SDL have text drawing support?</h2>
+<p>Games and operating systems vary widely in the type and availability of text drawing facilities. Instead of trying to deal with this in the core SDL library, there are several text drawing libraries designed for use with SDL on the SDL libraries page. Common techniques include using bitmap fonts, truetype fonts, and custom images for text.</p>
+<h2 id="what-kind-of-guis-are-there-for-sdl">What kind of GUIs are there for SDL?</h2>
+<p>There are several GUI libraries available from the SDL libraries page. There is also a demo on the SDL demos page of using GTk natively with SDL, which works really well for graphics output. Also on the demos page is a hack written by Kent Mein using Tcl/Tk with SDL. You may also be able to get other GUIs to work with SDL. Many of them have documentation on how to get the toolkits to work with other applications.</p>
+<h2 id="do-i-include-sdl.h-or-sdlsdl.h">Do I #include &lt;SDL.h&gt; or &lt;SDL/SDL.h&gt;?</h2>
+<p>The most portable way to include SDL headers is to use quotes around the header name:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode c"><code class="sourceCode c"><a class="sourceLine" id="cb1-1" title="1"><span class="pp">#include </span><span class="im">&quot;SDL.h&quot;</span></a></code></pre></div>
+<h2 id="i-get-the-sdl_dummy_enum-assertion-in-sdl_types.h">I get the SDL_DUMMY_ENUM assertion in SDL_types.h</h2>
+<p>You need to turn on the "enums as ints" option for your compiler:</p>
+<ul>
+<li>For the free Borland compiler, add this command line option: -b</li>
+<li>For Watcom C/C++, add this command line option: -ei</li>
+<li>For Apple's MPW environment, add this command line option: -enum int</li>
+<li>For CodeWarrior, go to the C/C++ Language settings menu for your project and check the "Enums Always Int" box.</li>
+</ul>
+<h2 id="i-have-an-accelerated-video-card-but-sdl-tells-me-that-i-have-zero-video-memory-and-no-acceleration">I have an accelerated video card, but SDL tells me that I have zero video memory and no acceleration!</h2>
+<p>Not all display targets can make use of hardware acceleration. In particular, this is the case for the X11 target which always presents you with a software framebuffer. Your video memory will always be reported to be zero if no acceleration is available. Note that this has nothing to do with 3D acceleration, just 2D hardware acceleration support in the underlying operating system video drivers.</p>
+<p>If you want hardware acceleration on Linux, you can use the DGA driver (fullscreen-only, under X11) or the framebuffer console driver (fullscreen-only, under the console). See the <a href="FAQLinux.html" title="wikilink">Linux FAQ</a> for more information on using these drivers.</p>
+<p>If you want hardware acceleration on Windows, make sure SDL is built with DirectX support and run your program in fullscreen mode.</p>
+<p>An excellent article by Bob Pendleton covering SDL hardware surfaces is available at the O'Reilly Network</p>
+<h2 id="im-using-sdl_doublebuf-and-i-still-get-tearing.">I'm using SDL_DOUBLEBUF and I still get tearing.</h2>
+<p>If you are in windowed mode, you need to run in fullscreen mode. If you are in fullscreen mode, the system drivers probably do not support synchronizing with the vertical retrace. If you are using OpenGL with the NVidia drivers, you can enable retrace synchronized flipping using an external control panel or environment variable.</p>
+<p>An excellent article by Bob Pendleton covering SDL hardware surfaces is available at the O'Reilly Network</p>
+<h2 id="my-mouse-cursor-disappears-when-in-fullscreen-mode">My mouse cursor disappears when in fullscreen mode!</h2>
+<p>This happens because you're directly accessing the video memory, and the video driver doesn't support hardware cursor overlays. Simply create the cursor as a sprite and blit it onto the screen where the mouse cursor coordinates are.</p>
+</body>
+</html>

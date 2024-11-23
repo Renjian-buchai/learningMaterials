@@ -1,0 +1,1188 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>migration</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+</head>
+<body>
+<nav id="TOC">
+<ul>
+<li><a href="#migrating-to-sdl-30">Migrating to SDL 3.0</a><ul>
+<li><a href="#sdl_atomich">SDL_atomic.h</a></li>
+<li><a href="#sdl_audioh">SDL_audio.h</a></li>
+<li><a href="#sdl_cpuinfoh">SDL_cpuinfo.h</a></li>
+<li><a href="#sdl_eventsh">SDL_events.h</a></li>
+<li><a href="#sdl_gamecontrollerh">SDL_gamecontroller.h</a></li>
+<li><a href="#sdl_gestureh">SDL_gesture.h</a></li>
+<li><a href="#sdl_hintsh">SDL_hints.h</a></li>
+<li><a href="#sdl_inith">SDL_init.h</a></li>
+<li><a href="#sdl_joystickh">SDL_joystick.h</a></li>
+<li><a href="#sdl_keyboardh">SDL_keyboard.h</a></li>
+<li><a href="#sdl_keycodeh">SDL_keycode.h</a></li>
+<li><a href="#sdl_loadsoh">SDL_loadso.h</a></li>
+<li><a href="#sdl_mainh">SDL_main.h</a></li>
+<li><a href="#sdl_metalh">SDL_metal.h</a></li>
+<li><a href="#sdl_mouseh">SDL_mouse.h</a></li>
+<li><a href="#sdl_mutexh">SDL_mutex.h</a></li>
+<li><a href="#sdl_pixelsh">SDL_pixels.h</a></li>
+<li><a href="#sdl_platformh">SDL_platform.h</a></li>
+<li><a href="#sdl_recth">SDL_rect.h</a></li>
+<li><a href="#sdl_renderh">SDL_render.h</a></li>
+<li><a href="#sdl_rwopsh">SDL_rwops.h</a></li>
+<li><a href="#sdl_sensorh">SDL_sensor.h</a></li>
+<li><a href="#sdl_stdinch">SDL_stdinc.h</a></li>
+<li><a href="#sdl_surfaceh">SDL_surface.h</a></li>
+<li><a href="#sdl_systemh">SDL_system.h</a></li>
+<li><a href="#sdl_syswmh">SDL_syswm.h</a><ul>
+<li><a href="#sdl_getwindowwminfo">SDL_GetWindowWMInfo</a></li>
+</ul></li>
+<li><a href="#sdl_threadh">SDL_thread.h</a></li>
+<li><a href="#sdl_timerh">SDL_timer.h</a></li>
+<li><a href="#sdl_touchh">SDL_touch.h</a></li>
+<li><a href="#sdl_versionh">SDL_version.h</a></li>
+<li><a href="#sdl_videoh">SDL_video.h</a></li>
+<li><a href="#sdl_vulkanh">SDL_vulkan.h</a></li>
+</ul></li>
+</ul>
+</nav>
+<h1 id="migrating-to-sdl-30">Migrating to SDL 3.0</h1>
+<p>This guide provides useful information for migrating applications from SDL 2.0 to SDL 3.0.</p>
+<p>Details on API changes are organized by SDL 2.0 header below.</p>
+<p>The file with your main() function should include &lt;SDL3/SDL_main.h&gt;, as that is no longer included in SDL.h.</p>
+<p>Many functions and symbols have been renamed. We have provided a handy Python script <a href="https://github.com/libsdl-org/SDL/blob/main/build-scripts/rename_symbols.py.html">rename_symbols.py</a> to rename SDL2 functions to their SDL3 counterparts:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" title="1"><span class="ex">rename_symbols.py</span> --all-symbols source_code_path</a></code></pre></div>
+<p>It's also possible to apply a semantic patch to migrate more easily to SDL3: <a href="https://github.com/libsdl-org/SDL/blob/main/build-scripts/SDL_migration.cocci.html">SDL_migration.cocci</a></p>
+<p>SDL headers should now be included as <code>#include &lt;SDL3/SDL.h&gt;</code>. Typically that's the only header you'll need in your application unless you are using OpenGL or Vulkan functionality. We have provided a handy Python script <a href="https://github.com/libsdl-org/SDL/blob/main/build-scripts/rename_headers.py.html">rename_headers.py</a> to rename SDL2 headers to their SDL3 counterparts:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb2-1" title="1"><span class="ex">rename_headers.py</span> source_code_path</a></code></pre></div>
+<p>CMake users should use this snippet to include SDL support in their project:</p>
+<pre><code>find_package(SDL3 REQUIRED CONFIG REQUIRED COMPONENTS SDL3)
+target_link_libraries(mygame PRIVATE SDL3::SDL3)</code></pre>
+<p>Autotools users should use this snippet to include SDL support in their project:</p>
+<pre><code>PKG_CHECK_MODULES([SDL3], [sdl3])</code></pre>
+<p>and then add $SDL3_CFLAGS to their project CFLAGS and $SDL3_LIBS to their project LDFLAGS</p>
+<p>Makefile users can use this snippet to include SDL support in their project:</p>
+<pre><code>CFLAGS += $(shell pkg-config sdl3 --cflags)
+LDFLAGS += $(shell pkg-config sdl3 --libs)</code></pre>
+<p>The SDL3test library has been renamed SDL3_test.</p>
+<p>The SDLmain library has been removed, it's been entirely replaced by SDL_main.h.</p>
+<p>The vi format comments have been removed from source code. Vim users can use the <a href="https://github.com/editorconfig/editorconfig-vim.html">editorconfig plugin</a> to automatically set tab spacing for the SDL coding style.</p>
+<h2 id="sdl_atomich">SDL_atomic.h</h2>
+<p>The following structures have been renamed:</p>
+<ul>
+<li>SDL_atomic_t =&gt; SDL_AtomicInt</li>
+</ul>
+<h2 id="sdl_audioh">SDL_audio.h</h2>
+<p>The audio subsystem in SDL3 is dramatically different than SDL2. The primary way to play audio is no longer an audio callback; instead you bind SDL_AudioStreams to devices; however, there is still a callback method available if needed.</p>
+<p>The SDL 1.2 audio compatibility API has also been removed, as it was a simplified version of the audio callback interface.</p>
+<p>SDL3 will not implicitly initialize the audio subsystem on your behalf if you open a device without doing so. Please explicitly call SDL_Init(SDL_INIT_AUDIO) at some point.</p>
+<p>SDL3's audio subsystem offers an enormous amount of power over SDL2, but if you just want a simple migration of your existing code, you can ignore most of it. The simplest migration path from SDL2 looks something like this:</p>
+<p>In SDL2, you might have done something like this to play audio...</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode c"><code class="sourceCode c"><a class="sourceLine" id="cb6-1" title="1">    <span class="dt">void</span> SDLCALL MyAudioCallback(<span class="dt">void</span> *userdata, Uint8 * stream, <span class="dt">int</span> len)</a>
+<a class="sourceLine" id="cb6-2" title="2">    {</a>
+<a class="sourceLine" id="cb6-3" title="3">        <span class="co">/* calculate a little more audio here, maybe using `userdata`, write it to `stream` */</span></a>
+<a class="sourceLine" id="cb6-4" title="4">    }</a>
+<a class="sourceLine" id="cb6-5" title="5"></a>
+<a class="sourceLine" id="cb6-6" title="6">    <span class="co">/* ...somewhere near startup... */</span></a>
+<a class="sourceLine" id="cb6-7" title="7">    SDL_AudioSpec my_desired_audio_format;</a>
+<a class="sourceLine" id="cb6-8" title="8">    SDL_zero(my_desired_audio_format);</a>
+<a class="sourceLine" id="cb6-9" title="9">    my_desired_audio_format.format = AUDIO_S16;</a>
+<a class="sourceLine" id="cb6-10" title="10">    my_desired_audio_format.channels = <span class="dv">2</span>;</a>
+<a class="sourceLine" id="cb6-11" title="11">    my_desired_audio_format.freq = <span class="dv">44100</span>;</a>
+<a class="sourceLine" id="cb6-12" title="12">    my_desired_audio_format.samples = <span class="dv">1024</span>;</a>
+<a class="sourceLine" id="cb6-13" title="13">    my_desired_audio_format.callback = MyAudioCallback;</a>
+<a class="sourceLine" id="cb6-14" title="14">    my_desired_audio_format.userdata = &amp;my_audio_callback_user_data;</a>
+<a class="sourceLine" id="cb6-15" title="15">    SDL_AudioDeviceID my_audio_device = SDL_OpenAudioDevice(NULL, <span class="dv">0</span>, &amp;my_desired_audio_format, NULL, <span class="dv">0</span>);</a>
+<a class="sourceLine" id="cb6-16" title="16">    SDL_PauseAudioDevice(my_audio_device, <span class="dv">0</span>);</a></code></pre></div>
+<p>...in SDL3, you can do this...</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode c"><code class="sourceCode c"><a class="sourceLine" id="cb7-1" title="1">    <span class="dt">void</span> SDLCALL MyAudioCallback(SDL_AudioStream *stream, <span class="dt">int</span> len, <span class="dt">void</span> *userdata)</a>
+<a class="sourceLine" id="cb7-2" title="2">    {</a>
+<a class="sourceLine" id="cb7-3" title="3">        <span class="co">/* calculate a little more audio here, maybe using `userdata`, write it to `stream` */</span></a>
+<a class="sourceLine" id="cb7-4" title="4">        SDL_PutAudioStreamData(stream, newdata, len);</a>
+<a class="sourceLine" id="cb7-5" title="5">    }</a>
+<a class="sourceLine" id="cb7-6" title="6"></a>
+<a class="sourceLine" id="cb7-7" title="7">    <span class="co">/* ...somewhere near startup... */</span></a>
+<a class="sourceLine" id="cb7-8" title="8">    <span class="dt">const</span> SDL_AudioSpec spec = { SDL_AUDIO_S16, <span class="dv">2</span>, <span class="dv">44100</span> };</a>
+<a class="sourceLine" id="cb7-9" title="9">    SDL_AudioStream *stream = SDL_OpenAudioDeviceStream(SDL_AUDIO_DEVICE_DEFAULT_OUTPUT, &amp;spec, MyAudioCallback, &amp;my_audio_callback_user_data);</a>
+<a class="sourceLine" id="cb7-10" title="10">    SDL_ResumeAudioDevice(SDL_GetAudioStreamDevice(stream));</a></code></pre></div>
+<p>If you used SDL_QueueAudio instead of a callback in SDL2, this is also straightforward.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode c"><code class="sourceCode c"><a class="sourceLine" id="cb8-1" title="1">    <span class="co">/* ...somewhere near startup... */</span></a>
+<a class="sourceLine" id="cb8-2" title="2">    <span class="dt">const</span> SDL_AudioSpec spec = { SDL_AUDIO_S16, <span class="dv">2</span>, <span class="dv">44100</span> };</a>
+<a class="sourceLine" id="cb8-3" title="3">    SDL_AudioStream *stream = SDL_OpenAudioDeviceStream(SDL_AUDIO_DEVICE_DEFAULT_OUTPUT, &amp;spec, NULL, NULL);</a>
+<a class="sourceLine" id="cb8-4" title="4">    SDL_ResumeAudioDevice(SDL_GetAudioStreamDevice(stream));</a>
+<a class="sourceLine" id="cb8-5" title="5"></a>
+<a class="sourceLine" id="cb8-6" title="6">    <span class="co">/* ...in your main loop... */</span></a>
+<a class="sourceLine" id="cb8-7" title="7">    <span class="co">/* calculate a little more audio into `buf`, add it to `stream` */</span></a>
+<a class="sourceLine" id="cb8-8" title="8">    SDL_PutAudioStreamData(stream, buf, buflen);</a></code></pre></div>
+<p>...these same migration examples apply to audio capture, just using SDL_GetAudioStreamData instead of SDL_PutAudioStreamData.</p>
+<p>SDL_AudioInit() and SDL_AudioQuit() have been removed. Instead you can call SDL_InitSubSystem() and SDL_QuitSubSystem() with SDL_INIT_AUDIO, which will properly refcount the subsystems. You can choose a specific audio driver using SDL_AUDIO_DRIVER hint.</p>
+<p>The <code>SDL_AUDIO_ALLOW_*</code> symbols have been removed; now one may request the format they desire from the audio device, but ultimately SDL_AudioStream will manage the difference. One can use SDL_GetAudioDeviceFormat() to see what the final format is, if any "allowed" changes should be accomodated by the app.</p>
+<p>SDL_AudioDeviceID now represents both an open audio device's handle (a "logical" device) and the instance ID that the hardware owns as long as it exists on the system (a "physical" device). The separation between device instances and device indexes is gone, and logical and physical devices are almost entirely interchangeable at the API level.</p>
+<p>Devices are opened by physical device instance ID, and a new logical instance ID is generated by the open operation; This allows any device to be opened multiple times, possibly by unrelated pieces of code. SDL will manage the logical devices to provide a single stream of audio to the physical device behind the scenes.</p>
+<p>Devices are not opened by an arbitrary string name anymore, but by device instance ID (or magic numbers to request a reasonable default, like a NULL string in SDL2). In SDL2, the string was used to open both a standard list of system devices, but also allowed for arbitrary devices, such as hostnames of network sound servers. In SDL3, many of the backends that supported arbitrary device names are obsolete and have been removed; of those that remain, arbitrary devices will be opened with a default device ID and an SDL_hint, so specific end-users can set an environment variable to fit their needs and apps don't have to concern themselves with it.</p>
+<p>Many functions that would accept a device index and an <code>iscapture</code> parameter now just take an SDL_AudioDeviceID, as they are unique across all devices, instead of separate indices into output and capture device lists.</p>
+<p>Rather than iterating over audio devices using a device index, there are new functions, SDL_GetAudioOutputDevices() and SDL_GetAudioCaptureDevices(), to get the current list of devices, and new functions to get information about devices from their instance ID:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode c"><code class="sourceCode c"><a class="sourceLine" id="cb9-1" title="1">{</a>
+<a class="sourceLine" id="cb9-2" title="2">    <span class="cf">if</span> (SDL_InitSubSystem(SDL_INIT_AUDIO) == <span class="dv">0</span>) {</a>
+<a class="sourceLine" id="cb9-3" title="3">        <span class="dt">int</span> i, num_devices;</a>
+<a class="sourceLine" id="cb9-4" title="4">        SDL_AudioDeviceID *devices = SDL_GetAudioOutputDevices(&amp;num_devices);</a>
+<a class="sourceLine" id="cb9-5" title="5">        <span class="cf">if</span> (devices) {</a>
+<a class="sourceLine" id="cb9-6" title="6">            <span class="cf">for</span> (i = <span class="dv">0</span>; i &lt; num_devices; ++i) {</a>
+<a class="sourceLine" id="cb9-7" title="7">                SDL_AudioDeviceID instance_id = devices[i];</a>
+<a class="sourceLine" id="cb9-8" title="8">                <span class="dt">char</span> *name = SDL_GetAudioDeviceName(instance_id);</a>
+<a class="sourceLine" id="cb9-9" title="9">                SDL_Log(<span class="st">&quot;AudioDevice %&quot;</span> SDL_PRIu32 <span class="st">&quot;: %s</span><span class="sc">\n</span><span class="st">&quot;</span>, instance_id, name);</a>
+<a class="sourceLine" id="cb9-10" title="10">                SDL_free(name);</a>
+<a class="sourceLine" id="cb9-11" title="11">            }</a>
+<a class="sourceLine" id="cb9-12" title="12">            SDL_free(devices);</a>
+<a class="sourceLine" id="cb9-13" title="13">        }</a>
+<a class="sourceLine" id="cb9-14" title="14">        SDL_QuitSubSystem(SDL_INIT_AUDIO);</a>
+<a class="sourceLine" id="cb9-15" title="15">    }</a>
+<a class="sourceLine" id="cb9-16" title="16">}</a></code></pre></div>
+<p>SDL_LockAudioDevice() and SDL_UnlockAudioDevice() have been removed, since there is no callback in another thread to protect. SDL's audio subsystem and SDL_AudioStream maintain their own locks internally, so audio streams are safe to use from any thread. If the app assigns a callback to a specific stream, it can use the stream's lock through SDL_LockAudioStream() if necessary.</p>
+<p>SDL_PauseAudioDevice() no longer takes a second argument; it always pauses the device. To unpause, use SDL_ResumeAudioDevice().</p>
+<p>Audio devices, opened by SDL_OpenAudioDevice(), no longer start in a paused state, as they don't begin processing audio until a stream is bound.</p>
+<p>SDL_GetAudioDeviceStatus() has been removed; there is now SDL_AudioDevicePaused().</p>
+<p>SDL_QueueAudio(), SDL_DequeueAudio, and SDL_ClearQueuedAudio and SDL_GetQueuedAudioSize() have been removed; an SDL_AudioStream bound to a device provides the exact same functionality.</p>
+<p>APIs that use channel counts used to use a Uint8 for the channel; now they use int.</p>
+<p>SDL_AudioSpec has been reduced; now it only holds format, channel, and sample rate. SDL_GetSilenceValueForFormat() can provide the information from the SDL_AudioSpec's <code>silence</code> field. The other SDL2 SDL_AudioSpec fields aren't relevant anymore.</p>
+<p>SDL_GetAudioDeviceSpec() is removed; use SDL_GetAudioDeviceFormat() instead.</p>
+<p>SDL_GetDefaultAudioInfo() is removed; SDL_GetAudioDeviceFormat() with SDL_AUDIO_DEVICE_DEFAULT_OUTPUT or SDL_AUDIO_DEVICE_DEFAULT_CAPTURE. There is no replacement for querying the default device name; the string is no longer used to open devices, and SDL3 will migrate between physical devices on the fly if the system default changes, so if you must show this to the user, a generic name like "System default" is recommended.</p>
+<p>SDL_MixAudio() has been removed, as it relied on legacy SDL 1.2 quirks; SDL_MixAudioFormat() remains and offers the same functionality.</p>
+<p>SDL_AudioInit() and SDL_AudioQuit() have been removed. Instead you can call SDL_InitSubSystem() and SDL_QuitSubSystem() with SDL_INIT_AUDIO, which will properly refcount the subsystems. You can choose a specific audio driver using SDL_AUDIO_DRIVER hint.</p>
+<p>SDL_FreeWAV has been removed and calls can be replaced with SDL_free.</p>
+<p>SDL_LoadWAV() is a proper function now and no longer a macro (but offers the same functionality otherwise).</p>
+<p>SDL_LoadWAV_RW() and SDL_LoadWAV() return an int now: zero on success, -1 on error, like most of SDL. They no longer return a pointer to an SDL_AudioSpec.</p>
+<p>SDL_AudioCVT interface has been removed, the SDL_AudioStream interface (for audio supplied in pieces) or the new SDL_ConvertAudioSamples() function (for converting a complete audio buffer in one call) can be used instead.</p>
+<p>Code that used to look like this:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode c"><code class="sourceCode c"><a class="sourceLine" id="cb10-1" title="1">    SDL_AudioCVT cvt;</a>
+<a class="sourceLine" id="cb10-2" title="2">    SDL_BuildAudioCVT(&amp;cvt, src_format, src_channels, src_rate, dst_format, dst_channels, dst_rate);</a>
+<a class="sourceLine" id="cb10-3" title="3">    cvt.len = src_len;</a>
+<a class="sourceLine" id="cb10-4" title="4">    cvt.buf = (Uint8 *) SDL_malloc(src_len * cvt.len_mult);</a>
+<a class="sourceLine" id="cb10-5" title="5">    SDL_memcpy(cvt.buf, src_data, src_len);</a>
+<a class="sourceLine" id="cb10-6" title="6">    SDL_ConvertAudio(&amp;cvt);</a>
+<a class="sourceLine" id="cb10-7" title="7">    do_something(cvt.buf, cvt.len_cvt);</a></code></pre></div>
+<p>should be changed to:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode c"><code class="sourceCode c"><a class="sourceLine" id="cb11-1" title="1">    Uint8 *dst_data = NULL;</a>
+<a class="sourceLine" id="cb11-2" title="2">    <span class="dt">int</span> dst_len = <span class="dv">0</span>;</a>
+<a class="sourceLine" id="cb11-3" title="3">    <span class="dt">const</span> SDL_AudioSpec src_spec = { src_format, src_channels, src_rate };</a>
+<a class="sourceLine" id="cb11-4" title="4">    <span class="dt">const</span> SDL_AudioSpec dst_spec = { dst_format, dst_channels, dst_rate };</a>
+<a class="sourceLine" id="cb11-5" title="5">    <span class="cf">if</span> (SDL_ConvertAudioSamples(&amp;src_spec, src_data, src_len, &amp;dst_spec, &amp;dst_data, &amp;dst_len) &lt; <span class="dv">0</span>) {</a>
+<a class="sourceLine" id="cb11-6" title="6">        <span class="co">/* error */</span></a>
+<a class="sourceLine" id="cb11-7" title="7">    }</a>
+<a class="sourceLine" id="cb11-8" title="8">    do_something(dst_data, dst_len);</a>
+<a class="sourceLine" id="cb11-9" title="9">    SDL_free(dst_data);</a></code></pre></div>
+<p>AUDIO_U16, AUDIO_U16LSB, AUDIO_U16MSB, and AUDIO_U16SYS have been removed. They were not heavily used, and one could not memset a buffer in this format to silence with a single byte value. Use a different audio format.</p>
+<p>If you need to convert U16 audio data to a still-supported format at runtime, the fastest, lossless conversion is to SDL_AUDIO_S16:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode c"><code class="sourceCode c"><a class="sourceLine" id="cb12-1" title="1">    <span class="co">/* this converts the buffer in-place. The buffer size does not change. */</span></a>
+<a class="sourceLine" id="cb12-2" title="2">    Sint16 *audio_ui16_to_si16(Uint16 *buffer, <span class="dt">const</span> <span class="dt">size_t</span> num_samples)</a>
+<a class="sourceLine" id="cb12-3" title="3">    {</a>
+<a class="sourceLine" id="cb12-4" title="4">        <span class="dt">size_t</span> i;</a>
+<a class="sourceLine" id="cb12-5" title="5">        <span class="dt">const</span> Uint16 *src = buffer;</a>
+<a class="sourceLine" id="cb12-6" title="6">        Sint16 *dst = (Sint16 *) buffer;</a>
+<a class="sourceLine" id="cb12-7" title="7"></a>
+<a class="sourceLine" id="cb12-8" title="8">        <span class="cf">for</span> (i = <span class="dv">0</span>; i &lt; num_samples; i++) {</a>
+<a class="sourceLine" id="cb12-9" title="9">            dst[i] = (Sint16) (src[i] ^ <span class="bn">0x8000</span>);</a>
+<a class="sourceLine" id="cb12-10" title="10">        }</a>
+<a class="sourceLine" id="cb12-11" title="11"></a>
+<a class="sourceLine" id="cb12-12" title="12">        <span class="cf">return</span> dst;</a>
+<a class="sourceLine" id="cb12-13" title="13">    }</a></code></pre></div>
+<p>All remaining <code>AUDIO_*</code> symbols have been renamed to <code>SDL_AUDIO_*</code> for API consistency, but othewise are identical in value and usage.</p>
+<p>In SDL2, SDL_AudioStream would convert/resample audio data during input (via SDL_AudioStreamPut). In SDL3, it does this work when requesting audio (via SDL_GetAudioStreamData, which would have been SDL_AudioStreamGet in SDL2). The way you use an AudioStream is roughly the same, just be aware that the workload moved to a different phase.</p>
+<p>In SDL2, SDL_AudioStreamAvailable() returns 0 if passed a NULL stream. In SDL3, the equivalent SDL_GetAudioStreamAvailable() call returns -1 and sets an error string, which matches other audiostream APIs' behavior.</p>
+<p>In SDL2, SDL_AUDIODEVICEREMOVED events would fire for open devices with the <code>which</code> field set to the SDL_AudioDeviceID of the lost device, and in later SDL2 releases, would also fire this event with a <code>which</code> field of zero for unopened devices, to signify that the app might want to refresh the available device list. In SDL3, this event works the same, except it won't ever fire with a zero; in this case it'll return the physical device's SDL_AudioDeviceID. Any still-open SDL_AudioDeviceIDs generated from this device with SDL_OpenAudioDevice() will also fire a separate event.</p>
+<p>The following functions have been renamed:</p>
+<ul>
+<li>SDL_AudioStreamAvailable() =&gt; SDL_GetAudioStreamAvailable()</li>
+<li>SDL_AudioStreamClear() =&gt; SDL_ClearAudioStream()</li>
+<li>SDL_AudioStreamFlush() =&gt; SDL_FlushAudioStream()</li>
+<li>SDL_AudioStreamGet() =&gt; SDL_GetAudioStreamData()</li>
+<li>SDL_AudioStreamPut() =&gt; SDL_PutAudioStreamData()</li>
+<li>SDL_FreeAudioStream() =&gt; SDL_DestroyAudioStream()</li>
+<li>SDL_NewAudioStream() =&gt; SDL_CreateAudioStream()</li>
+</ul>
+<p>The following functions have been removed:</p>
+<ul>
+<li>SDL_GetNumAudioDevices()</li>
+<li>SDL_GetAudioDeviceSpec()</li>
+<li>SDL_ConvertAudio()</li>
+<li>SDL_BuildAudioCVT()</li>
+<li>SDL_OpenAudio()</li>
+<li>SDL_CloseAudio()</li>
+<li>SDL_PauseAudio()</li>
+<li>SDL_GetAudioStatus()</li>
+<li>SDL_GetAudioDeviceStatus()</li>
+<li>SDL_GetDefaultAudioInfo()</li>
+<li>SDL_LockAudio()</li>
+<li>SDL_LockAudioDevice()</li>
+<li>SDL_UnlockAudio()</li>
+<li>SDL_UnlockAudioDevice()</li>
+<li>SDL_MixAudio()</li>
+<li>SDL_QueueAudio()</li>
+<li>SDL_DequeueAudio()</li>
+<li>SDL_ClearAudioQueue()</li>
+<li>SDL_GetQueuedAudioSize()</li>
+</ul>
+<p>The following symbols have been renamed:</p>
+<ul>
+<li>AUDIO_F32 =&gt; SDL_AUDIO_F32LE</li>
+<li>AUDIO_F32LSB =&gt; SDL_AUDIO_F32LE</li>
+<li>AUDIO_F32MSB =&gt; SDL_AUDIO_F32BE</li>
+<li>AUDIO_F32SYS =&gt; SDL_AUDIO_F32</li>
+<li>AUDIO_S16 =&gt; SDL_AUDIO_S16LE</li>
+<li>AUDIO_S16LSB =&gt; SDL_AUDIO_S16LE</li>
+<li>AUDIO_S16MSB =&gt; SDL_AUDIO_S16BE</li>
+<li>AUDIO_S16SYS =&gt; SDL_AUDIO_S16</li>
+<li>AUDIO_S32 =&gt; SDL_AUDIO_S32LE</li>
+<li>AUDIO_S32LSB =&gt; SDL_AUDIO_S32LE</li>
+<li>AUDIO_S32MSB =&gt; SDL_AUDIO_S32BE</li>
+<li>AUDIO_S32SYS =&gt; SDL_AUDIO_S32</li>
+<li>AUDIO_S8 =&gt; SDL_AUDIO_S8</li>
+<li>AUDIO_U8 =&gt; SDL_AUDIO_U8</li>
+</ul>
+<h2 id="sdl_cpuinfoh">SDL_cpuinfo.h</h2>
+<p>The intrinsics headers (mmintrin.h, etc.) have been moved to <code>&lt;SDL3/SDL_intrin.h&gt;</code> and are no longer automatically included in SDL.h.</p>
+<p>SDL_Has3DNow() has been removed; there is no replacement.</p>
+<p>SDL_HasRDTSC() has been removed; there is no replacement. Don't use the RDTSC opcode in modern times, use SDL_GetPerformanceCounter and SDL_GetPerformanceFrequency instead.</p>
+<p>SDL_SIMDAlloc(), SDL_SIMDRealloc(), and SDL_SIMDFree() have been removed. You can use SDL_aligned_alloc() and SDL_aligned_free() with SDL_SIMDGetAlignment() to get the same functionality.</p>
+<h2 id="sdl_eventsh">SDL_events.h</h2>
+<p>The timestamp member of the SDL_Event structure now represents nanoseconds, and is populated with SDL_GetTicksNS()</p>
+<p>The timestamp_us member of the sensor events has been renamed sensor_timestamp and now represents nanoseconds. This value is filled in from the hardware, if available, and may not be synchronized with values returned from SDL_GetTicksNS().</p>
+<p>You should set the event.common.timestamp field before passing an event to SDL_PushEvent(). If the timestamp is 0 it will be filled in with SDL_GetTicksNS().</p>
+<p>Mouse events use floating point values for mouse coordinates and relative motion values. You can get sub-pixel motion depending on the platform and display scaling.</p>
+<p>The SDL_DISPLAYEVENT_* events have been moved to top level events, and SDL_DISPLAYEVENT has been removed. In general, handling this change just means checking for the individual events instead of first checking for SDL_DISPLAYEVENT and then checking for display events. You can compare the event &gt;= SDL_EVENT_DISPLAY_FIRST and &lt;= SDL_EVENT_DISPLAY_LAST if you need to see whether it's a display event.</p>
+<p>The SDL_WINDOWEVENT_* events have been moved to top level events, and SDL_WINDOWEVENT has been removed. In general, handling this change just means checking for the individual events instead of first checking for SDL_WINDOWEVENT and then checking for window events. You can compare the event &gt;= SDL_EVENT_WINDOW_FIRST and &lt;= SDL_EVENT_WINDOW_LAST if you need to see whether it's a window event.</p>
+<p>The SDL_EVENT_WINDOW_RESIZED event is always sent, even in response to SDL_SetWindowSize().</p>
+<p>The SDL_EVENT_WINDOW_SIZE_CHANGED event has been removed, and you can use SDL_EVENT_WINDOW_PIXEL_SIZE_CHANGED to detect window backbuffer size changes.</p>
+<p>The gamepad event structures caxis, cbutton, cdevice, ctouchpad, and csensor have been renamed gaxis, gbutton, gdevice, gtouchpad, and gsensor.</p>
+<p>SDL_QUERY, SDL_IGNORE, SDL_ENABLE, and SDL_DISABLE have been removed. You can use the functions SDL_SetEventEnabled() and SDL_EventEnabled() to set and query event processing state.</p>
+<p>The following symbols have been renamed:</p>
+<ul>
+<li>SDL_APP_DIDENTERBACKGROUND =&gt; SDL_EVENT_DID_ENTER_BACKGROUND</li>
+<li>SDL_APP_DIDENTERFOREGROUND =&gt; SDL_EVENT_DID_ENTER_FOREGROUND</li>
+<li>SDL_APP_LOWMEMORY =&gt; SDL_EVENT_LOW_MEMORY</li>
+<li>SDL_APP_TERMINATING =&gt; SDL_EVENT_TERMINATING</li>
+<li>SDL_APP_WILLENTERBACKGROUND =&gt; SDL_EVENT_WILL_ENTER_BACKGROUND</li>
+<li>SDL_APP_WILLENTERFOREGROUND =&gt; SDL_EVENT_WILL_ENTER_FOREGROUND</li>
+<li>SDL_AUDIODEVICEADDED =&gt; SDL_EVENT_AUDIO_DEVICE_ADDED</li>
+<li>SDL_AUDIODEVICEREMOVED =&gt; SDL_EVENT_AUDIO_DEVICE_REMOVED</li>
+<li>SDL_CLIPBOARDUPDATE =&gt; SDL_EVENT_CLIPBOARD_UPDATE</li>
+<li>SDL_CONTROLLERAXISMOTION =&gt; SDL_EVENT_GAMEPAD_AXIS_MOTION</li>
+<li>SDL_CONTROLLERBUTTONDOWN =&gt; SDL_EVENT_GAMEPAD_BUTTON_DOWN</li>
+<li>SDL_CONTROLLERBUTTONUP =&gt; SDL_EVENT_GAMEPAD_BUTTON_UP</li>
+<li>SDL_CONTROLLERDEVICEADDED =&gt; SDL_EVENT_GAMEPAD_ADDED</li>
+<li>SDL_CONTROLLERDEVICEREMAPPED =&gt; SDL_EVENT_GAMEPAD_REMAPPED</li>
+<li>SDL_CONTROLLERDEVICEREMOVED =&gt; SDL_EVENT_GAMEPAD_REMOVED</li>
+<li>SDL_CONTROLLERSENSORUPDATE =&gt; SDL_EVENT_GAMEPAD_SENSOR_UPDATE</li>
+<li>SDL_CONTROLLERTOUCHPADDOWN =&gt; SDL_EVENT_GAMEPAD_TOUCHPAD_DOWN</li>
+<li>SDL_CONTROLLERTOUCHPADMOTION =&gt; SDL_EVENT_GAMEPAD_TOUCHPAD_MOTION</li>
+<li>SDL_CONTROLLERTOUCHPADUP =&gt; SDL_EVENT_GAMEPAD_TOUCHPAD_UP</li>
+<li>SDL_DROPBEGIN =&gt; SDL_EVENT_DROP_BEGIN</li>
+<li>SDL_DROPCOMPLETE =&gt; SDL_EVENT_DROP_COMPLETE</li>
+<li>SDL_DROPFILE =&gt; SDL_EVENT_DROP_FILE</li>
+<li>SDL_DROPTEXT =&gt; SDL_EVENT_DROP_TEXT</li>
+<li>SDL_FINGERDOWN =&gt; SDL_EVENT_FINGER_DOWN</li>
+<li>SDL_FINGERMOTION =&gt; SDL_EVENT_FINGER_MOTION</li>
+<li>SDL_FINGERUP =&gt; SDL_EVENT_FINGER_UP</li>
+<li>SDL_FIRSTEVENT =&gt; SDL_EVENT_FIRST</li>
+<li>SDL_JOYAXISMOTION =&gt; SDL_EVENT_JOYSTICK_AXIS_MOTION</li>
+<li>SDL_JOYBATTERYUPDATED =&gt; SDL_EVENT_JOYSTICK_BATTERY_UPDATED</li>
+<li>SDL_JOYBUTTONDOWN =&gt; SDL_EVENT_JOYSTICK_BUTTON_DOWN</li>
+<li>SDL_JOYBUTTONUP =&gt; SDL_EVENT_JOYSTICK_BUTTON_UP</li>
+<li>SDL_JOYDEVICEADDED =&gt; SDL_EVENT_JOYSTICK_ADDED</li>
+<li>SDL_JOYDEVICEREMOVED =&gt; SDL_EVENT_JOYSTICK_REMOVED</li>
+<li>SDL_JOYHATMOTION =&gt; SDL_EVENT_JOYSTICK_HAT_MOTION</li>
+<li>SDL_KEYDOWN =&gt; SDL_EVENT_KEY_DOWN</li>
+<li>SDL_KEYMAPCHANGED =&gt; SDL_EVENT_KEYMAP_CHANGED</li>
+<li>SDL_KEYUP =&gt; SDL_EVENT_KEY_UP</li>
+<li>SDL_LASTEVENT =&gt; SDL_EVENT_LAST</li>
+<li>SDL_LOCALECHANGED =&gt; SDL_EVENT_LOCALE_CHANGED</li>
+<li>SDL_MOUSEBUTTONDOWN =&gt; SDL_EVENT_MOUSE_BUTTON_DOWN</li>
+<li>SDL_MOUSEBUTTONUP =&gt; SDL_EVENT_MOUSE_BUTTON_UP</li>
+<li>SDL_MOUSEMOTION =&gt; SDL_EVENT_MOUSE_MOTION</li>
+<li>SDL_MOUSEWHEEL =&gt; SDL_EVENT_MOUSE_WHEEL</li>
+<li>SDL_POLLSENTINEL =&gt; SDL_EVENT_POLL_SENTINEL</li>
+<li>SDL_QUIT =&gt; SDL_EVENT_QUIT</li>
+<li>SDL_RENDER_DEVICE_RESET =&gt; SDL_EVENT_RENDER_DEVICE_RESET</li>
+<li>SDL_RENDER_TARGETS_RESET =&gt; SDL_EVENT_RENDER_TARGETS_RESET</li>
+<li>SDL_SENSORUPDATE =&gt; SDL_EVENT_SENSOR_UPDATE</li>
+<li>SDL_SYSWMEVENT =&gt; SDL_EVENT_SYSWM</li>
+<li>SDL_TEXTEDITING =&gt; SDL_EVENT_TEXT_EDITING</li>
+<li>SDL_TEXTEDITING_EXT =&gt; SDL_EVENT_TEXT_EDITING_EXT</li>
+<li>SDL_TEXTINPUT =&gt; SDL_EVENT_TEXT_INPUT</li>
+<li>SDL_USEREVENT =&gt; SDL_EVENT_USER</li>
+</ul>
+<p>The following structures have been renamed:</p>
+<ul>
+<li>SDL_ControllerAxisEvent =&gt; SDL_GamepadAxisEvent</li>
+<li>SDL_ControllerButtonEvent =&gt; SDL_GamepadButtonEvent</li>
+<li>SDL_ControllerDeviceEvent =&gt; SDL_GamepadDeviceEvent</li>
+<li>SDL_ControllerSensorEvent =&gt; SDL_GamepadSensorEvent</li>
+<li>SDL_ControllerTouchpadEvent =&gt; SDL_GamepadTouchpadEvent</li>
+</ul>
+<p>The following functions have been removed:</p>
+<ul>
+<li>SDL_EventState() - replaced with SDL_SetEventEnabled()</li>
+<li>SDL_GetEventState() - replaced with SDL_EventEnabled()</li>
+</ul>
+<h2 id="sdl_gamecontrollerh">SDL_gamecontroller.h</h2>
+<p>SDL_gamecontroller.h has been renamed SDL_gamepad.h, and all APIs have been renamed to match.</p>
+<p>The SDL_EVENT_GAMEPAD_ADDED event now provides the joystick instance ID in the which member of the cdevice event structure.</p>
+<p>The functions SDL_GetGamepads(), SDL_GetGamepadInstanceName(), SDL_GetGamepadInstancePath(), SDL_GetGamepadInstancePlayerIndex(), SDL_GetGamepadInstanceGUID(), SDL_GetGamepadInstanceVendor(), SDL_GetGamepadInstanceProduct(), SDL_GetGamepadInstanceProductVersion(), and SDL_GetGamepadInstanceType() have been added to directly query the list of available gamepads.</p>
+<p>SDL_GameControllerGetSensorDataWithTimestamp() has been removed. If you want timestamps for the sensor data, you should use the sensor_timestamp member of SDL_EVENT_GAMEPAD_SENSOR_UPDATE events.</p>
+<p>SDL_CONTROLLER_TYPE_VIRTUAL has been removed, so virtual controllers can emulate other gamepad types. If you need to know whether a controller is virtual, you can use SDL_IsJoystickVirtual().</p>
+<p>SDL_CONTROLLER_TYPE_AMAZON_LUNA has been removed, and can be replaced with this code:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode c"><code class="sourceCode c"><a class="sourceLine" id="cb13-1" title="1">SDL_bool SDL_IsJoystickAmazonLunaController(Uint16 vendor_id, Uint16 product_id)</a>
+<a class="sourceLine" id="cb13-2" title="2">{</a>
+<a class="sourceLine" id="cb13-3" title="3">    <span class="cf">return</span> ((vendor_id == <span class="bn">0x1949</span> &amp;&amp; product_id == <span class="bn">0x0419</span>) ||</a>
+<a class="sourceLine" id="cb13-4" title="4">            (vendor_id == <span class="bn">0x0171</span> &amp;&amp; product_id == <span class="bn">0x0419</span>));</a>
+<a class="sourceLine" id="cb13-5" title="5">}</a></code></pre></div>
+<p>SDL_CONTROLLER_TYPE_GOOGLE_STADIA has been removed, and can be replaced with this code:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode c"><code class="sourceCode c"><a class="sourceLine" id="cb14-1" title="1">SDL_bool SDL_IsJoystickGoogleStadiaController(Uint16 vendor_id, Uint16 product_id)</a>
+<a class="sourceLine" id="cb14-2" title="2">{</a>
+<a class="sourceLine" id="cb14-3" title="3">    <span class="cf">return</span> (vendor_id == <span class="bn">0x18d1</span> &amp;&amp; product_id == <span class="bn">0x9400</span>);</a>
+<a class="sourceLine" id="cb14-4" title="4">}</a></code></pre></div>
+<p>SDL_CONTROLLER_TYPE_NVIDIA_SHIELD has been removed, and can be replaced with this code:</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode c"><code class="sourceCode c"><a class="sourceLine" id="cb15-1" title="1">SDL_bool SDL_IsJoystickNVIDIASHIELDController(Uint16 vendor_id, Uint16 product_id)</a>
+<a class="sourceLine" id="cb15-2" title="2">{</a>
+<a class="sourceLine" id="cb15-3" title="3">    <span class="cf">return</span> (vendor_id == <span class="bn">0x0955</span> &amp;&amp; (product_id == <span class="bn">0x7210</span> || product_id == <span class="bn">0x7214</span>));</a>
+<a class="sourceLine" id="cb15-4" title="4">}</a></code></pre></div>
+<p>The following enums have been renamed:</p>
+<ul>
+<li>SDL_GameControllerAxis =&gt; SDL_GamepadAxis</li>
+<li>SDL_GameControllerBindType =&gt; SDL_GamepadBindingType</li>
+<li>SDL_GameControllerButton =&gt; SDL_GamepadButton</li>
+<li>SDL_GameControllerType =&gt; SDL_GamepadType</li>
+</ul>
+<p>The following structures have been renamed:</p>
+<ul>
+<li>SDL_GameController =&gt; SDL_Gamepad</li>
+</ul>
+<p>The following functions have been renamed:</p>
+<ul>
+<li>SDL_GameControllerAddMapping() =&gt; SDL_AddGamepadMapping()</li>
+<li>SDL_GameControllerAddMappingsFromFile() =&gt; SDL_AddGamepadMappingsFromFile()</li>
+<li>SDL_GameControllerAddMappingsFromRW() =&gt; SDL_AddGamepadMappingsFromRW()</li>
+<li>SDL_GameControllerClose() =&gt; SDL_CloseGamepad()</li>
+<li>SDL_GameControllerFromInstanceID() =&gt; SDL_GetGamepadFromInstanceID()</li>
+<li>SDL_GameControllerFromPlayerIndex() =&gt; SDL_GetGamepadFromPlayerIndex()</li>
+<li>SDL_GameControllerGetAppleSFSymbolsNameForAxis() =&gt; SDL_GetGamepadAppleSFSymbolsNameForAxis()</li>
+<li>SDL_GameControllerGetAppleSFSymbolsNameForButton() =&gt; SDL_GetGamepadAppleSFSymbolsNameForButton()</li>
+<li>SDL_GameControllerGetAttached() =&gt; SDL_GamepadConnected()</li>
+<li>SDL_GameControllerGetAxis() =&gt; SDL_GetGamepadAxis()</li>
+<li>SDL_GameControllerGetAxisFromString() =&gt; SDL_GetGamepadAxisFromString()</li>
+<li>SDL_GameControllerGetButton() =&gt; SDL_GetGamepadButton()</li>
+<li>SDL_GameControllerGetButtonFromString() =&gt; SDL_GetGamepadButtonFromString()</li>
+<li>SDL_GameControllerGetFirmwareVersion() =&gt; SDL_GetGamepadFirmwareVersion()</li>
+<li>SDL_GameControllerGetJoystick() =&gt; SDL_GetGamepadJoystick()</li>
+<li>SDL_GameControllerGetNumTouchpadFingers() =&gt; SDL_GetNumGamepadTouchpadFingers()</li>
+<li>SDL_GameControllerGetNumTouchpads() =&gt; SDL_GetNumGamepadTouchpads()</li>
+<li>SDL_GameControllerGetPlayerIndex() =&gt; SDL_GetGamepadPlayerIndex()</li>
+<li>SDL_GameControllerGetProduct() =&gt; SDL_GetGamepadProduct()</li>
+<li>SDL_GameControllerGetProductVersion() =&gt; SDL_GetGamepadProductVersion()</li>
+<li>SDL_GameControllerGetSensorData() =&gt; SDL_GetGamepadSensorData()</li>
+<li>SDL_GameControllerGetSensorDataRate() =&gt; SDL_GetGamepadSensorDataRate()</li>
+<li>SDL_GameControllerGetSerial() =&gt; SDL_GetGamepadSerial()</li>
+<li>SDL_GameControllerGetStringForAxis() =&gt; SDL_GetGamepadStringForAxis()</li>
+<li>SDL_GameControllerGetStringForButton() =&gt; SDL_GetGamepadStringForButton()</li>
+<li>SDL_GameControllerGetTouchpadFinger() =&gt; SDL_GetGamepadTouchpadFinger()</li>
+<li>SDL_GameControllerGetType() =&gt; SDL_GetGamepadType()</li>
+<li>SDL_GameControllerGetVendor() =&gt; SDL_GetGamepadVendor()</li>
+<li>SDL_GameControllerHasAxis() =&gt; SDL_GamepadHasAxis()</li>
+<li>SDL_GameControllerHasButton() =&gt; SDL_GamepadHasButton()</li>
+<li>SDL_GameControllerHasLED() =&gt; SDL_GamepadHasLED()</li>
+<li>SDL_GameControllerHasRumble() =&gt; SDL_GamepadHasRumble()</li>
+<li>SDL_GameControllerHasRumbleTriggers() =&gt; SDL_GamepadHasRumbleTriggers()</li>
+<li>SDL_GameControllerHasSensor() =&gt; SDL_GamepadHasSensor()</li>
+<li>SDL_GameControllerIsSensorEnabled() =&gt; SDL_GamepadSensorEnabled()</li>
+<li>SDL_GameControllerMapping() =&gt; SDL_GetGamepadMapping()</li>
+<li>SDL_GameControllerMappingForGUID() =&gt; SDL_GetGamepadMappingForGUID()</li>
+<li>SDL_GameControllerMappingForIndex() =&gt; SDL_GetGamepadMappingForIndex()</li>
+<li>SDL_GameControllerName() =&gt; SDL_GetGamepadName()</li>
+<li>SDL_GameControllerNumMappings() =&gt; SDL_GetNumGamepadMappings()</li>
+<li>SDL_GameControllerOpen() =&gt; SDL_OpenGamepad()</li>
+<li>SDL_GameControllerPath() =&gt; SDL_GetGamepadPath()</li>
+<li>SDL_GameControllerRumble() =&gt; SDL_RumbleGamepad()</li>
+<li>SDL_GameControllerRumbleTriggers() =&gt; SDL_RumbleGamepadTriggers()</li>
+<li>SDL_GameControllerSendEffect() =&gt; SDL_SendGamepadEffect()</li>
+<li>SDL_GameControllerSetLED() =&gt; SDL_SetGamepadLED()</li>
+<li>SDL_GameControllerSetPlayerIndex() =&gt; SDL_SetGamepadPlayerIndex()</li>
+<li>SDL_GameControllerSetSensorEnabled() =&gt; SDL_SetGamepadSensorEnabled()</li>
+<li>SDL_GameControllerUpdate() =&gt; SDL_UpdateGamepads()</li>
+<li>SDL_IsGameController() =&gt; SDL_IsGamepad()</li>
+</ul>
+<p>The following functions have been removed:</p>
+<ul>
+<li>SDL_GameControllerEventState() - replaced with SDL_SetGamepadEventsEnabled() and SDL_GamepadEventsEnabled()</li>
+<li>SDL_GameControllerGetBindForAxis() - replaced with SDL_GetGamepadBindings()</li>
+<li>SDL_GameControllerGetBindForButton() - replaced with SDL_GetGamepadBindings()</li>
+<li>SDL_GameControllerMappingForDeviceIndex() - replaced with SDL_GetGamepadInstanceMapping()</li>
+<li>SDL_GameControllerNameForIndex() - replaced with SDL_GetGamepadInstanceName()</li>
+<li>SDL_GameControllerPathForIndex() - replaced with SDL_GetGamepadInstancePath()</li>
+<li>SDL_GameControllerTypeForIndex() - replaced with SDL_GetGamepadInstanceType()</li>
+</ul>
+<p>The following symbols have been renamed:</p>
+<ul>
+<li>SDL_CONTROLLER_AXIS_INVALID =&gt; SDL_GAMEPAD_AXIS_INVALID</li>
+<li>SDL_CONTROLLER_AXIS_LEFTX =&gt; SDL_GAMEPAD_AXIS_LEFTX</li>
+<li>SDL_CONTROLLER_AXIS_LEFTY =&gt; SDL_GAMEPAD_AXIS_LEFTY</li>
+<li>SDL_CONTROLLER_AXIS_MAX =&gt; SDL_GAMEPAD_AXIS_MAX</li>
+<li>SDL_CONTROLLER_AXIS_RIGHTX =&gt; SDL_GAMEPAD_AXIS_RIGHTX</li>
+<li>SDL_CONTROLLER_AXIS_RIGHTY =&gt; SDL_GAMEPAD_AXIS_RIGHTY</li>
+<li>SDL_CONTROLLER_AXIS_TRIGGERLEFT =&gt; SDL_GAMEPAD_AXIS_LEFT_TRIGGER</li>
+<li>SDL_CONTROLLER_AXIS_TRIGGERRIGHT =&gt; SDL_GAMEPAD_AXIS_RIGHT_TRIGGER</li>
+<li>SDL_CONTROLLER_BINDTYPE_AXIS =&gt; SDL_GAMEPAD_BINDTYPE_AXIS</li>
+<li>SDL_CONTROLLER_BINDTYPE_BUTTON =&gt; SDL_GAMEPAD_BINDTYPE_BUTTON</li>
+<li>SDL_CONTROLLER_BINDTYPE_HAT =&gt; SDL_GAMEPAD_BINDTYPE_HAT</li>
+<li>SDL_CONTROLLER_BINDTYPE_NONE =&gt; SDL_GAMEPAD_BINDTYPE_NONE</li>
+<li>SDL_CONTROLLER_BUTTON_A =&gt; SDL_GAMEPAD_BUTTON_A</li>
+<li>SDL_CONTROLLER_BUTTON_B =&gt; SDL_GAMEPAD_BUTTON_B</li>
+<li>SDL_CONTROLLER_BUTTON_BACK =&gt; SDL_GAMEPAD_BUTTON_BACK</li>
+<li>SDL_CONTROLLER_BUTTON_DPAD_DOWN =&gt; SDL_GAMEPAD_BUTTON_DPAD_DOWN</li>
+<li>SDL_CONTROLLER_BUTTON_DPAD_LEFT =&gt; SDL_GAMEPAD_BUTTON_DPAD_LEFT</li>
+<li>SDL_CONTROLLER_BUTTON_DPAD_RIGHT =&gt; SDL_GAMEPAD_BUTTON_DPAD_RIGHT</li>
+<li>SDL_CONTROLLER_BUTTON_DPAD_UP =&gt; SDL_GAMEPAD_BUTTON_DPAD_UP</li>
+<li>SDL_CONTROLLER_BUTTON_GUIDE =&gt; SDL_GAMEPAD_BUTTON_GUIDE</li>
+<li>SDL_CONTROLLER_BUTTON_INVALID =&gt; SDL_GAMEPAD_BUTTON_INVALID</li>
+<li>SDL_CONTROLLER_BUTTON_LEFTSHOULDER =&gt; SDL_GAMEPAD_BUTTON_LEFT_SHOULDER</li>
+<li>SDL_CONTROLLER_BUTTON_LEFTSTICK =&gt; SDL_GAMEPAD_BUTTON_LEFT_STICK</li>
+<li>SDL_CONTROLLER_BUTTON_MAX =&gt; SDL_GAMEPAD_BUTTON_MAX</li>
+<li>SDL_CONTROLLER_BUTTON_MISC1 =&gt; SDL_GAMEPAD_BUTTON_MISC1</li>
+<li>SDL_CONTROLLER_BUTTON_PADDLE1 =&gt; SDL_GAMEPAD_BUTTON_RIGHT_PADDLE1</li>
+<li>SDL_CONTROLLER_BUTTON_PADDLE2 =&gt; SDL_GAMEPAD_BUTTON_LEFT_PADDLE1</li>
+<li>SDL_CONTROLLER_BUTTON_PADDLE3 =&gt; SDL_GAMEPAD_BUTTON_RIGHT_PADDLE2</li>
+<li>SDL_CONTROLLER_BUTTON_PADDLE4 =&gt; SDL_GAMEPAD_BUTTON_LEFT_PADDLE2</li>
+<li>SDL_CONTROLLER_BUTTON_RIGHTSHOULDER =&gt; SDL_GAMEPAD_BUTTON_RIGHT_SHOULDER</li>
+<li>SDL_CONTROLLER_BUTTON_RIGHTSTICK =&gt; SDL_GAMEPAD_BUTTON_RIGHT_STICK</li>
+<li>SDL_CONTROLLER_BUTTON_START =&gt; SDL_GAMEPAD_BUTTON_START</li>
+<li>SDL_CONTROLLER_BUTTON_TOUCHPAD =&gt; SDL_GAMEPAD_BUTTON_TOUCHPAD</li>
+<li>SDL_CONTROLLER_BUTTON_X =&gt; SDL_GAMEPAD_BUTTON_X</li>
+<li>SDL_CONTROLLER_BUTTON_Y =&gt; SDL_GAMEPAD_BUTTON_Y</li>
+<li>SDL_CONTROLLER_TYPE_NINTENDO_SWITCH_JOYCON_LEFT =&gt; SDL_GAMEPAD_TYPE_NINTENDO_SWITCH_JOYCON_LEFT</li>
+<li>SDL_CONTROLLER_TYPE_NINTENDO_SWITCH_JOYCON_PAIR =&gt; SDL_GAMEPAD_TYPE_NINTENDO_SWITCH_JOYCON_PAIR</li>
+<li>SDL_CONTROLLER_TYPE_NINTENDO_SWITCH_JOYCON_RIGHT =&gt; SDL_GAMEPAD_TYPE_NINTENDO_SWITCH_JOYCON_RIGHT</li>
+<li>SDL_CONTROLLER_TYPE_NINTENDO_SWITCH_PRO =&gt; SDL_GAMEPAD_TYPE_NINTENDO_SWITCH_PRO</li>
+<li>SDL_CONTROLLER_TYPE_PS3 =&gt; SDL_GAMEPAD_TYPE_PS3</li>
+<li>SDL_CONTROLLER_TYPE_PS4 =&gt; SDL_GAMEPAD_TYPE_PS4</li>
+<li>SDL_CONTROLLER_TYPE_PS5 =&gt; SDL_GAMEPAD_TYPE_PS5</li>
+<li>SDL_CONTROLLER_TYPE_UNKNOWN =&gt; SDL_GAMEPAD_TYPE_STANDARD</li>
+<li>SDL_CONTROLLER_TYPE_VIRTUAL =&gt; SDL_GAMEPAD_TYPE_VIRTUAL</li>
+<li>SDL_CONTROLLER_TYPE_XBOX360 =&gt; SDL_GAMEPAD_TYPE_XBOX360</li>
+<li>SDL_CONTROLLER_TYPE_XBOXONE =&gt; SDL_GAMEPAD_TYPE_XBOXONE</li>
+</ul>
+<h2 id="sdl_gestureh">SDL_gesture.h</h2>
+<p>The gesture API has been removed. There is no replacement planned in SDL3. However, the SDL2 code has been moved to a single-header library that can be dropped into an SDL3 or SDL2 program, to continue to provide this functionality to your app and aid migration. That is located in the <a href="https://github.com/libsdl-org/SDL_gesture.html">SDL_gesture GitHub repository</a>.</p>
+<h2 id="sdl_hintsh">SDL_hints.h</h2>
+<p>SDL_AddHintCallback() now returns a standard int result instead of void, returning 0 if the function succeeds or a negative error code if there was an error.</p>
+<p>Calling SDL_GetHint() with the name of the hint being changed from within a hint callback will now return the new value rather than the old value. The old value is still passed as a parameter to the hint callback.</p>
+<p>The following hints have been removed:</p>
+<ul>
+<li>SDL_HINT_VIDEO_HIGHDPI_DISABLED - high DPI support is always enabled</li>
+<li>SDL_HINT_IDLE_TIMER_DISABLED - use SDL_DisableScreenSaver instead</li>
+<li>SDL_HINT_MOUSE_RELATIVE_SCALING - mouse coordinates are no longer automatically scaled by the SDL renderer</li>
+<li>SDL_HINT_RENDER_LOGICAL_SIZE_MODE - the logical size mode is explicitly set with SDL_SetRenderLogicalPresentation()</li>
+<li>SDL_HINT_VIDEO_X11_FORCE_EGL - use SDL_HINT_VIDEO_FORCE_EGL instead</li>
+<li>SDL_HINT_VIDEO_X11_XINERAMA - Xinerama no longer supported by the X11 backend</li>
+<li><p>SDL_HINT_VIDEO_X11_XVIDMODE - Xvidmode no longer supported by the X11 backend</p></li>
+<li>Renamed hints SDL_HINT_VIDEODRIVER and SDL_HINT_AUDIODRIVER to SDL_HINT_VIDEO_DRIVER and SDL_HINT_AUDIO_DRIVER</li>
+<li>Renamed environment variables SDL_VIDEODRIVER and SDL_AUDIODRIVER to SDL_VIDEO_DRIVER and SDL_AUDIO_DRIVER</li>
+<li><p>The environment variables SDL_VIDEO_X11_WMCLASS and SDL_VIDEO_WAYLAND_WMCLASS have been removed and replaced with the unified hint SDL_HINT_APP_ID</p></li>
+</ul>
+<h2 id="sdl_inith">SDL_init.h</h2>
+<p>The following symbols have been renamed:</p>
+<ul>
+<li>SDL_INIT_GAMECONTROLLER =&gt; SDL_INIT_GAMEPAD</li>
+</ul>
+<p>The following symbols have been removed:</p>
+<ul>
+<li>SDL_INIT_NOPARACHUTE</li>
+</ul>
+<h2 id="sdl_joystickh">SDL_joystick.h</h2>
+<p>SDL_JoystickID has changed from Sint32 to Uint32, with an invalid ID being 0.</p>
+<p>Rather than iterating over joysticks using device index, there is a new function SDL_GetJoysticks() to get the current list of joysticks, and new functions to get information about joysticks from their instance ID:</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode c"><code class="sourceCode c"><a class="sourceLine" id="cb16-1" title="1">{</a>
+<a class="sourceLine" id="cb16-2" title="2">    <span class="cf">if</span> (SDL_InitSubSystem(SDL_INIT_JOYSTICK) == <span class="dv">0</span>) {</a>
+<a class="sourceLine" id="cb16-3" title="3">        <span class="dt">int</span> i, num_joysticks;</a>
+<a class="sourceLine" id="cb16-4" title="4">        SDL_JoystickID *joysticks = SDL_GetJoysticks(&amp;num_joysticks);</a>
+<a class="sourceLine" id="cb16-5" title="5">        <span class="cf">if</span> (joysticks) {</a>
+<a class="sourceLine" id="cb16-6" title="6">            <span class="cf">for</span> (i = <span class="dv">0</span>; i &lt; num_joysticks; ++i) {</a>
+<a class="sourceLine" id="cb16-7" title="7">                SDL_JoystickID instance_id = joysticks[i];</a>
+<a class="sourceLine" id="cb16-8" title="8">                <span class="dt">const</span> <span class="dt">char</span> *name = SDL_GetJoystickInstanceName(instance_id);</a>
+<a class="sourceLine" id="cb16-9" title="9">                <span class="dt">const</span> <span class="dt">char</span> *path = SDL_GetJoystickInstancePath(instance_id);</a>
+<a class="sourceLine" id="cb16-10" title="10"></a>
+<a class="sourceLine" id="cb16-11" title="11">                SDL_Log(<span class="st">&quot;Joystick %&quot;</span> SDL_PRIu32 <span class="st">&quot;: %s%s%s VID 0x%.4x, PID 0x%.4x</span><span class="sc">\n</span><span class="st">&quot;</span>,</a>
+<a class="sourceLine" id="cb16-12" title="12">                        instance_id, name ? name : <span class="st">&quot;Unknown&quot;</span>, path ? <span class="st">&quot;, &quot;</span> : <span class="st">&quot;&quot;</span>, path ? path : <span class="st">&quot;&quot;</span>, SDL_GetJoystickInstanceVendor(instance_id), SDL_GetJoystickInstanceProduct(instance_id));</a>
+<a class="sourceLine" id="cb16-13" title="13">            }</a>
+<a class="sourceLine" id="cb16-14" title="14">            SDL_free(joysticks);</a>
+<a class="sourceLine" id="cb16-15" title="15">        }</a>
+<a class="sourceLine" id="cb16-16" title="16">        SDL_QuitSubSystem(SDL_INIT_JOYSTICK);</a>
+<a class="sourceLine" id="cb16-17" title="17">    }</a>
+<a class="sourceLine" id="cb16-18" title="18">}</a></code></pre></div>
+<p>The SDL_EVENT_JOYSTICK_ADDED event now provides the joystick instance ID in the <code>which</code> member of the jdevice event structure.</p>
+<p>The functions SDL_GetJoysticks(), SDL_GetJoystickInstanceName(), SDL_GetJoystickInstancePath(), SDL_GetJoystickInstancePlayerIndex(), SDL_GetJoystickInstanceGUID(), SDL_GetJoystickInstanceVendor(), SDL_GetJoystickInstanceProduct(), SDL_GetJoystickInstanceProductVersion(), and SDL_GetJoystickInstanceType() have been added to directly query the list of available joysticks.</p>
+<p>SDL_AttachVirtualJoystick() and SDL_AttachVirtualJoystickEx() now return the joystick instance ID instead of a device index, and return 0 if there was an error.</p>
+<p>The following functions have been renamed:</p>
+<ul>
+<li>SDL_JoystickAttachVirtual() =&gt; SDL_AttachVirtualJoystick()</li>
+<li>SDL_JoystickAttachVirtualEx() =&gt; SDL_AttachVirtualJoystickEx()</li>
+<li>SDL_JoystickClose() =&gt; SDL_CloseJoystick()</li>
+<li>SDL_JoystickCurrentPowerLevel() =&gt; SDL_GetJoystickPowerLevel()</li>
+<li>SDL_JoystickDetachVirtual() =&gt; SDL_DetachVirtualJoystick()</li>
+<li>SDL_JoystickFromInstanceID() =&gt; SDL_GetJoystickFromInstanceID()</li>
+<li>SDL_JoystickFromPlayerIndex() =&gt; SDL_GetJoystickFromPlayerIndex()</li>
+<li>SDL_JoystickGetAttached() =&gt; SDL_JoystickConnected()</li>
+<li>SDL_JoystickGetAxis() =&gt; SDL_GetJoystickAxis()</li>
+<li>SDL_JoystickGetAxisInitialState() =&gt; SDL_GetJoystickAxisInitialState()</li>
+<li>SDL_JoystickGetButton() =&gt; SDL_GetJoystickButton()</li>
+<li>SDL_JoystickGetFirmwareVersion() =&gt; SDL_GetJoystickFirmwareVersion()</li>
+<li>SDL_JoystickGetGUID() =&gt; SDL_GetJoystickGUID()</li>
+<li>SDL_JoystickGetGUIDFromString() =&gt; SDL_GetJoystickGUIDFromString()</li>
+<li>SDL_JoystickGetGUIDString() =&gt; SDL_GetJoystickGUIDString()</li>
+<li>SDL_JoystickGetHat() =&gt; SDL_GetJoystickHat()</li>
+<li>SDL_JoystickGetPlayerIndex() =&gt; SDL_GetJoystickPlayerIndex()</li>
+<li>SDL_JoystickGetProduct() =&gt; SDL_GetJoystickProduct()</li>
+<li>SDL_JoystickGetProductVersion() =&gt; SDL_GetJoystickProductVersion()</li>
+<li>SDL_JoystickGetSerial() =&gt; SDL_GetJoystickSerial()</li>
+<li>SDL_JoystickGetType() =&gt; SDL_GetJoystickType()</li>
+<li>SDL_JoystickGetVendor() =&gt; SDL_GetJoystickVendor()</li>
+<li>SDL_JoystickInstanceID() =&gt; SDL_GetJoystickInstanceID()</li>
+<li>SDL_JoystickIsVirtual() =&gt; SDL_IsJoystickVirtual()</li>
+<li>SDL_JoystickName() =&gt; SDL_GetJoystickName()</li>
+<li>SDL_JoystickNumAxes() =&gt; SDL_GetNumJoystickAxes()</li>
+<li>SDL_JoystickNumButtons() =&gt; SDL_GetNumJoystickButtons()</li>
+<li>SDL_JoystickNumHats() =&gt; SDL_GetNumJoystickHats()</li>
+<li>SDL_JoystickOpen() =&gt; SDL_OpenJoystick()</li>
+<li>SDL_JoystickPath() =&gt; SDL_GetJoystickPath()</li>
+<li>SDL_JoystickRumble() =&gt; SDL_RumbleJoystick()</li>
+<li>SDL_JoystickRumbleTriggers() =&gt; SDL_RumbleJoystickTriggers()</li>
+<li>SDL_JoystickSendEffect() =&gt; SDL_SendJoystickEffect()</li>
+<li>SDL_JoystickSetLED() =&gt; SDL_SetJoystickLED()</li>
+<li>SDL_JoystickSetPlayerIndex() =&gt; SDL_SetJoystickPlayerIndex()</li>
+<li>SDL_JoystickSetVirtualAxis() =&gt; SDL_SetJoystickVirtualAxis()</li>
+<li>SDL_JoystickSetVirtualButton() =&gt; SDL_SetJoystickVirtualButton()</li>
+<li>SDL_JoystickSetVirtualHat() =&gt; SDL_SetJoystickVirtualHat()</li>
+<li>SDL_JoystickUpdate() =&gt; SDL_UpdateJoysticks()</li>
+</ul>
+<p>The following symbols have been renamed:</p>
+<ul>
+<li>SDL_JOYSTICK_TYPE_GAMECONTROLLER =&gt; SDL_JOYSTICK_TYPE_GAMEPAD</li>
+</ul>
+<p>The following functions have been removed:</p>
+<ul>
+<li>SDL_JoystickEventState() - replaced with SDL_SetJoystickEventsEnabled() and SDL_JoystickEventsEnabled()</li>
+<li>SDL_JoystickGetDeviceGUID() - replaced with SDL_GetJoystickInstanceGUID()</li>
+<li>SDL_JoystickGetDeviceInstanceID()</li>
+<li>SDL_JoystickGetDevicePlayerIndex() - replaced with SDL_GetJoystickInstancePlayerIndex()</li>
+<li>SDL_JoystickGetDeviceProduct() - replaced with SDL_GetJoystickInstanceProduct()</li>
+<li>SDL_JoystickGetDeviceProductVersion() - replaced with SDL_GetJoystickInstanceProductVersion()</li>
+<li>SDL_JoystickGetDeviceType() - replaced with SDL_GetJoystickInstanceType()</li>
+<li>SDL_JoystickGetDeviceVendor() - replaced with SDL_GetJoystickInstanceVendor()</li>
+<li>SDL_JoystickNameForIndex() - replaced with SDL_GetJoystickInstanceName()</li>
+<li>SDL_JoystickNumBalls() - API has been removed, see <a href="https://github.com/libsdl-org/SDL/issues/6766.html" class="uri">https://github.com/libsdl-org/SDL/issues/6766</a></li>
+<li>SDL_JoystickPathForIndex() - replaced with SDL_GetJoystickInstancePath()</li>
+<li>SDL_NumJoysticks() - replaced with SDL_GetJoysticks()</li>
+</ul>
+<p>The following symbols have been removed:</p>
+<ul>
+<li>SDL_JOYBALLMOTION</li>
+</ul>
+<h2 id="sdl_keyboardh">SDL_keyboard.h</h2>
+<p>The following functions have been renamed:</p>
+<ul>
+<li>SDL_IsScreenKeyboardShown() =&gt; SDL_ScreenKeyboardShown()</li>
+<li>SDL_IsTextInputActive() =&gt; SDL_TextInputActive()</li>
+<li>SDL_IsTextInputShown() =&gt; SDL_TextInputShown()</li>
+</ul>
+<h2 id="sdl_keycodeh">SDL_keycode.h</h2>
+<p>The following symbols have been renamed:</p>
+<ul>
+<li>KMOD_ALT =&gt; SDL_KMOD_ALT</li>
+<li>KMOD_CAPS =&gt; SDL_KMOD_CAPS</li>
+<li>KMOD_CTRL =&gt; SDL_KMOD_CTRL</li>
+<li>KMOD_GUI =&gt; SDL_KMOD_GUI</li>
+<li>KMOD_LALT =&gt; SDL_KMOD_LALT</li>
+<li>KMOD_LCTRL =&gt; SDL_KMOD_LCTRL</li>
+<li>KMOD_LGUI =&gt; SDL_KMOD_LGUI</li>
+<li>KMOD_LSHIFT =&gt; SDL_KMOD_LSHIFT</li>
+<li>KMOD_MODE =&gt; SDL_KMOD_MODE</li>
+<li>KMOD_NONE =&gt; SDL_KMOD_NONE</li>
+<li>KMOD_NUM =&gt; SDL_KMOD_NUM</li>
+<li>KMOD_RALT =&gt; SDL_KMOD_RALT</li>
+<li>KMOD_RCTRL =&gt; SDL_KMOD_RCTRL</li>
+<li>KMOD_RESERVED =&gt; SDL_KMOD_RESERVED</li>
+<li>KMOD_RGUI =&gt; SDL_KMOD_RGUI</li>
+<li>KMOD_RSHIFT =&gt; SDL_KMOD_RSHIFT</li>
+<li>KMOD_SCROLL =&gt; SDL_KMOD_SCROLL</li>
+<li>KMOD_SHIFT =&gt; SDL_KMOD_SHIFT</li>
+</ul>
+<h2 id="sdl_loadsoh">SDL_loadso.h</h2>
+<p>SDL_LoadFunction() now returns <code>SDL_FunctionPointer</code> instead of <code>void *</code>, and should be cast to the appropriate function type. You can define SDL_FUNCTION_POINTER_IS_VOID_POINTER in your project to restore the previous behavior.</p>
+<h2 id="sdl_mainh">SDL_main.h</h2>
+<p>SDL3 doesn't have a static libSDLmain to link against anymore. Instead SDL_main.h is now a header-only library <strong>and not included by SDL.h anymore</strong>.</p>
+<p>Using it is really simple: Just <code>#include &lt;SDL3/SDL_main.h&gt;</code> in the source file with your standard <code>int main(int argc, char* argv[])</code> function.</p>
+<h2 id="sdl_metalh">SDL_metal.h</h2>
+<p>SDL_Metal_GetDrawableSize() has been removed. SDL_GetWindowSizeInPixels() can be used in its place.</p>
+<h2 id="sdl_mouseh">SDL_mouse.h</h2>
+<p>SDL_ShowCursor() has been split into three functions: SDL_ShowCursor(), SDL_HideCursor(), and SDL_CursorVisible()</p>
+<p>SDL_GetMouseState(), SDL_GetGlobalMouseState(), SDL_GetRelativeMouseState(), SDL_WarpMouseInWindow(), and SDL_WarpMouseGlobal() all use floating point mouse positions, to provide sub-pixel precision on platforms that support it.</p>
+<p>The following functions have been renamed:</p>
+<ul>
+<li>SDL_FreeCursor() =&gt; SDL_DestroyCursor()</li>
+</ul>
+<h2 id="sdl_mutexh">SDL_mutex.h</h2>
+<p>SDL_MUTEX_MAXWAIT has been removed; it suggested there was a maximum timeout one could outlive, instead of an infinite wait. Instead, pass a -1 to functions that accepted this symbol.</p>
+<p>SDL_LockMutex and SDL_UnlockMutex now return void; if the mutex is valid (including being a NULL pointer, which returns immediately), these functions never fail. If the mutex is invalid or the caller does something illegal, like unlock another thread's mutex, this is considered undefined behavior.</p>
+<p>The following functions have been renamed:</p>
+<ul>
+<li>SDL_CondBroadcast() =&gt; SDL_BroadcastCondition()</li>
+<li>SDL_CondSignal() =&gt; SDL_SignalCondition()</li>
+<li>SDL_CondWait() =&gt; SDL_WaitCondition()</li>
+<li>SDL_CondWaitTimeout() =&gt; SDL_WaitConditionTimeout()</li>
+<li>SDL_CreateCond() =&gt; SDL_CreateCondition()</li>
+<li>SDL_DestroyCond() =&gt; SDL_DestroyCondition()</li>
+<li>SDL_SemPost() =&gt; SDL_PostSemaphore()</li>
+<li>SDL_SemTryWait() =&gt; SDL_TryWaitSemaphore()</li>
+<li>SDL_SemValue() =&gt; SDL_GetSemaphoreValue()</li>
+<li>SDL_SemWait() =&gt; SDL_WaitSemaphore()</li>
+<li>SDL_SemWaitTimeout() =&gt; SDL_WaitSemaphoreTimeout()</li>
+</ul>
+<p>The following symbols have been renamed:</p>
+<ul>
+<li>SDL_cond =&gt; SDL_Condition</li>
+<li>SDL_mutex =&gt; SDL_Mutex</li>
+<li>SDL_sem =&gt; SDL_Semaphore</li>
+</ul>
+<h2 id="sdl_pixelsh">SDL_pixels.h</h2>
+<p>SDL_CalculateGammaRamp has been removed, because SDL_SetWindowGammaRamp has been removed as well due to poor support in modern operating systems (see <a href="#sdl_videoh.html">SDL_video.h</a>).</p>
+<p>The following functions have been renamed:</p>
+<ul>
+<li>SDL_AllocFormat() =&gt; SDL_CreatePixelFormat()</li>
+<li>SDL_AllocPalette() =&gt; SDL_CreatePalette()</li>
+<li>SDL_FreeFormat() =&gt; SDL_DestroyPixelFormat()</li>
+<li>SDL_FreePalette() =&gt; SDL_DestroyPalette()</li>
+<li>SDL_MasksToPixelFormatEnum() =&gt; SDL_GetPixelFormatEnumForMasks()</li>
+<li>SDL_PixelFormatEnumToMasks() =&gt; SDL_GetMasksForPixelFormatEnum()</li>
+</ul>
+<p>The following symbols have been renamed:</p>
+<ul>
+<li>SDL_DISPLAYEVENT_DISCONNECTED =&gt; SDL_EVENT_DISPLAY_REMOVED</li>
+<li>SDL_DISPLAYEVENT_MOVED =&gt; SDL_EVENT_DISPLAY_MOVED</li>
+<li>SDL_DISPLAYEVENT_ORIENTATION =&gt; SDL_EVENT_DISPLAY_ORIENTATION</li>
+<li>SDL_WINDOWEVENT_CLOSE =&gt; SDL_EVENT_WINDOW_CLOSE_REQUESTED</li>
+<li>SDL_WINDOWEVENT_DISPLAY_CHANGED =&gt; SDL_EVENT_WINDOW_DISPLAY_CHANGED</li>
+<li>SDL_WINDOWEVENT_ENTER =&gt; SDL_EVENT_WINDOW_ENTER</li>
+<li>SDL_WINDOWEVENT_EXPOSED =&gt; SDL_EVENT_WINDOW_EXPOSED</li>
+<li>SDL_WINDOWEVENT_FOCUS_GAINED =&gt; SDL_EVENT_WINDOW_FOCUS_GAINED</li>
+<li>SDL_WINDOWEVENT_FOCUS_LOST =&gt; SDL_EVENT_WINDOW_FOCUS_LOST</li>
+<li>SDL_WINDOWEVENT_HIDDEN =&gt; SDL_EVENT_WINDOW_HIDDEN</li>
+<li>SDL_WINDOWEVENT_HIT_TEST =&gt; SDL_EVENT_WINDOW_HIT_TEST</li>
+<li>SDL_WINDOWEVENT_ICCPROF_CHANGED =&gt; SDL_EVENT_WINDOW_ICCPROF_CHANGED</li>
+<li>SDL_WINDOWEVENT_LEAVE =&gt; SDL_EVENT_WINDOW_LEAVE</li>
+<li>SDL_WINDOWEVENT_MAXIMIZED =&gt; SDL_EVENT_WINDOW_MAXIMIZED</li>
+<li>SDL_WINDOWEVENT_MINIMIZED =&gt; SDL_EVENT_WINDOW_MINIMIZED</li>
+<li>SDL_WINDOWEVENT_MOVED =&gt; SDL_EVENT_WINDOW_MOVED</li>
+<li>SDL_WINDOWEVENT_RESIZED =&gt; SDL_EVENT_WINDOW_RESIZED</li>
+<li>SDL_WINDOWEVENT_RESTORED =&gt; SDL_EVENT_WINDOW_RESTORED</li>
+<li>SDL_WINDOWEVENT_SHOWN =&gt; SDL_EVENT_WINDOW_SHOWN</li>
+<li>SDL_WINDOWEVENT_SIZE_CHANGED =&gt; SDL_EVENT_WINDOW_SIZE_CHANGED</li>
+<li>SDL_WINDOWEVENT_TAKE_FOCUS =&gt; SDL_EVENT_WINDOW_TAKE_FOCUS</li>
+</ul>
+<h2 id="sdl_platformh">SDL_platform.h</h2>
+<p>The preprocessor symbol <code>__MACOSX__</code> has been renamed <code>__MACOS__</code>, and <code>__IPHONEOS__</code> has been renamed <code>__IOS__</code></p>
+<h2 id="sdl_recth">SDL_rect.h</h2>
+<p>The following functions have been renamed:</p>
+<ul>
+<li>SDL_EncloseFPoints() =&gt; SDL_GetRectEnclosingPointsFloat()</li>
+<li>SDL_EnclosePoints() =&gt; SDL_GetRectEnclosingPoints()</li>
+<li>SDL_FRectEmpty() =&gt; SDL_RectEmptyFloat()</li>
+<li>SDL_FRectEquals() =&gt; SDL_RectsEqualFloat()</li>
+<li>SDL_FRectEqualsEpsilon() =&gt; SDL_RectsEqualEpsilon()</li>
+<li>SDL_HasIntersection() =&gt; SDL_HasRectIntersection()</li>
+<li>SDL_HasIntersectionF() =&gt; SDL_HasRectIntersectionFloat()</li>
+<li>SDL_IntersectFRect() =&gt; SDL_GetRectIntersectionFloat()</li>
+<li>SDL_IntersectFRectAndLine() =&gt; SDL_GetRectAndLineIntersectionFloat()</li>
+<li>SDL_IntersectRect() =&gt; SDL_GetRectIntersection()</li>
+<li>SDL_IntersectRectAndLine() =&gt; SDL_GetRectAndLineIntersection()</li>
+<li>SDL_PointInFRect() =&gt; SDL_PointInRectFloat()</li>
+<li>SDL_RectEquals() =&gt; SDL_RectsEqual()</li>
+<li>SDL_UnionFRect() =&gt; SDL_GetRectUnionFloat()</li>
+<li>SDL_UnionRect() =&gt; SDL_GetRectUnion()</li>
+</ul>
+<h2 id="sdl_renderh">SDL_render.h</h2>
+<p>SDL_GetRenderDriverInfo() has been removed, since most of the information it reported were estimates and could not be accurate before creating a renderer. Often times this function was used to figure out the index of a driver, so one would call it in a for-loop, looking for the driver named "opengl" or whatnot. SDL_GetRenderDriver() has been added for this functionality, which returns only the name of the driver.</p>
+<p>Additionally, SDL_CreateRenderer()'s second argument is no longer an integer index, but a <code>const char *</code> representing a renderer's name; if you were just using a for-loop to find which index is the "opengl" or whatnot driver, you can just pass that string directly here, now. Passing NULL is the same as passing -1 here in SDL2, to signify you want SDL to decide for you.</p>
+<p>The SDL_RENDERER_TARGETTEXTURE flag has been removed, all current renderers support target texture functionality.</p>
+<p>When a renderer is created, it will automatically set the logical size to the size of the window in points. For high DPI displays, this will set up scaling from points to pixels. You can disable this scaling with:</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode c"><code class="sourceCode c"><a class="sourceLine" id="cb17-1" title="1">    SDL_SetRenderLogicalPresentation(renderer, <span class="dv">0</span>, <span class="dv">0</span>, SDL_LOGICAL_PRESENTATION_DISABLED, SDL_SCALEMODE_NEAREST);</a></code></pre></div>
+<p>Mouse and touch events are no longer filtered to change their coordinates, instead you can call SDL_ConvertEventToRenderCoordinates() to explicitly map event coordinates into the rendering viewport.</p>
+<p>SDL_RenderWindowToLogical() and SDL_RenderLogicalToWindow() have been renamed SDL_RenderCoordinatesFromWindow() and SDL_RenderCoordinatesToWindow() and take floating point coordinates in both directions.</p>
+<p>The viewport, clipping state, and scale for render targets are now persistent and will remain set whenever they are active.</p>
+<p>The following functions have been renamed:</p>
+<ul>
+<li>SDL_GetRendererOutputSize() =&gt; SDL_GetCurrentRenderOutputSize()</li>
+<li>SDL_RenderCopy() =&gt; SDL_RenderTexture()</li>
+<li>SDL_RenderCopyEx() =&gt; SDL_RenderTextureRotated()</li>
+<li>SDL_RenderCopyExF() =&gt; SDL_RenderTextureRotated()</li>
+<li>SDL_RenderCopyF() =&gt; SDL_RenderTexture()</li>
+<li>SDL_RenderDrawLine() =&gt; SDL_RenderLine()</li>
+<li>SDL_RenderDrawLineF() =&gt; SDL_RenderLine()</li>
+<li>SDL_RenderDrawLines() =&gt; SDL_RenderLines()</li>
+<li>SDL_RenderDrawLinesF() =&gt; SDL_RenderLines()</li>
+<li>SDL_RenderDrawPoint() =&gt; SDL_RenderPoint()</li>
+<li>SDL_RenderDrawPointF() =&gt; SDL_RenderPoint()</li>
+<li>SDL_RenderDrawPoints() =&gt; SDL_RenderPoints()</li>
+<li>SDL_RenderDrawPointsF() =&gt; SDL_RenderPoints()</li>
+<li>SDL_RenderDrawRect() =&gt; SDL_RenderRect()</li>
+<li>SDL_RenderDrawRectF() =&gt; SDL_RenderRect()</li>
+<li>SDL_RenderDrawRects() =&gt; SDL_RenderRects()</li>
+<li>SDL_RenderDrawRectsF() =&gt; SDL_RenderRects()</li>
+<li>SDL_RenderFillRectF() =&gt; SDL_RenderFillRect()</li>
+<li>SDL_RenderFillRectsF() =&gt; SDL_RenderFillRects()</li>
+<li>SDL_RenderGetClipRect() =&gt; SDL_GetRenderClipRect()</li>
+<li>SDL_RenderGetIntegerScale() =&gt; SDL_GetRenderIntegerScale()</li>
+<li>SDL_RenderGetLogicalSize() =&gt; SDL_GetRenderLogicalPresentation()</li>
+<li>SDL_RenderGetMetalCommandEncoder() =&gt; SDL_GetRenderMetalCommandEncoder()</li>
+<li>SDL_RenderGetMetalLayer() =&gt; SDL_GetRenderMetalLayer()</li>
+<li>SDL_RenderGetScale() =&gt; SDL_GetRenderScale()</li>
+<li>SDL_RenderGetViewport() =&gt; SDL_GetRenderViewport()</li>
+<li>SDL_RenderGetWindow() =&gt; SDL_GetRenderWindow()</li>
+<li>SDL_RenderIsClipEnabled() =&gt; SDL_RenderClipEnabled()</li>
+<li>SDL_RenderLogicalToWindow() =&gt; SDL_RenderCoordinatesToWindow()</li>
+<li>SDL_RenderSetClipRect() =&gt; SDL_SetRenderClipRect()</li>
+<li>SDL_RenderSetIntegerScale() =&gt; SDL_SetRenderIntegerScale()</li>
+<li>SDL_RenderSetLogicalSize() =&gt; SDL_SetRenderLogicalPresentation()</li>
+<li>SDL_RenderSetScale() =&gt; SDL_SetRenderScale()</li>
+<li>SDL_RenderSetVSync() =&gt; SDL_SetRenderVSync()</li>
+<li>SDL_RenderSetViewport() =&gt; SDL_SetRenderViewport()</li>
+<li>SDL_RenderWindowToLogical() =&gt; SDL_RenderCoordinatesFromWindow()</li>
+</ul>
+<p>The following functions have been removed:</p>
+<ul>
+<li>SDL_GetTextureUserData() - use SDL_GetTextureProperties() instead</li>
+<li>SDL_RenderGetIntegerScale()</li>
+<li>SDL_RenderSetIntegerScale() - this is now explicit with SDL_LOGICAL_PRESENTATION_INTEGER_SCALE</li>
+<li>SDL_RenderTargetSupported() - render targets are always supported</li>
+<li>SDL_SetTextureUserData() - use SDL_GetTextureProperties() instead</li>
+</ul>
+<p>The following symbols have been renamed:</p>
+<ul>
+<li>SDL_ScaleModeBest =&gt; SDL_SCALEMODE_BEST</li>
+<li>SDL_ScaleModeLinear =&gt; SDL_SCALEMODE_LINEAR</li>
+<li>SDL_ScaleModeNearest =&gt; SDL_SCALEMODE_NEAREST</li>
+</ul>
+<h2 id="sdl_rwopsh">SDL_rwops.h</h2>
+<p>The following symbols have been renamed:</p>
+<ul>
+<li>RW_SEEK_CUR =&gt; SDL_RW_SEEK_CUR</li>
+<li>RW_SEEK_END =&gt; SDL_RW_SEEK_END</li>
+<li>RW_SEEK_SET =&gt; SDL_RW_SEEK_SET</li>
+</ul>
+<p>SDL_RWread and SDL_RWwrite (and SDL_RWops::read, SDL_RWops::write) have a different function signature in SDL3.</p>
+<p>Previously they looked more like stdio:</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode c"><code class="sourceCode c"><a class="sourceLine" id="cb18-1" title="1"><span class="dt">size_t</span> SDL_RWread(SDL_RWops *context, <span class="dt">void</span> *ptr, <span class="dt">size_t</span> size, <span class="dt">size_t</span> maxnum);</a>
+<a class="sourceLine" id="cb18-2" title="2"><span class="dt">size_t</span> SDL_RWwrite(SDL_RWops *context, <span class="dt">const</span> <span class="dt">void</span> *ptr, <span class="dt">size_t</span> size, <span class="dt">size_t</span> maxnum);</a></code></pre></div>
+<p>But now they look more like POSIX:</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode c"><code class="sourceCode c"><a class="sourceLine" id="cb19-1" title="1"><span class="dt">size_t</span> SDL_RWread(SDL_RWops *context, <span class="dt">void</span> *ptr, <span class="dt">size_t</span> size);</a>
+<a class="sourceLine" id="cb19-2" title="2"><span class="dt">size_t</span> SDL_RWwrite(SDL_RWops *context, <span class="dt">const</span> <span class="dt">void</span> *ptr, <span class="dt">size_t</span> size);</a></code></pre></div>
+<p>Code that used to look like this:</p>
+<pre><code>size_t custom_read(void *ptr, size_t size, size_t nitems, SDL_RWops *stream)
+{
+    return SDL_RWread(stream, ptr, size, nitems);
+}</code></pre>
+<p>should be changed to:</p>
+<pre><code>size_t custom_read(void *ptr, size_t size, size_t nitems, SDL_RWops *stream)
+{
+    if (size &gt; 0 &amp;&amp; nitems &gt; 0) {
+        return SDL_RWread(stream, ptr, size * nitems) / size;
+    }
+    return 0;
+}</code></pre>
+<p>SDL_RWFromFP has been removed from the API, due to issues when the SDL library uses a different C runtime from the application.</p>
+<p>You can implement this in your own code easily:</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode c"><code class="sourceCode c"><a class="sourceLine" id="cb22-1" title="1"><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></a>
+<a class="sourceLine" id="cb22-2" title="2"></a>
+<a class="sourceLine" id="cb22-3" title="3"></a>
+<a class="sourceLine" id="cb22-4" title="4"><span class="dt">static</span> Sint64 SDLCALL stdio_seek(SDL_RWops *context, Sint64 offset, <span class="dt">int</span> whence)</a>
+<a class="sourceLine" id="cb22-5" title="5">{</a>
+<a class="sourceLine" id="cb22-6" title="6">    <span class="dt">int</span> stdiowhence;</a>
+<a class="sourceLine" id="cb22-7" title="7"></a>
+<a class="sourceLine" id="cb22-8" title="8">    <span class="cf">switch</span> (whence) {</a>
+<a class="sourceLine" id="cb22-9" title="9">    <span class="cf">case</span> SDL_RW_SEEK_SET:</a>
+<a class="sourceLine" id="cb22-10" title="10">        stdiowhence = SEEK_SET;</a>
+<a class="sourceLine" id="cb22-11" title="11">        <span class="cf">break</span>;</a>
+<a class="sourceLine" id="cb22-12" title="12">    <span class="cf">case</span> SDL_RW_SEEK_CUR:</a>
+<a class="sourceLine" id="cb22-13" title="13">        stdiowhence = SEEK_CUR;</a>
+<a class="sourceLine" id="cb22-14" title="14">        <span class="cf">break</span>;</a>
+<a class="sourceLine" id="cb22-15" title="15">    <span class="cf">case</span> SDL_RW_SEEK_END:</a>
+<a class="sourceLine" id="cb22-16" title="16">        stdiowhence = SEEK_END;</a>
+<a class="sourceLine" id="cb22-17" title="17">        <span class="cf">break</span>;</a>
+<a class="sourceLine" id="cb22-18" title="18">    <span class="cf">default</span>:</a>
+<a class="sourceLine" id="cb22-19" title="19">        <span class="cf">return</span> SDL_SetError(<span class="st">&quot;Unknown value for &#39;whence&#39;&quot;</span>);</a>
+<a class="sourceLine" id="cb22-20" title="20">    }</a>
+<a class="sourceLine" id="cb22-21" title="21"></a>
+<a class="sourceLine" id="cb22-22" title="22">    <span class="cf">if</span> (fseek((<span class="dt">FILE</span> *)context-&gt;hidden.stdio.fp, (fseek_off_t)offset, stdiowhence) == <span class="dv">0</span>) {</a>
+<a class="sourceLine" id="cb22-23" title="23">        Sint64 pos = ftell((<span class="dt">FILE</span> *)context-&gt;hidden.stdio.fp);</a>
+<a class="sourceLine" id="cb22-24" title="24">        <span class="cf">if</span> (pos &lt; <span class="dv">0</span>) {</a>
+<a class="sourceLine" id="cb22-25" title="25">            <span class="cf">return</span> SDL_SetError(<span class="st">&quot;Couldn&#39;t get stream offset&quot;</span>);</a>
+<a class="sourceLine" id="cb22-26" title="26">        }</a>
+<a class="sourceLine" id="cb22-27" title="27">        <span class="cf">return</span> pos;</a>
+<a class="sourceLine" id="cb22-28" title="28">    }</a>
+<a class="sourceLine" id="cb22-29" title="29">    <span class="cf">return</span> SDL_Error(SDL_EFSEEK);</a>
+<a class="sourceLine" id="cb22-30" title="30">}</a>
+<a class="sourceLine" id="cb22-31" title="31"></a>
+<a class="sourceLine" id="cb22-32" title="32"><span class="dt">static</span> <span class="dt">size_t</span> SDLCALL stdio_read(SDL_RWops *context, <span class="dt">void</span> *ptr, <span class="dt">size_t</span> size)</a>
+<a class="sourceLine" id="cb22-33" title="33">{</a>
+<a class="sourceLine" id="cb22-34" title="34">    <span class="dt">size_t</span> bytes;</a>
+<a class="sourceLine" id="cb22-35" title="35"></a>
+<a class="sourceLine" id="cb22-36" title="36">    bytes = fread(ptr, <span class="dv">1</span>, size, (<span class="dt">FILE</span> *)context-&gt;hidden.stdio.fp);</a>
+<a class="sourceLine" id="cb22-37" title="37">    <span class="cf">if</span> (bytes == <span class="dv">0</span> &amp;&amp; ferror((<span class="dt">FILE</span> *)context-&gt;hidden.stdio.fp)) {</a>
+<a class="sourceLine" id="cb22-38" title="38">        SDL_Error(SDL_EFREAD);</a>
+<a class="sourceLine" id="cb22-39" title="39">    }</a>
+<a class="sourceLine" id="cb22-40" title="40">    <span class="cf">return</span> bytes;</a>
+<a class="sourceLine" id="cb22-41" title="41">}</a>
+<a class="sourceLine" id="cb22-42" title="42"></a>
+<a class="sourceLine" id="cb22-43" title="43"><span class="dt">static</span> <span class="dt">size_t</span> SDLCALL stdio_write(SDL_RWops *context, <span class="dt">const</span> <span class="dt">void</span> *ptr, <span class="dt">size_t</span> size)</a>
+<a class="sourceLine" id="cb22-44" title="44">{</a>
+<a class="sourceLine" id="cb22-45" title="45">    <span class="dt">size_t</span> bytes;</a>
+<a class="sourceLine" id="cb22-46" title="46"></a>
+<a class="sourceLine" id="cb22-47" title="47">    bytes = fwrite(ptr, <span class="dv">1</span>, size, (<span class="dt">FILE</span> *)context-&gt;hidden.stdio.fp);</a>
+<a class="sourceLine" id="cb22-48" title="48">    <span class="cf">if</span> (bytes == <span class="dv">0</span> &amp;&amp; ferror((<span class="dt">FILE</span> *)context-&gt;hidden.stdio.fp)) {</a>
+<a class="sourceLine" id="cb22-49" title="49">        SDL_Error(SDL_EFWRITE);</a>
+<a class="sourceLine" id="cb22-50" title="50">    }</a>
+<a class="sourceLine" id="cb22-51" title="51">    <span class="cf">return</span> bytes;</a>
+<a class="sourceLine" id="cb22-52" title="52">}</a>
+<a class="sourceLine" id="cb22-53" title="53"></a>
+<a class="sourceLine" id="cb22-54" title="54"><span class="dt">static</span> <span class="dt">int</span> SDLCALL stdio_close(SDL_RWops *context)</a>
+<a class="sourceLine" id="cb22-55" title="55">{</a>
+<a class="sourceLine" id="cb22-56" title="56">    <span class="dt">int</span> status = <span class="dv">0</span>;</a>
+<a class="sourceLine" id="cb22-57" title="57">    <span class="cf">if</span> (context-&gt;hidden.stdio.autoclose) {</a>
+<a class="sourceLine" id="cb22-58" title="58">        <span class="cf">if</span> (fclose((<span class="dt">FILE</span> *)context-&gt;hidden.stdio.fp) != <span class="dv">0</span>) {</a>
+<a class="sourceLine" id="cb22-59" title="59">            status = SDL_Error(SDL_EFWRITE);</a>
+<a class="sourceLine" id="cb22-60" title="60">        }</a>
+<a class="sourceLine" id="cb22-61" title="61">    }</a>
+<a class="sourceLine" id="cb22-62" title="62">    SDL_DestroyRW(context);</a>
+<a class="sourceLine" id="cb22-63" title="63">    <span class="cf">return</span> status;</a>
+<a class="sourceLine" id="cb22-64" title="64">}</a>
+<a class="sourceLine" id="cb22-65" title="65"></a>
+<a class="sourceLine" id="cb22-66" title="66">SDL_RWops *SDL_RWFromFP(<span class="dt">void</span> *fp, SDL_bool autoclose)</a>
+<a class="sourceLine" id="cb22-67" title="67">{</a>
+<a class="sourceLine" id="cb22-68" title="68">    SDL_RWops *rwops = NULL;</a>
+<a class="sourceLine" id="cb22-69" title="69"></a>
+<a class="sourceLine" id="cb22-70" title="70">    rwops = SDL_CreateRW();</a>
+<a class="sourceLine" id="cb22-71" title="71">    <span class="cf">if</span> (rwops != NULL) {</a>
+<a class="sourceLine" id="cb22-72" title="72">        rwops-&gt;seek = stdio_seek;</a>
+<a class="sourceLine" id="cb22-73" title="73">        rwops-&gt;read = stdio_read;</a>
+<a class="sourceLine" id="cb22-74" title="74">        rwops-&gt;write = stdio_write;</a>
+<a class="sourceLine" id="cb22-75" title="75">        rwops-&gt;close = stdio_close;</a>
+<a class="sourceLine" id="cb22-76" title="76">        rwops-&gt;hidden.stdio.fp = fp;</a>
+<a class="sourceLine" id="cb22-77" title="77">        rwops-&gt;hidden.stdio.autoclose = autoclose;</a>
+<a class="sourceLine" id="cb22-78" title="78">        rwops-&gt;type = SDL_RWOPS_STDFILE;</a>
+<a class="sourceLine" id="cb22-79" title="79">    }</a>
+<a class="sourceLine" id="cb22-80" title="80">    <span class="cf">return</span> rwops;</a>
+<a class="sourceLine" id="cb22-81" title="81">}</a></code></pre></div>
+<p>The functions SDL_ReadU8(), SDL_ReadU16LE(), SDL_ReadU16BE(), SDL_ReadU32LE(), SDL_ReadU32BE(), SDL_ReadU64LE(), and SDL_ReadU64BE() now return SDL_TRUE if the read succeeded and SDL_FALSE if it didn't, and store the data in a pointer passed in as a parameter.</p>
+<p>The following functions have been renamed:</p>
+<ul>
+<li>SDL_AllocRW() =&gt; SDL_CreateRW()</li>
+<li>SDL_FreeRW() =&gt; SDL_DestroyRW()</li>
+<li>SDL_ReadBE16() =&gt; SDL_ReadU16BE()</li>
+<li>SDL_ReadBE32() =&gt; SDL_ReadU32BE()</li>
+<li>SDL_ReadBE64() =&gt; SDL_ReadU64BE()</li>
+<li>SDL_ReadLE16() =&gt; SDL_ReadU16LE()</li>
+<li>SDL_ReadLE32() =&gt; SDL_ReadU32LE()</li>
+<li>SDL_ReadLE64() =&gt; SDL_ReadU64LE()</li>
+<li>SDL_WriteBE16() =&gt; SDL_WriteU16BE()</li>
+<li>SDL_WriteBE32() =&gt; SDL_WriteU32BE()</li>
+<li>SDL_WriteBE64() =&gt; SDL_WriteU64BE()</li>
+<li>SDL_WriteLE16() =&gt; SDL_WriteU16LE()</li>
+<li>SDL_WriteLE32() =&gt; SDL_WriteU32LE()</li>
+<li>SDL_WriteLE64() =&gt; SDL_WriteU64LE()</li>
+</ul>
+<h2 id="sdl_sensorh">SDL_sensor.h</h2>
+<p>SDL_SensorID has changed from Sint32 to Uint32, with an invalid ID being 0.</p>
+<p>Rather than iterating over sensors using device index, there is a new function SDL_GetSensors() to get the current list of sensors, and new functions to get information about sensors from their instance ID:</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode c"><code class="sourceCode c"><a class="sourceLine" id="cb23-1" title="1">{</a>
+<a class="sourceLine" id="cb23-2" title="2">    <span class="cf">if</span> (SDL_InitSubSystem(SDL_INIT_SENSOR) == <span class="dv">0</span>) {</a>
+<a class="sourceLine" id="cb23-3" title="3">        <span class="dt">int</span> i, num_sensors;</a>
+<a class="sourceLine" id="cb23-4" title="4">        SDL_SensorID *sensors = SDL_GetSensors(&amp;num_sensors);</a>
+<a class="sourceLine" id="cb23-5" title="5">        <span class="cf">if</span> (sensors) {</a>
+<a class="sourceLine" id="cb23-6" title="6">            <span class="cf">for</span> (i = <span class="dv">0</span>; i &lt; num_sensors; ++i) {</a>
+<a class="sourceLine" id="cb23-7" title="7">                SDL_Log(<span class="st">&quot;Sensor %&quot;</span> SDL_PRIu32 <span class="st">&quot;: %s, type %d, platform type %d</span><span class="sc">\n</span><span class="st">&quot;</span>,</a>
+<a class="sourceLine" id="cb23-8" title="8">                        sensors[i],</a>
+<a class="sourceLine" id="cb23-9" title="9">                        SDL_GetSensorInstanceName(sensors[i]),</a>
+<a class="sourceLine" id="cb23-10" title="10">                        SDL_GetSensorInstanceType(sensors[i]),</a>
+<a class="sourceLine" id="cb23-11" title="11">                        SDL_GetSensorInstanceNonPortableType(sensors[i]));</a>
+<a class="sourceLine" id="cb23-12" title="12">            }</a>
+<a class="sourceLine" id="cb23-13" title="13">            SDL_free(sensors);</a>
+<a class="sourceLine" id="cb23-14" title="14">        }</a>
+<a class="sourceLine" id="cb23-15" title="15">        SDL_QuitSubSystem(SDL_INIT_SENSOR);</a>
+<a class="sourceLine" id="cb23-16" title="16">    }</a>
+<a class="sourceLine" id="cb23-17" title="17">}</a></code></pre></div>
+<p>Removed SDL_SensorGetDataWithTimestamp(), if you want timestamps for the sensor data, you should use the sensor_timestamp member of SDL_EVENT_SENSOR_UPDATE events.</p>
+<p>The following functions have been renamed:</p>
+<ul>
+<li>SDL_SensorClose() =&gt; SDL_CloseSensor()</li>
+<li>SDL_SensorFromInstanceID() =&gt; SDL_GetSensorFromInstanceID()</li>
+<li>SDL_SensorGetData() =&gt; SDL_GetSensorData()</li>
+<li>SDL_SensorGetInstanceID() =&gt; SDL_GetSensorInstanceID()</li>
+<li>SDL_SensorGetName() =&gt; SDL_GetSensorName()</li>
+<li>SDL_SensorGetNonPortableType() =&gt; SDL_GetSensorNonPortableType()</li>
+<li>SDL_SensorGetType() =&gt; SDL_GetSensorType()</li>
+<li>SDL_SensorOpen() =&gt; SDL_OpenSensor()</li>
+<li>SDL_SensorUpdate() =&gt; SDL_UpdateSensors()</li>
+</ul>
+<p>The following functions have been removed:</p>
+<ul>
+<li>SDL_LockSensors()</li>
+<li>SDL_NumSensors() - replaced with SDL_GetSensors()</li>
+<li>SDL_SensorGetDeviceInstanceID()</li>
+<li>SDL_SensorGetDeviceName() - replaced with SDL_GetSensorInstanceName()</li>
+<li>SDL_SensorGetDeviceNonPortableType() - replaced with SDL_GetSensorInstanceNonPortableType()</li>
+<li>SDL_SensorGetDeviceType() - replaced with SDL_GetSensorInstanceType()</li>
+<li>SDL_UnlockSensors()</li>
+</ul>
+<h2 id="sdl_stdinch">SDL_stdinc.h</h2>
+<p>The standard C headers like stdio.h and stdlib.h are no longer included, you should include them directly in your project if you use non-SDL C runtime functions. M_PI is no longer defined in SDL_stdinc.h, you can use the new symbols SDL_PI_D (double) and SDL_PI_F (float) instead.</p>
+<p>The following functions have been renamed:</p>
+<ul>
+<li>SDL_strtokr() =&gt; SDL_strtok_r()</li>
+</ul>
+<h2 id="sdl_surfaceh">SDL_surface.h</h2>
+<p>The userdata member of SDL_Surface has been replaced with a more general properties interface, which can be queried with SDL_GetSurfaceProperties()</p>
+<p>Removed unused 'flags' parameter from SDL_ConvertSurface and SDL_ConvertSurfaceFormat.</p>
+<p>SDL_CreateRGBSurface() and SDL_CreateRGBSurfaceWithFormat() have been combined into a new function SDL_CreateSurface(). SDL_CreateRGBSurfaceFrom() and SDL_CreateRGBSurfaceWithFormatFrom() have been combined into a new function SDL_CreateSurfaceFrom().</p>
+<p>You can implement the old functions in your own code easily:</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode c"><code class="sourceCode c"><a class="sourceLine" id="cb24-1" title="1">SDL_Surface *SDL_CreateRGBSurface(Uint32 flags, <span class="dt">int</span> width, <span class="dt">int</span> height, <span class="dt">int</span> depth, Uint32 Rmask, Uint32 Gmask, Uint32 Bmask, Uint32 Amask)</a>
+<a class="sourceLine" id="cb24-2" title="2">{</a>
+<a class="sourceLine" id="cb24-3" title="3">    <span class="cf">return</span> SDL_CreateSurface(width, height,</a>
+<a class="sourceLine" id="cb24-4" title="4">            SDL_GetPixelFormatEnumForMasks(depth, Rmask, Gmask, Bmask, Amask));</a>
+<a class="sourceLine" id="cb24-5" title="5">}</a>
+<a class="sourceLine" id="cb24-6" title="6"></a>
+<a class="sourceLine" id="cb24-7" title="7">SDL_Surface *SDL_CreateRGBSurfaceWithFormat(Uint32 flags, <span class="dt">int</span> width, <span class="dt">int</span> height, <span class="dt">int</span> depth, Uint32 format)</a>
+<a class="sourceLine" id="cb24-8" title="8">{</a>
+<a class="sourceLine" id="cb24-9" title="9">    <span class="cf">return</span> SDL_CreateSurface(width, height, format);</a>
+<a class="sourceLine" id="cb24-10" title="10">}</a>
+<a class="sourceLine" id="cb24-11" title="11"></a>
+<a class="sourceLine" id="cb24-12" title="12">SDL_Surface *SDL_CreateRGBSurfaceFrom(<span class="dt">void</span> *pixels, <span class="dt">int</span> width, <span class="dt">int</span> height, <span class="dt">int</span> depth, <span class="dt">int</span> pitch, Uint32 Rmask, Uint32 Gmask, Uint32 Bmask, Uint32 Amask)</a>
+<a class="sourceLine" id="cb24-13" title="13">{</a>
+<a class="sourceLine" id="cb24-14" title="14">    <span class="cf">return</span> SDL_CreateSurfaceFrom(pixels, width, height, pitch,</a>
+<a class="sourceLine" id="cb24-15" title="15">            SDL_GetPixelFormatEnumForMasks(depth, Rmask, Gmask, Bmask, Amask));</a>
+<a class="sourceLine" id="cb24-16" title="16">}</a>
+<a class="sourceLine" id="cb24-17" title="17"></a>
+<a class="sourceLine" id="cb24-18" title="18">SDL_Surface *SDL_CreateRGBSurfaceWithFormatFrom(<span class="dt">void</span> *pixels, <span class="dt">int</span> width, <span class="dt">int</span> height, <span class="dt">int</span> depth, <span class="dt">int</span> pitch, Uint32 format)</a>
+<a class="sourceLine" id="cb24-19" title="19">{</a>
+<a class="sourceLine" id="cb24-20" title="20">    <span class="cf">return</span> SDL_CreateSurfaceFrom(pixels, width, height, pitch, format);</a>
+<a class="sourceLine" id="cb24-21" title="21">}</a></code></pre></div>
+<p>But if you're migrating your code which uses masks, you probably have a format in mind, possibly one of these:</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode c"><code class="sourceCode c"><a class="sourceLine" id="cb25-1" title="1"><span class="co">// Various mask (R, G, B, A) and their corresponding format:</span></a>
+<a class="sourceLine" id="cb25-2" title="2"><span class="bn">0xFF000000</span> <span class="bn">0x00FF0000</span> <span class="bn">0x0000FF00</span> <span class="bn">0x000000FF</span> =&gt; SDL_PIXELFORMAT_RGBA<span class="dv">8888</span></a>
+<a class="sourceLine" id="cb25-3" title="3"><span class="bn">0x00FF0000</span> <span class="bn">0x0000FF00</span> <span class="bn">0x000000FF</span> <span class="bn">0xFF000000</span> =&gt; SDL_PIXELFORMAT_ARGB<span class="dv">8888</span></a>
+<a class="sourceLine" id="cb25-4" title="4"><span class="bn">0x0000FF00</span> <span class="bn">0x00FF0000</span> <span class="bn">0xFF000000</span> <span class="bn">0x000000FF</span> =&gt; SDL_PIXELFORMAT_BGRA<span class="dv">8888</span></a>
+<a class="sourceLine" id="cb25-5" title="5"><span class="bn">0x000000FF</span> <span class="bn">0x0000FF00</span> <span class="bn">0x00FF0000</span> <span class="bn">0xFF000000</span> =&gt; SDL_PIXELFORMAT_ABGR<span class="dv">8888</span></a>
+<a class="sourceLine" id="cb25-6" title="6"><span class="bn">0x0000F800</span> <span class="bn">0x000007E0</span> <span class="bn">0x0000001F</span> <span class="bn">0x00000000</span> =&gt; SDL_PIXELFORMAT_RGB<span class="dv">565</span></a></code></pre></div>
+<p>The following functions have been renamed:</p>
+<ul>
+<li>SDL_FillRect() =&gt; SDL_FillSurfaceRect()</li>
+<li>SDL_FillRects() =&gt; SDL_FillSurfaceRects()</li>
+<li>SDL_FreeSurface() =&gt; SDL_DestroySurface()</li>
+<li>SDL_GetClipRect() =&gt; SDL_GetSurfaceClipRect()</li>
+<li>SDL_GetColorKey() =&gt; SDL_GetSurfaceColorKey()</li>
+<li>SDL_HasColorKey() =&gt; SDL_SurfaceHasColorKey()</li>
+<li>SDL_HasSurfaceRLE() =&gt; SDL_SurfaceHasRLE()</li>
+<li>SDL_LowerBlit() =&gt; SDL_BlitSurfaceUnchecked()</li>
+<li>SDL_LowerBlitScaled() =&gt; SDL_BlitSurfaceUncheckedScaled()</li>
+<li>SDL_SetClipRect() =&gt; SDL_SetSurfaceClipRect()</li>
+<li>SDL_SetColorKey() =&gt; SDL_SetSurfaceColorKey()</li>
+<li>SDL_UpperBlit() =&gt; SDL_BlitSurface()</li>
+<li>SDL_UpperBlitScaled() =&gt; SDL_BlitSurfaceScaled()</li>
+</ul>
+<h2 id="sdl_systemh">SDL_system.h</h2>
+<p>SDL_AndroidGetExternalStorageState() takes the state as an output parameter and returns 0 if the function succeeds or a negative error code if there was an error.</p>
+<p>The following functions have been renamed:</p>
+<ul>
+<li>SDL_RenderGetD3D11Device() =&gt; SDL_GetRenderD3D11Device()</li>
+<li>SDL_RenderGetD3D9Device() =&gt; SDL_GetRenderD3D9Device()</li>
+</ul>
+<h2 id="sdl_syswmh">SDL_syswm.h</h2>
+<p>The structures in this file are versioned separately from the rest of SDL, allowing better backwards compatibility and limited forwards compatibility with your application. Instead of calling <code>SDL_VERSION(&amp;info.version)</code> before calling SDL_GetWindowWMInfo(), you pass the version in explicitly as SDL_SYSWM_CURRENT_VERSION so SDL knows what fields you expect to be filled out.</p>
+<h3 id="sdl_getwindowwminfo">SDL_GetWindowWMInfo</h3>
+<p>This function now returns a standard int result instead of SDL_bool, returning 0 if the function succeeds or a negative error code if there was an error. You should also pass SDL_SYSWM_CURRENT_VERSION as the new third version parameter. The version member of the info structure will be filled in with the version of data that is returned, the minimum of the version you requested and the version supported by the runtime SDL library.</p>
+<h2 id="sdl_threadh">SDL_thread.h</h2>
+<p>The following functions have been renamed:</p>
+<ul>
+<li>SDL_TLSCleanup() =&gt; SDL_CleanupTLS()</li>
+<li>SDL_TLSCreate() =&gt; SDL_CreateTLS()</li>
+<li>SDL_TLSGet() =&gt; SDL_GetTLS()</li>
+<li>SDL_TLSSet() =&gt; SDL_SetTLS()</li>
+</ul>
+<h2 id="sdl_timerh">SDL_timer.h</h2>
+<p>SDL_GetTicks() now returns a 64-bit value. Instead of using the SDL_TICKS_PASSED macro, you can directly compare tick values, e.g.</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode c"><code class="sourceCode c"><a class="sourceLine" id="cb26-1" title="1">Uint32 deadline = SDL_GetTicks() + <span class="dv">1000</span>;</a>
+<a class="sourceLine" id="cb26-2" title="2">...</a>
+<a class="sourceLine" id="cb26-3" title="3"><span class="cf">if</span> (SDL_TICKS_PASSED(SDL_GetTicks(), deadline)) {</a>
+<a class="sourceLine" id="cb26-4" title="4">    ...</a>
+<a class="sourceLine" id="cb26-5" title="5">}</a></code></pre></div>
+<p>becomes:</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode c"><code class="sourceCode c"><a class="sourceLine" id="cb27-1" title="1">Uint64 deadline = SDL_GetTicks() + <span class="dv">1000</span></a>
+<a class="sourceLine" id="cb27-2" title="2">...</a>
+<a class="sourceLine" id="cb27-3" title="3"><span class="cf">if</span> (SDL_GetTicks() &gt;= deadline) {</a>
+<a class="sourceLine" id="cb27-4" title="4">    ...</a>
+<a class="sourceLine" id="cb27-5" title="5">}</a></code></pre></div>
+<p>If you were using this macro for other things besides SDL ticks values, you can define it in your own code as:</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode c"><code class="sourceCode c"><a class="sourceLine" id="cb28-1" title="1"><span class="pp">#define SDL_TICKS_PASSED(A, B)  ((Sint32)((B) - (A)) &lt;= 0)</span></a></code></pre></div>
+<h2 id="sdl_touchh">SDL_touch.h</h2>
+<p>SDL_GetNumTouchFingers() returns a negative error code if there was an error.</p>
+<h2 id="sdl_versionh">SDL_version.h</h2>
+<p>SDL_GetRevisionNumber() has been removed from the API, it always returned 0 in SDL 2.0.</p>
+<h2 id="sdl_videoh">SDL_video.h</h2>
+<p>SDL_VideoInit() and SDL_VideoQuit() have been removed. Instead you can call SDL_InitSubSystem() and SDL_QuitSubSystem() with SDL_INIT_VIDEO, which will properly refcount the subsystems. You can choose a specific video driver using SDL_VIDEO_DRIVER hint.</p>
+<p>Rather than iterating over displays using display index, there is a new function SDL_GetDisplays() to get the current list of displays, and functions which used to take a display index now take SDL_DisplayID, with an invalid ID being 0.</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode c"><code class="sourceCode c"><a class="sourceLine" id="cb29-1" title="1">{</a>
+<a class="sourceLine" id="cb29-2" title="2">    <span class="cf">if</span> (SDL_InitSubSystem(SDL_INIT_VIDEO) == <span class="dv">0</span>) {</a>
+<a class="sourceLine" id="cb29-3" title="3">        <span class="dt">int</span> i, num_displays = <span class="dv">0</span>;</a>
+<a class="sourceLine" id="cb29-4" title="4">        SDL_DisplayID *displays = SDL_GetDisplays(&amp;num_displays);</a>
+<a class="sourceLine" id="cb29-5" title="5">        <span class="cf">if</span> (displays) {</a>
+<a class="sourceLine" id="cb29-6" title="6">            <span class="cf">for</span> (i = <span class="dv">0</span>; i &lt; num_displays; ++i) {</a>
+<a class="sourceLine" id="cb29-7" title="7">                SDL_DisplayID instance_id = displays[i];</a>
+<a class="sourceLine" id="cb29-8" title="8">                <span class="dt">const</span> <span class="dt">char</span> *name = SDL_GetDisplayName(instance_id);</a>
+<a class="sourceLine" id="cb29-9" title="9"></a>
+<a class="sourceLine" id="cb29-10" title="10">                SDL_Log(<span class="st">&quot;Display %&quot;</span> SDL_PRIu32 <span class="st">&quot;: %s</span><span class="sc">\n</span><span class="st">&quot;</span>, instance_id, name ? name : <span class="st">&quot;Unknown&quot;</span>);</a>
+<a class="sourceLine" id="cb29-11" title="11">            }</a>
+<a class="sourceLine" id="cb29-12" title="12">            SDL_free(displays);</a>
+<a class="sourceLine" id="cb29-13" title="13">        }</a>
+<a class="sourceLine" id="cb29-14" title="14">        SDL_QuitSubSystem(SDL_INIT_VIDEO);</a>
+<a class="sourceLine" id="cb29-15" title="15">    }</a>
+<a class="sourceLine" id="cb29-16" title="16">}</a></code></pre></div>
+<p>SDL_CreateWindow() has been simplified and no longer takes a window position. You can use SDL_CreateWindowWithPosition() if you need to set the window position when creating it.</p>
+<p>The SDL_WINDOWPOS_UNDEFINED_DISPLAY() and SDL_WINDOWPOS_CENTERED_DISPLAY() macros take a display ID instead of display index. The display ID 0 has a special meaning in this case, and is used to indicate the primary display.</p>
+<p>The SDL_WINDOW_SHOWN flag has been removed. Windows are shown by default and can be created hidden by using the SDL_WINDOW_HIDDEN flag.</p>
+<p>The SDL_WINDOW_SKIP_TASKBAR flag has been replaced by the SDL_WINDOW_UTILITY flag, which has the same functionality.</p>
+<p>SDL_DisplayMode now includes the pixel density which can be greater than 1.0 for display modes that have a higher pixel size than the mode size. You should use SDL_GetWindowSizeInPixels() to get the actual pixel size of the window back buffer.</p>
+<p>The refresh rate in SDL_DisplayMode is now a float.</p>
+<p>Rather than iterating over display modes using an index, there is a new function SDL_GetFullscreenDisplayModes() to get the list of available fullscreen modes on a display.</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode c"><code class="sourceCode c"><a class="sourceLine" id="cb30-1" title="1">{</a>
+<a class="sourceLine" id="cb30-2" title="2">    SDL_DisplayID display = SDL_GetPrimaryDisplay();</a>
+<a class="sourceLine" id="cb30-3" title="3">    <span class="dt">int</span> num_modes = <span class="dv">0</span>;</a>
+<a class="sourceLine" id="cb30-4" title="4">    SDL_DisplayMode **modes = SDL_GetFullscreenDisplayModes(display, &amp;num_modes);</a>
+<a class="sourceLine" id="cb30-5" title="5">    <span class="cf">if</span> (modes) {</a>
+<a class="sourceLine" id="cb30-6" title="6">        <span class="cf">for</span> (i = <span class="dv">0</span>; i &lt; num_modes; ++i) {</a>
+<a class="sourceLine" id="cb30-7" title="7">            SDL_DisplayMode *mode = modes[i];</a>
+<a class="sourceLine" id="cb30-8" title="8">            SDL_Log(<span class="st">&quot;Display %&quot;</span> SDL_PRIu32 <span class="st">&quot; mode %d: %dx%d@%gx %gHz</span><span class="sc">\n</span><span class="st">&quot;</span>,</a>
+<a class="sourceLine" id="cb30-9" title="9">                    display, i, mode-&gt;w, mode-&gt;h, mode-&gt;pixel_density, mode-&gt;refresh_rate);</a>
+<a class="sourceLine" id="cb30-10" title="10">        }</a>
+<a class="sourceLine" id="cb30-11" title="11">        SDL_free(modes);</a>
+<a class="sourceLine" id="cb30-12" title="12">    }</a>
+<a class="sourceLine" id="cb30-13" title="13">}</a></code></pre></div>
+<p>SDL_GetDesktopDisplayMode() and SDL_GetCurrentDisplayMode() return pointers to display modes rather than filling in application memory.</p>
+<p>Windows now have an explicit fullscreen mode that is set, using SDL_SetWindowFullscreenMode(). The fullscreen mode for a window can be queried with SDL_GetWindowFullscreenMode(), which returns a pointer to the mode, or NULL if the window will be fullscreen desktop. SDL_SetWindowFullscreen() just takes a boolean value, setting the correct fullscreen state based on the selected mode.</p>
+<p>SDL_WINDOW_FULLSCREEN_DESKTOP has been removed, and you can call SDL_GetWindowFullscreenMode() to see whether an exclusive fullscreen mode will be used or the fullscreen desktop mode will be used when the window is fullscreen.</p>
+<p>SDL_SetWindowBrightness and SDL_SetWindowGammaRamp have been removed from the API, because they interact poorly with modern operating systems and aren't able to limit their effects to the SDL window.</p>
+<p>Programs which have access to shaders can implement more robust versions of those functions using custom shader code rendered as a post-process effect.</p>
+<p>Removed SDL_GL_CONTEXT_EGL from OpenGL configuration attributes. You can instead use <code>SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_ES);</code></p>
+<p>SDL_GL_GetProcAddress() and SDL_EGL_GetProcAddress() now return <code>SDL_FunctionPointer</code> instead of <code>void *</code>, and should be cast to the appropriate function type. You can define SDL_FUNCTION_POINTER_IS_VOID_POINTER in your project to restore the previous behavior.</p>
+<p>SDL_GL_SwapWindow() returns 0 if the function succeeds or a negative error code if there was an error.</p>
+<p>SDL_GL_GetSwapInterval() takes the interval as an output parameter and returns 0 if the function succeeds or a negative error code if there was an error.</p>
+<p>SDL_GL_GetDrawableSize() has been removed. SDL_GetWindowSizeInPixels() can be used in its place.</p>
+<p>The SDL_WINDOW_TOOLTIP and SDL_WINDOW_POPUP_MENU window flags are now supported on Windows, Mac (Cocoa), X11, and Wayland. Creating windows with these flags must happen via the <code>SDL_CreatePopupWindow()</code> function. This function requires passing in the handle to a valid parent window for the popup, and the popup window is positioned relative to the parent.</p>
+<p>The following functions have been renamed:</p>
+<ul>
+<li>SDL_GetClosestDisplayMode() =&gt; SDL_GetClosestFullscreenDisplayMode()</li>
+<li>SDL_GetDisplayOrientation() =&gt; SDL_GetCurrentDisplayOrientation()</li>
+<li>SDL_GetPointDisplayIndex() =&gt; SDL_GetDisplayForPoint()</li>
+<li>SDL_GetRectDisplayIndex() =&gt; SDL_GetDisplayForRect()</li>
+<li>SDL_GetWindowDisplayIndex() =&gt; SDL_GetDisplayForWindow()</li>
+<li>SDL_GetWindowDisplayMode() =&gt; SDL_GetWindowFullscreenMode()</li>
+<li>SDL_IsScreenSaverEnabled() =&gt; SDL_ScreenSaverEnabled()</li>
+<li>SDL_SetWindowDisplayMode() =&gt; SDL_SetWindowFullscreenMode()</li>
+</ul>
+<p>The following functions have been removed:</p>
+<ul>
+<li>SDL_GetClosestFullscreenDisplayMode()</li>
+<li>SDL_GetDisplayDPI() - not reliable across platforms, approximately replaced by multiplying <code>display_scale</code> in the structure returned by SDL_GetDesktopDisplayMode() times 160 on iPhone and Android, and 96 on other platforms.</li>
+<li>SDL_GetDisplayMode()</li>
+<li>SDL_GetNumDisplayModes() - replaced with SDL_GetFullscreenDisplayModes()</li>
+<li>SDL_GetNumVideoDisplays() - replaced with SDL_GetDisplays()</li>
+<li>SDL_GetWindowData() - use SDL_GetWindowProperties() instead</li>
+<li>SDL_SetWindowData() - use SDL_GetWindowProperties() instead</li>
+</ul>
+<p>SDL_Window id type is named SDL_WindowID</p>
+<p>The following symbols have been renamed:</p>
+<ul>
+<li>SDL_WINDOW_ALLOW_HIGHDPI =&gt; SDL_WINDOW_HIGH_PIXEL_DENSITY</li>
+<li>SDL_WINDOW_INPUT_GRABBED =&gt; SDL_WINDOW_MOUSE_GRABBED</li>
+</ul>
+<h2 id="sdl_vulkanh">SDL_vulkan.h</h2>
+<p>SDL_Vulkan_GetInstanceExtensions() no longer takes a window parameter.</p>
+<p>SDL_Vulkan_GetVkGetInstanceProcAddr() now returns <code>SDL_FunctionPointer</code> instead of <code>void *</code>, and should be cast to PFN_vkGetInstanceProcAddr.</p>
+<p>SDL_Vulkan_GetDrawableSize() has been removed. SDL_GetWindowSizeInPixels() can be used in its place.</p>
+</body>
+</html>

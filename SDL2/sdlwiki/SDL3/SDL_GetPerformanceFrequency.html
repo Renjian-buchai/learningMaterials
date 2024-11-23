@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>SDL_GetPerformanceFrequency</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+</head>
+<body>
+<nav id="TOC">
+<ul>
+<li><a href="#sdl_getperformancefrequency">SDL_GetPerformanceFrequency</a><ul>
+<li><a href="#syntax">Syntax</a></li>
+<li><a href="#return-value">Return Value</a></li>
+<li><a href="#version">Version</a></li>
+<li><a href="#code-examples">Code Examples</a></li>
+<li><a href="#related-functions">Related Functions</a></li>
+</ul></li>
+</ul>
+</nav>
+<h6 id="this-is-the-documentation-for-sdl3-which-is-under-heavy-development-and-the-api-is-changing-sdl2-is-the-current-stable-version">(This is the documentation for SDL3, which is under heavy development and the API is changing! <a href="https://wiki.libsdl.org/SDL2/.html">SDL2</a> is the current stable version!)</h6>
+<h1 id="sdl_getperformancefrequency">SDL_GetPerformanceFrequency</h1>
+<p>Get the count per second of the high resolution counter.</p>
+<h2 id="syntax">Syntax</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode c"><code class="sourceCode c"><a class="sourceLine" id="cb1-1" title="1">Uint64 SDL_GetPerformanceFrequency(<span class="dt">void</span>);</a></code></pre></div>
+<h2 id="return-value">Return Value</h2>
+<p>Returns a platform-specific count per second.</p>
+<h2 id="version">Version</h2>
+<p>This function is available since SDL 3.0.0.</p>
+<h2 id="code-examples">Code Examples</h2>
+<div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb2-1" title="1"><span class="pp">#include </span><span class="im">&quot;SDL.h&quot;</span></a>
+<a class="sourceLine" id="cb2-2" title="2"></a>
+<a class="sourceLine" id="cb2-3" title="3"><span class="pp">#define DEFAULT_RESOLUTION  </span><span class="dv">1</span></a>
+<a class="sourceLine" id="cb2-4" title="4"></a>
+<a class="sourceLine" id="cb2-5" title="5"><span class="at">static</span> <span class="dt">int</span> ticks = <span class="dv">0</span>;</a>
+<a class="sourceLine" id="cb2-6" title="6"></a>
+<a class="sourceLine" id="cb2-7" title="7"><span class="at">static</span> Uint32 SDLCALL</a>
+<a class="sourceLine" id="cb2-8" title="8">ticktock(Uint32 interval, <span class="dt">void</span> *param)</a>
+<a class="sourceLine" id="cb2-9" title="9">{</a>
+<a class="sourceLine" id="cb2-10" title="10">    ++ticks;</a>
+<a class="sourceLine" id="cb2-11" title="11">    <span class="cf">return</span> (interval);</a>
+<a class="sourceLine" id="cb2-12" title="12">}</a>
+<a class="sourceLine" id="cb2-13" title="13"></a>
+<a class="sourceLine" id="cb2-14" title="14"><span class="at">static</span> Uint32 SDLCALL</a>
+<a class="sourceLine" id="cb2-15" title="15">callback(Uint32 interval, <span class="dt">void</span> *param)</a>
+<a class="sourceLine" id="cb2-16" title="16">{</a>
+<a class="sourceLine" id="cb2-17" title="17">    SDL_Log(<span class="st">&quot;Timer </span><span class="sc">%d</span><span class="st"> : param = </span><span class="sc">%d</span><span class="st">&quot;</span>, interval, (<span class="dt">int</span>) (<span class="dt">uintptr_t</span>) param);</a>
+<a class="sourceLine" id="cb2-18" title="18">    <span class="cf">return</span> interval;</a>
+<a class="sourceLine" id="cb2-19" title="19">}</a>
+<a class="sourceLine" id="cb2-20" title="20"></a>
+<a class="sourceLine" id="cb2-21" title="21"><span class="dt">int</span></a>
+<a class="sourceLine" id="cb2-22" title="22">main(<span class="dt">int</span> argc, <span class="dt">char</span> *argv[])</a>
+<a class="sourceLine" id="cb2-23" title="23">{</a>
+<a class="sourceLine" id="cb2-24" title="24">    <span class="dt">int</span> i, desired;</a>
+<a class="sourceLine" id="cb2-25" title="25">    SDL_TimerID t1, t2, t3;</a>
+<a class="sourceLine" id="cb2-26" title="26">    Uint32 start32, now32;</a>
+<a class="sourceLine" id="cb2-27" title="27">    Uint64 start, now;</a>
+<a class="sourceLine" id="cb2-28" title="28"></a>
+<a class="sourceLine" id="cb2-29" title="29">    <span class="co">/* Enable standard application logging */</span></a>
+<a class="sourceLine" id="cb2-30" title="30">    SDL_LogSetPriority(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO);</a>
+<a class="sourceLine" id="cb2-31" title="31"></a>
+<a class="sourceLine" id="cb2-32" title="32">    <span class="cf">if</span> (SDL_Init(SDL_INIT_TIMER) &lt; <span class="dv">0</span>) {</a>
+<a class="sourceLine" id="cb2-33" title="33">        SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, <span class="st">&quot;Couldn&#39;t initialize SDL: </span><span class="sc">%s</span><span class="st">&quot;</span>, SDL_GetError());</a>
+<a class="sourceLine" id="cb2-34" title="34">        <span class="cf">return</span> (<span class="dv">1</span>);</a>
+<a class="sourceLine" id="cb2-35" title="35">    }</a>
+<a class="sourceLine" id="cb2-36" title="36"></a>
+<a class="sourceLine" id="cb2-37" title="37">    <span class="co">/* Start the timer */</span></a>
+<a class="sourceLine" id="cb2-38" title="38">    desired = <span class="dv">0</span>;</a>
+<a class="sourceLine" id="cb2-39" title="39">    <span class="cf">if</span> (argv[<span class="dv">1</span>]) {</a>
+<a class="sourceLine" id="cb2-40" title="40">        desired = SDL_atoi(argv[<span class="dv">1</span>]);</a>
+<a class="sourceLine" id="cb2-41" title="41">    }</a>
+<a class="sourceLine" id="cb2-42" title="42">    <span class="cf">if</span> (desired == <span class="dv">0</span>) {</a>
+<a class="sourceLine" id="cb2-43" title="43">        desired = DEFAULT_RESOLUTION;</a>
+<a class="sourceLine" id="cb2-44" title="44">    }</a>
+<a class="sourceLine" id="cb2-45" title="45">    t1 = SDL_AddTimer(desired, ticktock, NULL);</a>
+<a class="sourceLine" id="cb2-46" title="46"></a>
+<a class="sourceLine" id="cb2-47" title="47">    <span class="co">/* Wait 10 seconds */</span></a>
+<a class="sourceLine" id="cb2-48" title="48">    SDL_Log(<span class="st">&quot;Waiting 10 seconds&quot;</span>);</a>
+<a class="sourceLine" id="cb2-49" title="49">    SDL_Delay(<span class="dv">10</span> * <span class="dv">1000</span>);</a>
+<a class="sourceLine" id="cb2-50" title="50"></a>
+<a class="sourceLine" id="cb2-51" title="51">    <span class="co">/* Stop the timer */</span></a>
+<a class="sourceLine" id="cb2-52" title="52">    SDL_RemoveTimer(t1);</a>
+<a class="sourceLine" id="cb2-53" title="53"></a>
+<a class="sourceLine" id="cb2-54" title="54">    <span class="co">/* Print the results */</span></a>
+<a class="sourceLine" id="cb2-55" title="55">    <span class="cf">if</span> (ticks) {</a>
+<a class="sourceLine" id="cb2-56" title="56">        SDL_Log(<span class="st">&quot;Timer resolution: desired = </span><span class="sc">%d</span><span class="st"> ms, actual = </span><span class="sc">%f</span><span class="st"> ms&quot;</span>,</a>
+<a class="sourceLine" id="cb2-57" title="57">                desired, (<span class="dt">double</span>) (<span class="dv">10</span> * <span class="dv">1000</span>) / ticks);</a>
+<a class="sourceLine" id="cb2-58" title="58">    }</a>
+<a class="sourceLine" id="cb2-59" title="59"></a>
+<a class="sourceLine" id="cb2-60" title="60">    <span class="co">/* Test multiple timers */</span></a>
+<a class="sourceLine" id="cb2-61" title="61">    SDL_Log(<span class="st">&quot;Testing multiple timers...&quot;</span>);</a>
+<a class="sourceLine" id="cb2-62" title="62">    t1 = SDL_AddTimer(<span class="dv">100</span>, callback, (<span class="dt">void</span> *) <span class="dv">1</span>);</a>
+<a class="sourceLine" id="cb2-63" title="63">    <span class="cf">if</span> (!t1)</a>
+<a class="sourceLine" id="cb2-64" title="64">        SDL_LogError(SDL_LOG_CATEGORY_APPLICATION,<span class="st">&quot;Could not create timer 1: </span><span class="sc">%s</span><span class="st">&quot;</span>, SDL_GetError());</a>
+<a class="sourceLine" id="cb2-65" title="65">    t2 = SDL_AddTimer(<span class="dv">50</span>, callback, (<span class="dt">void</span> *) <span class="dv">2</span>);</a>
+<a class="sourceLine" id="cb2-66" title="66">    <span class="cf">if</span> (!t2)</a>
+<a class="sourceLine" id="cb2-67" title="67">        SDL_LogError(SDL_LOG_CATEGORY_APPLICATION,<span class="st">&quot;Could not create timer 2: </span><span class="sc">%s</span><span class="st">&quot;</span>, SDL_GetError());</a>
+<a class="sourceLine" id="cb2-68" title="68">    t3 = SDL_AddTimer(<span class="dv">233</span>, callback, (<span class="dt">void</span> *) <span class="dv">3</span>);</a>
+<a class="sourceLine" id="cb2-69" title="69">    <span class="cf">if</span> (!t3)</a>
+<a class="sourceLine" id="cb2-70" title="70">        SDL_LogError(SDL_LOG_CATEGORY_APPLICATION,<span class="st">&quot;Could not create timer 3: </span><span class="sc">%s</span><span class="st">&quot;</span>, SDL_GetError());</a>
+<a class="sourceLine" id="cb2-71" title="71"></a>
+<a class="sourceLine" id="cb2-72" title="72">    <span class="co">/* Wait 10 seconds */</span></a>
+<a class="sourceLine" id="cb2-73" title="73">    SDL_Log(<span class="st">&quot;Waiting 10 seconds&quot;</span>);</a>
+<a class="sourceLine" id="cb2-74" title="74">    SDL_Delay(<span class="dv">10</span> * <span class="dv">1000</span>);</a>
+<a class="sourceLine" id="cb2-75" title="75"></a>
+<a class="sourceLine" id="cb2-76" title="76">    SDL_Log(<span class="st">&quot;Removing timer 1 and waiting 5 more seconds&quot;</span>);</a>
+<a class="sourceLine" id="cb2-77" title="77">    SDL_RemoveTimer(t1);</a>
+<a class="sourceLine" id="cb2-78" title="78"></a>
+<a class="sourceLine" id="cb2-79" title="79">    SDL_Delay(<span class="dv">5</span> * <span class="dv">1000</span>);</a>
+<a class="sourceLine" id="cb2-80" title="80"></a>
+<a class="sourceLine" id="cb2-81" title="81">    SDL_RemoveTimer(t2);</a>
+<a class="sourceLine" id="cb2-82" title="82">    SDL_RemoveTimer(t3);</a>
+<a class="sourceLine" id="cb2-83" title="83"></a>
+<a class="sourceLine" id="cb2-84" title="84">    start = SDL_GetPerformanceCounter();</a>
+<a class="sourceLine" id="cb2-85" title="85">    <span class="cf">for</span> (i = <span class="dv">0</span>; i &lt; <span class="dv">1000000</span>; ++i) {</a>
+<a class="sourceLine" id="cb2-86" title="86">        ticktock(<span class="dv">0</span>, NULL);</a>
+<a class="sourceLine" id="cb2-87" title="87">    }</a>
+<a class="sourceLine" id="cb2-88" title="88">    now = SDL_GetPerformanceCounter();</a>
+<a class="sourceLine" id="cb2-89" title="89">    SDL_Log(<span class="st">&quot;1 million iterations of ticktock took </span><span class="sc">%f</span><span class="st"> ms&quot;</span>, (<span class="dt">double</span>)((now - start)*<span class="dv">1000</span>) / SDL_GetPerformanceFrequency());</a>
+<a class="sourceLine" id="cb2-90" title="90"></a>
+<a class="sourceLine" id="cb2-91" title="91">    SDL_Log(<span class="st">&quot;Performance counter frequency: %&quot;</span>SDL_PRIu64<span class="st">&quot;&quot;</span>, (<span class="dt">unsigned</span> <span class="dt">long</span> <span class="dt">long</span>) SDL_GetPerformanceFrequency());</a>
+<a class="sourceLine" id="cb2-92" title="92">    start32 = SDL_GetTicks();</a>
+<a class="sourceLine" id="cb2-93" title="93">    start = SDL_GetPerformanceCounter();</a>
+<a class="sourceLine" id="cb2-94" title="94">    SDL_Delay(<span class="dv">1000</span>);</a>
+<a class="sourceLine" id="cb2-95" title="95">    now = SDL_GetPerformanceCounter();</a>
+<a class="sourceLine" id="cb2-96" title="96">    now32 = SDL_GetTicks();</a>
+<a class="sourceLine" id="cb2-97" title="97">    SDL_Log(<span class="st">&quot;Delay 1 second = </span><span class="sc">%d</span><span class="st"> ms in ticks, </span><span class="sc">%f</span><span class="st"> ms according to performance counter&quot;</span>, (now32-start32), (<span class="dt">double</span>)((now - start)*<span class="dv">1000</span>) / SDL_GetPerformanceFrequency());</a>
+<a class="sourceLine" id="cb2-98" title="98"></a>
+<a class="sourceLine" id="cb2-99" title="99">    SDL_Quit();</a>
+<a class="sourceLine" id="cb2-100" title="100">    <span class="cf">return</span> (<span class="dv">0</span>);</a>
+<a class="sourceLine" id="cb2-101" title="101">}</a></code></pre></div>
+<h2 id="related-functions">Related Functions</h2>
+<ul>
+<li><a href="SDL_GetPerformanceCounter.html">SDL_GetPerformanceCounter</a></li>
+</ul>
+<hr />
+<p><a href="CategoryAPI.html">CategoryAPI</a>, <a href="CategoryTimer.html">CategoryTimer</a></p>
+</body>
+</html>

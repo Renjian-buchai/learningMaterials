@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>SGNewPages</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<nav id="TOC">
+<ul>
+<li><a href="#style-guide-new-pages">Style Guide: New Pages</a><ul>
+<li><a href="#general-guidelines">General Guidelines</a></li>
+<li><a href="#creating-a-new-page">Creating A New Page</a><ul>
+<li><a href="#creating-a-category-page">Creating a Category Page</a></li>
+<li><a href="#creating-an-api-page">Creating an API Page</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+<h1 id="style-guide-new-pages">Style Guide: New Pages</h1>
+<p>This guide provides instructions for adding new pages to this wiki.</p>
+<p><strong>Most of the pages in the SDL API already exist and will only require editing as time goes on. See the other <a href="Contributing#guides.html" title="wikilink">Style Guides</a> for details on editing existing pages. But, if you encounter a component of the API that should have a page in this wiki but does not, this guide is your starting point.</strong></p>
+<p><span id="ToC"></span></p>
+<h2 id="general-guidelines">General Guidelines</h2>
+<p><em>This wiki contains the following page types:</em></p>
+<p><code>||</code><a href="CategoryAPI.html" title="wikilink"><code>API</code><code> </code><code>pages</code></a><code>||pages describing the various Hints, Enumerations, Structures, and Functions of SDL||</code><br />
+<code>||</code><a href="APIByCategory.html" title="wikilink"><code>Category</code><code> </code><code>pages</code></a><code>||pages that list all parts of the API related to a specific topic, or category, and may contain some introductory discussion about the topic||</code><br />
+<code>||</code><a href="Tutorials.html" title="wikilink"><code>Tutorials</code></a><code>||pages that help people use SDL||</code><br />
+<code>||Administrative pages||these include most of the other pages linked in the left sidebar, such as the </code><a href="FrontPage.html" title="wikilink"><code>FrontPage</code></a><code>, </code><a href="Introduction.html" title="wikilink"><code>Introduction</code></a><code>, </code><a href="Support.html" title="wikilink"><code>Support</code></a><code>, and </code><a href="Contributing.html" title="wikilink"><code>Contributing</code></a><code> pages||</code></p>
+<p><em><span color="red">Important!</span></em> <strong>It is highly unlikely that you will be creating new Administrative pages.</strong> If you feel that something of this nature is warranted, or if you feel an Administrative page needs editing, please contact us at &lt;&lt;MailTo(ANTI SPAM wiki AT libsdl DOT org)&gt;&gt; or post about it in a [Contributing#list|Mailing List]] or [<a href="http://forums.libsdl.org/.html">Forum</a>.</p>
+<p><em>Action - Tutorials</em>: <strong>Please see the <a href="SGTutorials.html" title="wikilink">Tutorials Style Guide</a> if you wish to create a new Tutorial page.</strong></p>
+<p><em>Action - Other</em>: At present, all of the categories (headers) that will have a Category page (see a list <a href="SGFunctions#CategoryTable.html" title="wikilink">here</a>) and all of the Hints, Enumerations, Structures, and Functions that will have an API page in this wiki have been created. However, since SDL is a dynamic entity, should it become necessary to create a new Category or API page, please follow the instructions in the remainder of this Style Guide.</p>
+<p><strong>Please only create a new Category or API page if you are certain that it does not already exist and that it fits with and will enhance this documentation.</strong></p>
+<ul>
+<li>Do not post anything that you do not have permission to post publicly.</li>
+<li>Please remember to keep it accurate, simple, and easy to understand.</li>
+<li>Please carefully follow the guidelines in this and the other <a href="Contributing#guides.html" title="wikilink">Style Guides</a> to ensure the continuing value and quality of this documentation.</li>
+</ul>
+<p>~-<a href="#ToC.html" title="wikilink">Return to Table of Contents</a>-~<br />
+<span id="blank"></span></p>
+<h2 id="creating-a-new-page">Creating A New Page</h2>
+<p>The basic steps required to create a new page in this wiki are the same regardless of page type. <em>If</em> you have determined that it is <em>necessary</em> to create a new page, begin here and use the following guidelines as they apply to your page type:</p>
+<p><span id="creating"></span> <em>Action 1</em>: <strong>Create an address for the page.</strong></p>
+<p><em><code>How</code></em><code>: Type the following into the address bar and replace PageName with the name of your page.  Press Enter to begin creating the page.</code></p>
+<p><code> ```</code></p>
+<p><a href="https://wiki.libsdl.org/PageName.html">https://wiki.libsdl.org/PageName</a> ```</p>
+<dl>
+<dt></dt>
+<dd>~-Note: There are several ways to create a new page address. You may choose another method if you prefer.-~
+</dd>
+</dl>
+<p><em><code>Note</code></em><code>: The convention in this wiki is that the name of the page is also the address of the page and that CamelCase is preferable to blank spaces.</code><br />
+<em><code>Page</code><code> </code><code>addresses</code><code> </code><code>are</code><code> </code><code>case-sensitive.</code></em></p>
+<p><em><code>Example</code></em><code>: The address for the page </code><a href="SDL_BuildAudioCVT.html" title="wikilink"><code>SDL_BuildAudioCVT</code></a><code>() is</code></p>
+<dl>
+<dt></dt>
+<dd>```https://wiki.libsdl.org/SDL_BuildAudioCVT```
+</dd>
+</dl>
+<p><span color="red"><em><code>Important!</code></em></span><code> </code><strong><code>Be</code><code> </code><code>careful</code><code> </code><code>to</code><code> </code><code>name</code><code> </code><code>and</code><code> </code><code>spell</code><code> </code><code>accurately</code><code> </code><code>when</code><code> </code><code>creating</code><code> </code><code>a</code><code> </code><code>new</code><code> </code><code>page!</code><code> </code><code>You</code><code> </code><code>cannot</code><code> </code><code>delete</code><code> </code><code>a</code><code> </code><code>page</code><code> </code><code>or</code><code> </code><code>edit</code><code> </code><code>a</code><code> </code><code>page</code><code> </code><code>address</code><code> </code><code>after</code><code> </code><code>the</code><code> </code><code>page</code><code> </code><code>is</code><code> </code><code>created</code><code> </code><code>and</code><code> </code><code>saved.</code></strong><br />
+<code>||&lt;( |2 30%&gt;</code><em><code>If</code></em><code> you discover a typo in the address __prior to saving the page__||</code><em><code>Action</code></em><code>: DO NOT SAVE THE PAGE!  Copy any of your contents you'd like to save, </code><span color="blue"><code>Cancel</code></span><code> or close the page, and start over.</code><br />
+<code>Paste your contents into the new page and continue editing.||</code><br />
+<code>||</code><em><code>Note</code></em><code>: Your old page and address will not be saved.||</code><br />
+<code>||&lt;( |2&gt;</code><em><code>If</code></em><code> you discover a typo in the address __after you saved the page__||</code><em><code>Action</code></em><code>: Send a message to &lt;&lt;MailTo(ANTI SPAM wiki AT libsdl DOT org)&gt;&gt; requesting a correction.||</code><br />
+<code>||</code><em><code>Note</code></em><code>: You will not be able to correct it yourself.||</code><br />
+<em><code>Note</code></em><code>: If you type in an address and land on an existing page then most likely you do __not__ need to create a page but may need to edit the existing one instead.  If a new page is still required you will need to select a different address.</code></p>
+<p><em>Action 2</em>: <strong>Choose the correct Template.</strong></p>
+<p><em><code>How</code></em><code>: If you have chosen a unique address in </code><em><code>Action</code><code> </code><code>1</code></em><code> </code><a href="#creating.html" title="wikilink"><code>above</code></a><code> then you will arrive at a page that has the following at the top followed by a table with 2 columns.</code><br />
+<code> ||</code><strong><code>This</code><code> </code><code>page</code><code> </code><code>does</code><code> </code><code>not</code><code> </code><code>exist</code><code> </code><code>yet.</code><code> </code><code>You</code><code> </code><code>can</code><code> </code><code>create</code><code> </code><code>a</code><code> </code><code>new</code><code> </code><code>empty</code><code> </code><code>page,</code><code> </code><code>or</code><code> </code><code>use</code><code> </code><code>one</code><code> </code><code>of</code><code> </code><code>the</code><code> </code><code>page</code><code> </code><code>templates.</code></strong><br />
+<br />
+<span color="blue"><code>Create new empty page</code></span><code>||</code></p>
+<dl>
+<dt></dt>
+<dd>Use the following table to determine which template to select.
+</dd>
+</dl>
+<p><code>||&lt;( 30%&gt;</code><em><code>If</code></em><code> you need to create a new __Category page__||</code><em><code>Action</code></em><code>: See </code><a href="#category.html" title="wikilink"><code>Creating</code><code> </code><code>a</code><code> </code><code>Category</code><code> </code><code>Page</code></a><code> below for further details||</code><br />
+<code>||&lt;( 30%&gt;</code><em><code>If</code></em><code> you need to create a new __API page__||</code><em><code>Action</code></em><code>: See </code><a href="#api.html" title="wikilink"><code>Creating</code><code> </code><code>an</code><code> </code><code>API</code><code> </code><code>page</code></a><code> below for further details||</code></p>
+<p><em><code>Note</code></em><code>: When editing a new page the default method is the Text editor.  If you prefer to use the GUI editor click </code><span color="blue"><code>GUI/Text Mode</code></span><code> in the left column to switch to the GUI editor on the new page.</code></p>
+<p><em><code>Note</code></em><code>: For information on markup used in this wiki see </code><a href="SGWikiBasics.html" title="wikilink"><code>SGWikiBasics</code></a><code>.</code></p>
+<p>~-<a href="#ToC.html" title="wikilink">Return to Table of Contents</a>-~<br />
+<span id="category"></span></p>
+<h3 id="creating-a-category-page">Creating a Category Page</h3>
+<p><em>Action 1</em>: Select <span color="blue">CategoryTemplate</span> in the LEFT column of the table.</p>
+<p><em>Action 2</em>: Follow the commented instructions (after ## at the beginning of a line) on the template page and use other Category pages as examples. There is no special Category Style Guide. Contact us if you need help or have questions.</p>
+<p>~-<a href="#ToC.html" title="wikilink">Return to Table of Contents</a>-~<br />
+<span id="api"></span></p>
+<h3 id="creating-an-api-page">Creating an API Page</h3>
+<p><em>Action 1</em>: In the LEFT column of the table click on:</p>
+<p><code>||</code><span color="blue"><code>SDLEnumTemplate</code></span><code>||to create a page for an Enumeration or Hint||</code><br />
+<code>||</code><span color="blue"><code>SDLFunctionTemplate</code></span><code>||to create a page for a Function||</code><br />
+<code>||</code><span color="blue"><code>SDLStructTemplate</code></span><code>||to create a page for a Structure or Union||</code></p>
+<p><em>Action 2</em>: There are some very basic instructions commented (after ## at the beginning of a line) into the 3 templates, but these will be inadequate in most cases. Depending upon the type of API page, see the appropriate <a href="Contributing#guides.html" title="wikilink">Style Guide</a> for further details.</p>
+<p>~-<a href="#ToC.html" title="wikilink">Return to Table of Contents</a>-~</p>
+<p>&lt;&lt;Include(SGWikiBasics, , , from="Start SG Include here.", to="##End SG Include here.")&gt;&gt;</p>
+</body>
+</html>

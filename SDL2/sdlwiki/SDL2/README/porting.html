@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>porting</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<nav id="TOC">
+<ul>
+<li><a href="#porting">Porting</a></li>
+</ul>
+</nav>
+<h1 id="porting">Porting</h1>
+<ul>
+<li><p>Porting To A New Platform</p>
+<p>The first thing you have to do when porting to a new platform, is look at include/SDL_platform.h and create an entry there for your operating system. The standard format is "<strong>PLATFORM</strong>", where PLATFORM is the name of the OS. Ideally SDL_platform.h will be able to auto-detect the system it's building on based on C preprocessor symbols.</p></li>
+</ul>
+<p>There are two basic ways of building SDL at the moment:</p>
+<ol>
+<li><p>The "UNIX" way: ./configure; make; make install</p>
+<p>If you have a GNUish system, then you might try this. Edit configure.ac, take a look at the large section labelled:</p>
+<p>"Set up the configuration based on the host platform!"</p>
+<p>Add a section for your platform, and then re-run autogen.sh and build!</p></li>
+<li><p>Using an IDE:</p>
+<p>If you're using an IDE or other non-configure build system, you'll probably want to create a custom SDL_config.h for your platform. Edit SDL_config.h, add a section for your platform, and create a custom SDL_config_{platform}.h, based on SDL_config_minimal.h and SDL_config.h.in</p>
+<p>Add the top level include directory to the header search path, and then add the following sources to the project:</p>
+<p>src/<em>.c src/atomic/</em>.c src/audio/<em>.c src/cpuinfo/</em>.c src/events/<em>.c src/file/</em>.c src/haptic/<em>.c src/joystick/</em>.c src/power/<em>.c src/render/</em>.c src/render/software/<em>.c src/stdlib/</em>.c src/thread/<em>.c src/timer/</em>.c src/video/<em>.c src/audio/disk/</em>.c src/audio/dummy/<em>.c src/filesystem/dummy/</em>.c src/video/dummy/<em>.c src/haptic/dummy/</em>.c src/joystick/dummy/<em>.c src/main/dummy/</em>.c src/thread/generic/<em>.c src/timer/dummy/</em>.c src/loadso/dummy/*.c</p></li>
+</ol>
+<p>Once you have a working library without any drivers, you can go back to each of the major subsystems and start implementing drivers for your platform.</p>
+<p>If you have any questions, don't hesitate to ask on the SDL mailing list: <a href="http://www.libsdl.org/mailing-list.php.html" class="uri">http://www.libsdl.org/mailing-list.php</a></p>
+<p>Enjoy! Sam Lantinga (<a href="mailto:slouken@libsdl.org.html" class="email">slouken@libsdl.org</a>)</p>
+</body>
+</html>

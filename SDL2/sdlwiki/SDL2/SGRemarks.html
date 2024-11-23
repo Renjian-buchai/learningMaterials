@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>SGRemarks</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<nav id="TOC">
+<ul>
+<li><a href="#style-guide-remarks">Style Guide: Remarks</a><ul>
+<li><a href="#general-guidelines">General Guidelines</a></li>
+<li><a href="#adding-your-remarks">Adding Your Remarks</a></li>
+<li><a href="#formatting-your-remarks">Formatting Your Remarks</a><ul>
+<li><a href="#location">Location</a></li>
+<li><a href="#referencing-function-parameters">Referencing Function Parameters</a></li>
+<li><a href="#referencing-structure-data-fields">Referencing Structure Data Fields</a></li>
+<li><a href="#referencing-enumeration-values">Referencing Enumeration Values</a></li>
+<li><a href="#referencing-a-callback-function">Referencing A Callback Function</a></li>
+<li><a href="#using-an-include">Using an Include</a></li>
+<li><a href="#referencing-other-api-components">Referencing Other API Components</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+<h1 id="style-guide-remarks">Style Guide: Remarks</h1>
+<p>All <a href="SGWikiBasics#api.html" title="wikilink">API pages</a> in this wiki contain a section for remarks. This guide provides instructions for adding your own content to the Remarks section of these pages.</p>
+<p><strong>The Remarks section provides additional information related to other sections on the page as well as a location for users to add comments related to real-world application of the API.</strong></p>
+<p><span id="ToC"></span></p>
+<h2 id="general-guidelines">General Guidelines</h2>
+<p><strong>Please post appropriate remarks that may benefit other users.</strong></p>
+<ul>
+<li>Do not post anything that you do not have permission to post publicly.</li>
+<li>Remarks should have adequate references to make them clear and useful.</li>
+<li>Please remember to keep it accurate, simple, and easy to understand.</li>
+<li><em><span color="red">Important!</span></em> The Remarks section is not a discussion board. This is not an appropriate place to post questions, unrelated comments, or general commentary. Only constructive information is to be posted in the Remarks section.</li>
+</ul>
+<dl>
+<dt></dt>
+<dd>Please use the <a href="http://forums.libsdl.org/.html">forums</a>, <a href="http://www.libsdl.org/mailing-list.php.html">mailing lists</a>, <em>Feedback</em> form (upper right corner), or email (&lt;&lt;MailTo(ANTI SPAM wiki AT libsdl DOT org)&gt;&gt;) if you have questions or need to discuss some aspect of the API.
+</dd>
+</dl>
+<p>~-<a href="#ToC.html" title="wikilink">Return to Table of Contents</a>-~</p>
+<h2 id="adding-your-remarks">Adding Your Remarks</h2>
+<p><code>1. Begin by going to the page you wish to edit and selecting </code><span color="blue"><code>Edit (Text)</code></span><code> or </code><span color="blue"><code>Edit (GUI)</code></span><code> in the left column to begin editing.</code><br />
+<code> {i} ~-Markup info provided here is specifically for use in the Text editor but should work in both.-~</code><br />
+<code>1. Scroll down in the edit window to the section that begins with ```== Remarks ==```.  Add your content below this heading following the conventions in this style guide.</code><br />
+<code>1. Find information relevant to your content in the style guide sections </code><a href="#formatting.html" title="wikilink"><code>below</code></a><code> and apply the appropriate formatting as you create your content.</code><br />
+<code>1. Preview your work as you go by clicking </code><span color="blue"><code>Preview</code></span><code> in the left column.  Preview often and any time you are unsure of formatting. </code></p>
+<dl>
+<dt></dt>
+<dd>~-(Keep in mind that a few things (like <a href="SGWikiBasics#color2.html" title="wikilink">Color2 text</a>) don't preview exactly as they parse.)-~
+</dd>
+</dl>
+<p><code>1. Save your work by clicking </code><span color="blue"><code>Save Changes</code></span><code> in the left column after you are satisfied with your content and have filled in the Comment field under the editing box.  </code></p>
+<p>For additional assistance with editing, saving, or wiki-appropriate markup see the <a href="SGWikiBasics.html" title="wikilink">Wiki Basics</a> Style Guide.</p>
+<p>~-<a href="#ToC.html" title="wikilink">Return to Table of Contents</a>-~<br />
+<span id="formatting"></span></p>
+<h2 id="formatting-your-remarks">Formatting Your Remarks</h2>
+<h3 id="location">Location</h3>
+<table>
+<tbody>
+<tr class="odd">
+<td><p>&lt;( |2 30%&gt;<em>If</em> your remark is the __first on the page__</p></td>
+<td><p><em>Action</em>: Replace the following text and markup with your remarks:<br />
+```<em>You can add useful comments here</em>```</p></td>
+</tr>
+<tr class="even">
+<td><p><em>Example</em>: <a href="SDL_StopTextInput.html" title="wikilink">SDL_StopTextInput</a>()<br />
+~-(Remarks were empty at the time this was selected.-~)</p></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><p>&lt;( |3&gt;<em>If</em> there are __existing remarks__ on the page</p></td>
+<td><p><em>Action</em>: Add your remarks to the end of the Remarks section, or to a related grouping if there are existing remarks covering the same topic.</p></td>
+</tr>
+<tr class="even">
+<td><p><span color="red"><em>Important!</em></span> Do not change or remove any of the existing content.</p></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><p><em>Example</em>: <a href="SDL_MixAudio.html" title="wikilink">SDL_MixAudio</a>()</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>~-<a href="#ToC.html" title="wikilink">Return to Table of Contents</a>-~</p>
+<p><span id="params"></span></p>
+<h3 id="referencing-function-parameters">Referencing Function Parameters</h3>
+<p>When your remark includes a reference to a function parameter:</p>
+<table>
+<tbody>
+<tr class="odd">
+<td><p>&lt;( |3 30%&gt;<em>If</em> you are referencing a parameter __on the same page__</p></td>
+<td><p><em>Action</em>: Use <strong>bold</strong> wherever the name is used in the remark.</p></td>
+</tr>
+<tr class="even">
+<td><p><em>Markup</em>: Use 3 apostrophes on either side of the text for bold.<br />
+```<strong>parameter</strong>``` = <strong>parameter</strong></p></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><p><em>Example</em>: <a href="SDL_ConvertAudio.html" title="wikilink">SDL_ConvertAudio</a>()</p></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><p>&lt;( |3&gt;<em>If</em> you are referencing a parameter __from another page__</p></td>
+<td><p><em>Action</em>: Use <code>monospace</code> wherever the name is used in the remark.</p></td>
+</tr>
+<tr class="odd">
+<td><p><em>Markup</em>: Use a single backtick on either side of the text for monospace.<br />
+```<code>member</code>``` = <code>member</code></p></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><p><em>Example</em>: <a href="SDL_OpenAudio.html" title="wikilink">SDL_OpenAudio</a>()</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>~-<a href="#ToC.html" title="wikilink">Return to Table of Contents</a>-~</p>
+<h3 id="referencing-structure-data-fields">Referencing Structure Data Fields</h3>
+<p><em>If</em> your remark includes a reference to a structure data field:</p>
+<p><em>Action</em>: Use the same formatting as for <a href="#params.html" title="wikilink">function parameters</a> above.</p>
+<p><em>Example</em>: <a href="SDL_AudioSpec.html" title="wikilink">SDL_AudioSpec</a></p>
+<p>~-<a href="#ToC.html" title="wikilink">Return to Table of Contents</a>-~</p>
+<h3 id="referencing-enumeration-values">Referencing Enumeration Values</h3>
+<p><em>If</em> your remark includes a reference to an enumeration value:</p>
+<p><em>Action</em>: No special formatting is required since these are generally already in ALL CAPS.</p>
+<p><em>Example</em>: <a href="SDL_GLattr.html" title="wikilink">SDL_GLattr</a></p>
+<p>~-<a href="#ToC.html" title="wikilink">Return to Table of Contents</a>-~</p>
+<h3 id="referencing-a-callback-function">Referencing A Callback Function</h3>
+<p><em>If</em> your remark is describing a callback function:</p>
+<p><em>Action</em>: See the special section on callback functions in the <a href="SGFunctions#Callback_Functions.html" title="wikilink">Function Pages</a> Style Guide.</p>
+<p><em>Note</em>: Callback functions do not get their own pages.</p>
+<p><em>Example</em>: <a href="SDL_AddEventWatch.html" title="wikilink">SDL_AddEventWatch</a>(), <a href="SDL_AddTimer.html" title="wikilink">SDL_AddTimer</a>()</p>
+<p>~-<a href="#ToC.html" title="wikilink">Return to Table of Contents</a>-~</p>
+<h3 id="using-an-include">Using an Include</h3>
+<p><em>If</em> your remark uses an <a href="SGWikiBasics#Includes.html" title="wikilink">Include</a> to copy content from another page into the Remarks section, see the guidelines below.</p>
+<table>
+<tbody>
+<tr class="odd">
+<td><p>&lt;( 30%&gt;<em>If</em> your Include is copying __stand-alone content__ into the Remarks</p></td>
+<td><p><em>Action</em>: A tie-in statement is not likely necessary. In that case, simply follow the instructions for creating an Include in <a href="SGWikiBasics#Includes.html" title="wikilink">Wiki Basics</a></p></td>
+</tr>
+<tr class="even">
+<td><p>&lt;( |2 30%&gt;<em>If</em> your Include is used to copy __values from a related enumeration__ that was mentioned in the Function Parameters section (<em>most common use</em>)</p></td>
+<td><p><em>Action</em>: See the following table for tie-in text options to precede the <a href="SGWikiBasics#Includes.html" title="wikilink">Include</a>.</p></td>
+</tr>
+<tr class="odd">
+<td><p><em>Note</em>: In these examples, replace <parameter> with the relevant parameter name and replace <enumeration> with the name of the enumeration or other page being referenced.</p></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><p>&lt;( 30%&gt;<em>If</em> your Include is for __some other purpose__</p></td>
+<td><p><em>Action</em>: Please apply the closest appropriate match from the other two options (above) with minimal modifications, or contact us if you are unsure what to do.</p></td>
+</tr>
+</tbody>
+</table>
+<p><em>Action</em>: If required (see table above), select from the following introductory phrases to explain the relationship of the included material to the page:</p>
+<table>
+<tbody>
+<tr class="odd">
+<td><p>&lt;( |2 30%&gt;<em>If</em> the Include contains a list from which __only one option__ may be selected</p></td>
+<td><p><em>Action</em>: Place the following phrase on the line above the Include markup<br />
+<strong><parameter></strong><code>may</code> <code>be</code> <code>one</code> <code>of</code> <code>the</code> <code>following:</code></p></td>
+</tr>
+<tr class="even">
+<td><p><em>Example</em>: <a href="SDL_CreateTexture.html" title="wikilink">SDL_CreateTexture</a>(), <a href="SDL_SetThreadPriority.html" title="wikilink">SDL_SetThreadPriority</a>()</p></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><p>&lt;( |2 30%&gt;<em>If</em> the Include contains a list from which __more than one option__ may be selected</p></td>
+<td><p><em>Action</em>: Place the following phrase on the line above the Include markup<br />
+<strong><parameter></strong><code> may be</code> <code>any</code> <code>of</code> <code>the</code> <code>following</code> <code>OR'd</code> <code>together:</code></p></td>
+</tr>
+<tr class="even">
+<td><p><em>Example</em>: <a href="SDL_CreateRenderer.html" title="wikilink">SDL_CreateRenderer</a>()</p></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><p>&lt;( |2 30%&gt;<em>If</em> the Include contains a list from which __only one value will be used to fill a parameter__</p></td>
+<td><p><em>Action</em>: Place the following phrase on the line above the Include markup<br />
+<strong><code>parameter</code></strong><code> will</code> <code>be filled</code> <code>in</code> <code>with</code> <code>one</code> <code>of</code> <code>the</code> <code>following:</code></p></td>
+</tr>
+<tr class="even">
+<td><p><em>Example</em>: <a href="SDL_GetTextureBlendMode.html" title="wikilink">SDL_GetTextureBlendMode</a>()</p></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><p>&lt;( |2 30%&gt;<em>If</em> the Include contains a list from which __more than one option may be selected or the value may be 0__</p></td>
+<td><p><em>Action</em>: Place the following phrase on the line above the Include markup<br />
+<strong><code>parameter</code></strong><code> may be</code> <code>0 or a</code> <code>mask</code> <code>of</code> <code>any</code> <code>of</code> <code>the</code> <code>following</code> <code>SDL_</code><enumeration> <code>values</code> <code>OR'd</code> <code>together:</code></p></td>
+</tr>
+<tr class="even">
+<td><p><em>Example</em>: <a href="SDL_RendererInfo.html" title="wikilink">SDL_RendererInfo</a></p></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><p>&lt;( |2 30%&gt;<em>If</em> the Include contains a list from which __one or more than one__ option may be selected</p></td>
+<td><p><em>Action</em>: Place the following phrase on the line above the Include markup<br />
+<strong><code>parameter</code></strong><code> may be &lt;option that</code> <code>cannot be OR'd</code> <code>(ie: SDL_x_NONE)&gt; or</code> <code>a mask of any</code> <code>of the other</code> <code>SDL_</code><enumeration> <code>values</code> <code>OR'd together:</code></p></td>
+</tr>
+<tr class="even">
+<td><p><em>Example</em>: <a href="SDL_RendererInfo.html" title="wikilink">SDL_RendererInfo</a>, <a href="SDL_SetRenderDrawBlendMode.html" title="wikilink">SDL_SetRenderDrawBlendMode</a>()</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>~-<a href="#ToC.html" title="wikilink">Return to Table of Contents</a>-~</p>
+<h3 id="referencing-other-api-components">Referencing Other API Components</h3>
+<p><em>If</em> your remark includes a reference to an SDL function, enumeration, or structure:</p>
+<p><em>Action</em>: Create a hyperlink to its page.</p>
+<dl>
+<dt></dt>
+<dd>~-Although the wiki will automatically create links in many cases, it does not recognize the SDL names correctly so you must manually hyperlink them.-~<br />
+
+</dd>
+</dl>
+<p><em>Markup</em>: Use two brackets surrounding the page name (```<a href=".html" title="wikilink"></a>```) to create a link.</p>
+<dl>
+<dt></dt>
+<dd>~-Using the full page address is not necessary. The page name portion (end of address) is sufficient, but must be exact.-~
+</dd>
+</dl>
+<table>
+<tbody>
+<tr class="odd">
+<td><p>&lt;( |2 30%&gt;<em>If</em> you reference a __function__</p></td>
+<td><p><em>Action</em>: Include open and closed parentheses outside of the hyperlink markup.</p></td>
+</tr>
+<tr class="even">
+<td><p><em>Markup</em>: ```<a href="SDL_Function.html" title="wikilink">SDL_Function</a>()``` = <a href="SDL_Function.html" title="wikilink">SDL_Function</a>()</p></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><p>&lt;( |2&gt;<em>If</em> you reference a __structure__ or __enumeration__</p></td>
+<td><p><em>Action</em>: Do not use parentheses.</p></td>
+</tr>
+<tr class="even">
+<td><p><em>Markup</em>: ```<a href="SDL_Enumeration/Structure.html" title="wikilink">SDL_Enumeration/Structure</a>``` = <a href="SDL_Enumeration/Structure.html" title="wikilink">SDL_Enumeration/Structure</a></p></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><p>&lt;(&gt;<em>Example</em>: <a href="SDL_SetTextureScaleMode.html" title="wikilink">SDL_SetTextureScaleMode</a>()</p></td>
+</tr>
+</tbody>
+</table>
+<p>~-<a href="#ToC.html" title="wikilink">Return to Table of Contents</a>-~</p>
+<p>&lt;&lt;Include(SGWikiBasics, , , from="Start SG Include here.", to="##End SG Include here.")&gt;&gt;</p>
+</body>
+</html>

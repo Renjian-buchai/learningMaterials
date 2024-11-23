@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>SDL_CreateCursor</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+</head>
+<body>
+<nav id="TOC">
+<ul>
+<li><a href="#draft">Draft</a></li>
+<li><a href="#sdl_createcursor">SDL_CreateCursor</a><ul>
+<li><a href="#syntax">Syntax</a></li>
+<li><a href="#function-parameters">Function Parameters</a></li>
+<li><a href="#return-value">Return Value</a></li>
+<li><a href="#remarks">Remarks</a></li>
+<li><a href="#version">Version</a></li>
+<li><a href="#code-examples">Code Examples</a></li>
+<li><a href="#related-functions">Related Functions</a></li>
+</ul></li>
+</ul>
+</nav>
+<h6 id="this-is-the-documentation-for-sdl3-which-is-under-heavy-development-and-the-api-is-changing-sdl2-is-the-current-stable-version">(This is the documentation for SDL3, which is under heavy development and the API is changing! <a href="https://wiki.libsdl.org/SDL2/.html">SDL2</a> is the current stable version!)</h6>
+<h2 id="draft">Draft</h2>
+<p><strong>THIS PAGE IS A WORK IN PROGRESS</strong> ... Please make edits to this page to improve it!</p>
+<h1 id="sdl_createcursor">SDL_CreateCursor</h1>
+<p>Create a cursor using the specified bitmap data and mask (in MSB format).</p>
+<h2 id="syntax">Syntax</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode c"><code class="sourceCode c"><a class="sourceLine" id="cb1-1" title="1">SDL_Cursor* SDL_CreateCursor(<span class="dt">const</span> Uint8 * data,</a>
+<a class="sourceLine" id="cb1-2" title="2">                             <span class="dt">const</span> Uint8 * mask,</a>
+<a class="sourceLine" id="cb1-3" title="3">                             <span class="dt">int</span> w, <span class="dt">int</span> h, <span class="dt">int</span> hot_x,</a>
+<a class="sourceLine" id="cb1-4" title="4">                             <span class="dt">int</span> hot_y);</a></code></pre></div>
+<h2 id="function-parameters">Function Parameters</h2>
+<table>
+<colgroup>
+<col style="width: 11%" />
+<col style="width: 88%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>data</strong></td>
+<td>the color value for each pixel of the cursor</td>
+</tr>
+<tr class="even">
+<td><strong>mask</strong></td>
+<td>the mask value for each pixel of the cursor</td>
+</tr>
+<tr class="odd">
+<td><strong>w</strong></td>
+<td>the width of the cursor</td>
+</tr>
+<tr class="even">
+<td><strong>h</strong></td>
+<td>the height of the cursor</td>
+</tr>
+<tr class="odd">
+<td><strong>hot_x</strong></td>
+<td>the X-axis location of the upper left corner of the cursor relative to the actual mouse position</td>
+</tr>
+<tr class="even">
+<td><strong>hot_y</strong></td>
+<td>the Y-axis location of the upper left corner of the cursor relative to the actual mouse position</td>
+</tr>
+</tbody>
+</table>
+<h2 id="return-value">Return Value</h2>
+<p>Returns a new cursor with the specified parameters on success or NULL on failure; call <a href="SDL_GetError.html">SDL_GetError</a>() for more information.</p>
+<h2 id="remarks">Remarks</h2>
+<p><code>mask</code> has to be in MSB (Most Significant Bit) format.</p>
+<p>The cursor width (<code>w</code>) must be a multiple of 8 bits.</p>
+<p>The cursor is created in black and white according to the following:</p>
+<ul>
+<li>data=0, mask=1: white</li>
+<li>data=1, mask=1: black</li>
+<li>data=0, mask=0: transparent</li>
+<li>data=1, mask=0: inverted color if possible, black if not.</li>
+</ul>
+<p>Cursors created with this function must be freed with <a href="SDL_DestroyCursor.html">SDL_DestroyCursor</a>().</p>
+<p>If you want to have a color cursor, or create your cursor from an <a href="SDL_Surface.html">SDL_Surface</a>, you should use <a href="SDL_CreateColorCursor.html">SDL_CreateColorCursor</a>(). Alternately, you can hide the cursor and draw your own as part of your game's rendering, but it will be bound to the framerate.</p>
+<p>Also, since SDL 2.0.0, <a href="SDL_CreateSystemCursor.html">SDL_CreateSystemCursor</a>() is available, which provides twelve readily available system cursors to pick from.</p>
+<h2 id="version">Version</h2>
+<p>This function is available since SDL 3.0.0.</p>
+<h2 id="code-examples">Code Examples</h2>
+<div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb2-1" title="1"><span class="co">/* Stolen from the mailing list */</span></a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="co">/* Creates a new mouse cursor from an XPM */</span></a>
+<a class="sourceLine" id="cb2-3" title="3"></a>
+<a class="sourceLine" id="cb2-4" title="4"></a>
+<a class="sourceLine" id="cb2-5" title="5"><span class="co">/* XPM */</span></a>
+<a class="sourceLine" id="cb2-6" title="6"><span class="at">static</span> <span class="at">const</span> <span class="dt">char</span> *arrow[] = {</a>
+<a class="sourceLine" id="cb2-7" title="7">  <span class="co">/* width height num_colors chars_per_pixel */</span></a>
+<a class="sourceLine" id="cb2-8" title="8">  <span class="st">&quot;    32    32        3            1&quot;</span>,</a>
+<a class="sourceLine" id="cb2-9" title="9">  <span class="co">/* colors */</span></a>
+<a class="sourceLine" id="cb2-10" title="10">  <span class="st">&quot;X c #000000&quot;</span>,</a>
+<a class="sourceLine" id="cb2-11" title="11">  <span class="st">&quot;. c #ffffff&quot;</span>,</a>
+<a class="sourceLine" id="cb2-12" title="12">  <span class="st">&quot;  c None&quot;</span>,</a>
+<a class="sourceLine" id="cb2-13" title="13">  <span class="co">/* pixels */</span></a>
+<a class="sourceLine" id="cb2-14" title="14">  <span class="st">&quot;X                               &quot;</span>,</a>
+<a class="sourceLine" id="cb2-15" title="15">  <span class="st">&quot;XX                              &quot;</span>,</a>
+<a class="sourceLine" id="cb2-16" title="16">  <span class="st">&quot;X.X                             &quot;</span>,</a>
+<a class="sourceLine" id="cb2-17" title="17">  <span class="st">&quot;X..X                            &quot;</span>,</a>
+<a class="sourceLine" id="cb2-18" title="18">  <span class="st">&quot;X...X                           &quot;</span>,</a>
+<a class="sourceLine" id="cb2-19" title="19">  <span class="st">&quot;X....X                          &quot;</span>,</a>
+<a class="sourceLine" id="cb2-20" title="20">  <span class="st">&quot;X.....X                         &quot;</span>,</a>
+<a class="sourceLine" id="cb2-21" title="21">  <span class="st">&quot;X......X                        &quot;</span>,</a>
+<a class="sourceLine" id="cb2-22" title="22">  <span class="st">&quot;X.......X                       &quot;</span>,</a>
+<a class="sourceLine" id="cb2-23" title="23">  <span class="st">&quot;X........X                      &quot;</span>,</a>
+<a class="sourceLine" id="cb2-24" title="24">  <span class="st">&quot;X.....XXXXX                     &quot;</span>,</a>
+<a class="sourceLine" id="cb2-25" title="25">  <span class="st">&quot;X..X..X                         &quot;</span>,</a>
+<a class="sourceLine" id="cb2-26" title="26">  <span class="st">&quot;X.X X..X                        &quot;</span>,</a>
+<a class="sourceLine" id="cb2-27" title="27">  <span class="st">&quot;XX  X..X                        &quot;</span>,</a>
+<a class="sourceLine" id="cb2-28" title="28">  <span class="st">&quot;X    X..X                       &quot;</span>,</a>
+<a class="sourceLine" id="cb2-29" title="29">  <span class="st">&quot;     X..X                       &quot;</span>,</a>
+<a class="sourceLine" id="cb2-30" title="30">  <span class="st">&quot;      X..X                      &quot;</span>,</a>
+<a class="sourceLine" id="cb2-31" title="31">  <span class="st">&quot;      X..X                      &quot;</span>,</a>
+<a class="sourceLine" id="cb2-32" title="32">  <span class="st">&quot;       XX                       &quot;</span>,</a>
+<a class="sourceLine" id="cb2-33" title="33">  <span class="st">&quot;                                &quot;</span>,</a>
+<a class="sourceLine" id="cb2-34" title="34">  <span class="st">&quot;                                &quot;</span>,</a>
+<a class="sourceLine" id="cb2-35" title="35">  <span class="st">&quot;                                &quot;</span>,</a>
+<a class="sourceLine" id="cb2-36" title="36">  <span class="st">&quot;                                &quot;</span>,</a>
+<a class="sourceLine" id="cb2-37" title="37">  <span class="st">&quot;                                &quot;</span>,</a>
+<a class="sourceLine" id="cb2-38" title="38">  <span class="st">&quot;                                &quot;</span>,</a>
+<a class="sourceLine" id="cb2-39" title="39">  <span class="st">&quot;                                &quot;</span>,</a>
+<a class="sourceLine" id="cb2-40" title="40">  <span class="st">&quot;                                &quot;</span>,</a>
+<a class="sourceLine" id="cb2-41" title="41">  <span class="st">&quot;                                &quot;</span>,</a>
+<a class="sourceLine" id="cb2-42" title="42">  <span class="st">&quot;                                &quot;</span>,</a>
+<a class="sourceLine" id="cb2-43" title="43">  <span class="st">&quot;                                &quot;</span>,</a>
+<a class="sourceLine" id="cb2-44" title="44">  <span class="st">&quot;                                &quot;</span>,</a>
+<a class="sourceLine" id="cb2-45" title="45">  <span class="st">&quot;                                &quot;</span>,</a>
+<a class="sourceLine" id="cb2-46" title="46">  <span class="st">&quot;0,0&quot;</span></a>
+<a class="sourceLine" id="cb2-47" title="47">};</a>
+<a class="sourceLine" id="cb2-48" title="48"></a>
+<a class="sourceLine" id="cb2-49" title="49"><span class="at">static</span> SDL_Cursor *init_system_cursor(<span class="at">const</span> <span class="dt">char</span> *image[])</a>
+<a class="sourceLine" id="cb2-50" title="50">{</a>
+<a class="sourceLine" id="cb2-51" title="51">  <span class="dt">int</span> i, row, col;</a>
+<a class="sourceLine" id="cb2-52" title="52">  Uint8 data[<span class="dv">4</span>*<span class="dv">32</span>];</a>
+<a class="sourceLine" id="cb2-53" title="53">  Uint8 mask[<span class="dv">4</span>*<span class="dv">32</span>];</a>
+<a class="sourceLine" id="cb2-54" title="54">  <span class="dt">int</span> hot_x, hot_y;</a>
+<a class="sourceLine" id="cb2-55" title="55"></a>
+<a class="sourceLine" id="cb2-56" title="56">  i = -<span class="dv">1</span>;</a>
+<a class="sourceLine" id="cb2-57" title="57">  <span class="cf">for</span> (row=<span class="dv">0</span>; row&lt;<span class="dv">32</span>; ++row) {</a>
+<a class="sourceLine" id="cb2-58" title="58">    <span class="cf">for</span> (col=<span class="dv">0</span>; col&lt;<span class="dv">32</span>; ++col) {</a>
+<a class="sourceLine" id="cb2-59" title="59">      <span class="cf">if</span> (col % <span class="dv">8</span>) {</a>
+<a class="sourceLine" id="cb2-60" title="60">        data[i] &lt;&lt;= <span class="dv">1</span>;</a>
+<a class="sourceLine" id="cb2-61" title="61">        mask[i] &lt;&lt;= <span class="dv">1</span>;</a>
+<a class="sourceLine" id="cb2-62" title="62">      } <span class="cf">else</span> {</a>
+<a class="sourceLine" id="cb2-63" title="63">        ++i;</a>
+<a class="sourceLine" id="cb2-64" title="64">        data[i] = mask[i] = <span class="dv">0</span>;</a>
+<a class="sourceLine" id="cb2-65" title="65">      }</a>
+<a class="sourceLine" id="cb2-66" title="66">      <span class="cf">switch</span> (image[<span class="dv">4</span>+row][col]) {</a>
+<a class="sourceLine" id="cb2-67" title="67">        <span class="cf">case</span> <span class="ch">&#39;X&#39;</span>:</a>
+<a class="sourceLine" id="cb2-68" title="68">          data[i] |= <span class="bn">0x01</span>;</a>
+<a class="sourceLine" id="cb2-69" title="69">          mask[i] |= <span class="bn">0x01</span>;</a>
+<a class="sourceLine" id="cb2-70" title="70">          <span class="cf">break</span>;</a>
+<a class="sourceLine" id="cb2-71" title="71">        <span class="cf">case</span> <span class="ch">&#39;.&#39;</span>:</a>
+<a class="sourceLine" id="cb2-72" title="72">          mask[i] |= <span class="bn">0x01</span>;</a>
+<a class="sourceLine" id="cb2-73" title="73">          <span class="cf">break</span>;</a>
+<a class="sourceLine" id="cb2-74" title="74">        <span class="cf">case</span> <span class="ch">&#39; &#39;</span>:</a>
+<a class="sourceLine" id="cb2-75" title="75">          <span class="cf">break</span>;</a>
+<a class="sourceLine" id="cb2-76" title="76">      }</a>
+<a class="sourceLine" id="cb2-77" title="77">    }</a>
+<a class="sourceLine" id="cb2-78" title="78">  }</a>
+<a class="sourceLine" id="cb2-79" title="79">  sscanf(image[<span class="dv">4</span>+row], <span class="st">&quot;</span><span class="sc">%d</span><span class="st">,</span><span class="sc">%d</span><span class="st">&quot;</span>, &amp;hot_x, &amp;hot_y);</a>
+<a class="sourceLine" id="cb2-80" title="80">  <span class="cf">return</span> SDL_CreateCursor(data, mask, <span class="dv">32</span>, <span class="dv">32</span>, hot_x, hot_y);</a>
+<a class="sourceLine" id="cb2-81" title="81">}</a></code></pre></div>
+<h2 id="related-functions">Related Functions</h2>
+<ul>
+<li><a href="SDL_DestroyCursor.html">SDL_DestroyCursor</a></li>
+<li><a href="SDL_SetCursor.html">SDL_SetCursor</a></li>
+</ul>
+<hr />
+<p><a href="CategoryAPI.html">CategoryAPI</a>, <a href="CategoryMouse.html">CategoryMouse</a>, <a href="CategoryDraft.html">CategoryDraft</a></p>
+</body>
+</html>

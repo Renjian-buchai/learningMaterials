@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>SDL_HapticRamp</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<nav id="TOC">
+<ul>
+<li><a href="#draft">Draft</a></li>
+<li><a href="#sdl_hapticramp">SDL_HapticRamp</a><ul>
+<li><a href="#data-fields">Data Fields</a></li>
+<li><a href="#remarks">Remarks</a></li>
+<li><a href="#related-structures">Related Structures</a></li>
+<li><a href="#related-functions">Related Functions</a></li>
+</ul></li>
+</ul>
+</nav>
+<h2 id="draft">Draft</h2>
+<p><strong>THIS PAGE IS A WORK IN PROGRESS</strong> ... Please make edits to this page to improve it!</p>
+<h1 id="sdl_hapticramp">SDL_HapticRamp</h1>
+<p>A structure that contains a template for a ramp effect.</p>
+<h2 id="data-fields">Data Fields</h2>
+<table>
+<tbody>
+<tr class="odd">
+<td></td>
+<td></td>
+<td><p>&lt;bgcolor="#EDEDED"&gt;<em>Header</em></p></td>
+</tr>
+<tr class="even">
+<td><p>Uint16</p></td>
+<td><p><strong>type</strong></p></td>
+<td><p>SDL_HAPTIC_RAMP</p></td>
+</tr>
+<tr class="odd">
+<td><p><a href="SDL_HapticDirection.html" title="wikilink">SDL_HapticDirection</a></p></td>
+<td><p><strong>direction</strong></p></td>
+<td><p>direction of the effect</p></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td><p>&lt;bgcolor="#EDEDED"&gt;<em>Replay</em></p></td>
+</tr>
+<tr class="odd">
+<td><p>Uint32</p></td>
+<td><p><strong>length</strong></p></td>
+<td><p>duration of the effect</p></td>
+</tr>
+<tr class="even">
+<td><p>Uint16</p></td>
+<td><p><strong>delay</strong></p></td>
+<td><p>delay before starting the effect</p></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td><p>&lt;bgcolor="#EDEDED"&gt;<em>Trigger</em></p></td>
+</tr>
+<tr class="even">
+<td><p>Uint16</p></td>
+<td><p><strong>button</strong></p></td>
+<td><p>button that triggers the effect</p></td>
+</tr>
+<tr class="odd">
+<td><p>Uint16</p></td>
+<td><p><strong>interval</strong></p></td>
+<td><p>how soon it can be triggered again after <strong>button</strong></p></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td><p>&lt;bgcolor="#EDEDED"&gt;<em>Ramp</em></p></td>
+</tr>
+<tr class="odd">
+<td><p>Sint16</p></td>
+<td><p><strong>start</strong></p></td>
+<td><p>beginning strength level</p></td>
+</tr>
+<tr class="even">
+<td><p>Sint16</p></td>
+<td><p><strong>end</strong></p></td>
+<td><p>ending strength level</p></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td><p>&lt;bgcolor="#EDEDED"&gt;<em>Envelope</em></p></td>
+</tr>
+<tr class="even">
+<td><p>Uint16</p></td>
+<td><p><strong>attack_length</strong></p></td>
+<td><p>duration of the attack</p></td>
+</tr>
+<tr class="odd">
+<td><p>Uint16</p></td>
+<td><p><strong>attack_level</strong></p></td>
+<td><p>level at the start of the attack</p></td>
+</tr>
+<tr class="even">
+<td><p>Uint16</p></td>
+<td><p><strong>fade_length</strong></p></td>
+<td><p>duration of the fade</p></td>
+</tr>
+<tr class="odd">
+<td><p>Uint16</p></td>
+<td><p><strong>fade_level</strong></p></td>
+<td><p>level at the end of the fade</p></td>
+</tr>
+</tbody>
+</table>
+<h2 id="remarks">Remarks</h2>
+<p>This struct is exclusively for the SDL_HAPTIC_RAMP effect.</p>
+<p>The ramp effect starts at <strong>start</strong> strength and ends at <strong>end</strong> strength. It augments in linear fashion. If you use attack and fade with a ramp <em>the</em> effects get added to the ramp effect making the effect become quadratic instead of linear.</p>
+<h2 id="related-structures">Related Structures</h2>
+<dl>
+<dt></dt>
+<dd><a href="SDL_HapticDirection.html" title="wikilink">SDL_HapticDirection</a>
+</dd>
+</dl>
+<h2 id="related-functions">Related Functions</h2>
+<dl>
+<dt></dt>
+<dd><a href="SDL_HapticNewEffect.html" title="wikilink">SDL_HapticNewEffect</a>
+</dd>
+</dl>
+<hr />
+<p><a href="CategoryStruct.html" title="wikilink">CategoryStruct</a>, <a href="CategoryForceFeedback.html" title="wikilink">CategoryForceFeedback</a>, <a href="CategoryDraft.html" title="wikilink">CategoryDraft</a></p>
+</body>
+</html>

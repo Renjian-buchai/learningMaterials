@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Mix_RegisterEffect</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+</head>
+<body>
+<nav id="TOC">
+<ul>
+<li><a href="#mix_registereffect">Mix_RegisterEffect</a><ul>
+<li><a href="#syntax">Syntax</a></li>
+<li><a href="#function-parameters">Function Parameters</a></li>
+<li><a href="#return-value">Return Value</a></li>
+<li><a href="#remarks">Remarks</a></li>
+<li><a href="#version">Version</a></li>
+</ul></li>
+</ul>
+</nav>
+<h6 id="this-function-is-part-of-sdl_mixer-a-separate-library-from-sdl">(This function is part of SDL_mixer, a separate library from SDL.)</h6>
+<h1 id="mix_registereffect">Mix_RegisterEffect</h1>
+<p>Register a special effect function.</p>
+<h2 id="syntax">Syntax</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode c"><code class="sourceCode c"><a class="sourceLine" id="cb1-1" title="1"><span class="dt">int</span> Mix_RegisterEffect(<span class="dt">int</span> chan, Mix_EffectFunc_t f, Mix_EffectDone_t d, <span class="dt">void</span> *arg);</a></code></pre></div>
+<h2 id="function-parameters">Function Parameters</h2>
+<table>
+<tbody>
+<tr class="odd">
+<td><strong>chan</strong></td>
+<td>the channel to register an effect to, or <a href="MIX_CHANNEL_POST.html">MIX_CHANNEL_POST</a>.</td>
+</tr>
+<tr class="even">
+<td><strong>f</strong></td>
+<td>effect the callback to run when more of this channel is to be mixed.</td>
+</tr>
+<tr class="odd">
+<td><strong>d</strong></td>
+<td>effect done callback</td>
+</tr>
+<tr class="even">
+<td><strong>arg</strong></td>
+<td>argument</td>
+</tr>
+</tbody>
+</table>
+<h2 id="return-value">Return Value</h2>
+<p>Returns zero if error (no such channel), nonzero if added. Error messages can be retrieved from <a href="Mix_GetError.html">Mix_GetError</a>().</p>
+<h2 id="remarks">Remarks</h2>
+<p>At mixing time, the channel data is copied into a buffer and passed through each registered effect function. After it passes through all the functions, it is mixed into the final output stream. The copy to buffer is performed once, then each effect function performs on the output of the previous effect. Understand that this extra copy to a buffer is not performed if there are no effects registered for a given chunk, which saves CPU cycles, and any given effect will be extra cycles, too, so it is crucial that your code run fast. Also note that the data that your function is given is in the format of the sound device, and not the format you gave to <a href="Mix_OpenAudio.html">Mix_OpenAudio</a>(), although they may in reality be the same. This is an unfortunate but necessary speed concern. Use <a href="Mix_QuerySpec.html">Mix_QuerySpec</a>() to determine if you can handle the data before you register your effect, and take appropriate actions.</p>
+<p>You may also specify a callback (<a href="Mix_EffectDone_t.html">Mix_EffectDone_t</a>) that is called when the channel finishes playing. This gives you a more fine-grained control than <a href="Mix_ChannelFinished.html">Mix_ChannelFinished</a>(), in case you need to free effect-specific resources, etc. If you don't need this, you can specify NULL.</p>
+<p>You may set the callbacks before or after calling <a href="Mix_PlayChannel.html">Mix_PlayChannel</a>().</p>
+<p>Things like <a href="Mix_SetPanning.html">Mix_SetPanning</a>() are just internal special effect functions, so if you are using that, you've already incurred the overhead of a copy to a separate buffer, and that these effects will be in the queue with any functions you've registered. The list of registered effects for a channel is reset when a chunk finishes playing, so you need to explicitly set them with each call to <a href="Mix_PlayChannel.html">Mix_PlayChannel</a>*().</p>
+<p>You may also register a special effect function that is to be run after final mixing occurs. The rules for these callbacks are identical to those in <a href="Mix_RegisterEffect.html">Mix_RegisterEffect</a>, but they are run after all the channels and the music have been mixed into a single stream, whereas channel-specific effects run on a given channel before any other mixing occurs. These global effect callbacks are call "posteffects". Posteffects only have their <a href="Mix_EffectDone_t.html">Mix_EffectDone_t</a> function called when they are unregistered (since the main output stream is never "done" in the same sense as a channel). You must unregister them manually when you've had enough. Your callback will be told that the channel being mixed is <a href="MIX_CHANNEL_POST.html"><code>MIX_CHANNEL_POST</code></a> if the processing is considered a posteffect.</p>
+<p>After all these effects have finished processing, the callback registered through <a href="Mix_SetPostMix.html">Mix_SetPostMix</a>() runs, and then the stream goes to the audio device.</p>
+<p>DO NOT EVER call SDL_LockAudio() from your callback function! You are already running in the audio thread and the lock is already held!</p>
+<p>Note that unlike most SDL and SDL_mixer functions, this function returns zero if there's an error, not on success. We apologize for the API design inconsistency here.</p>
+<h2 id="version">Version</h2>
+<p>This function is available since SDL_mixer 2.0.0.</p>
+<hr />
+<p><a href="CategoryAPI.html">CategoryAPI</a></p>
+</body>
+</html>

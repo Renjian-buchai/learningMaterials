@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>SDL_HapticPeriodic</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<nav id="TOC">
+<ul>
+<li><a href="#draft">Draft</a></li>
+<li><a href="#sdl_hapticperiodic">SDL_HapticPeriodic</a><ul>
+<li><a href="#data-fields">Data Fields</a></li>
+<li><a href="#remarks">Remarks</a></li>
+<li><a href="#related-structures">Related Structures</a></li>
+<li><a href="#related-functions">Related Functions</a></li>
+</ul></li>
+</ul>
+</nav>
+<h2 id="draft">Draft</h2>
+<p><strong>THIS PAGE IS A WORK IN PROGRESS</strong> ... Please make edits to this page to improve it!</p>
+<h1 id="sdl_hapticperiodic">SDL_HapticPeriodic</h1>
+<p>A structure that contains a template for a periodic effect.</p>
+<h2 id="data-fields">Data Fields</h2>
+<table>
+<tbody>
+<tr class="odd">
+<td></td>
+<td></td>
+<td><p>&lt;bgcolor="#EDEDED"&gt;<em>Header</em></p></td>
+</tr>
+<tr class="even">
+<td><p>Uint16</p></td>
+<td><p><strong>type</strong></p></td>
+<td><p>the shape of the waves; see <a href="#type.html" title="wikilink">Remarks</a> for details</p></td>
+</tr>
+<tr class="odd">
+<td><p><a href="SDL_HapticDirection.html" title="wikilink">SDL_HapticDirection</a></p></td>
+<td><p><strong>direction</strong></p></td>
+<td><p>direction of the effect (relative to the user)</p></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td><p>&lt;bgcolor="#EDEDED"&gt;<em>Replay</em></p></td>
+</tr>
+<tr class="odd">
+<td><p>Uint32</p></td>
+<td><p><strong>length</strong></p></td>
+<td><p>duration of the effect</p></td>
+</tr>
+<tr class="even">
+<td><p>Uint16</p></td>
+<td><p><strong>delay</strong></p></td>
+<td><p>delay before starting the effect</p></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td><p>&lt;bgcolor="#EDEDED"&gt;<em>Trigger</em></p></td>
+</tr>
+<tr class="even">
+<td><p>Uint16</p></td>
+<td><p><strong>button</strong></p></td>
+<td><p>button that triggers the effect</p></td>
+</tr>
+<tr class="odd">
+<td><p>Uint16</p></td>
+<td><p><strong>interval</strong></p></td>
+<td><p>how soon it can be triggered again after <strong>button</strong></p></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td><p>&lt;bgcolor="#EDEDED"&gt;<em>Periodic</em></p></td>
+</tr>
+<tr class="odd">
+<td><p>Uint16</p></td>
+<td><p><strong>period</strong></p></td>
+<td><p>period of the wave</p></td>
+</tr>
+<tr class="even">
+<td><p>Sint16</p></td>
+<td><p><strong>magnitude</strong></p></td>
+<td><p>peak value; if negative, equivalent to 180 degrees extra phase shift</p></td>
+</tr>
+<tr class="odd">
+<td><p>Sint16</p></td>
+<td><p><strong>offset</strong></p></td>
+<td><p>mean value of the wave</p></td>
+</tr>
+<tr class="even">
+<td><p>Uint16</p></td>
+<td><p><strong>phase</strong></p></td>
+<td><p>positive phase shift given by hundredth of a degree; see <a href="#phase.html" title="wikilink">Remarks</a> for details</p></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td><p>&lt;bgcolor="#EDEDED"&gt;<em>Envelope</em></p></td>
+</tr>
+<tr class="even">
+<td><p>Uint16</p></td>
+<td><p><strong>attack_length</strong></p></td>
+<td><p>duration of the attack</p></td>
+</tr>
+<tr class="odd">
+<td><p>Uint16</p></td>
+<td><p><strong>attack_level</strong></p></td>
+<td><p>level at the start of the attack</p></td>
+</tr>
+<tr class="even">
+<td><p>Uint16</p></td>
+<td><p><strong>fade_length</strong></p></td>
+<td><p>duration of the fade</p></td>
+</tr>
+<tr class="odd">
+<td><p>Uint16</p></td>
+<td><p><strong>fade_level</strong></p></td>
+<td><p>level at the end of the fade</p></td>
+</tr>
+</tbody>
+</table>
+<h2 id="remarks">Remarks</h2>
+<p><span id="type"></span> A periodic effect consists of a wave-shaped effect that repeats itself over time. The type determines the shape of the wave and the other parameters determine the dimensions of the wave. ``` button period press | |</p>
+<p><code> ||      __    __    __    __    __    _</code><br />
+<code> ||     |  |  |  |  |  |  |  |  |  |   magnitude</code><br />
+<code> \/     |  |__|  |__|  |__|  |__|  |   _</code><br />
+<code>   -----</code><br />
+<code>     |            offset?</code><br />
+<code>   delay          phase?</code></p>
+<hr />
+<p><code>             length</code></p>
+<p>===================================================</p>
+<p><code>                     interval</code></p>
+<p>```</p>
+<p><strong>type</strong> may be one of the following:</p>
+<table>
+<tbody>
+<tr class="odd">
+<td><p>SDL_HAPTIC_SINE</p></td>
+<td><p><code>__ __ __ __</code><br />
+<code>/ \ / \ / \ /</code><br />
+<code>/ \__/ \__/ \__/</code></p></td>
+</tr>
+<tr class="even">
+<td><p>SDL_HAPTIC_TRIANGLE</p></td>
+<td><p><code>/\ /\ /\ /\ /\</code><br />
+<code>/ \ / \ / \ / \ /</code><br />
+<code>/ \/ \/ \/ \/</code></p></td>
+</tr>
+<tr class="odd">
+<td><p>SDL_HAPTIC_SAWTOOTHUP</p></td>
+<td><p><code>/| /| /| /| /| /| /|</code><br />
+<code>/ | / | / | / | / | / | / |</code><br />
+<code>/ |/ |/ |/ |/ |/ |/ |</code></p></td>
+</tr>
+<tr class="even">
+<td><p>SDL_HAPTIC_SAWTOOTHDOWN</p></td>
+<td><p><code>\ |\ |\ |\ |\ |\ |\ |</code><br />
+<code>\ | \ | \ | \ | \ | \ | \ |</code><br />
+<code>\| \| \| \| \| \| \|</code></p></td>
+</tr>
+</tbody>
+</table>
+<p><span id="phase"></span><strong>phase</strong> is given by hundredths of a degree, meaning that giving the phase a value of 9000 will displace it 25% of its period. Here are sample values:</p>
+<table>
+<tbody>
+<tr class="odd">
+<td><p>0</p></td>
+<td><p>No phase displacement</p></td>
+</tr>
+<tr class="even">
+<td><p>9000</p></td>
+<td><p>Displaced 25% of its period</p></td>
+</tr>
+<tr class="odd">
+<td><p>18000</p></td>
+<td><p>Displaced 50% of its period</p></td>
+</tr>
+<tr class="even">
+<td><p>27000</p></td>
+<td><p>Displaced 75% of its period</p></td>
+</tr>
+<tr class="odd">
+<td><p>36000</p></td>
+<td><p>Displaced 100% of its period, same as 0, but 0 is preferred</p></td>
+</tr>
+</tbody>
+</table>
+<h2 id="related-structures">Related Structures</h2>
+<dl>
+<dt></dt>
+<dd><a href="SDL_HapticDirection.html" title="wikilink">SDL_HapticDirection</a>
+</dd>
+</dl>
+<h2 id="related-functions">Related Functions</h2>
+<dl>
+<dt></dt>
+<dd><a href="SDL_HapticNewEffect.html" title="wikilink">SDL_HapticNewEffect</a>
+</dd>
+</dl>
+<hr />
+<p><a href="CategoryStruct.html" title="wikilink">CategoryStruct</a>, <a href="CategoryForceFeedback.html" title="wikilink">CategoryForceFeedback</a>, <a href="CategoryDraft.html" title="wikilink">CategoryDraft</a></p>
+</body>
+</html>

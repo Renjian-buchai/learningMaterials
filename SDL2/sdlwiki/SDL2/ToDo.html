@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>ToDo</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<nav id="TOC">
+<ul>
+<li><a href="#todo">ToDo</a><ul>
+<li><a href="#missing-functions">Missing functions</a></li>
+<li><a href="#missing-enumerations">Missing enumerations</a></li>
+<li><a href="#missing-structures">Missing structures</a></li>
+<li><a href="#missing-unions">Missing unions</a></li>
+<li><a href="#not-linked-pages">Not linked pages</a></li>
+</ul></li>
+</ul>
+</nav>
+<h1 id="todo">ToDo</h1>
+<p>This page is intended to help focus the efforts of the SDL Documentation Wiki contributors.</p>
+<h3 id="missing-functions">Missing functions</h3>
+<p>The following functions are found in the header files, but not (yet) on the wiki. Some pages just need to be categorized, others don't exist yet and need to be made, and some might not belong on the wiki anyway --((for example, none of the internal SDL_cstdlib functions have been listed here))--.</p>
+<h4 id="sdl_assert.h">SDL_assert.h</h4>
+<p>These functions are for internal use and not meant to be documented:</p>
+<ul>
+<li><a href="SDL_ReportAssertion.html" title="wikilink">SDL_ReportAssertion</a></li>
+</ul>
+<h4 id="sdl_error.h">SDL_error.h</h4>
+<p>These functions are for internal use and not meant to be documented:</p>
+<ul>
+<li><a href="SDL_Error.html" title="wikilink">SDL_Error</a></li>
+</ul>
+<h4 id="sdl_gamecontroller.h">SDL_gamecontroller.h</h4>
+<p>These functions are in the process of being documented by Jorgen</p>
+<ul>
+<li><a href="SDL_IsGameController.html" title="wikilink">SDL_IsGameController</a></li>
+<li><a href="SDL_GameControllerNameForIndex.html" title="wikilink">SDL_GameControllerNameForIndex</a></li>
+<li><a href="SDL_GameControllerOpen.html" title="wikilink">SDL_GameControllerOpen</a></li>
+<li><a href="SDL_GameControllerName.html" title="wikilink">SDL_GameControllerName</a></li>
+<li><a href="SDL_GameControllerGetAttached.html" title="wikilink">SDL_GameControllerGetAttached</a></li>
+<li><a href="SDL_GameControllerGetJoystick.html" title="wikilink">SDL_GameControllerGetJoystick</a></li>
+<li><a href="SDL_GameControllerEventState.html" title="wikilink">SDL_GameControllerEventState</a></li>
+<li><a href="SDL_GameControllerGetAxisFromString.html" title="wikilink">SDL_GameControllerGetAxisFromString</a></li>
+<li><a href="SDL_GameControllerGetButtonFromString.html" title="wikilink">SDL_GameControllerGetButtonFromString</a></li>
+<li><a href="SDL_GameControllerGetButton.html" title="wikilink">SDL_GameControllerGetButton</a></li>
+<li><a href="SDL_GameControllerClose.html" title="wikilink">SDL_GameControllerClose</a></li>
+</ul>
+<p>These functions are currently documented as "draft" only and need improvements:</p>
+<ul>
+<li><a href="SDL_GameControllerMapping.html" title="wikilink">SDL_GameControllerMapping</a></li>
+<li><a href="SDL_GameControllerMappingForGUID.html" title="wikilink">SDL_GameControllerMappingForGUID</a></li>
+<li><a href="SDL_GameControllerGetAxis.html" title="wikilink">SDL_GameControllerGetAxis</a></li>
+<li><a href="SDL_GameControllerGetBindForAxis.html" title="wikilink">SDL_GameControllerGetBindForAxis</a></li>
+<li><a href="SDL_GameControllerGetBindForButton.html" title="wikilink">SDL_GameControllerGetBindForButton</a></li>
+<li><a href="SDL_GameControllerGetStringForAxis.html" title="wikilink">SDL_GameControllerGetStringForAxis</a></li>
+<li><a href="SDL_GameControllerGetStringForButton.html" title="wikilink">SDL_GameControllerGetStringForButton</a></li>
+<li><a href="SDL_GameControllerUpdate.html" title="wikilink">SDL_GameControllerUpdate</a></li>
+</ul>
+<h4 id="sdl_gesture.h">SDL_gesture.h</h4>
+<p>These functions are currently documented as "draft" only and need improvements:</p>
+<ul>
+<li><a href="SDL_RecordGesture.html" title="wikilink">SDL_RecordGesture</a></li>
+<li><a href="SDL_SaveAllDollarTemplates.html" title="wikilink">SDL_SaveAllDollarTemplates</a></li>
+<li><a href="SDL_SaveDollarTemplate.html" title="wikilink">SDL_SaveDollarTemplate</a></li>
+<li><a href="SDL_LoadDollarTemplates.html" title="wikilink">SDL_LoadDollarTemplates</a></li>
+</ul>
+<h4 id="sdl_hints.h">SDL_hints.h</h4>
+<p>These functions are currently documented as "draft" only and need improvements:</p>
+<ul>
+<li><a href="SDL_AddHintCallback.html" title="wikilink">SDL_AddHintCallback</a></li>
+<li><a href="SDL_DelHintCallback.html" title="wikilink">SDL_DelHintCallback</a></li>
+</ul>
+<h4 id="sdl_input.h">SDL_input.h</h4>
+<p>The input API was never implemented and has been removed, so ignore these functions.</p>
+<ul>
+<li><a href="SDL_RedetectInputDevices.html" title="wikilink">SDL_RedetectInputDevices</a></li>
+<li><a href="SDL_GetNumInputDevices.html" title="wikilink">SDL_GetNumInputDevices</a></li>
+<li><a href="SDL_GetInputDeviceName.html" title="wikilink">SDL_GetInputDeviceName</a></li>
+<li><a href="SDL_IsDeviceDisconnected.html" title="wikilink">SDL_IsDeviceDisconnected</a></li>
+</ul>
+<h4 id="sdl_joystick.h">SDL_joystick.h</h4>
+<p>These functions are currently documented as "draft" only and need improvements:</p>
+<ul>
+<li><a href="SDL_JoystickNameForIndex.html" title="wikilink">SDL_JoystickNameForIndex</a></li>
+<li><a href="SDL_JoystickGetDeviceGUID.html" title="wikilink">SDL_JoystickGetDeviceGUID</a></li>
+<li><a href="SDL_JoystickGetGUID.html" title="wikilink">SDL_JoystickGetGUID</a></li>
+<li><a href="SDL_JoystickGetGUIDString.html" title="wikilink">SDL_JoystickGetGUIDString</a></li>
+<li><a href="SDL_JoystickGetGUIDFromString.html" title="wikilink">SDL_JoystickGetGUIDFromString</a></li>
+<li><a href="SDL_JoystickGetAttached.html" title="wikilink">SDL_JoystickGetAttached</a></li>
+<li><a href="SDL_JoystickInstanceID.html" title="wikilink">SDL_JoystickInstanceID</a></li>
+</ul>
+<h4 id="sdl_keyboard.h">SDL_keyboard.h</h4>
+<p>These functions are currently documented as "draft" only and need improvements:</p>
+<ul>
+<li><a href="SDL_IsTextInputActive.html" title="wikilink">SDL_IsTextInputActive</a></li>
+<li><a href="SDL_HasScreenKeyboardSupport.html" title="wikilink">SDL_HasScreenKeyboardSupport</a></li>
+<li><a href="SDL_IsScreenKeyboardShown.html" title="wikilink">SDL_IsScreenKeyboardShown</a></li>
+</ul>
+<h4 id="sdl_main.h">SDL_main.h</h4>
+<p>These functions are platform specific and were left undocumented because they require advanced knowledge of Windows functionality. You may document them but will need to explain when and why you should use them.</p>
+<ul>
+<li><a href="SDL_RegisterApp.html" title="wikilink">SDL_RegisterApp</a></li>
+<li><a href="SDL_UnregisterApp.html" title="wikilink">SDL_UnregisterApp</a></li>
+</ul>
+<h4 id="sdl_messagebox.h">SDL_messagebox.h</h4>
+<p>These functions are currently documented as "draft" only and need improvements:</p>
+<ul>
+<li><a href="SDL_ShowMessageBox.html" title="wikilink">SDL_ShowMessageBox</a></li>
+<li><a href="SDL_ShowSimpleMessageBox.html" title="wikilink">SDL_ShowSimpleMessageBox</a></li>
+</ul>
+<h4 id="sdl_mouse.h">SDL_mouse.h</h4>
+<p>These functions are currently documented as "draft" only and need improvements:</p>
+<ul>
+<li><a href="SDL_CreateSystemCursor.html" title="wikilink">SDL_CreateSystemCursor</a></li>
+<li><a href="SDL_GetDefaultCursor.html" title="wikilink">SDL_GetDefaultCursor</a></li>
+</ul>
+<h4 id="sdl_mutex.h">SDL_mutex.h</h4>
+<p>These functions are currently documented as "draft" only and need improvements:</p>
+<ul>
+<li><a href="SDL_TryLockMutex.html" title="wikilink">SDL_TryLockMutex</a></li>
+</ul>
+<h4 id="sdl_render.h">SDL_render.h</h4>
+<p>These functions are currently documented as "draft" only and need improvements:</p>
+<ul>
+<li><a href="SDL_CreateWindowAndRenderer.html" title="wikilink">SDL_CreateWindowAndRenderer</a></li>
+<li><a href="SDL_RenderTargetSupported.html" title="wikilink">SDL_RenderTargetSupported</a></li>
+<li><a href="SDL_GetRendererOutputSize.html" title="wikilink">SDL_GetRendererOutputSize</a></li>
+<li><a href="SDL_GetRenderTarget.html" title="wikilink">SDL_GetRenderTarget</a></li>
+<li><a href="SDL_RenderSetLogicalSize.html" title="wikilink">SDL_RenderSetLogicalSize</a></li>
+<li><a href="SDL_RenderGetLogicalSize.html" title="wikilink">SDL_RenderGetLogicalSize</a></li>
+<li><a href="SDL_RenderSetScale.html" title="wikilink">SDL_RenderSetScale</a></li>
+<li><a href="SDL_RenderGetScale.html" title="wikilink">SDL_RenderGetScale</a></li>
+</ul>
+<h4 id="sdl_rwops.h">SDL_rwops.h</h4>
+<p>These functions are currently documented as "draft" only and need improvements:</p>
+<ul>
+<li><a href="SDL_ReadU8.html" title="wikilink">SDL_ReadU8</a></li>
+<li><a href="SDL_WriteU8.html" title="wikilink">SDL_WriteU8</a></li>
+</ul>
+<h4 id="sdl_shape.h">SDL_shape.h</h4>
+<p>These functions need testing on all supported platforms and possibly implementation as well.</p>
+<ul>
+<li><a href="SDL_CreateShapedWindow.html" title="wikilink">SDL_CreateShapedWindow</a></li>
+<li><a href="SDL_IsShapedWindow.html" title="wikilink">SDL_IsShapedWindow</a></li>
+<li><a href="SDL_SetWindowShape.html" title="wikilink">SDL_SetWindowShape</a></li>
+<li><a href="SDL_GetShapedWindowMode.html" title="wikilink">SDL_GetShapedWindowMode</a></li>
+</ul>
+<h4 id="sdl_system.h">SDL_system.h</h4>
+<p>These functions are currently documented as "draft" only and need improvements:</p>
+<ul>
+<li><a href="SDL_iPhoneSetAnimationCallback.html" title="wikilink">SDL_iPhoneSetAnimationCallback</a></li>
+<li><a href="SDL_iPhoneSetEventPump.html" title="wikilink">SDL_iPhoneSetEventPump</a></li>
+<li><a href="SDL_AndroidGetJNIEnv.html" title="wikilink">SDL_AndroidGetJNIEnv</a></li>
+<li><a href="SDL_AndroidGetActivity.html" title="wikilink">SDL_AndroidGetActivity</a></li>
+<li><a href="SDL_AndroidGetInternalStoragePath.html" title="wikilink">SDL_AndroidGetInternalStoragePath</a></li>
+<li><a href="SDL_AndroidGetExternalStorageState.html" title="wikilink">SDL_AndroidGetExternalStorageState</a></li>
+<li><a href="SDL_AndroidGetExternalStoragePath.html" title="wikilink">SDL_AndroidGetExternalStoragePath</a></li>
+<li><a href="SDL_Direct3D9GetAdapterIndex.html" title="wikilink">SDL_Direct3D9GetAdapterIndex</a></li>
+<li><a href="SDL_RenderGetD3D9Device.html" title="wikilink">SDL_RenderGetD3D9Device</a></li>
+</ul>
+<h4 id="sdl_thread.h">SDL_thread.h</h4>
+<p>These functions are currently documented as "draft" only and need improvements:</p>
+<ul>
+<li><a href="SDL_TLSCreate.html" title="wikilink">SDL_TLSCreate</a></li>
+<li><a href="SDL_TLSGet.html" title="wikilink">SDL_TLSGet</a></li>
+<li><a href="SDL_TLSSet.html" title="wikilink">SDL_TLSSet</a></li>
+</ul>
+<h4 id="sdl_touch.h">SDL_touch.h</h4>
+<p>These functions are currently documented as "draft" only and need improvements:</p>
+<ul>
+<li><a href="SDL_GetNumTouchDevices.html" title="wikilink">SDL_GetNumTouchDevices</a></li>
+<li><a href="SDL_GetNumTouchFingers.html" title="wikilink">SDL_GetNumTouchFingers</a></li>
+<li><a href="SDL_GetTouchDevice.html" title="wikilink">SDL_GetTouchDevice</a></li>
+<li><a href="SDL_GetTouchFinger.html" title="wikilink">SDL_GetTouchFinger</a></li>
+</ul>
+<h4 id="sdl_video.h">SDL_video.h</h4>
+<p>These functions are currently documented as "draft" only and need improvements:</p>
+<ul>
+<li><a href="SDL_GetDisplayName.html" title="wikilink">SDL_GetDisplayName</a></li>
+<li><a href="SDL_GL_GetCurrentContext.html" title="wikilink">SDL_GL_GetCurrentContext</a></li>
+<li><a href="SDL_GL_GetCurrentWindow.html" title="wikilink">SDL_GL_GetCurrentWindow</a></li>
+<li><a href="SDL_GetWindowDisplayIndex.html" title="wikilink">SDL_GetWindowDisplayIndex</a></li>
+<li><a href="SDL_SetWindowMinimumSize.html" title="wikilink">SDL_SetWindowMinimumSize</a></li>
+<li><a href="SDL_GetWindowMinimumSize.html" title="wikilink">SDL_GetWindowMinimumSize</a></li>
+<li><a href="SDL_SetWindowMaximumSize.html" title="wikilink">SDL_SetWindowMaximumSize</a></li>
+<li><a href="SDL_GetWindowMaximumSize.html" title="wikilink">SDL_GetWindowMaximumSize</a></li>
+<li><a href="SDL_SetWindowBordered.html" title="wikilink">SDL_SetWindowBordered</a></li>
+</ul>
+<h4 id="sdl_stdinc.h">SDL_stdinc.h</h4>
+<p>These functions maybe do not need to be documented here</p>
+<ul>
+<li><a href="SDL_abs.html" title="wikilink">SDL_abs</a></li>
+<li><a href="SDL_acos.html" title="wikilink">SDL_acos</a></li>
+<li><a href="SDL_asin.html" title="wikilink">SDL_asin</a></li>
+<li><a href="SDL_atan.html" title="wikilink">SDL_atan</a></li>
+<li><a href="SDL_atan2.html" title="wikilink">SDL_atan2</a></li>
+<li><a href="SDL_atof.html" title="wikilink">SDL_atof</a></li>
+<li><a href="SDL_atoi.html" title="wikilink">SDL_atoi</a></li>
+<li><a href="SDL_calloc.html" title="wikilink">SDL_calloc</a></li>
+<li><a href="SDL_ceil.html" title="wikilink">SDL_ceil</a></li>
+<li><a href="SDL_copysign.html" title="wikilink">SDL_copysign</a></li>
+<li><a href="SDL_cos.html" title="wikilink">SDL_cos</a></li>
+<li><a href="SDL_cosf.html" title="wikilink">SDL_cosf</a></li>
+<li><a href="SDL_crc32.html" title="wikilink">SDL_crc32</a></li>
+<li><a href="SDL_fabs.html" title="wikilink">SDL_fabs</a></li>
+<li><a href="SDL_floor.html" title="wikilink">SDL_floor</a></li>
+<li><a href="SDL_free.html" title="wikilink">SDL_free</a></li>
+<li><a href="SDL_getenv.html" title="wikilink">SDL_getenv</a></li>
+<li><a href="SDL_iconv.html" title="wikilink">SDL_iconv</a></li>
+<li><a href="SDL_iconv_close.html" title="wikilink">SDL_iconv_close</a></li>
+<li><a href="SDL_iconv_open.html" title="wikilink">SDL_iconv_open</a></li>
+<li><a href="SDL_iconv_string.html" title="wikilink">SDL_iconv_string</a></li>
+<li><a href="SDL_isalpha.html" title="wikilink">SDL_isalpha</a></li>
+<li><a href="SDL_isalnum.html" title="wikilink">SDL_isalnum</a></li>
+<li><a href="SDL_isblank.html" title="wikilink">SDL_isblank</a></li>
+<li><a href="SDL_iscntrl.html" title="wikilink">SDL_iscntrl</a></li>
+<li><a href="SDL_isdigit.html" title="wikilink">SDL_isdigit</a></li>
+<li><a href="SDL_isxdigit.html" title="wikilink">SDL_isxdigit</a></li>
+<li><a href="SDL_ispunct.html" title="wikilink">SDL_ispunct</a></li>
+<li><a href="SDL_isspace.html" title="wikilink">SDL_isspace</a></li>
+<li><a href="SDL_isupper.html" title="wikilink">SDL_isupper</a></li>
+<li><a href="SDL_islower.html" title="wikilink">SDL_islower</a></li>
+<li><a href="SDL_isprint.html" title="wikilink">SDL_isprint</a></li>
+<li><a href="SDL_isgraph.html" title="wikilink">SDL_isgraph</a></li>
+<li><a href="SDL_itoa.html" title="wikilink">SDL_itoa</a></li>
+<li><a href="SDL_lltoa.html" title="wikilink">SDL_lltoa</a></li>
+<li><a href="SDL_log.html" title="wikilink">SDL_log</a></li>
+<li><a href="SDL_ltoa.html" title="wikilink">SDL_ltoa</a></li>
+<li><a href="SDL_malloc.html" title="wikilink">SDL_malloc</a></li>
+<li><a href="SDL_max.html" title="wikilink">SDL_max</a></li>
+<li><a href="SDL_memcmp.html" title="wikilink">SDL_memcmp</a></li>
+<li><a href="SDL_memcpy.html" title="wikilink">SDL_memcpy</a></li>
+<li><a href="SDL_memcpy4.html" title="wikilink">SDL_memcpy4</a></li>
+<li><a href="SDL_memmove.html" title="wikilink">SDL_memmove</a></li>
+<li><a href="SDL_memset.html" title="wikilink">SDL_memset</a></li>
+<li><a href="SDL_memset4.html" title="wikilink">SDL_memset4</a></li>
+<li><a href="SDL_min.html" title="wikilink">SDL_min</a></li>
+<li><a href="SDL_pow.html" title="wikilink">SDL_pow</a></li>
+<li><a href="SDL_qsort.html" title="wikilink">SDL_qsort</a></li>
+<li><a href="SDL_realloc.html" title="wikilink">SDL_realloc</a></li>
+<li><a href="SDL_scalbn.html" title="wikilink">SDL_scalbn</a></li>
+<li><a href="SDL_setenv.html" title="wikilink">SDL_setenv</a></li>
+<li><a href="SDL_sin.html" title="wikilink">SDL_sin</a></li>
+<li><a href="SDL_sinf.html" title="wikilink">SDL_sinf</a></li>
+<li><a href="SDL_snprintf.html" title="wikilink">SDL_snprintf</a></li>
+<li><a href="SDL_sqrt.html" title="wikilink">SDL_sqrt</a></li>
+<li><a href="SDL_sscanf.html" title="wikilink">SDL_sscanf</a></li>
+<li><a href="SDL_strcasecmp.html" title="wikilink">SDL_strcasecmp</a></li>
+<li><a href="SDL_strchr.html" title="wikilink">SDL_strchr</a></li>
+<li><a href="SDL_strcmp.html" title="wikilink">SDL_strcmp</a></li>
+<li><a href="SDL_strdup.html" title="wikilink">SDL_strdup</a></li>
+<li><a href="SDL_strlcat.html" title="wikilink">SDL_strlcat</a></li>
+<li><a href="SDL_strlcpy.html" title="wikilink">SDL_strlcpy</a></li>
+<li><a href="SDL_strlen.html" title="wikilink">SDL_strlen</a></li>
+<li><a href="SDL_strlwr.html" title="wikilink">SDL_strlwr</a></li>
+<li><a href="SDL_strncasecmp.html" title="wikilink">SDL_strncasecmp</a></li>
+<li><a href="SDL_strncmp.html" title="wikilink">SDL_strncmp</a></li>
+<li><a href="SDL_strrchr.html" title="wikilink">SDL_strrchr</a></li>
+<li><a href="SDL_strrev.html" title="wikilink">SDL_strrev</a></li>
+<li><a href="SDL_strstr.html" title="wikilink">SDL_strstr</a></li>
+<li><a href="SDL_strtod.html" title="wikilink">SDL_strtod</a></li>
+<li><a href="SDL_strtol.html" title="wikilink">SDL_strtol</a></li>
+<li><a href="SDL_strtoll.html" title="wikilink">SDL_strtoll</a></li>
+<li><a href="SDL_strtoul.html" title="wikilink">SDL_strtoul</a></li>
+<li><a href="SDL_strtoull.html" title="wikilink">SDL_strtoull</a></li>
+<li><a href="SDL_strupr.html" title="wikilink">SDL_strupr</a></li>
+<li><a href="SDL_tolower.html" title="wikilink">SDL_tolower</a></li>
+<li><a href="SDL_toupper.html" title="wikilink">SDL_toupper</a></li>
+<li><a href="SDL_uitoa.html" title="wikilink">SDL_uitoa</a></li>
+<li><a href="SDL_ulltoa.html" title="wikilink">SDL_ulltoa</a></li>
+<li><a href="SDL_ultoa.html" title="wikilink">SDL_ultoa</a></li>
+<li><a href="SDL_utf8strlcpy.html" title="wikilink">SDL_utf8strlcpy</a></li>
+<li><a href="SDL_vsnprintf.html" title="wikilink">SDL_vsnprintf</a></li>
+<li><a href="SDL_wcslcat.html" title="wikilink">SDL_wcslcat</a></li>
+<li><a href="SDL_wcslcpy.html" title="wikilink">SDL_wcslcpy</a></li>
+<li><a href="SDL_wcslen.html" title="wikilink">SDL_wcslen</a></li>
+</ul>
+<h4 id="sdl2_test">SDL2_test</h4>
+<p>These functions maybe do not need to be documented here</p>
+<ul>
+<li><a href="SDLTest_Assert.html" title="wikilink">SDLTest_Assert</a></li>
+<li><a href="SDLTest_AssertCheck.html" title="wikilink">SDLTest_AssertCheck</a></li>
+<li><a href="SDLTest_AssertPass.html" title="wikilink">SDLTest_AssertPass</a></li>
+<li><a href="SDLTest_AssertSummaryToTestResult.html" title="wikilink">SDLTest_AssertSummaryToTestResult</a></li>
+<li><a href="SDLTest_CommonArg.html" title="wikilink">SDLTest_CommonArg</a></li>
+<li><a href="SDLTest_CommonCreateState.html" title="wikilink">SDLTest_CommonCreateState</a></li>
+<li><a href="SDLTest_CommonEvent.html" title="wikilink">SDLTest_CommonEvent</a></li>
+<li><a href="SDLTest_CommonInit.html" title="wikilink">SDLTest_CommonInit</a></li>
+<li><a href="SDLTest_CommonQuit.html" title="wikilink">SDLTest_CommonQuit</a></li>
+<li><a href="SDLTest_CommonUsage.html" title="wikilink">SDLTest_CommonUsage</a></li>
+<li><a href="SDLTest_CompareSurfaces.html" title="wikilink">SDLTest_CompareSurfaces</a></li>
+<li><a href="SDLTest_crc32Calc.html" title="wikilink">SDLTest_crc32Calc</a></li>
+<li><a href="SDLTest_Crc32CalcBuffer.html" title="wikilink">SDLTest_Crc32CalcBuffer</a></li>
+<li><a href="SDLTest_Crc32CalcEnd.html" title="wikilink">SDLTest_Crc32CalcEnd</a></li>
+<li><a href="SDLTest_Crc32CalcStart.html" title="wikilink">SDLTest_Crc32CalcStart</a></li>
+<li><a href="SDLTest_Crc32Done.html" title="wikilink">SDLTest_Crc32Done</a></li>
+<li><a href="SDLTest_Crc32Init.html" title="wikilink">SDLTest_Crc32Init</a></li>
+<li><a href="SDLTest_DrawString.html" title="wikilink">SDLTest_DrawString</a></li>
+<li><a href="SDLTest_FuzzerInit.html" title="wikilink">SDLTest_FuzzerInit</a></li>
+<li><a href="SDLTest_GetFuzzerInvocationCount.html" title="wikilink">SDLTest_GetFuzzerInvocationCount</a></li>
+<li><a href="SDLTest_ImageBlit.html" title="wikilink">SDLTest_ImageBlit</a></li>
+<li><a href="SDLTest_ImageBlitAlpha.html" title="wikilink">SDLTest_ImageBlitAlpha</a></li>
+<li><a href="SDLTest_ImageBlitBlend.html" title="wikilink">SDLTest_ImageBlitBlend</a></li>
+<li><a href="SDLTest_ImageBlitBlendAdd.html" title="wikilink">SDLTest_ImageBlitBlendAdd</a></li>
+<li><a href="SDLTest_ImageBlitBlendAll.html" title="wikilink">SDLTest_ImageBlitBlendAll</a></li>
+<li><a href="SDLTest_ImageBlitBlendMod.html" title="wikilink">SDLTest_ImageBlitBlendMod</a></li>
+<li><a href="SDLTest_ImageBlitBlendNone.html" title="wikilink">SDLTest_ImageBlitBlendNone</a></li>
+<li><a href="SDLTest_ImageBlitColor.html" title="wikilink">SDLTest_ImageBlitColor</a></li>
+<li><a href="SDLTest_ImageFace.html" title="wikilink">SDLTest_ImageFace</a></li>
+<li><a href="SDLTest_ImagePrimitives.html" title="wikilink">SDLTest_ImagePrimitives</a></li>
+<li><a href="SDLTest_ImagePrimitivesBlend.html" title="wikilink">SDLTest_ImagePrimitivesBlend</a></li>
+<li><a href="SDLTest_Log.html" title="wikilink">SDLTest_Log</a></li>
+<li><a href="SDLTest_LogAssertSummary.html" title="wikilink">SDLTest_LogAssertSummary</a></li>
+<li><a href="SDLTest_LogError.html" title="wikilink">SDLTest_LogError</a></li>
+<li><a href="SDLTest_Md5Final.html" title="wikilink">SDLTest_Md5Final</a></li>
+<li><a href="SDLTest_Md5Init.html" title="wikilink">SDLTest_Md5Init</a></li>
+<li><a href="SDLTest_Md5Update.html" title="wikilink">SDLTest_Md5Update</a></li>
+<li><a href="SDLTest_Random.html" title="wikilink">SDLTest_Random</a></li>
+<li><a href="SDLTest_RandomAsciiString.html" title="wikilink">SDLTest_RandomAsciiString</a></li>
+<li><a href="SDLTest_RandomAsciiStringOfSize.html" title="wikilink">SDLTest_RandomAsciiStringOfSize</a></li>
+<li><a href="SDLTest_RandomAsciiStringWithMaximumLength.html" title="wikilink">SDLTest_RandomAsciiStringWithMaximumLength</a></li>
+<li><a href="SDLTest_RandomDouble.html" title="wikilink">SDLTest_RandomDouble</a></li>
+<li><a href="SDLTest_RandomFloat.html" title="wikilink">SDLTest_RandomFloat</a></li>
+<li><a href="SDLTest_RandomInit.html" title="wikilink">SDLTest_RandomInit</a></li>
+<li><a href="SDLTest_RandomInitTime.html" title="wikilink">SDLTest_RandomInitTime</a></li>
+<li><a href="SDLTest_RandomIntegerInRange.html" title="wikilink">SDLTest_RandomIntegerInRange</a></li>
+<li><a href="SDLTest_RandomSint16.html" title="wikilink">SDLTest_RandomSint16</a></li>
+<li><a href="SDLTest_RandomSint16BoundaryValue.html" title="wikilink">SDLTest_RandomSint16BoundaryValue</a></li>
+<li><a href="SDLTest_RandomSint32.html" title="wikilink">SDLTest_RandomSint32</a></li>
+<li><a href="SDLTest_RandomSint32BoundaryValue.html" title="wikilink">SDLTest_RandomSint32BoundaryValue</a></li>
+<li><a href="SDLTest_RandomSint64.html" title="wikilink">SDLTest_RandomSint64</a></li>
+<li><a href="SDLTest_RandomSint64BoundaryValue.html" title="wikilink">SDLTest_RandomSint64BoundaryValue</a></li>
+<li><a href="SDLTest_RandomSint8.html" title="wikilink">SDLTest_RandomSint8</a></li>
+<li><a href="SDLTest_RandomSint8BoundaryValue.html" title="wikilink">SDLTest_RandomSint8BoundaryValue</a></li>
+<li><a href="SDLTest_RandomUint16.html" title="wikilink">SDLTest_RandomUint16</a></li>
+<li><a href="SDLTest_RandomUint16BoundaryValue.html" title="wikilink">SDLTest_RandomUint16BoundaryValue</a></li>
+<li><a href="SDLTest_RandomUint32.html" title="wikilink">SDLTest_RandomUint32</a></li>
+<li><a href="SDLTest_RandomUint32BoundaryValue.html" title="wikilink">SDLTest_RandomUint32BoundaryValue</a></li>
+<li><a href="SDLTest_RandomUint64.html" title="wikilink">SDLTest_RandomUint64</a></li>
+<li><a href="SDLTest_RandomUint64BoundaryValue.html" title="wikilink">SDLTest_RandomUint64BoundaryValue</a></li>
+<li><a href="SDLTest_RandomUint8.html" title="wikilink">SDLTest_RandomUint8</a></li>
+<li><a href="SDLTest_RandomUint8BoundaryValue.html" title="wikilink">SDLTest_RandomUint8BoundaryValue</a></li>
+<li><a href="SDLTest_RandomUnitDouble.html" title="wikilink">SDLTest_RandomUnitDouble</a></li>
+<li><a href="SDLTest_RandomUnitFloat.html" title="wikilink">SDLTest_RandomUnitFloat</a></li>
+<li><a href="SDLTest_ResetAssertSummary.html" title="wikilink">SDLTest_ResetAssertSummary</a></li>
+<li><a href="SDLTest_RunSuites.html" title="wikilink">SDLTest_RunSuites</a></li>
+</ul>
+<h3 id="missing-enumerations">Missing enumerations</h3>
+<ul>
+<li><a href="SDL_eventaction.html" title="wikilink">SDL_eventaction</a></li>
+<li><a href="SDL_GameControllerBindType.html" title="wikilink">SDL_GameControllerBindType</a></li>
+<li>--(<a href="SDL_SystemCursor.html" title="wikilink">SDL_SystemCursor</a>)-- (only needed in <a href="SDL_CreateSystemCursor.html" title="wikilink">SDL_CreateSystemCursor</a>)</li>
+<li><a href="WindowShapeMode.html" title="wikilink">WindowShapeMode</a></li>
+</ul>
+<p>These enumerations are currently documented as "draft" only and need improvements:</p>
+<ul>
+<li><a href="SDL_GameControllerAxis.html" title="wikilink">SDL_GameControllerAxis</a></li>
+<li><a href="SDL_GameControllerButton.html" title="wikilink">SDL_GameControllerButton</a></li>
+<li><a href="SDL_MessageBoxButtonFlags.html" title="wikilink">SDL_MessageBoxButtonFlags</a></li>
+<li><a href="SDL_MessageBoxColorType.html" title="wikilink">SDL_MessageBoxColorType</a></li>
+<li><a href="SDL_MessageBoxFlags.html" title="wikilink">SDL_MessageBoxFlags</a></li>
+</ul>
+<h3 id="missing-structures">Missing structures</h3>
+<h4 id="sdl_events.h">SDL_events.h</h4>
+<ul>
+<li>--(SDL_CommonEvent)-- (shared)</li>
+<li>--(SDL_OSEvent)-- (unused)</li>
+</ul>
+<p>These structures are currently documented as "draft" only and need improvements:</p>
+<ul>
+<li><a href="SDL_JoyDeviceEvent.html" title="wikilink">SDL_JoyDeviceEvent</a></li>
+<li><a href="SDL_ControllerAxisEvent.html" title="wikilink">SDL_ControllerAxisEvent</a></li>
+<li><a href="SDL_ControllerButtonEvent.html" title="wikilink">SDL_ControllerButtonEvent</a></li>
+<li><a href="SDL_ControllerDeviceEvent.html" title="wikilink">SDL_ControllerDeviceEvent</a></li>
+</ul>
+<h4 id="sdl_gamecontroller.h-1">SDL_gamecontroller.h</h4>
+<ul>
+<li><a href="SDL_GameControllerButtonBind.html" title="wikilink">SDL_GameControllerButtonBind</a></li>
+</ul>
+<h4 id="sdl_haptic.h">SDL_haptic.h</h4>
+<p>These structures are currently documented as "draft" only and need improvements:</p>
+<ul>
+<li><a href="SDL_HapticLeftRight.html" title="wikilink">SDL_HapticLeftRight</a></li>
+</ul>
+<h4 id="sdl_joystick.h-1">SDL_joystick.h</h4>
+<ul>
+<li><a href="SDL_JoystickGUID.html" title="wikilink">SDL_JoystickGUID</a></li>
+</ul>
+<h4 id="sdl_messagebox.h-1">SDL_messagebox.h</h4>
+<p>These structures are currently documented as "draft" only and need improvements:</p>
+<ul>
+<li><a href="SDL_MessageBoxButtonData.html" title="wikilink">SDL_MessageBoxButtonData</a></li>
+<li><a href="SDL_MessageBoxColor.html" title="wikilink">SDL_MessageBoxColor</a></li>
+<li><a href="SDL_MessageBoxColorScheme.html" title="wikilink">SDL_MessageBoxColorScheme</a></li>
+<li><a href="SDL_MessageBoxData.html" title="wikilink">SDL_MessageBoxData</a></li>
+</ul>
+<h4 id="sdl_shape.h-1">SDL_shape.h</h4>
+<ul>
+<li><a href="SDL_WindowShapeMode.html" title="wikilink">SDL_WindowShapeMode</a></li>
+</ul>
+<h4 id="sdl_touch.h-1">SDL_touch.h</h4>
+<p>These structures are currently documented as "draft" only and need improvements:</p>
+<ul>
+<li><a href="SDL_Finger.html" title="wikilink">SDL_Finger</a></li>
+</ul>
+<h4 id="sdl2_test-1">SDL2_test</h4>
+<ul>
+<li><a href="SDLTest_CommonState.html" title="wikilink">SDLTest_CommonState</a></li>
+<li><a href="SDLTest_Crc32Context.html" title="wikilink">SDLTest_Crc32Context</a></li>
+<li><a href="SDLTest_Md5Context.html" title="wikilink">SDLTest_Md5Context</a></li>
+<li><a href="SDLTest_RandomContext.html" title="wikilink">SDLTest_RandomContext</a></li>
+<li><a href="SDLTest_SurfaceImage_t.html" title="wikilink">SDLTest_SurfaceImage_t</a></li>
+<li><a href="SDLTest_TestCaseReference.html" title="wikilink">SDLTest_TestCaseReference</a></li>
+<li><a href="SDLTest_TestSuiteReference.html" title="wikilink">SDLTest_TestSuiteReference</a></li>
+</ul>
+<h3 id="missing-unions">Missing unions</h3>
+<h4 id="sdl_shape.h-2">SDL_shape.h</h4>
+<ul>
+<li><a href="SDL_WindowShapeParams.html" title="wikilink">SDL_WindowShapeParams</a></li>
+</ul>
+<h3 id="not-linked-pages">Not linked pages</h3>
+<ul>
+<li><a href="Test.html" title="wikilink">Test</a></li>
+<li><a href="SDL_DirtyTexture.html" title="wikilink">SDL_DirtyTexture</a></li>
+<li><a href="SDL-gsoc2010_android.html" title="wikilink">SDL-gsoc2010_android</a></li>
+<li><a href="SDL-gsoc2010_gesture.html" title="wikilink">SDL-gsoc2010_gesture</a></li>
+<li><a href="SDL-gsoc2010_IME.html" title="wikilink">SDL-gsoc2010_IME</a></li>
+<li><a href="SDL-gsoc2010_shaped_windows.html" title="wikilink">SDL-gsoc2010_shaped_windows</a></li>
+<li><a href="SDL-gsoc2010_xrender.html" title="wikilink">SDL-gsoc2010_xrender</a></li>
+</ul>
+</body>
+</html>

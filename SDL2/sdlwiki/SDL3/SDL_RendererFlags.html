@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>SDL_RendererFlags</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<nav id="TOC">
+<ul>
+<li><a href="#sdl_rendererflags">SDL_RendererFlags</a><ul>
+<li><a href="#values">Values</a></li>
+<li><a href="#related-structures">Related Structures</a></li>
+<li><a href="#related-functions">Related Functions</a></li>
+</ul></li>
+</ul>
+</nav>
+<h1 id="sdl_rendererflags">SDL_RendererFlags</h1>
+<p>An enumeration of flags used when creating a rendering context.</p>
+<h2 id="values">Values</h2>
+<table>
+<tbody>
+<tr class="odd">
+<td><p>SDL_RENDERER_SOFTWARE</p></td>
+<td><p>the renderer is a software fallback</p></td>
+</tr>
+<tr class="even">
+<td><p>SDL_RENDERER_ACCELERATED</p></td>
+<td><p>the renderer uses hardware acceleration</p></td>
+</tr>
+<tr class="odd">
+<td><p>SDL_RENDERER_PRESENTVSYNC</p></td>
+<td><p>present is synchronized with the refresh rate</p></td>
+</tr>
+<tr class="even">
+<td><p>SDL_RENDERER_TARGETTEXTURE</p></td>
+<td><p>the renderer supports rendering to texture</p></td>
+</tr>
+</tbody>
+</table>
+<p>Note that providing no flags gives priority to available SDL_RENDERER_ACCELERATED renderers.</p>
+<h2 id="related-structures">Related Structures</h2>
+<dl>
+<dt></dt>
+<dd><a href="SDL_RendererInfo.html" title="wikilink">SDL_RendererInfo</a>
+</dd>
+</dl>
+<h2 id="related-functions">Related Functions</h2>
+<dl>
+<dt></dt>
+<dd><a href="SDL_CreateRenderer.html" title="wikilink">SDL_CreateRenderer</a>
+</dd>
+</dl>
+<hr />
+<p><a href="CategoryEnum.html" title="wikilink">CategoryEnum</a>, <a href="CategoryRender.html" title="wikilink">CategoryRender</a></p>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>SDL_HapticLeftRight</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<nav id="TOC">
+<ul>
+<li><a href="#draft">Draft</a></li>
+<li><a href="#sdl_hapticleftright">SDL_HapticLeftRight</a><ul>
+<li><a href="#data-fields">Data Fields</a></li>
+<li><a href="#remarks">Remarks</a></li>
+<li><a href="#related-structures">Related Structures</a></li>
+<li><a href="#related-functions">Related Functions</a></li>
+</ul></li>
+</ul>
+</nav>
+<h2 id="draft">Draft</h2>
+<p><strong>THIS PAGE IS A WORK IN PROGRESS</strong> ... Please make edits to this page to improve it!</p>
+<h1 id="sdl_hapticleftright">SDL_HapticLeftRight</h1>
+<p>A structure that contains a template for a left/right effect.</p>
+<h2 id="data-fields">Data Fields</h2>
+<table>
+<tbody>
+<tr class="odd">
+<td></td>
+<td></td>
+<td><p>&lt;bgcolor="#EDEDED"&gt;<em>Header</em></p></td>
+</tr>
+<tr class="even">
+<td><p>Uint16</p></td>
+<td><p><strong>type</strong></p></td>
+<td><p>SDL_HAPTIC_LEFTRIGHT</p></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td><p>&lt;bgcolor="#EDEDED"&gt;<em>Replay</em></p></td>
+</tr>
+<tr class="even">
+<td><p>Uint32</p></td>
+<td><p><strong>length</strong></p></td>
+<td><p>duration of the effect</p></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td><p>&lt;bgcolor="#EDEDED"&gt;<em>Rumble</em></p></td>
+</tr>
+<tr class="even">
+<td><p>Uint16</p></td>
+<td><p><strong>large_magnitude</strong></p></td>
+<td><p>control of the large controller motor</p></td>
+</tr>
+<tr class="odd">
+<td><p>Uint16</p></td>
+<td><p><strong>small_magnitude</strong></p></td>
+<td><p>control of the small controller motor</p></td>
+</tr>
+</tbody>
+</table>
+<h2 id="remarks">Remarks</h2>
+<p>This struct is exclusively for the SDL_HAPTIC_LEFTRIGHT effect.</p>
+<p>The left/right effect is used to explicitly control the large and small motors, commonly found in modern game controllers. One motor is high frequency, the other is low frequency.</p>
+<h2 id="related-structures">Related Structures</h2>
+<dl>
+<dt></dt>
+<dd><a href="SDL_HapticEffect.html" title="wikilink">SDL_HapticEffect</a>
+</dd>
+</dl>
+<h2 id="related-functions">Related Functions</h2>
+<dl>
+<dt></dt>
+<dd><a href="SDL_HapticNewEffect.html" title="wikilink">SDL_HapticNewEffect</a>
+</dd>
+</dl>
+<hr />
+<p><a href="CategoryStruct.html" title="wikilink">CategoryStruct</a>, <a href="CategoryForceFeedback.html" title="wikilink">CategoryForceFeedback</a>, <a href="CategoryDraft.html" title="wikilink">CategoryDraft</a></p>
+</body>
+</html>

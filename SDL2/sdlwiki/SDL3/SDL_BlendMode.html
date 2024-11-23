@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>SDL_BlendMode</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<nav id="TOC">
+<ul>
+<li><a href="#sdl_blendmode">SDL_BlendMode</a><ul>
+<li><a href="#values">Values</a></li>
+<li><a href="#related-structures">Related Structures</a></li>
+<li><a href="#related-functions">Related Functions</a></li>
+</ul></li>
+</ul>
+</nav>
+<h1 id="sdl_blendmode">SDL_BlendMode</h1>
+<p>An enumeration of blend modes used in <a href="SDL_RenderTexture.html" title="wikilink">SDL_RenderTexture</a>() and drawing operations. Note that additional values may be obtained from <a href="SDL_ComposeCustomBlendMode.html" title="wikilink">SDL_ComposeCustomBlendMode</a>().</p>
+<h2 id="values">Values</h2>
+<table>
+<tbody>
+<tr class="odd">
+<td><p>SDL_BLENDMODE_NONE</p></td>
+<td><p>no blending</p></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><p>dstRGBA = srcRGBA</p></td>
+</tr>
+<tr class="odd">
+<td><p>SDL_BLENDMODE_BLEND</p></td>
+<td><p>alpha blending</p></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><p>dstRGB = (srcRGB * srcA) + (dstRGB * (1-srcA))</p></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><p>dstA = srcA + (dstA * (1-srcA))</p></td>
+</tr>
+<tr class="even">
+<td><p>SDL_BLENDMODE_ADD</p></td>
+<td><p>additive blending</p></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><p>dstRGB = (srcRGB * srcA) + dstRGB</p></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><p>dstA = dstA</p></td>
+</tr>
+<tr class="odd">
+<td><p>SDL_BLENDMODE_MOD</p></td>
+<td><p>color modulate</p></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><p>dstRGB = srcRGB * dstRGB</p></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><p>dstA = dstA</p></td>
+</tr>
+</tbody>
+</table>
+<h2 id="related-structures">Related Structures</h2>
+<dl>
+<dt></dt>
+<dd><a href="SDL_RendererInfo.html" title="wikilink">SDL_RendererInfo</a>
+</dd>
+</dl>
+<h2 id="related-functions">Related Functions</h2>
+<dl>
+<dt></dt>
+<dd><a href="SDL_GetRenderDrawBlendMode.html" title="wikilink">SDL_GetRenderDrawBlendMode</a>
+</dd>
+<dd><a href="SDL_GetSurfaceBlendMode.html" title="wikilink">SDL_GetSurfaceBlendMode</a>
+</dd>
+<dd><a href="SDL_GetTextureBlendMode.html" title="wikilink">SDL_GetTextureBlendMode</a>
+</dd>
+<dd><a href="SDL_RenderTexture.html" title="wikilink">SDL_RenderTexture</a>
+</dd>
+<dd><a href="SDL_SetRenderDrawBlendMode.html" title="wikilink">SDL_SetRenderDrawBlendMode</a>
+</dd>
+<dd><a href="SDL_SetSurfaceBlendMode.html" title="wikilink">SDL_SetSurfaceBlendMode</a>
+</dd>
+<dd><a href="SDL_SetTextureBlendMode.html" title="wikilink">SDL_SetTextureBlendMode</a>
+</dd>
+<dd><a href="SDL_ComposeCustomBlendMode.html" title="wikilink">SDL_ComposeCustomBlendMode</a>
+</dd>
+</dl>
+<hr />
+<p><a href="CategoryEnum.html" title="wikilink">CategoryEnum</a>, <a href="CategoryVideo.html" title="wikilink">CategoryVideo</a></p>
+</body>
+</html>

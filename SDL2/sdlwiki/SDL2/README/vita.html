@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>vita</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<nav id="TOC">
+<ul>
+<li><a href="#ps-vita">PS Vita</a><ul>
+<li><a href="#building">Building</a></li>
+<li><a href="#notes">Notes</a></li>
+</ul></li>
+</ul>
+</nav>
+<h1 id="ps-vita">PS Vita</h1>
+<p>SDL port for the Sony Playstation Vita and Sony Playstation TV</p>
+<p>Credit to</p>
+<ul>
+<li>xerpi, cpasjuste and rsn8887 for initial (vita2d) port</li>
+<li>vitasdk/dolcesdk devs</li>
+<li>CBPS discord (Namely Graphene and SonicMastr)</li>
+</ul>
+<h2 id="building">Building</h2>
+<p>To build for the PSVita, make sure you have vitasdk and cmake installed and run:</p>
+<pre><code>   cmake -S. -Bbuild -DCMAKE_TOOLCHAIN_FILE=${VITASDK}/share/vita.toolchain.cmake -DCMAKE_BUILD_TYPE=Release
+   cmake --build build
+   cmake --install build</code></pre>
+<h2 id="notes">Notes</h2>
+<ul>
+<li>gles1/gles2 support and renderers are disabled by default and can be enabled by configuring with <code>-DVIDEO_VITA_PVR=ON</code> These renderers support 720p and 1080i resolutions. These can be specified with: <code>SDL_setenv("VITA_RESOLUTION", "720", 1);</code> and <code>SDL_setenv("VITA_RESOLUTION", "1080", 1);</code></li>
+<li>Desktop GL 1.X and 2.X support and renderers are also disabled by default and also can be enabled with <code>-DVIDEO_VITA_PVR=ON</code> as long as gl4es4vita is present in your SDK. They support the same resolutions as the gles1/gles2 backends and require specifying <code>SDL_setenv("VITA_PVR_OGL", "1", 1);</code> anytime before video subsystem initialization.</li>
+<li>gles2 support via PIB is disabled by default and can be enabled by configuring with <code>-DVIDEO_VITA_PIB=ON</code></li>
+<li>By default SDL emits mouse events for touch events on every touchscreen. Vita has two touchscreens, so it's recommended to use <code>SDL_SetHint(SDL_HINT_TOUCH_MOUSE_EVENTS, "0");</code> and handle touch events instead. Individual touchscreens can be disabled with: <code>SDL_setenv("VITA_DISABLE_TOUCH_FRONT", "1", 1);</code> and <code>SDL_setenv("VITA_DISABLE_TOUCH_BACK", "1", 1);</code></li>
+<li>Support for L2/R2/R3/R3 buttons, haptic feedback and gamepad led only available on PSTV, or when using external ds4 gamepad on vita.</li>
+</ul>
+</body>
+</html>

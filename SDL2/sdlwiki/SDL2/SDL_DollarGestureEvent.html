@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>SDL_DollarGestureEvent</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<nav id="TOC">
+<ul>
+<li><a href="#draft">Draft</a></li>
+<li><a href="#sdl_dollargestureevent">SDL_DollarGestureEvent</a><ul>
+<li><a href="#data-fields">Data Fields</a></li>
+<li><a href="#remarks">Remarks</a></li>
+<li><a href="#related-enumerations">Related Enumerations</a></li>
+<li><a href="#related-structures">Related Structures</a></li>
+</ul></li>
+</ul>
+</nav>
+<h2 id="draft">Draft</h2>
+<p><strong>THIS PAGE IS A WORK IN PROGRESS</strong> ... Please make edits to this page to improve it!</p>
+<h1 id="sdl_dollargestureevent">SDL_DollarGestureEvent</h1>
+<p>A structure that contains complex gesture event information.</p>
+<h2 id="data-fields">Data Fields</h2>
+<table>
+<tbody>
+<tr class="odd">
+<td><p>Uint32</p></td>
+<td><p><strong>type</strong></p></td>
+<td><p>SDL_DOLLARGESTURE or SDL_DOLLARRECORD</p></td>
+</tr>
+<tr class="even">
+<td><p>Uint32</p></td>
+<td><p><strong>timestamp</strong></p></td>
+<td><p>timestamp of the event</p></td>
+</tr>
+<tr class="odd">
+<td><p>SDL_TouchID</p></td>
+<td><p><strong>touchId</strong></p></td>
+<td><p>the touch device id</p></td>
+</tr>
+<tr class="even">
+<td><p>SDL_GestureID</p></td>
+<td><p><strong>gestureId</strong></p></td>
+<td><p>the unique id of the closest gesture to the performed stroke</p></td>
+</tr>
+<tr class="odd">
+<td><p>Uint32</p></td>
+<td><p><strong>numFingers</strong></p></td>
+<td><p>the number of fingers used to draw the stroke</p></td>
+</tr>
+<tr class="even">
+<td><p>float</p></td>
+<td><p><strong>error</strong></p></td>
+<td><p>the difference between the gesture template and the actual performed gesture (lower error is a better match)</p></td>
+</tr>
+<tr class="odd">
+<td><p>float</p></td>
+<td><p><strong>x</strong></p></td>
+<td><p>the normalized center of gesture</p></td>
+</tr>
+<tr class="even">
+<td><p>float</p></td>
+<td><p><strong>y</strong></p></td>
+<td><p>the normalized center of gesture</p></td>
+</tr>
+</tbody>
+</table>
+<h2 id="remarks">Remarks</h2>
+<p><a href="SDL_DollarGestureEvent.html" title="wikilink">SDL_DollarGestureEvent</a> is a member of the <a href="SDL_Event.html" title="wikilink">SDL_Event</a> union and is used when an event of type SDL_DOLLARGESTURE is reported. You would access it through the event's <code>dgesture</code> field.</p>
+<p><strong>x</strong> and <strong>y</strong> are in range 0 to 1.</p>
+<p>For SDL_DOLLARRECORD only <strong>touchId</strong> and <strong>gestureId</strong> are valid.</p>
+<p>For more information see: <a href="http://hg.libsdl.org/SDL/file/default/docs/README-gesture.md.html">README-gesture.md</a></p>
+<h2 id="related-enumerations">Related Enumerations</h2>
+<dl>
+<dt></dt>
+<dd><a href="SDL_EventType.html" title="wikilink">SDL_EventType</a>
+</dd>
+</dl>
+<h2 id="related-structures">Related Structures</h2>
+<dl>
+<dt></dt>
+<dd><a href="SDL_Event.html" title="wikilink">SDL_Event</a>
+</dd>
+<dd><a href="SDL_MultiGestureEvent.html" title="wikilink">SDL_MultiGestureEvent</a>
+</dd>
+</dl>
+<hr />
+<p><a href="CategoryStruct.html" title="wikilink">CategoryStruct</a>, <a href="CategoryEvents.html" title="wikilink">CategoryEvents</a>, <a href="CategoryDraft.html" title="wikilink">CategoryDraft</a></p>
+</body>
+</html>

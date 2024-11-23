@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>SDL_Event</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+</head>
+<body>
+<nav id="TOC">
+<ul>
+<li><a href="#sdl_event">SDL_Event</a><ul>
+<li><a href="#data-fields">Data Fields</a></li>
+<li><a href="#remarks">Remarks</a></li>
+<li><a href="#related-enumerations">Related Enumerations</a></li>
+<li><a href="#related-structures">Related Structures</a></li>
+<li><a href="#related-functions">Related Functions</a></li>
+</ul></li>
+</ul>
+</nav>
+<h1 id="sdl_event">SDL_Event</h1>
+<p>A union that contains structures for the different event types.</p>
+<h2 id="data-fields">Data Fields</h2>
+<table>
+<tbody>
+<tr class="odd">
+<td><p>Uint32</p></td>
+<td><p><strong>type</strong></p></td>
+<td><p>event type, shared with all events</p></td>
+</tr>
+<tr class="even">
+<td><p><a href="SDL_CommonEvent.html" title="wikilink">SDL_CommonEvent</a></p></td>
+<td><p><strong>common</strong></p></td>
+<td><p>common event data</p></td>
+</tr>
+<tr class="odd">
+<td><p><a href="SDL_WindowEvent.html" title="wikilink">SDL_WindowEvent</a></p></td>
+<td><p><strong>window</strong></p></td>
+<td><p>window event data</p></td>
+</tr>
+<tr class="even">
+<td><p><a href="SDL_KeyboardEvent.html" title="wikilink">SDL_KeyboardEvent</a></p></td>
+<td><p><strong>key</strong></p></td>
+<td><p>keyboard event data</p></td>
+</tr>
+<tr class="odd">
+<td><p><a href="SDL_TextEditingEvent.html" title="wikilink">SDL_TextEditingEvent</a></p></td>
+<td><p><strong>edit</strong></p></td>
+<td><p>text editing event data</p></td>
+</tr>
+<tr class="even">
+<td><p><a href="SDL_TextInputEvent.html" title="wikilink">SDL_TextInputEvent</a></p></td>
+<td><p><strong>text</strong></p></td>
+<td><p>text input event data</p></td>
+</tr>
+<tr class="odd">
+<td><p><a href="SDL_MouseMotionEvent.html" title="wikilink">SDL_MouseMotionEvent</a></p></td>
+<td><p><strong>motion</strong></p></td>
+<td><p>mouse motion event data</p></td>
+</tr>
+<tr class="even">
+<td><p><a href="SDL_MouseButtonEvent.html" title="wikilink">SDL_MouseButtonEvent</a></p></td>
+<td><p><strong>button</strong></p></td>
+<td><p>mouse button event data</p></td>
+</tr>
+<tr class="odd">
+<td><p><a href="SDL_MouseWheelEvent.html" title="wikilink">SDL_MouseWheelEvent</a></p></td>
+<td><p><strong>wheel</strong></p></td>
+<td><p>mouse wheel event data</p></td>
+</tr>
+<tr class="even">
+<td><p><a href="SDL_JoyAxisEvent.html" title="wikilink">SDL_JoyAxisEvent</a></p></td>
+<td><p><strong>jaxis</strong></p></td>
+<td><p>joystick axis event data</p></td>
+</tr>
+<tr class="odd">
+<td><p><a href="SDL_JoyHatEvent.html" title="wikilink">SDL_JoyHatEvent</a></p></td>
+<td><p><strong>jhat</strong></p></td>
+<td><p>joystick hat event data</p></td>
+</tr>
+<tr class="even">
+<td><p><a href="SDL_JoyButtonEvent.html" title="wikilink">SDL_JoyButtonEvent</a></p></td>
+<td><p><strong>jbutton</strong></p></td>
+<td><p>joystick button event data</p></td>
+</tr>
+<tr class="odd">
+<td><p><a href="SDL_JoyDeviceEvent.html" title="wikilink">SDL_JoyDeviceEvent</a></p></td>
+<td><p><strong>jdevice</strong></p></td>
+<td><p>joystick device event data</p></td>
+</tr>
+<tr class="even">
+<td><p><a href="SDL_GamepadAxisEvent.html" title="wikilink">SDL_GamepadAxisEvent</a></p></td>
+<td><p><strong>caxis</strong></p></td>
+<td><p>game controller axis event data</p></td>
+</tr>
+<tr class="odd">
+<td><p><a href="SDL_GamepadButtonEvent.html" title="wikilink">SDL_GamepadButtonEvent</a></p></td>
+<td><p><strong>cbutton</strong></p></td>
+<td><p>game controller button event data</p></td>
+</tr>
+<tr class="even">
+<td><p><a href="SDL_GamepadDeviceEvent.html" title="wikilink">SDL_GamepadDeviceEvent</a></p></td>
+<td><p><strong>cdevice</strong></p></td>
+<td><p>game controller device event data</p></td>
+</tr>
+<tr class="odd">
+<td><p><a href="SDL_AudioDeviceEvent.html" title="wikilink">SDL_AudioDeviceEvent</a></p></td>
+<td><p><strong>adevice</strong></p></td>
+<td><p>audio device event data (&gt;= SDL 2.0.4)</p></td>
+</tr>
+<tr class="even">
+<td><p><a href="SDL_QuitEvent.html" title="wikilink">SDL_QuitEvent</a></p></td>
+<td><p><strong>quit</strong></p></td>
+<td><p>quit request event data</p></td>
+</tr>
+<tr class="odd">
+<td><p><a href="SDL_UserEvent.html" title="wikilink">SDL_UserEvent</a></p></td>
+<td><p><strong>user</strong></p></td>
+<td><p>custom event data</p></td>
+</tr>
+<tr class="even">
+<td><p><a href="SDL_SysWMEvent.html" title="wikilink">SDL_SysWMEvent</a></p></td>
+<td><p><strong>syswm</strong></p></td>
+<td><p>system dependent window event data</p></td>
+</tr>
+<tr class="odd">
+<td><p><a href="SDL_TouchFingerEvent.html" title="wikilink">SDL_TouchFingerEvent</a></p></td>
+<td><p><strong>tfinger</strong></p></td>
+<td><p>touch finger event data</p></td>
+</tr>
+<tr class="even">
+<td><p><a href="SDL_DropEvent.html" title="wikilink">SDL_DropEvent</a></p></td>
+<td><p><strong>drop</strong></p></td>
+<td><p>drag and drop event data</p></td>
+</tr>
+</tbody>
+</table>
+<h2 id="remarks">Remarks</h2>
+<p>The <a href="SDL_Event.html" title="wikilink">SDL_Event</a> structure is the core of all event handling in SDL. <a href="SDL_Event.html" title="wikilink">SDL_Event</a> is a union of all event structures used in SDL. Using it is a simple matter of knowing which event type corresponds to which union member. The <a href="#table.html" title="wikilink">table</a> below lists these relationships.</p>
+<p>The <a href="SDL_Event.html" title="wikilink">SDL_Event</a> structure has two uses:</p>
+<ul>
+<li><a href="#reading.html" title="wikilink">Reading events from the event queue</a></li>
+<li><a href="#push.html" title="wikilink">Placing events on the event queue</a></li>
+</ul>
+<p><span id="reading"></span> ~+<strong>Reading events from the event queue</strong>+~</p>
+<p>Reading events from the event queue is done with either <a href="SDL_PollEvent.html" title="wikilink">SDL_PollEvent</a>() or <a href="SDL_PeepEvents.html" title="wikilink">SDL_PeepEvents</a>(). We'll use <a href="SDL_PollEvent.html" title="wikilink">SDL_PollEvent</a>() and step through an example.</p>
+<p>First off, we create an empty <a href="SDL_Event.html" title="wikilink">SDL_Event</a> structure.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode c++"><code class="sourceCode cpp"><a class="sourceLine" id="cb1-1" title="1">SDL_Event test_event;</a></code></pre></div>
+<p><a href="SDL_PollEvent.html" title="wikilink">SDL_PollEvent</a>() removes the next event from the event queue. If there are no events on the queue it returns 0, otherwise it returns 1. We use a ```while``` loop to process each event in turn.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode c++"><code class="sourceCode cpp"><a class="sourceLine" id="cb2-1" title="1"><span class="cf">while</span> (SDL_PollEvent(&amp;test_event)) {</a></code></pre></div>
+<p>The <a href="SDL_PollEvent.html" title="wikilink">SDL_PollEvent</a>() function takes a pointer to an <a href="SDL_Event.html" title="wikilink">SDL_Event</a> structure that is to be filled with event information. We know that if <a href="SDL_PollEvent.html" title="wikilink">SDL_PollEvent</a>() removes an event from the queue then the event information will be placed in our test_event structure, but we also know that the type of event will be placed in the <strong>type</strong> member of test_event. So to handle each event type separately we use a ```switch``` statement.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode c++"><code class="sourceCode cpp"><a class="sourceLine" id="cb3-1" title="1">  <span class="cf">switch</span> (test_event.type) {</a></code></pre></div>
+<p>We need to know what kind of events we're looking for and the event types of those events. So let's assume we want to detect where the user is moving the mouse pointer within our application. We look through our event types and notice that SDL_EVENT_MOUSE_MOTION is, more than likely, the event we're looking for. Looking at the <a href="#table.html" title="wikilink">table</a> below tells us that SDL_EVENT_MOUSE_MOTION events are handled within the <a href="SDL_MouseMotionEvent.html" title="wikilink">SDL_MouseMotionEvent</a> structure which is the <strong>motion</strong> member of <a href="SDL_Event.html" title="wikilink">SDL_Event</a>. We can check for the SDL_EVENT_MOUSE_MOTION event <strong>type</strong> within our ```switch``` statement like so:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode c++"><code class="sourceCode cpp"><a class="sourceLine" id="cb4-1" title="1">    <span class="cf">case</span> SDL_EVENT_MOUSE_MOTION:</a></code></pre></div>
+<p>All we need to do now is read the information out of the <strong>motion</strong> member of test_event.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode c++"><code class="sourceCode cpp"><a class="sourceLine" id="cb5-1" title="1">      printf(<span class="st">&quot;We got a motion event.</span><span class="sc">\n</span><span class="st">&quot;</span>);</a>
+<a class="sourceLine" id="cb5-2" title="2">      printf(<span class="st">&quot;Current mouse position is: (</span><span class="sc">%d</span><span class="st">, </span><span class="sc">%d</span><span class="st">)</span><span class="sc">\n</span><span class="st">&quot;</span>, test_event.motion.x, test_event.motion.y);</a>
+<a class="sourceLine" id="cb5-3" title="3">      <span class="cf">break</span>;</a>
+<a class="sourceLine" id="cb5-4" title="4">    <span class="cf">default</span>:</a>
+<a class="sourceLine" id="cb5-5" title="5">      printf(<span class="st">&quot;Unhandled Event!</span><span class="sc">\n</span><span class="st">&quot;</span>);</a>
+<a class="sourceLine" id="cb5-6" title="6">      <span class="cf">break</span>;</a>
+<a class="sourceLine" id="cb5-7" title="7">  }</a>
+<a class="sourceLine" id="cb5-8" title="8">}</a>
+<a class="sourceLine" id="cb5-9" title="9">printf(<span class="st">&quot;Event queue empty.</span><span class="sc">\n</span><span class="st">&quot;</span>);</a></code></pre></div>
+<p><span id="push"></span> ~+<strong>Placing events on the event queue</strong>+~</p>
+<p>It is also possible to push events onto the event queue and so use it as a two-way communication path. Both <a href="SDL_PushEvent.html" title="wikilink">SDL_PushEvent</a>() and <a href="SDL_PeepEvents.html" title="wikilink">SDL_PeepEvents</a>() allow you to place events onto the event queue. This is usually used to place a SDL_EVENT_USER on the event queue, however you could use it to post fake input events if you wished. Creating your own events is a simple matter of choosing the event type you want, setting the <strong>type</strong> member and filling the appropriate member structure with information.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode c++"><code class="sourceCode cpp"><a class="sourceLine" id="cb6-1" title="1">SDL_Event user_event;</a>
+<a class="sourceLine" id="cb6-2" title="2"></a>
+<a class="sourceLine" id="cb6-3" title="3">user_event.type = SDL_EVENT_USER;</a>
+<a class="sourceLine" id="cb6-4" title="4">user_event.user.code = <span class="dv">2</span>;</a>
+<a class="sourceLine" id="cb6-5" title="5">user_event.user.data1 = NULL;</a>
+<a class="sourceLine" id="cb6-6" title="6">user_event.user.data2 = NULL;</a>
+<a class="sourceLine" id="cb6-7" title="7">SDL_PushEvent(&amp;user_event);</a></code></pre></div>
+<p><span id="table"></span> ~+<strong>Relationships between event types and union members</strong>+~</p>
+<table>
+<tbody>
+<tr class="odd">
+<td><p><em>Event Type</em></p></td>
+<td><p><em>Event Structure</em></p></td>
+<td><p><em>SDL_Event Field</em></p></td>
+</tr>
+<tr class="even">
+<td><p>SDL_EVENT_AUDIO_DEVICE_ADDED<br />
+SDL_EVENT_AUDIO_DEVICE_REMOVED</p></td>
+<td><p><a href="SDL_AudioDeviceEvent.html" title="wikilink">SDL_AudioDeviceEvent</a></p></td>
+<td><p><strong>adevice</strong></p></td>
+</tr>
+<tr class="odd">
+<td><p>SDL_EVENT_GAMEPAD_AXIS_MOTION</p></td>
+<td><p><a href="SDL_GamepadAxisEvent.html" title="wikilink">SDL_GamepadAxisEvent</a></p></td>
+<td><p><strong>caxis</strong></p></td>
+</tr>
+<tr class="even">
+<td><p>SDL_EVENT_GAMEPAD_BUTTON_DOWN<br />
+SDL_EVENT_GAMEPAD_BUTTON_UP</p></td>
+<td><p><a href="SDL_GamepadButtonEvent.html" title="wikilink">SDL_GamepadButtonEvent</a></p></td>
+<td><p><strong>cbutton</strong></p></td>
+</tr>
+<tr class="odd">
+<td><p>SDL_EVENT_GAMEPAD_ADDED<br />
+SDL_EVENT_GAMEPAD_REMOVED<br />
+SDL_EVENT_GAMEPAD_REMAPPED</p></td>
+<td><p><a href="SDL_GamepadDeviceEvent.html" title="wikilink">SDL_GamepadDeviceEvent</a></p></td>
+<td><p><strong>cdevice</strong> |-dg</p></td>
+</tr>
+<tr class="even">
+<td><p>SDL_EVENT_FINGER_MOTION<br />
+SDL_EVENT_FINGER_DOWN<br />
+SDL_EVENT_FINGER_UP</p></td>
+<td><p><a href="SDL_TouchFingerEvent.html" title="wikilink">SDL_TouchFingerEvent</a></p></td>
+<td><p><strong>tfinger</strong></p></td>
+</tr>
+<tr class="odd">
+<td><p>SDL_EVENT_KEY_DOWN<br />
+SDL_EVENT_KEY_UP</p></td>
+<td><p><a href="SDL_KeyboardEvent.html" title="wikilink">SDL_KeyboardEvent</a></p></td>
+<td><p><strong>key</strong></p></td>
+</tr>
+<tr class="even">
+<td><p>SDL_EVENT_JOYSTICK_AXIS_MOTION</p></td>
+<td><p><a href="SDL_JoyAxisEvent.html" title="wikilink">SDL_JoyAxisEvent</a></p></td>
+<td><p><strong>jaxis</strong></p></td>
+</tr>
+<tr class="odd">
+<td><p>SDL_EVENT_JOYSTICK_HAT_MOTION</p></td>
+<td><p><a href="SDL_JoyHatEvent.html" title="wikilink">SDL_JoyHatEvent</a></p></td>
+<td><p><strong>jhat</strong></p></td>
+</tr>
+<tr class="even">
+<td><p>SDL_EVENT_JOYSTICK_BUTTON_DOWN<br />
+SDL_EVENT_JOYSTICK_BUTTON_UP</p></td>
+<td><p><a href="SDL_JoyButtonEvent.html" title="wikilink">SDL_JoyButtonEvent</a></p></td>
+<td><p><strong>jbutton</strong></p></td>
+</tr>
+<tr class="odd">
+<td><p>SDL_EVENT_JOYSTICK_ADDED<br />
+SDL_EVENT_JOYSTICK_REMOVED</p></td>
+<td><p><a href="SDL_JoyDeviceEvent.html" title="wikilink">SDL_JoyDeviceEvent</a></p></td>
+<td><p><strong>jdevice</strong></p></td>
+</tr>
+<tr class="even">
+<td><p>SDL_EVENT_MOUSE_MOTION</p></td>
+<td><p><a href="SDL_MouseMotionEvent.html" title="wikilink">SDL_MouseMotionEvent</a></p></td>
+<td><p><strong>motion</strong></p></td>
+</tr>
+<tr class="odd">
+<td><p>SDL_EVENT_MOUSE_BUTTONDOWN<br />
+SDL_EVENT_MOUSE_BUTTONUP</p></td>
+<td><p><a href="SDL_MouseButtonEvent.html" title="wikilink">SDL_MouseButtonEvent</a></p></td>
+<td><p><strong>button</strong></p></td>
+</tr>
+<tr class="even">
+<td><p>SDL_EVENT_MOUSE_WHEEL</p></td>
+<td><p><a href="SDL_MouseWheelEvent.html" title="wikilink">SDL_MouseWheelEvent</a></p></td>
+<td><p><strong>wheel</strong></p></td>
+</tr>
+<tr class="odd">
+<td><p>SDL_EVENT_QUIT</p></td>
+<td><p><a href="SDL_QuitEvent.html" title="wikilink">SDL_QuitEvent</a></p></td>
+<td><p><strong>quit</strong></p></td>
+</tr>
+<tr class="even">
+<td><p>SDL_EVENT_SYSWM</p></td>
+<td><p><a href="SDL_SysWMEvent.html" title="wikilink">SDL_SysWMEvent</a></p></td>
+<td><p><strong>syswm</strong></p></td>
+</tr>
+<tr class="odd">
+<td><p>SDL_EVENT_TEXT_EDITING</p></td>
+<td><p><a href="SDL_TextEditingEvent.html" title="wikilink">SDL_TextEditingEvent</a></p></td>
+<td><p><strong>edit</strong></p></td>
+</tr>
+<tr class="even">
+<td><p>SDL_EVENT_TEXT_INPUT</p></td>
+<td><p><a href="SDL_TextInputEvent.html" title="wikilink">SDL_TextInputEvent</a></p></td>
+<td><p><strong>text</strong></p></td>
+</tr>
+<tr class="odd">
+<td><p>SDL_EVENT_USER</p></td>
+<td><p><a href="SDL_UserEvent.html" title="wikilink">SDL_UserEvent</a></p></td>
+<td><p><strong>user</strong></p></td>
+</tr>
+<tr class="even">
+<td><p>SDL_EVENT_WINDOW_HIDDEN<br />
+SDL_EVENT_WINDOW_EXPOSED<br />
+SDL_EVENT_WINDOW_MOVED<br />
+SDL_EVENT_WINDOW_RESIZED<br />
+SDL_EVENT_WINDOW_SIZE_CHANGED<br />
+SDL_EVENT_WINDOW_MINIMIZED<br />
+SDL_EVENT_WINDOW_MAXIMIZED<br />
+SDL_EVENT_WINDOW_RESTORED<br />
+SDL_EVENT_WINDOW_MOUSE_ENTER<br />
+SDL_EVENT_WINDOW_MOUSE_LEAVE<br />
+SDL_EVENT_WINDOW_FOCUS_GAINED<br />
+SDL_EVENT_WINDOW_FOCUS_LOST<br />
+SDL_EVENT_WINDOW_CLOSE_REQUESTED<br />
+SDL_EVENT_WINDOW_TAKE_FOCUS<br />
+SDL_EVENT_WINDOW_HIT_TEST<br />
+SDL_EVENT_WINDOW_ICCPROF_CHANGED<br />
+SDL_EVENT_WINDOW_DISPLAY_CHANGED<br />
+</p></td>
+<td><p><a href="SDL_WindowEvent.html" title="wikilink">SDL_WindowEvent</a></p></td>
+<td><p><strong>window</strong></p></td>
+</tr>
+<tr class="odd">
+<td><p>Other events</p></td>
+<td><p>SDL_CommonEvent</p></td>
+<td><p>none, use <a href="SDL_EventType.html" title="wikilink">.type</a></p></td>
+</tr>
+</tbody>
+</table>
+<h2 id="related-enumerations">Related Enumerations</h2>
+<dl>
+<dt></dt>
+<dd><a href="SDL_EventType.html" title="wikilink">SDL_EventType</a>
+</dd>
+</dl>
+<h2 id="related-structures">Related Structures</h2>
+<dl>
+<dt></dt>
+<dd><a href="SDL_AudioDeviceEvent.html" title="wikilink">SDL_AudioDeviceEvent</a>
+</dd>
+<dd><a href="SDL_GamepadAxisEvent.html" title="wikilink">SDL_GamepadAxisEvent</a>
+</dd>
+<dd><a href="SDL_GamepadButtonEvent.html" title="wikilink">SDL_GamepadButtonEvent</a>
+</dd>
+<dd><a href="SDL_GamepadDeviceEvent.html" title="wikilink">SDL_GamepadDeviceEvent</a>
+</dd>
+<dd><a href="SDL_DropEvent.html" title="wikilink">SDL_DropEvent</a>
+</dd>
+<dd><a href="SDL_JoyAxisEvent.html" title="wikilink">SDL_JoyAxisEvent</a>
+</dd>
+<dd><a href="SDL_JoyButtonEvent.html" title="wikilink">SDL_JoyButtonEvent</a>
+</dd>
+<dd><a href="SDL_JoyDeviceEvent.html" title="wikilink">SDL_JoyDeviceEvent</a>
+</dd>
+<dd><a href="SDL_JoyHatEvent.html" title="wikilink">SDL_JoyHatEvent</a>
+</dd>
+<dd><a href="SDL_KeyboardEvent.html" title="wikilink">SDL_KeyboardEvent</a>
+</dd>
+<dd><a href="SDL_MouseButtonEvent.html" title="wikilink">SDL_MouseButtonEvent</a>
+</dd>
+<dd><a href="SDL_MouseMotionEvent.html" title="wikilink">SDL_MouseMotionEvent</a>
+</dd>
+<dd><a href="SDL_MouseWheelEvent.html" title="wikilink">SDL_MouseWheelEvent</a>
+</dd>
+<dd><a href="SDL_QuitEvent.html" title="wikilink">SDL_QuitEvent</a>
+</dd>
+<dd><a href="SDL_SysWMEvent.html" title="wikilink">SDL_SysWMEvent</a>
+</dd>
+<dd><a href="SDL_TextEditingEvent.html" title="wikilink">SDL_TextEditingEvent</a>
+</dd>
+<dd><a href="SDL_TextInputEvent.html" title="wikilink">SDL_TextInputEvent</a>
+</dd>
+<dd><a href="SDL_TouchFingerEvent.html" title="wikilink">SDL_TouchFingerEvent</a>
+</dd>
+<dd><a href="SDL_UserEvent.html" title="wikilink">SDL_UserEvent</a>
+</dd>
+<dd><a href="SDL_WindowEvent.html" title="wikilink">SDL_WindowEvent</a>
+</dd>
+</dl>
+<h2 id="related-functions">Related Functions</h2>
+<dl>
+<dt></dt>
+<dd><a href="SDL_PeepEvents.html" title="wikilink">SDL_PeepEvents</a>
+</dd>
+<dd><a href="SDL_PollEvent.html" title="wikilink">SDL_PollEvent</a>
+</dd>
+<dd><a href="SDL_PushEvent.html" title="wikilink">SDL_PushEvent</a>
+</dd>
+<dd><a href="SDL_WaitEvent.html" title="wikilink">SDL_WaitEvent</a>
+</dd>
+<dd><a href="SDL_WaitEventTimeout.html" title="wikilink">SDL_WaitEventTimeout</a>
+</dd>
+</dl>
+<hr />
+<p><a href="CategoryStruct.html" title="wikilink">CategoryStruct</a>, <a href="CategoryEvents.html" title="wikilink">CategoryEvents</a></p>
+</body>
+</html>

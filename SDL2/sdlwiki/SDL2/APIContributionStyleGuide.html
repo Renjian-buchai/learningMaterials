@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>APIContributionStyleGuide</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<nav id="TOC">
+<ul>
+<li><a href="#sdl-api-contribution-style-guide">SDL API Contribution Style Guide</a><ul>
+<li><a href="#before-you-start">Before You Start</a></li>
+<li><a href="#the-basics">The Basics</a><ul>
+<li><a href="#opening-an-editor">Opening An Editor</a></li>
+<li><a href="#saving-your-changes">Saving Your Changes</a></li>
+</ul></li>
+<li><a href="#the-specifics">The Specifics</a><ul>
+<li><a href="#adding-code-examples">Adding Code Examples</a></li>
+<li><a href="#adding-remarks">Adding Remarks</a></li>
+</ul></li>
+<li><a href="#the-bottom-line">The Bottom Line</a></li>
+<li><a href="#disclaimer">Disclaimer</a></li>
+</ul></li>
+</ul>
+</nav>
+<h1 id="sdl-api-contribution-style-guide">SDL API Contribution Style Guide</h1>
+<p>This guide provides instructions for adding your own content to the Code Examples or Remarks sections of the API pages in this wiki.</p>
+<h2 id="before-you-start">Before You Start</h2>
+<p>Anyone may contribute <strong>Code Examples</strong> or <strong>Remarks</strong> per the instructions in this Style Guide. Please check back periodically for updates.</p>
+<p>/!\ Due to spammers, write access to this wiki is disabled by default. If you would like to contribute to this wiki, we welcome your contribution! Just send an e-mail to &lt;&lt;MailTo(ANTI SPAM docs AT libsdl DOT org)&gt;&gt; so we can give you write access.</p>
+<p>If you would like to make other contributions beyond code examples and remarks, such as editing existing content or developing tutorials, please email &lt;&lt;MailTo(ANTI SPAM docs AT libsdl DOT org)&gt;&gt; to coordinate efforts.</p>
+<h2 id="the-basics">The Basics</h2>
+<p>&lt;!&gt; <strong>Existing content, including markup, should not be modified or removed.</strong></p>
+<h3 id="opening-an-editor">Opening An Editor</h3>
+<p>If a page can be edited you will see two options to choose from in the left column:</p>
+<p><code>1. </code><span style="color: blue;"><code>Edit (Text)</code></span><br />
+<code> The Text editor provides more power/flexibility for editing than the GUI editor but requires that you know the wiki markup.  Use the Text editor to see the content with raw markup.  You will need to use the Preview feature to view the content as it will appear when saved.</code><br />
+<code>(!) </code><strong><code>Specific</code><code> </code><code>markup</code><code> </code><code>instructions</code><code> </code><code>in</code><code> </code><code>this</code><code> </code><code>guide</code><code> </code><code>are</code><code> </code><code>for</code><code> </code><code>use</code><code> </code><code>with</code><code> </code><code>the</code><code> </code><code>Text</code><code> </code><code>editor</code><code> </code><code>but</code><code> </code><code>should</code><code> </code><code>also</code><code> </code><code>work</code><code> </code><code>in</code><code> </code><code>the</code><code> </code><code>GUI</code><code> </code><code>editor.</code></strong><br />
+<code>For information on wiki markup not included here, or other MoinMoin-specific questions, please see the </code><a href="https://wiki.libsdl.org/HelpOnEditing.html"><code>wiki</code><code> </code><code>help</code><code> </code><code>documentation</code></a><code>.</code></p>
+<p><code>1. </code><span style="color: blue;"><code>Edit (GUI)</code></span><br />
+<code> The GUI editor provides buttons, much like a simple word processor, to add formatting markup such as bolding text, making a table, or creating a numbered list.  It is simpler to use than the Text editor but does not provide buttons for all the possible markup.  Use the GUI editor to see the content appear roughly as it would on the screen as you edit or if you do not know or want to use the wiki markup.</code><br />
+<code>(!) The GUI editor is fairly self-explanatory; however, if you require further assistance, see </code><a href="https://wiki.libsdl.org/HelpOnGraphicalEditor.html"><code>HelpOnGraphicalEditor</code></a><code> for more detailed instructions.</code></p>
+<p>Note that some formatting will appear slightly different in preview mode than on the finished screen.</p>
+<h3 id="saving-your-changes">Saving Your Changes</h3>
+<p>Before you save your changes please include a note in the Comment field below the editing box that summarizes what you have done.</p>
+<p><em><code>Sample</code><code> </code><code>comments</code></em><code>: </code></p>
+<ul>
+<li>added comment to end of remarks</li>
+<li>added code example to C++ section</li>
+<li>remarked on use of function with [sound card model]</li>
+</ul>
+<p>{i} Especially when using the text editor, use the <span style="color: blue;">Preview</span> function in the left sidebar before saving your changes to ensure that the markup you have included is producing the desired result as well as to scan for errors in a different view.</p>
+<p>When you have completed adding your content and are satisfied with the formatting use the <span style="color: blue;">Save Changes</span> function in the left sidebar to save your changes.</p>
+<p><strong>Automatic Backup of Drafts</strong><br />
+~-(copied from: <a href="https://wiki.libsdl.org/HelpOnEditing.html">Help On Editing</a>)-~</p>
+<p><code>Every time you are in the editor and use the "Preview", "Spell Check", "Cancel" or "Save Changes" buttons, moin saves a draft copy of your work internally. Use preview often!</code></p>
+<p><code>If you hit "cancel" accidentally, your machine crashes, or the browser window was accidentally closed, then the automatic backup of your draft may be easily recovered.</code></p>
+<p><code>To recover that draft, you simply edit that page again. If there is a draft, an alert message will be in the message box and a "load draft" button will be present. Clicking the "load draft" will load your saved draft into the editor box replacing the current revision already loaded. You can continue editing the loaded draft, but this time try to save it at the end. :)</code></p>
+<p><code>(!) Don't use the "preview", "spell check", "save changes" or "cancel" buttons on that page before "load draft" or you will overwrite your old draft with a new one.</code></p>
+<p><code>If you successfully save a page, the internal draft copy of it is not needed any more and will be deleted. </code></p>
+<h2 id="the-specifics">The Specifics</h2>
+<p>```#!wiki tip <strong>The following instructions apply to all API pages unless specifically noted.</strong> ```</p>
+<h3 id="adding-code-examples">Adding Code Examples</h3>
+<p>The Code Examples section provides simple examples of real-world applications of the API.</p>
+<p>{OK} Please post code examples showing how you have used the API that may benefit other users.</p>
+<ul>
+<li>Do not post anything that you do not have permission to post publicly.</li>
+</ul>
+<ul>
+<li>Code examples should have adequate comments to make them clear and useful.</li>
+</ul>
+<ul>
+<li>If the Code Examples section is empty please replace<br />
+```You can add your code example here```<br />
+with your code.</li>
+</ul>
+<ul>
+<li>If there are existing examples please add a new code box to the end of the examples section, or add your code to the end of a related group if there are many examples of various types.</li>
+<li>To add a new code box insert the following into the spot where your example will be located:</li>
+</ul>
+<p><code>  ```{</code></p>
+<p>}</p>
+<dl>
+<dt></dt>
+<dd><em>Example</em>: <a href="SDL_Init.html" title="wikilink">SDL_Init</a>()
+</dd>
+</dl>
+<ul>
+<li>All content should be added within this markup (on the blank line with the markup above and below your example content).</li>
+</ul>
+<p>&lt;!&gt; <strong>Do not remove or modify any existing code examples.</strong></p>
+<ul>
+<li>Please remember to keep it simple and easy to understand.</li>
+</ul>
+<h3 id="adding-remarks">Adding Remarks</h3>
+<p>The Remarks section provides additional information related to other sections on the page as well as a location for users to add comments related to real-world application of the API.</p>
+<p>{OK} Please post your appropriate remarks that may benefit other users.</p>
+<ul>
+<li>Do not post anything that you do not have permission to post publicly.</li>
+</ul>
+<ul>
+<li>If the Remarks section is empty please replace<br />
+```<em>You can add useful comments here</em>```<br />
+with your remarks.</li>
+</ul>
+<ul>
+<li>If there are existing remarks please add yours to the end, or to a related grouping if there are remarks covering the same topic.</li>
+</ul>
+<p><em><code>Example</code></em><code>: </code><a href="SDL_MixAudio.html" title="wikilink"><code>SDL_MixAudio</code></a><code>()</code></p>
+<p>&lt;!&gt; <strong>Do not remove or modify any existing remarks.</strong></p>
+<ul>
+<li>If your remark includes a reference to a function's parameter or structure's data field directly related to that page's topic use <strong>bold</strong> wherever the name is used.</li>
+</ul>
+<dl>
+<dt></dt>
+<dd><em>Markup</em>: use 3 apostrophes surrounding the text for bold.
+</dd>
+</dl>
+<p><code>   ```</code><strong><code>parameter</code></strong><code>``` = </code><strong><code>parameter</code></strong></p>
+<dl>
+<dt></dt>
+<dd><em>Example</em>: <a href="SDL_ConvertAudio.html" title="wikilink">SDL_ConvertAudio</a>()
+</dd>
+<dd><em>Example</em>: <a href="SDL_AudioSpec.html" title="wikilink">SDL_AudioSpec</a>
+</dd>
+</dl>
+<ul>
+<li>Do NOT use bold for enumeration value names.</li>
+</ul>
+<dl>
+<dt></dt>
+<dd><em>Example</em>: <a href="SDL_GLattr.html" title="wikilink">SDL_GLattr</a>
+</dd>
+<dd>If your remark includes a reference to a parameter or data field in <em>another</em> function or structure than the one specifically discussed on that page (such as referencing a member of a structure on a function's page), use <code>monospace</code> wherever the name is used.
+</dd>
+<dd><em>Markup</em>: use a single backtick surrounding the text for monospace.
+</dd>
+</dl>
+<p><code>  ```member``` = member</code></p>
+<dl>
+<dt></dt>
+<dd><em>Example</em>: <a href="SDL_OpenAudio.html" title="wikilink">SDL_OpenAudio</a>()
+</dd>
+</dl>
+<ul>
+<li>Create hyperlinks if you reference an existing function, enumeration, or structure.</li>
+</ul>
+<p><code> ~-</code><em><code>Note:</code><code> </code><code>Although</code><code> </code><code>the</code><code> </code><code>wiki</code><code> </code><code>will</code><code> </code><code>automatically</code><code> </code><code>create</code><code> </code><code>links</code><code> </code><code>in</code><code> </code><code>many</code><code> </code><code>cases,</code><code> </code><code>it</code><code> </code><code>does</code><code> </code><code>not</code><code> </code><code>recognize</code><code> </code><code>the</code><code> </code><code>SDL</code><code> </code><code>names</code><code> </code><code>correctly</code><code> </code><code>so</code><code> </code><code>you</code><code> </code><code>must</code><code> </code><code>manually</code><code> </code><code>hyperlink</code><code> </code><code>them.</code></em><code>-~</code><br />
+<code>:</code><em><code>Markup</code></em><code>:  use two brackets surrounding the page name (must be exact) for a link.</code><br />
+<code>  ```</code><a href="SDL_Function.html" title="wikilink"><code>SDL_Function</code></a><code>()``` = </code><a href="SDL_Function.html" title="wikilink"><code>SDL_Function</code></a><code>()</code></p>
+<dl>
+<dt></dt>
+<dd>Include open and closed parentheses, outside of the hyperlink markup, after a function name. (see above)
+</dd>
+<dd>Do not use parentheses for enumerations or structures.
+</dd>
+<dd>```<a href="SDL_Enumeration/Structure.html" title="wikilink">SDL_Enumeration/Structure</a>```
+</dd>
+<dd><em>Example</em>: <a href="SDL_BuildAudioCVT.html" title="wikilink">SDL_BuildAudioCVT</a>()
+</dd>
+</dl>
+<h2 id="the-bottom-line">The Bottom Line</h2>
+<p>Our goal is to create clean, consistent, helpful, user-friendly documentation. Please try to make your changes or additions fit into the existing framework, and retain the same look and feel as much as possible.</p>
+<p>When in doubt</p>
+<p><code>a) look for another page that contains the same thing you want to do and copy all the basics as much as applicable.  </code><br />
+<code>b) send a comment or question to &lt;&lt;MailTo(ANTI SPAM docs AT libsdl DOT org)&gt;&gt; for clarification.</code></p>
+<p>If you have suggestions for changes or additions to this document or any other portion of the wiki please don't hesitate to contact &lt;&lt;MailTo(ANTI SPAM docs AT libsdl DOT org)&gt;&gt; with your thoughts. We are happy to have the participation!</p>
+<h2 id="disclaimer">Disclaimer</h2>
+<p>```#!wiki note All content additions are subject to review. We reserve the right to remove or modify any content added to this wiki at any time. You may direct questions or concerns to &lt;&lt;MailTo(ANTI SPAM docs AT libsdl DOT org)&gt;&gt;. ```</p>
+</body>
+</html>

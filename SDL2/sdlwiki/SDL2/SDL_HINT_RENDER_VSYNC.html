@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>SDL_HINT_RENDER_VSYNC</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<nav id="TOC">
+<ul>
+<li><a href="#sdl_hint_render_vsync">SDL_HINT_RENDER_VSYNC</a><ul>
+<li><a href="#values">Values</a></li>
+<li><a href="#default">Default</a></li>
+<li><a href="#remarks">Remarks</a></li>
+</ul></li>
+</ul>
+</nav>
+<h1 id="sdl_hint_render_vsync">SDL_HINT_RENDER_VSYNC</h1>
+<p>A hint that specifies whether sync to vertical refresh is enabled or disabled in <a href="SDL_CreateRenderer.html" title="wikilink">SDL_CreateRenderer</a>() to avoid tearing.</p>
+<h2 id="values">Values</h2>
+<table>
+<tbody>
+<tr class="odd">
+<td><p>0</p></td>
+<td><p>disable vsync</p></td>
+</tr>
+<tr class="even">
+<td><p>1</p></td>
+<td><p>enable vsync</p></td>
+</tr>
+</tbody>
+</table>
+<h2 id="default">Default</h2>
+<p>By default SDL uses the SDL_RENDERER_PRESENTVSYNC flag passed into <a href="SDL_CreateRenderer.html" title="wikilink">SDL_CreateRenderer</a>().</p>
+<h2 id="remarks">Remarks</h2>
+<p><a href="SDL_HINT_RENDER_VSYNC.html" title="wikilink">SDL_HINT_RENDER_VSYNC</a> overrides the SDL_RENDERER_PRESENTVSYNC flag in <a href="SDL_CreateRenderer.html" title="wikilink">SDL_CreateRenderer</a>().</p>
+<hr />
+<p><a href="CategoryDefine.html" title="wikilink">CategoryDefine</a>, <a href="CategoryHints.html" title="wikilink">CategoryHints</a></p>
+</body>
+</html>

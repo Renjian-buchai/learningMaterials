@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>FrontPage</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<nav id="TOC">
+<ul>
+<li><a href="#sdl_mixer-2.0">SDL_mixer 2.0</a></li>
+</ul>
+</nav>
+<h1 id="sdl_mixer-2.0">SDL_mixer 2.0</h1>
+<p>The latest version of this library is available from <a href="https://github.com/libsdl-org/SDL_mixer/releases.html">GitHub</a>.</p>
+<p>Due to popular demand, here is a simple multi-channel audio mixer.</p>
+<p>It supports 8 channels of 16 bit stereo audio, plus a single channel of music. It can load FLAC, MP3, Ogg, VOC, and WAV format audio. It can also load MIDI, MOD, and Opus audio, depending on build options (see the note below for details.)</p>
+<p>Refer to <a href="CategoryAPI.html" title="wikilink">CategoryAPI</a> for a list of functions, and the examples <a href="https://github.com/libsdl-org/SDL_mixer/blob/main/examples/playwave.c.html">playwave.c</a> and <a href="https://github.com/libsdl-org/SDL_mixer/blob/main/examples/playmus.c.html">playmus.c</a> for documentation on this mixer library.</p>
+<p>The process of mixing MIDI files to wave output is very CPU intensive, so if playing regular WAVE files sound great, but playing MIDI files sound choppy, try using 8-bit audio, mono audio, or lower frequencies.</p>
+<p>If you have built with FluidSynth support, you'll need to set the SDL_SOUNDFONTS environment variable to a Sound Font 2 (.sf2) file containing the musical instruments you want to use for MIDI playback. (On some Linux distributions you can install the fluid-soundfont-gm package)</p>
+<p>To play MIDI files using Timidity, you'll need to get a complete set of GUS patches from: <a href="https://www.libsdl.org/projects/mixer/timidity/timidity.tar.gz.html">timidity.tar.gz</a> and unpack them in /usr/local/lib under UNIX, and C:\ under Win32.</p>
+<p>This library is under the zlib license, see the file <a href="https://github.com/libsdl-org/SDL_mixer/blob/main/LICENSE.txt.html">LICENSE.txt</a> for details.</p>
+<p>Note:</p>
+<ul>
+<li>Support for software MIDI, MOD, and Opus are not included by default because of the size of the decode libraries, but you can get them by running external/download.sh</li>
+<li>When building with CMake, you can enable the appropriate SUPPORT_* options defined in CMakeLists.txt.</li>
+<li>When building with configure/make, you can build and install them normally and the configure script will detect and use them.</li>
+<li>When building with Visual Studio, you will need to build the libraries and then add the appropriate LOAD_* preprocessor define to the Visual Studio project.</li>
+<li>When building with Xcode, you can edit the config at the top of the project to enable them, and you will need to include the appropriate framework in your application.</li>
+<li>For Android, you can edit the config at the top of Android.mk to enable them.</li>
+<li>The default MP3 support is provided using dr_mp3. SDL_mixer also supports using libmpg123: you can enable it by passing --enable-music-mp3-mpg123 to configure.</li>
+</ul>
+</body>
+</html>

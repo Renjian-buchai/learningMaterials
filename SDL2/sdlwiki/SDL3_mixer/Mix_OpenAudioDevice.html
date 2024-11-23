@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Mix_OpenAudioDevice</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+</head>
+<body>
+<nav id="TOC">
+<ul>
+<li><a href="#mix_openaudiodevice">Mix_OpenAudioDevice</a><ul>
+<li><a href="#syntax">Syntax</a></li>
+<li><a href="#function-parameters">Function Parameters</a></li>
+<li><a href="#return-value">Return Value</a></li>
+<li><a href="#remarks">Remarks</a></li>
+<li><a href="#version">Version</a></li>
+<li><a href="#related-functions">Related Functions</a></li>
+</ul></li>
+</ul>
+</nav>
+<h6 id="this-function-is-part-of-sdl_mixer-a-separate-library-from-sdl">(This function is part of SDL_mixer, a separate library from SDL.)</h6>
+<h1 id="mix_openaudiodevice">Mix_OpenAudioDevice</h1>
+<p>Open a specific audio device for playback.</p>
+<h2 id="syntax">Syntax</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode c"><code class="sourceCode c"><a class="sourceLine" id="cb1-1" title="1"><span class="dt">int</span> Mix_OpenAudioDevice(<span class="dt">int</span> frequency, Uint16 format, <span class="dt">int</span> channels, <span class="dt">int</span> chunksize, <span class="dt">const</span> <span class="dt">char</span>* device, <span class="dt">int</span> allowed_changes);</a></code></pre></div>
+<h2 id="function-parameters">Function Parameters</h2>
+<table>
+<colgroup>
+<col style="width: 23%" />
+<col style="width: 76%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>frequency</strong></td>
+<td>the frequency to playback audio at (in Hz).</td>
+</tr>
+<tr class="even">
+<td><strong>format</strong></td>
+<td>audio format, one of SDL's SDL_AUDIO_* values.</td>
+</tr>
+<tr class="odd">
+<td><strong>channels</strong></td>
+<td>number of channels (1 is mono, 2 is stereo, etc).</td>
+</tr>
+<tr class="even">
+<td><strong>chunksize</strong></td>
+<td>audio buffer size in sample FRAMES (total samples divided by channel count).</td>
+</tr>
+<tr class="odd">
+<td><strong>device</strong></td>
+<td>the device name to open, or NULL to choose a reasonable default.</td>
+</tr>
+<tr class="even">
+<td><strong>allowed_changes</strong></td>
+<td>Allow change flags (see SDL_AUDIO_ALLOW_* flags)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="return-value">Return Value</h2>
+<p>Returns 0 if successful, -1 on error.</p>
+<h2 id="remarks">Remarks</h2>
+<p>(A slightly simpler version of this function is available in <a href="Mix_OpenAudio.html">Mix_OpenAudio</a>(), which still might meet most applications' needs.)</p>
+<p>An audio device is what generates sound, so the app must open one to make noise.</p>
+<p>This function will check if SDL's audio system is initialized, and if not, it will initialize it by calling <code>SDL_Init(SDL_INIT_AUDIO)</code> on your behalf. You are free to (and encouraged to!) initialize it yourself before calling this function, as this gives your program more control over the process.</p>
+<p>If you aren't particularly concerned with the specifics of the audio device, and your data isn't in a specific format, the values you use here can just be reasonable defaults. SDL_mixer will convert audio data you feed it to the correct format on demand.</p>
+<p>That being said, if you have control of your audio data and you know its format ahead of time, you can save CPU time by opening the audio device in that exact format so SDL_mixer does not have to spend time converting anything behind the scenes, and can just pass the data straight through to the hardware. On some platforms, where the hardware only supports specific settings, you might have to be careful to make everything match, but your own data is often easier to control, so aim to open the device for what you need.</p>
+<p>The other reason to care about specific formats: if you plan to touch the mix buffer directly (with <a href="Mix_SetPostMix.html">Mix_SetPostMix</a>, a registered effect, or <a href="Mix_HookMusic.html">Mix_HookMusic</a>), you might have code that expects it to be in a specific format, and you should specify that here.</p>
+<p>The audio device frequency is specified in Hz; in modern times, 48000 is often a reasonable default.</p>
+<p>The audio device format is one of SDL's SDL_AUDIO_* constants. SDL_AUDIO_S16SYS (16-bit audio) is probably a safe default. More modern systems may prefer SDL_AUDIO_F32SYS (32-bit floating point audio).</p>
+<p>The audio device channels are generally 1 for mono output, or 2 for stereo, but the brave can try surround sound configs with 4 (quad), 6 (5.1), 7 (6.1) or 8 (7.1).</p>
+<p>The audio device's chunk size is the number of sample frames (one sample per frame for mono output, two samples per frame in a stereo setup, etc) that are fed to the device at once. The lower the number, the lower the latency, but you risk dropouts if it gets too low. 2048 is often a reasonable default, but your app might want to experiment with 1024 or</p>
+<ol>
+<li></li>
+</ol>
+<p>You may only have one audio device open at a time; if you want to change a setting, you must close the device and reopen it, which is not something you can do seamlessly during playback.</p>
+<p>This function allows you to select specific audio hardware on the system with the <code>device</code> parameter. If you specify NULL, SDL_mixer will choose the best default it can on your behalf (which, in many cases, is exactly what you want anyhow). SDL_mixer does not offer a mechanism to determine device names to open, but you can use SDL_GetNumAudioDevices() to get a count of available devices and then SDL_GetAudioDeviceName() in a loop to obtain a list. If you do this, be sure to call <code>SDL_Init(SDL_INIT_AUDIO)</code> first to initialize SDL's audio system!</p>
+<p>The <code>allowed_changes</code> parameter specifies what settings are flexible. These are the <code>SDL_AUDIO_ALLOW_*</code> flags from SDL. These tell SDL_mixer that the app doesn't mind if a specific setting changes. For example, the app might need stereo data in Sint16 format, but if the sample rate or chunk size changes, the app can handle that. In that case, the app would specify <code>SDL_AUDIO_ALLOW_FORMAT_CHANGE|SDL_AUDIO_ALLOW_SAMPLES_CHANGE</code>. In this case, if the system's hardware requires something other than the requested format, SDL_mixer can select what the hardware demands instead of the app. If the <code>SDL_AUDIO_ALLOW_</code> flag is not specified, SDL_mixer must convert data behind the scenes between what the app demands and what the hardware requires. If your app needs precisely what is requested, specify zero for <code>allowed_changes</code>.</p>
+<p>If changes were allowed, the app can use <a href="Mix_QuerySpec.html">Mix_QuerySpec</a>() to determine the final device settings.</p>
+<p>If this function reports success, you are ready to start making noise! Load some audio data and start playing!</p>
+<p>When done with an audio device, probably at the end of the program, the app should dispose of the device with <a href="Mix_CloseDevice.html">Mix_CloseDevice</a>().</p>
+<h2 id="version">Version</h2>
+<p>This function is available since SDL_mixer 2.0.2.</p>
+<h2 id="related-functions">Related Functions</h2>
+<ul>
+<li><a href="Mix_OpenAudio.html">Mix_OpenAudio</a></li>
+<li><a href="Mix_CloseDevice.html">Mix_CloseDevice</a></li>
+<li><a href="Mix_QuerySpec.html">Mix_QuerySpec</a></li>
+</ul>
+<hr />
+<p><a href="CategoryAPI.html">CategoryAPI</a></p>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>SDL_LogPriority</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<nav id="TOC">
+<ul>
+<li><a href="#sdl_logpriority">SDL_LogPriority</a><ul>
+<li><a href="#values">Values</a></li>
+<li><a href="#remarks">Remarks</a></li>
+<li><a href="#related-functions">Related Functions</a></li>
+</ul></li>
+</ul>
+</nav>
+<h1 id="sdl_logpriority">SDL_LogPriority</h1>
+<p>An enumeration of the predefined log priorities.</p>
+<h2 id="values">Values</h2>
+<table>
+<tbody>
+<tr class="odd">
+<td><p>SDL_LOG_PRIORITY_VERBOSE</p></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><p>SDL_LOG_PRIORITY_DEBUG</p></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><p>SDL_LOG_PRIORITY_INFO</p></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><p>SDL_LOG_PRIORITY_WARN</p></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><p>SDL_LOG_PRIORITY_ERROR</p></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><p>SDL_LOG_PRIORITY_CRITICAL</p></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><p><row style="color: #808080;">SDL_NUM_LOG_PRIORITIES</p></td>
+<td><p>(internal use)</p></td>
+</tr>
+</tbody>
+</table>
+<h2 id="remarks">Remarks</h2>
+<p>The default log priorities are as follows:</p>
+<table>
+<tbody>
+<tr class="odd">
+<td><p><code>SDL_LOG_CATEGORY_APPLICATION</code></p></td>
+<td><p><code>SDL_LOG_PRIORITY_INFO</code></p></td>
+</tr>
+<tr class="even">
+<td><p><code>SDL_LOG_CATEGORY_ASSERT</code></p></td>
+<td><p><code>SDL_LOG_PRIORITY_WARN</code></p></td>
+</tr>
+<tr class="odd">
+<td><p><code>SDL_LOG_CATEGORY_TEST</code></p></td>
+<td><p><code>SDL_LOG_PRIORITY_VERBOSE</code></p></td>
+</tr>
+<tr class="even">
+<td><p>everything else</p></td>
+<td><p><code>SDL_LOG_PRIORITY_CRITICAL</code></p></td>
+</tr>
+</tbody>
+</table>
+<p>If you're debugging SDL you might want to call:</p>
+<p><code>   SDL_LogSetAllPriority(SDL_LOG_PRIORITY_WARN);</code></p>
+<h2 id="related-functions">Related Functions</h2>
+<dl>
+<dt></dt>
+<dd><a href="SDL_LogMessage.html" title="wikilink">SDL_LogMessage</a>
+</dd>
+<dd><a href="SDL_LogMessageV.html" title="wikilink">SDL_LogMessageV</a>
+</dd>
+<dd><a href="SDL_LogSetAllPriority.html" title="wikilink">SDL_LogSetAllPriority</a>
+</dd>
+<dd><a href="SDL_LogSetPriority.html" title="wikilink">SDL_LogSetPriority</a>
+</dd>
+</dl>
+<hr />
+<p><a href="CategoryEnum.html" title="wikilink">CategoryEnum</a>, <a href="CategoryLog.html" title="wikilink">CategoryLog</a></p>
+</body>
+</html>

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>SDL_OpenAudioDevice</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+</head>
+<body>
+<nav id="TOC">
+<ul>
+<li><a href="#sdl_openaudiodevice">SDL_OpenAudioDevice</a><ul>
+<li><a href="#syntax">Syntax</a></li>
+<li><a href="#function-parameters">Function Parameters</a></li>
+<li><a href="#return-value">Return Value</a></li>
+<li><a href="#remarks">Remarks</a></li>
+<li><a href="#version">Version</a></li>
+<li><a href="#related-functions">Related Functions</a></li>
+</ul></li>
+</ul>
+</nav>
+<h6 id="this-is-the-legacy-documentation-for-stable-sdl2-the-current-stable-version-sdl3-is-the-current-development-version">(This is the legacy documentation for stable SDL2, the current stable version; <a href="https://wiki.libsdl.org/SDL3/.html">SDL3</a> is the current development version.)</h6>
+<h1 id="sdl_openaudiodevice">SDL_OpenAudioDevice</h1>
+<p>Open a specific audio device.</p>
+<h2 id="syntax">Syntax</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode c"><code class="sourceCode c"><a class="sourceLine" id="cb1-1" title="1">SDL_AudioDeviceID SDL_OpenAudioDevice(</a>
+<a class="sourceLine" id="cb1-2" title="2">                          <span class="dt">const</span> <span class="dt">char</span> *device,</a>
+<a class="sourceLine" id="cb1-3" title="3">                          <span class="dt">int</span> iscapture,</a>
+<a class="sourceLine" id="cb1-4" title="4">                          <span class="dt">const</span> SDL_AudioSpec *desired,</a>
+<a class="sourceLine" id="cb1-5" title="5">                          SDL_AudioSpec *obtained,</a>
+<a class="sourceLine" id="cb1-6" title="6">                          <span class="dt">int</span> allowed_changes);</a></code></pre></div>
+<h2 id="function-parameters">Function Parameters</h2>
+<table>
+<colgroup>
+<col style="width: 11%" />
+<col style="width: 88%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>device</strong></td>
+<td>a UTF-8 string reported by <a href="SDL_GetAudioDeviceName.html">SDL_GetAudioDeviceName</a>() or a driver-specific name as appropriate. NULL requests the most reasonable default device.</td>
+</tr>
+<tr class="even">
+<td><strong>iscapture</strong></td>
+<td>non-zero to specify a device should be opened for recording, not playback</td>
+</tr>
+<tr class="odd">
+<td><strong>desired</strong></td>
+<td>an <a href="SDL_AudioSpec.html">SDL_AudioSpec</a> structure representing the desired output format; see <a href="SDL_OpenAudio.html">SDL_OpenAudio</a>() for more information</td>
+</tr>
+<tr class="even">
+<td><strong>obtained</strong></td>
+<td>an <a href="SDL_AudioSpec.html">SDL_AudioSpec</a> structure filled in with the actual output format; see <a href="SDL_OpenAudio.html">SDL_OpenAudio</a>() for more information</td>
+</tr>
+<tr class="odd">
+<td><strong>allowed_changes</strong></td>
+<td>0, or one or more flags OR'd together</td>
+</tr>
+</tbody>
+</table>
+<h2 id="return-value">Return Value</h2>
+<p>Returns a valid device ID that is &gt; 0 on success or 0 on failure; call <a href="SDL_GetError.html">SDL_GetError</a>() for more information.</p>
+<p>For compatibility with SDL 1.2, this will never return 1, since SDL reserves that ID for the legacy <a href="SDL_OpenAudio.html">SDL_OpenAudio</a>() function.</p>
+<h2 id="remarks">Remarks</h2>
+<p><a href="SDL_OpenAudio.html">SDL_OpenAudio</a>(), unlike this function, always acts on device ID 1. As such, this function will never return a 1 so as not to conflict with the legacy function.</p>
+<p>Please note that SDL 2.0 before 2.0.5 did not support recording; as such, this function would fail if <code>iscapture</code> was not zero. Starting with SDL 2.0.5, recording is implemented and this value can be non-zero.</p>
+<p>Passing in a <code>device</code> name of NULL requests the most reasonable default (and is equivalent to what <a href="SDL_OpenAudio.html">SDL_OpenAudio</a>() does to choose a device). The <code>device</code> name is a UTF-8 string reported by <a href="SDL_GetAudioDeviceName.html">SDL_GetAudioDeviceName</a>(), but some drivers allow arbitrary and driver-specific strings, such as a hostname/IP address for a remote audio server, or a filename in the diskaudio driver.</p>
+<p>An opened audio device starts out paused, and should be enabled for playing by calling <a href="SDL_PauseAudioDevice.html">SDL_PauseAudioDevice</a>(devid, 0) when you are ready for your audio callback function to be called. Since the audio driver may modify the requested size of the audio buffer, you should allocate any local mixing buffers after you open the audio device.</p>
+<p>The audio callback runs in a separate thread in most cases; you can prevent race conditions between your callback and other threads without fully pausing playback with <a href="SDL_LockAudioDevice.html">SDL_LockAudioDevice</a>(). For more information about the callback, see <a href="SDL_AudioSpec.html">SDL_AudioSpec</a>.</p>
+<p>Managing the audio spec via 'desired' and 'obtained':</p>
+<p>When filling in the desired audio spec structure:</p>
+<ul>
+<li><code>desired-&gt;freq</code> should be the frequency in sample-frames-per-second (Hz).</li>
+<li><code>desired-&gt;format</code> should be the audio format (<a href="AUDIO_S16SYS.html"><code>AUDIO_S16SYS</code></a>, etc).</li>
+<li><code>desired-&gt;samples</code> is the desired size of the audio buffer, in <em>sample frames</em> (with stereo output, two samples--left and right--would make a single sample frame). This number should be a power of two, and may be adjusted by the audio driver to a value more suitable for the hardware. Good values seem to range between 512 and 8096 inclusive, depending on the application and CPU speed. Smaller values reduce latency, but can lead to underflow if the application is doing heavy processing and cannot fill the audio buffer in time. Note that the number of sample frames is directly related to time by the following formula: <code>ms = (sampleframes*1000)/freq</code></li>
+<li><code>desired-&gt;size</code> is the size in <em>bytes</em> of the audio buffer, and is calculated by <a href="SDL_OpenAudioDevice.html">SDL_OpenAudioDevice</a>(). You don't initialize this.</li>
+<li><code>desired-&gt;silence</code> is the value used to set the buffer to silence, and is calculated by <a href="SDL_OpenAudioDevice.html">SDL_OpenAudioDevice</a>(). You don't initialize this.</li>
+<li><code>desired-&gt;callback</code> should be set to a function that will be called when the audio device is ready for more data. It is passed a pointer to the audio buffer, and the length in bytes of the audio buffer. This function usually runs in a separate thread, and so you should protect data structures that it accesses by calling <a href="SDL_LockAudioDevice.html">SDL_LockAudioDevice</a>() and <a href="SDL_UnlockAudioDevice.html">SDL_UnlockAudioDevice</a>() in your code. Alternately, you may pass a NULL pointer here, and call <a href="SDL_QueueAudio.html">SDL_QueueAudio</a>() with some frequency, to queue more audio samples to be played (or for capture devices, call <a href="SDL_DequeueAudio.html">SDL_DequeueAudio</a>() with some frequency, to obtain audio samples).</li>
+<li><code>desired-&gt;userdata</code> is passed as the first parameter to your callback function. If you passed a NULL callback, this value is ignored.</li>
+</ul>
+<p><code>allowed_changes</code> can have the following flags OR'd together:</p>
+<ul>
+<li><a href="SDL_AUDIO_ALLOW_FREQUENCY_CHANGE.html"><code>SDL_AUDIO_ALLOW_FREQUENCY_CHANGE</code></a></li>
+<li><a href="SDL_AUDIO_ALLOW_FORMAT_CHANGE.html"><code>SDL_AUDIO_ALLOW_FORMAT_CHANGE</code></a></li>
+<li><a href="SDL_AUDIO_ALLOW_CHANNELS_CHANGE.html"><code>SDL_AUDIO_ALLOW_CHANNELS_CHANGE</code></a></li>
+<li><a href="SDL_AUDIO_ALLOW_SAMPLES_CHANGE.html"><code>SDL_AUDIO_ALLOW_SAMPLES_CHANGE</code></a></li>
+<li><a href="SDL_AUDIO_ALLOW_ANY_CHANGE.html"><code>SDL_AUDIO_ALLOW_ANY_CHANGE</code></a></li>
+</ul>
+<p>These flags specify how SDL should behave when a device cannot offer a specific feature. If the application requests a feature that the hardware doesn't offer, SDL will always try to get the closest equivalent.</p>
+<p>For example, if you ask for float32 audio format, but the sound card only supports int16, SDL will set the hardware to int16. If you had set <a href="SDL_AUDIO_ALLOW_FORMAT_CHANGE.html">SDL_AUDIO_ALLOW_FORMAT_CHANGE</a>, SDL will change the format in the <code>obtained</code> structure. If that flag was <em>not</em> set, SDL will prepare to convert your callback's float32 audio to int16 before feeding it to the hardware and will keep the originally requested format in the <code>obtained</code> structure.</p>
+<p>The resulting audio specs, varying depending on hardware and on what changes were allowed, will then be written back to <code>obtained</code>.</p>
+<p>If your application can only handle one specific data format, pass a zero for <code>allowed_changes</code> and let SDL transparently handle any differences.</p>
+<h2 id="version">Version</h2>
+<p>This function is available since SDL 2.0.0.</p>
+<h2 id="related-functions">Related Functions</h2>
+<ul>
+<li><a href="SDL_CloseAudioDevice.html">SDL_CloseAudioDevice</a></li>
+<li><a href="SDL_GetAudioDeviceName.html">SDL_GetAudioDeviceName</a></li>
+<li><a href="SDL_LockAudioDevice.html">SDL_LockAudioDevice</a></li>
+<li><a href="SDL_OpenAudio.html">SDL_OpenAudio</a></li>
+<li><a href="SDL_PauseAudioDevice.html">SDL_PauseAudioDevice</a></li>
+<li><a href="SDL_UnlockAudioDevice.html">SDL_UnlockAudioDevice</a></li>
+</ul>
+<hr />
+<p><a href="CategoryAPI.html">CategoryAPI</a></p>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>SDL_TextEditingEvent</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<nav id="TOC">
+<ul>
+<li><a href="#sdl_texteditingevent">SDL_TextEditingEvent</a><ul>
+<li><a href="#data-fields">Data Fields</a></li>
+<li><a href="#remarks">Remarks</a></li>
+<li><a href="#related-enumerations">Related Enumerations</a></li>
+<li><a href="#related-structures">Related Structures</a></li>
+<li><a href="#related-functions">Related Functions</a></li>
+</ul></li>
+</ul>
+</nav>
+<h1 id="sdl_texteditingevent">SDL_TextEditingEvent</h1>
+<p>A structure that contains keyboard text editing event information.</p>
+<h2 id="data-fields">Data Fields</h2>
+<table>
+<tbody>
+<tr class="odd">
+<td><p>Uint32</p></td>
+<td><p><strong>type</strong></p></td>
+<td><p>SDL_TEXTEDITING</p></td>
+</tr>
+<tr class="even">
+<td><p>Uint32</p></td>
+<td><p><strong>timestamp</strong></p></td>
+<td><p>timestamp of the event</p></td>
+</tr>
+<tr class="odd">
+<td><p>Uint32</p></td>
+<td><p><strong>windowID</strong></p></td>
+<td><p>the window with keyboard focus, if any</p></td>
+</tr>
+<tr class="even">
+<td><p>char[32]</p></td>
+<td><p><strong>text</strong></p></td>
+<td><p>the null-terminated editing text in UTF-8 encoding</p></td>
+</tr>
+<tr class="odd">
+<td><p>Sint32</p></td>
+<td><p><strong>start</strong></p></td>
+<td><p>the location to begin editing from</p></td>
+</tr>
+<tr class="even">
+<td><p>Sint32</p></td>
+<td><p><strong>length</strong></p></td>
+<td><p>the number of characters to edit from the start point</p></td>
+</tr>
+</tbody>
+</table>
+<h2 id="remarks">Remarks</h2>
+<p><a href="SDL_TextEditingEvent.html" title="wikilink">SDL_TextEditingEvent</a> is a member of the <a href="SDL_Event.html" title="wikilink">SDL_Event</a> union and is used when an event of type SDL_TEXTEDITING is reported. You would access it through the event's <code>edit</code> field.</p>
+<p>There is a <a href="Tutorials-TextInput.html" title="wikilink">tutorial</a>.</p>
+<h2 id="related-enumerations">Related Enumerations</h2>
+<dl>
+<dt></dt>
+<dd><a href="SDL_EventType.html" title="wikilink">SDL_EventType</a>
+</dd>
+</dl>
+<h2 id="related-structures">Related Structures</h2>
+<dl>
+<dt></dt>
+<dd><a href="SDL_Event.html" title="wikilink">SDL_Event</a>
+</dd>
+<dd><a href="SDL_TextInputEvent.html" title="wikilink">SDL_TextInputEvent</a>
+</dd>
+</dl>
+<h2 id="related-functions">Related Functions</h2>
+<dl>
+<dt></dt>
+<dd><a href="SDL_StartTextInput.html" title="wikilink">SDL_StartTextInput</a>
+</dd>
+<dd><a href="SDL_StopTextInput.html" title="wikilink">SDL_StopTextInput</a>
+</dd>
+</dl>
+<hr />
+<p><a href="CategoryStruct.html" title="wikilink">CategoryStruct</a>, <a href="CategoryEvents.html" title="wikilink">CategoryEvents</a></p>
+</body>
+</html>

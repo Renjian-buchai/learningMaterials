@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>SDL_GameControllerButtonBind</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<nav id="TOC">
+<ul>
+<li><a href="#draft">Draft</a></li>
+<li><a href="#sdl_gamecontrollerbuttonbind">SDL_GameControllerButtonBind</a><ul>
+<li><a href="#data-fields">Data Fields</a></li>
+<li><a href="#related-enumerations">Related Enumerations</a></li>
+<li><a href="#related-functions">Related Functions</a></li>
+</ul></li>
+</ul>
+</nav>
+<h2 id="draft">Draft</h2>
+<p><strong>THIS PAGE IS A WORK IN PROGRESS</strong> ... Please make edits to this page to improve it!</p>
+<h1 id="sdl_gamecontrollerbuttonbind">SDL_GameControllerButtonBind</h1>
+<p>A structure that contains info on how a logical SDL_GameController button or axis is mapped to the underlying SDL_Joystick's button/axis/hat.</p>
+<h2 id="data-fields">Data Fields</h2>
+<table>
+<tbody>
+<tr class="odd">
+<td><p><a href="SDL_GameControllerBindType.html" title="wikilink">SDL_GameControllerBindType</a></p></td>
+<td><p><strong>bindType</strong></p></td>
+<td><p>What kind of control this maps to (button/axis/hat/not mapped)</p></td>
+</tr>
+<tr class="even">
+<td><p>int</p></td>
+<td><p><strong>button</strong></p></td>
+<td><p>The <a href="SDL_JoystickGetButton.html" title="wikilink">SDL_Joystick button</a> this maps to</p></td>
+</tr>
+<tr class="odd">
+<td><p>int</p></td>
+<td><p><strong>axis</strong></p></td>
+<td><p>The <a href="SDL_JoystickGetAxis.html" title="wikilink">SDL_Joystick axis</a> this maps to</p></td>
+</tr>
+<tr class="even">
+<td><p>int</p></td>
+<td><p><strong>hat.hat</strong></p></td>
+<td><p>The <a href="SDL_JoystickGetHat.html" title="wikilink">SDL_Joystick hat</a> this maps to</p></td>
+</tr>
+<tr class="odd">
+<td><p>int</p></td>
+<td><p><strong>hat.hat_mask</strong></p></td>
+<td><p>the mask you need to binary-&amp; with the hat's value with (this probaly corresponds to <strong>one</strong> direction of the hat)</p></td>
+</tr>
+</tbody>
+</table>
+<h2 id="related-enumerations">Related Enumerations</h2>
+<dl>
+<dt></dt>
+<dd><a href="SDL_GameControllerBindType.html" title="wikilink">SDL_GameControllerBindType</a>
+</dd>
+</dl>
+<h2 id="related-functions">Related Functions</h2>
+<dl>
+<dt></dt>
+<dd><a href="SDL_GameControllerGetBindForAxis.html" title="wikilink">SDL_GameControllerGetBindForAxis</a>
+</dd>
+<dd><a href="SDL_GameControllerGetBindForButton.html" title="wikilink">SDL_GameControllerGetBindForButton</a>
+</dd>
+</dl>
+<hr />
+<p><a href="CategoryStruct.html" title="wikilink">CategoryStruct</a>, <a href="CategoryHeader.html" title="wikilink">CategoryHeader</a>, <a href="CategoryDraft.html" title="wikilink">CategoryDraft</a></p>
+</body>
+</html>
